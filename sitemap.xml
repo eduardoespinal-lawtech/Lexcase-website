@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+        <loc>https://lexcase.com.do/</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/caracteristicas</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/caracteristicas"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/features"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/caracteristicas"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/features</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/caracteristicas"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/features"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/caracteristicas"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/soporte</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/soporte"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/support"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/soporte"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/support</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/soporte"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/support"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/soporte"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/contacto</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/contacto"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/contacto"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/contact</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/contacto"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/contacto"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/faq</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/faq"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/faq"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/faq"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/faq</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/faq"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/faq"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/faq"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/privacidad</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/privacidad"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/privacidad"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/privacy</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/privacidad"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/privacidad"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/terminos</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/terminos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/terminos"/>
+      </url>
+<url>
+        <loc>https://lexcase.com.do/en/terms</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lexcase.com.do/terminos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lexcase.com.do/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lexcase.com.do/terminos"/>
+      </url>
+</urlset>
