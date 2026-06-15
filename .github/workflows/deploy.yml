@@ -24,7 +24,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run generate
+      - run: npm run build   # <-- aquí el cambio
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .output/public
