@@ -100,7 +100,45 @@
     "backup3": "macOS sandbox, FileVault recommended, no telemetry services.",
     "design1": "Native macOS look with windows, traffic lights and system materials.",
     "design2": "Automatic light and dark mode based on system preference.",
-    "design3": "Full Spanish and English support."
+    "design3": "Full Spanish and English support.",
+
+    "sp1Eyebrow": "Cases",
+    "sp1Title": "Six types. One app.",
+    "sp1Body": "Every case carries the right fields for its nature. No generic forms, no time wasted deciding what to fill.",
+    "sp1TypeJudicial": "Judicial",
+    "sp1TypeAdmin": "Administrative",
+    "sp1TypeMig": "Immigration",
+    "sp1TypeEmp": "Business",
+    "sp1TypeAlq": "Rental",
+    "sp1TypeCv": "Real estate",
+
+    "sp2Eyebrow": "Deadlines & hearings",
+    "sp2Title": "What's due never slips by.",
+    "sp2Body": "Built-in calendar with optional sync to macOS Calendar. Persistent chip showing the next Dominican Republic holiday. Alerts like any other system event.",
+
+    "sp3Eyebrow": "Finances",
+    "sp3Title": "Fees in DOP, USD or EUR.",
+    "sp3Body": "Lexcase queries the official Central Bank of the Dominican Republic rate and converts automatically. KPIs for earned, lost, receivable and balance — per case and aggregated.",
+
+    "sp4Eyebrow": "Privacy by design",
+    "sp4Title": "Your data lives on your Mac. Period.",
+    "sp4Body": "No servers of ours. No Google Analytics, Mixpanel, Sentry or Firebase. The only external connection is to the public BCRD rate — and it's optional.",
+
+    "moreEyebrow": "And everything else",
+    "moreTitle": "Small things that change your flow.",
+
+    "tile1Title": "Global search",
+    "tile1Body": "Cases, contacts and notes via one shortcut (⌘E). Fuzzy search that tolerates typos.",
+    "tile2Title": "Keyboard shortcuts",
+    "tile2Body": "⌘N new · ⌘U contact · ⌘T task · ⌘H hearing · Esc close. Run it all without touching the mouse.",
+    "tile3Title": "Duplicate detection",
+    "tile3Body": "Same phone or ID number, even if the name or email differs. 90% similarity match by phone or ID.",
+    "tile4Title": "Automatic backups",
+    "tile4Body": "Export your whole database to JSON in the folder you choose — daily, weekly or monthly. Import anytime.",
+    "tile5Title": "Notes editor",
+    "tile5Body": "Rich-text editor inspired by Apple Notes on every case. Link local folders or Google Drive folders.",
+    "tile6Title": "Native design",
+    "tile6Body": "Windows, traffic lights and system materials. Automatic light and dark mode. Full Spanish and English."
   },
   "support": {
     "title": "We're here to help.",

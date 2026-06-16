@@ -100,7 +100,45 @@
     "backup3": "Sandbox de macOS, FileVault recomendado, sin servicios de telemetría.",
     "design1": "Apariencia nativa de macOS con ventanas, semáforos y materiales del sistema.",
     "design2": "Modo claro y oscuro automáticos según preferencia del sistema.",
-    "design3": "Soporte completo para español e inglés."
+    "design3": "Soporte completo para español e inglés.",
+
+    "sp1Eyebrow": "Expedientes",
+    "sp1Title": "Seis tipos. Una sola app.",
+    "sp1Body": "Cada expediente trae los campos correctos para su naturaleza. Sin formularios genéricos, sin perder tiempo decidiendo qué llenar.",
+    "sp1TypeJudicial": "Judicial",
+    "sp1TypeAdmin": "Administrativo",
+    "sp1TypeMig": "Migración",
+    "sp1TypeEmp": "Empresa",
+    "sp1TypeAlq": "Alquiler",
+    "sp1TypeCv": "Compraventa",
+
+    "sp2Eyebrow": "Plazos y audiencias",
+    "sp2Title": "Lo que vence, no se te va.",
+    "sp2Body": "Calendario integrado con sincronización opcional al Calendario nativo de macOS. Chip permanente del próximo feriado dominicano. Alertas como cualquier otro evento del sistema.",
+
+    "sp3Eyebrow": "Finanzas",
+    "sp3Title": "Honorarios en DOP, USD o EUR.",
+    "sp3Body": "Lexcase consulta la tasa oficial del Banco Central de la República Dominicana y convierte automáticamente. KPIs de ganado, perdido, por cobrar y balance — por expediente y agregados.",
+
+    "sp4Eyebrow": "Privacidad por diseño",
+    "sp4Title": "Tus datos viven en tu Mac. Punto.",
+    "sp4Body": "Sin servidores nuestros. Sin Google Analytics, Mixpanel, Sentry ni Firebase. La única conexión externa es a la tasa pública del BCRD — y es opcional.",
+
+    "moreEyebrow": "Y todo lo demás",
+    "moreTitle": "Cosas pequeñas que cambian el flujo.",
+
+    "tile1Title": "Búsqueda global",
+    "tile1Body": "Expedientes, clientes y notas con un solo atajo (⌘E). Búsqueda fuzzy que tolera errores de tipeo.",
+    "tile2Title": "Atajos de teclado",
+    "tile2Body": "⌘N nuevo · ⌘U contacto · ⌘T tarea · ⌘H audiencia · Esc cerrar. Todo se hace sin tocar el ratón.",
+    "tile3Title": "Detección de duplicados",
+    "tile3Body": "Cliente con el mismo teléfono o cédula, aunque el nombre o correo cambien. Coincidencia al 90% por similitud.",
+    "tile4Title": "Respaldos automáticos",
+    "tile4Body": "Exporta toda tu base en JSON a la carpeta que elijas — diario, semanal o mensual. Importa cuando quieras.",
+    "tile5Title": "Notas con editor",
+    "tile5Body": "Editor enriquecido al estilo Apple Notes en cada expediente. Vincula carpetas locales o de Google Drive.",
+    "tile6Title": "Diseño nativo",
+    "tile6Body": "Ventanas, semáforos y materiales del sistema. Modo claro y oscuro automático. Español e inglés completos."
   },
   "support": {
     "title": "Estamos aquí para ayudarte.",
