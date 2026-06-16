@@ -296,9 +296,9 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   gap: 0;
 }
 .hero-tab {
-  padding: 9px 18px;
+  padding: 7px 14px;
   border-radius: 999px;
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.005em;
   color: #6e6e73;
@@ -306,6 +306,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   border: none;
   cursor: pointer;
   transition: color .15s ease, background .2s ease, box-shadow .2s ease;
+  line-height: 1;
 }
 .hero-tab:hover { color: #1d1d1f; }
 .hero-tab.is-active {
@@ -314,8 +315,8 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 0.5px rgba(0, 0, 0, 0.04);
 }
 @media (max-width: 600px) {
-  .hero-tabs { flex-wrap: wrap; justify-content: center; padding: 5px; }
-  .hero-tab { padding: 8px 14px; font-size: 12.5px; }
+  .hero-tabs { flex-wrap: wrap; justify-content: center; padding: 4px; }
+  .hero-tab { padding: 7px 12px; font-size: 11.5px; }
 }
 
 /* Subtítulo dinámico: el padding y dimensiones quedan estables aunque
