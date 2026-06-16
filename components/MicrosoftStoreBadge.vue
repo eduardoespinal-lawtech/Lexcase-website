@@ -6,8 +6,6 @@ withDefaults(defineProps<{ href?: string; comingSoon?: boolean }>(), {
 
 const { locale } = useI18n()
 
-// Microsoft official badge image, served from get.microsoft.com.
-// Locale segment: en-us | es-es (space encoded as %20)
 const badgeSrc = computed(() => {
   const loc = locale.value === 'es' ? 'es' : 'en-us'
   return `https://get.microsoft.com/images/${loc}%20dark.svg`
@@ -19,11 +17,11 @@ const alt = computed(() =>
 </script>
 
 <template>
-  <span class="store-badge-wrapper">
+  <span class="store-wrap">
     <a
       :href="comingSoon ? undefined : href"
-      class="store-link"
-      :class="comingSoon ? 'store-link-disabled' : ''"
+      class="store-button"
+      :class="comingSoon ? 'store-button-disabled' : ''"
       rel="noopener"
       target="_blank"
       :aria-label="comingSoon ? `${alt} — ${locale === 'es' ? 'próximamente' : 'coming soon'}` : alt"
@@ -31,35 +29,70 @@ const alt = computed(() =>
     >
       <img :src="badgeSrc" :alt="alt" />
     </a>
-    <span v-if="comingSoon" class="store-caption">
+    <span v-if="comingSoon" class="store-tag" aria-hidden="true">
       {{ locale === 'es' ? 'Próximamente' : 'Coming soon' }}
     </span>
   </span>
 </template>
 
 <style scoped>
-.store-badge-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-.store-link {
+/* Wrapper has the same 180x52 footprint as the Apple badge so flex parents
+   align both buttons by their bounding boxes — same top, same bottom, same
+   center, every time. The yellow tag is absolutely positioned over the
+   button corner without affecting the wrap's bounding box. */
+.store-wrap {
+  position: relative;
   display: inline-block;
-  line-height: 0;
-  transition: transform .2s ease, opacity .2s ease;
+  width: 180px;
+  height: 52px;
+  vertical-align: middle;
+  /* Allow the tag to overflow above without clipping. */
+  overflow: visible;
 }
-.store-link:hover { transform: translateY(-1px); }
-.store-link img { display: block; height: 40px; width: auto; }
-.store-link-disabled {
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: #000;
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+.store-button:hover { transform: translateY(-1px); }
+.store-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.store-button-disabled {
   pointer-events: none;
   cursor: default;
 }
-.store-caption {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #6e6e73;
+
+/* Yellow "Próximamente" tag, centered horizontally over the top edge of
+   the Microsoft button. Sits ON TOP of the icon area without covering the
+   Microsoft logo (the logo is on the left, the tag stays centered above). */
+.store-tag {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: #FFD60A;
+  color: #1d1d1f;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 </style>

@@ -5,7 +5,6 @@ withDefaults(defineProps<{ href?: string }>(), {
 
 const { locale } = useI18n()
 
-// Apple official badge image. Locale: en-us | es-es
 const badgeSrc = computed(() => {
   const loc = locale.value === 'es' ? 'es-es' : 'en-us'
   return `https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/${loc}?releaseDate=1750982400`
@@ -17,35 +16,38 @@ const alt = computed(() =>
 </script>
 
 <template>
-  <span class="store-badge-wrapper">
-    <a
-      :href="href"
-      class="store-link"
-      rel="noopener"
-      target="_blank"
-      :aria-label="alt"
-    >
-      <img :src="badgeSrc" :alt="alt" />
-    </a>
-  </span>
+  <a
+    :href="href"
+    class="store-button"
+    rel="noopener"
+    target="_blank"
+    :aria-label="alt"
+  >
+    <img :src="badgeSrc" :alt="alt" />
+  </a>
 </template>
 
 <style scoped>
-.store-badge-wrapper {
+/* Both store badges use the exact same button box dimensions so they are
+   perfectly aligned and visually identical in size. The badge artwork is
+   centered inside via object-fit, preserving its native aspect ratio. */
+.store-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
-}
-.store-link {
-  display: inline-block;
-  line-height: 0;
+  justify-content: center;
+  width: 180px;
+  height: 52px;
+  border-radius: 10px;
+  background: #000;
+  overflow: hidden;
   transition: transform .2s ease;
+  vertical-align: middle;
 }
-.store-link:hover { transform: translateY(-1px); }
-.store-link img {
+.store-button:hover { transform: translateY(-1px); }
+.store-button img {
   display: block;
-  height: 40px;
-  width: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 </style>
