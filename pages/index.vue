@@ -31,7 +31,7 @@ useHead(() => ({
         {{ t('home.heroSubtitle') }}
       </p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-2.5">
         <MacAppStoreBadge />
         <MicrosoftStoreBadge />
       </div>
@@ -145,7 +145,7 @@ useHead(() => ({
       <h2 class="h-section mt-1">{{ t('home.ctaSectionTitle') }}</h2>
       <p class="subtitle mt-5">{{ t('home.ctaSectionBody') }}</p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-2.5">
         <MacAppStoreBadge />
         <MicrosoftStoreBadge />
       </div>

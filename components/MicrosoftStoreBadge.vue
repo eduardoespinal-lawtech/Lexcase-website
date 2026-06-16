@@ -36,8 +36,8 @@ const alt = computed(() =>
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 220px;
-  height: 65px;
+  width: 240px;
+  height: 68px;
   vertical-align: middle;
   transition: transform .2s ease;
 }
