@@ -34,14 +34,6 @@ const sections = computed(() => [
 <template>
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <!-- Badges de tienda apilados (Mac App Store + Microsoft) -->
-      <div class="site-footer-badges">
-        <MacAppStoreBadge :compact="true" />
-        <MicrosoftStoreBadge :compact="true" />
-      </div>
-
-      <hr class="site-footer-hr" />
-
       <p class="site-footer-availability">
         {{ t('footer.availability') }}
       </p>
@@ -81,13 +73,6 @@ const sections = computed(() => [
   max-width: 1240px;
   margin: 0 auto;
   padding: 30px 22px;
-}
-.site-footer-badges {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 4px;
 }
 .site-footer-availability {
   margin: 0 0 18px;
