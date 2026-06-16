@@ -32,14 +32,11 @@ const alt = computed(() =>
 
 <style scoped>
 /* Caja idéntica al badge de Apple — misma huella exacta. */
-/* Microsoft SVG trae más padding interno alrededor de su botón visible.
-   Subimos la caja a 80px para que el botón rendereado iguale el tamaño
-   visible del Apple badge (que va a 68px). items-center en el padre
-   sigue alineando ambos por su centro. */
+/* Misma altura exacta que el badge de Apple. Sin compensaciones. */
 .store-badge {
   display: inline-flex;
   align-items: center;
-  height: 80px;
+  height: 72px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
@@ -51,7 +48,7 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  height: 80px;
+  height: 72px;
   width: auto;
 }
 </style>

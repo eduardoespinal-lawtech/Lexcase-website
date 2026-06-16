@@ -32,10 +32,13 @@ const alt = computed(() =>
    oficial se ajusta dentro con object-fit contain — sin distorsión y sin
    modificar el arte original. Aliniación perfecta porque ambos botones
    ocupan exactamente la misma huella. */
+/* Misma altura exacta que el badge de Microsoft. Sin compensaciones por
+   padding interno de cada SVG: la diferencia visual mínima es del diseño
+   oficial de cada marca y se acepta como tal. */
 .store-badge {
   display: inline-flex;
   align-items: center;
-  height: 68px;
+  height: 72px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
@@ -43,7 +46,7 @@ const alt = computed(() =>
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge img {
   display: block;
-  height: 68px;
+  height: 72px;
   width: auto;
 }
 </style>
