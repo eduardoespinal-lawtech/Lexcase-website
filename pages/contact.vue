@@ -10,39 +10,72 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
-    <section class="section-navy">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-12">
-        <span class="eyebrow">{{ t('contact.eyebrow') }}</span>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-white">{{ t('contact.title') }}</h1>
-        <p class="mt-5 text-navy-100/85 max-w-2xl leading-relaxed">{{ t('contact.subtitle') }}</p>
+  <section class="section">
+    <div class="apple-wrap text-center">
+      <h1 class="h-page">{{ t('contact.title') }}</h1>
+      <p class="subtitle mt-5 mx-auto" style="max-width: 720px;">{{ t('contact.subtitle') }}</p>
+    </div>
+  </section>
+
+  <section class="section-tight section-gray">
+    <div class="apple-wrap grid gap-6 md:grid-cols-2">
+      <a href="mailto:eduardoespinaldeaza@gmail.com" class="contact-card contact-card-link">
+        <p class="contact-eyebrow">{{ t('contact.emailTitle') }}</p>
+        <p class="contact-email">eduardoespinaldeaza@gmail.com</p>
+        <p class="contact-hint">{{ t('contact.emailHint') }}</p>
+      </a>
+
+      <div class="contact-card">
+        <p class="contact-eyebrow">{{ t('contact.responseTitle') }}</p>
+        <p class="contact-body">{{ t('contact.responseBody') }}</p>
       </div>
-    </section>
 
-    <section class="section bg-white">
-      <div class="max-w-4xl mx-auto px-5 sm:px-8 grid gap-6 md:grid-cols-2">
-        <a
-          href="mailto:eduardoespinaldeaza@gmail.com"
-          class="card p-7 hover:shadow-md transition-shadow group"
-        >
-          <div class="w-10 h-10 rounded-xl bg-navy-50 text-navy-800 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold">{{ t('contact.emailTitle') }}</p>
-          <p class="mt-2 text-lg font-semibold text-navy-800 break-all">eduardoespinaldeaza@gmail.com</p>
-          <p class="mt-2 text-sm text-slate-500">{{ t('contact.emailHint') }}</p>
-        </a>
-
-        <div class="card p-7">
-          <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold">{{ t('contact.responseTitle') }}</p>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ t('contact.responseBody') }}</p>
-        </div>
-
-        <div class="card p-7 md:col-span-2">
-          <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold">{{ t('contact.developerTitle') }}</p>
-          <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ t('contact.developerBody') }}</p>
-        </div>
+      <div class="contact-card md:col-span-2">
+        <p class="contact-eyebrow">{{ t('contact.developerTitle') }}</p>
+        <p class="contact-body">{{ t('contact.developerBody') }}</p>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
+
+<style scoped>
+.contact-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 30px;
+}
+.contact-card-link {
+  text-decoration: none;
+  transition: transform .2s ease;
+}
+.contact-card-link:hover {
+  transform: translateY(-2px);
+}
+.contact-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6e6e73;
+  margin: 0 0 12px;
+}
+.contact-email {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+  margin: 0;
+  word-break: break-all;
+}
+.contact-hint {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #6e6e73;
+}
+.contact-body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1d1d1f;
+  margin: 0;
+}
+</style>

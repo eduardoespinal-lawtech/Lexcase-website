@@ -13,8 +13,8 @@
     "support": "Support",
     "contact": "Contact",
     "faq": "FAQ",
-    "privacy": "Privacy Policy",
-    "terms": "Terms & Conditions",
+    "privacy": "Privacy",
+    "terms": "Terms",
     "menu": "Open menu",
     "close": "Close menu"
   },
@@ -22,57 +22,40 @@
     "defaultDescription": "LexCase is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your Mac."
   },
   "footer": {
-    "tagline": "Legal case management for attorneys in the Dominican Republic and the United States. Built for macOS, with no external servers and no telemetry.",
+    "availability": "LexCase is available for macOS 11 Big Sur or later. A Windows 11 version is coming soon.",
     "product": "Product",
+    "contact": "Contact",
     "legal": "Legal",
-    "availMac": "Available for macOS 11+",
-    "availWin": "Windows in development",
     "rights": "All rights reserved."
   },
   "home": {
-    "eyebrow": "Native legal software for Mac",
-    "title1": "Your practice,",
-    "title2": "organized to the detail.",
-    "subtitle": "LexCase brings cases, hearings, contacts and finances together in one professional app. Everything lives on your Mac inside the macOS sandbox — no third-party cloud, no telemetry, no leaks.",
-    "ctaPrimary": "Download for Mac",
-    "ctaSecondary": "View features",
-    "trustNoTelemetry": "Zero telemetry",
-    "trustLocal": "100% local data",
-    "trustNative": "Native macOS design",
-    "screens": {
-      "cases": "Active cases",
-      "calendar": "Calendar & deadlines",
-      "finances": "Per-case finances",
-      "clients": "Contacts directory"
-    },
-    "featuresEyebrow": "Built around your practice",
-    "featuresTitle": "Everything a modern law firm needs",
-    "featuresSubtitle": "LexCase was designed by listening to attorneys juggling complex matters across multiple jurisdictions, who refuse to compromise on client confidentiality.",
-    "f1Title": "Cases by practice area",
-    "f1Body": "Specialized templates for judicial, administrative, immigration, business, rental and real estate cases. Each type with the right fields.",
-    "f2Title": "Calendar & deadlines",
-    "f2Body": "Schedule hearings, due dates and meetings. Optional sync with native macOS Calendar. Persistent chip with the next official DR holiday.",
-    "f3Title": "Contacts directory",
-    "f3Body": "Automatic 90% similarity duplicate detection by phone or ID number. Quick filters by status, no phone, no cases, archived.",
-    "f4Title": "Finances with live BCRD rate",
-    "f4Body": "Fees, advances and expenses per case. DOP / USD / EUR conversion using the official Central Bank of the Dominican Republic rate.",
-    "f5Title": "Notes & documents",
-    "f5Body": "Rich-text editor per case. Link local folders or Google Drive folders to access your physical documents from the same view.",
-    "f6Title": "Global search ⌘E",
-    "f6Body": "Find cases, contacts and notes in one keystroke. Fuzzy search that tolerates typos and remembers your recent history.",
-    "privacyEyebrow": "Privacy by design",
-    "privacyTitle": "Your cases never leave your Mac",
-    "privacyBody": "LexCase lives inside the macOS sandbox container. We have no servers. We do not use Google Analytics, Mixpanel, Sentry or Firebase. The only optional internet request is to fetch the public BCRD rate for the Finances section.",
-    "privacyPoint1": "Local storage encrypted by macOS",
-    "privacyPoint2": "Automatic backups to the folder of your choice",
-    "privacyPoint3": "JSON export and import at any time",
-    "ctaSectionTitle": "Take your practice to a new level",
-    "ctaSectionBody": "Download LexCase and see in minutes how it feels to have your cases properly organized for the first time."
+    "heroEyebrow": "LexCase",
+    "heroTitle": "Your practice,",
+    "heroTitle2": "organized to the detail.",
+    "heroSubtitle": "Cases, hearings, contacts and finances in one native Mac app. No third-party cloud. No telemetry. No leaks.",
+    "platformsLine": "Built for macOS 11 or later. Windows coming soon.",
+    "section1Eyebrow": "Cases by practice area",
+    "section1Title": "Complex matters, the right templates.",
+    "section1Body": "Judicial, administrative, immigration, business, rental and real estate — every type with the legal fields you actually need.",
+    "section2Eyebrow": "Calendar & deadlines",
+    "section2Title": "Hearings and due dates always in sight.",
+    "section2Body": "Schedule hearings and deadlines, optionally sync with native macOS Calendar, and get alerts like any other event.",
+    "section3Eyebrow": "Finances with live BCRD rate",
+    "section3Title": "Fees and expenses per case.",
+    "section3Body": "DOP, USD and EUR coexist in the same view with the official Central Bank of the Dominican Republic rate updated live.",
+    "section4Eyebrow": "Privacy by design",
+    "section4Title": "Your cases never leave your Mac.",
+    "section4Body": "Everything lives inside the macOS sandbox container. No servers of ours. No Google Analytics, Mixpanel, Sentry or Firebase. The only external request, optional, is to the public BCRD rate.",
+    "section4Point1": "Local storage encrypted by macOS",
+    "section4Point2": "Automatic backups to the folder you choose",
+    "section4Point3": "JSON export and import any time",
+    "ctaSectionEyebrow": "Get started today",
+    "ctaSectionTitle": "Download LexCase.",
+    "ctaSectionBody": "Available for Mac. Windows coming soon."
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Every feature built for busy attorneys",
-    "subtitle": "A detailed look at what LexCase can do, from case management to native OS integration.",
+    "title": "Every feature built for busy attorneys.",
+    "subtitle": "A detailed look at the product, from case management to native OS integration.",
     "groups": {
       "cases": "Cases",
       "calendar": "Calendar",
@@ -109,9 +92,8 @@
     "design3": "Full Spanish and English support."
   },
   "support": {
-    "eyebrow": "Support",
-    "title": "We're here to help",
-    "subtitle": "Before reaching out, check the quick options below. If you can't find your answer there, write to us directly — we read every message.",
+    "title": "We're here to help.",
+    "subtitle": "Before reaching out, check the quick options. If you can't find your answer there, write to us directly — we read every message.",
     "selfTitle": "Documentation & self-service",
     "selfBody": "Review our FAQ and Privacy Policy. Most common questions are answered there.",
     "selfLink": "Go to FAQ",
@@ -127,8 +109,7 @@
     "winBody": "We're working on the Windows 11 version. If you'd like to be notified when it's ready, drop us a line at our support email."
   },
   "contact": {
-    "eyebrow": "Contact",
-    "title": "Let's talk",
+    "title": "Let's talk.",
     "subtitle": "For anything about LexCase, technical support, partnerships or data privacy, write to us directly. We don't use forms — we prefer a human channel.",
     "emailTitle": "Primary email",
     "emailHint": "Support, sales and privacy",
@@ -138,8 +119,7 @@
     "developerBody": "ICLVS Legal Intelligence LLC. Application designed and maintained by Eduardo Espinal, attorney and developer, for modern legal practice in the Dominican Republic and the United States."
   },
   "faq": {
-    "eyebrow": "FAQ",
-    "title": "What we get asked the most",
+    "title": "What we get asked the most.",
     "subtitle": "Common questions about LexCase, its privacy model and how it compares to other legal case managers.",
     "q1": "Are my cases uploaded to any cloud?",
     "a1": "No. All your information lives inside the app's sandbox container on your own Mac (~/Library/Containers/com.lexcaserd.app/). LexCase has no servers of ours. The only internet request it ever makes is optional: fetching the public exchange rate from the Central Bank of the Dominican Republic.",
@@ -163,13 +143,11 @@
     "a10": "Today LexCase is a local-first app by design. If you work from multiple Macs you can move your database manually by exporting and importing the JSON file. An optional end-to-end encrypted sync service is under evaluation for the future."
   },
   "privacy": {
-    "eyebrow": "Legal",
     "title": "Privacy Policy",
     "updated": "Last updated: June 14, 2026",
     "intro": "ICLVS Legal Intelligence LLC (\"we\") operates the macOS application LexCase (the \"App\"). This Privacy Policy explains what information we handle, how we handle it, and your rights."
   },
   "terms": {
-    "eyebrow": "Legal",
     "title": "Terms & Conditions",
     "updated": "Last updated: June 15, 2026",
     "intro": "These Terms and Conditions (the \"Terms\") govern the use of the macOS application LexCase (the \"App\") provided by ICLVS Legal Intelligence LLC (\"we\"). By downloading, installing or using the App, you accept these Terms."

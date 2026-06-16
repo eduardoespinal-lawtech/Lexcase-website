@@ -11,18 +11,39 @@ const available = computed(() =>
 </script>
 
 <template>
-  <div class="inline-flex items-center rounded-full border border-current/10 bg-white/10 backdrop-blur-sm p-0.5 text-sm">
+  <div class="lang-switch" role="group" aria-label="Language">
     <NuxtLink
       v-for="l in available"
       :key="l.code"
       :to="switchLocalePath(l.code)"
-      class="px-3 py-1 rounded-full font-medium transition-colors"
-      :class="locale === l.code
-        ? 'bg-navy-800 text-white'
-        : 'text-current/70 hover:text-current'"
+      class="lang-link"
+      :class="locale === l.code ? 'lang-link-active' : ''"
       :aria-current="locale === l.code ? 'true' : undefined"
     >
       {{ l.code.toUpperCase() }}
     </NuxtLink>
   </div>
 </template>
+
+<style scoped>
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+}
+.lang-link {
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: #1d1d1f;
+  opacity: 0.7;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.lang-link:hover { opacity: 1; }
+.lang-link-active {
+  background: #1d1d1f;
+  color: #fff;
+  opacity: 1;
+}
+</style>

@@ -1,16 +1,15 @@
 <script setup lang="ts">
 const props = defineProps<{ error: { statusCode: number; message: string } }>()
-
 const handleError = () => clearError({ redirect: '/' })
 </script>
 
 <template>
   <div class="min-h-screen flex items-center justify-center bg-white">
     <div class="text-center px-6">
-      <p class="text-sm uppercase tracking-widest text-navy-500 font-semibold">LexCase</p>
-      <h1 class="mt-3 text-6xl font-semibold text-navy-800">{{ error.statusCode }}</h1>
-      <p class="mt-3 text-slate-600">{{ error.message || 'Página no encontrada' }}</p>
-      <button class="btn-primary mt-8" @click="handleError">Volver al inicio</button>
+      <p class="text-[12px] uppercase tracking-widest text-smoke font-semibold">LexCase</p>
+      <h1 class="mt-3 text-[88px] leading-none font-semibold tracking-tight text-ink">{{ error.statusCode }}</h1>
+      <p class="mt-4 text-smoke text-[19px]">{{ error.message || 'Página no encontrada' }}</p>
+      <button class="btn-pill btn-pill-primary mt-8" @click="handleError">Volver al inicio</button>
     </div>
   </div>
 </template>

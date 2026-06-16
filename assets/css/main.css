@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Apple-inspired design tokens ===
+   Paleta neutra: blanco / gris muy claro / casi negro / azul accent.
+   El navy oscuro queda solo dentro de la app real, no en el sitio. */
 :root {
-  --navy-800: #0E1D4A;
-  --navy-700: #162760;
-  --navy-600: #1F347C;
-  --navy-500: #2D4498;
-  --navy-200: #A8B6F0;
-  --edge-highlight: rgba(168, 182, 240, 0.18);
+  --bg:          #ffffff;
+  --bg-section:  #f5f5f7;
+  --text:        #1d1d1f;
+  --text-muted:  #6e6e73;
+  --accent:      #0071e3;
+  --accent-hover:#0077ed;
+  --link:        #0066cc;
+  --divider:     rgba(0, 0, 0, 0.08);
 }
 
 html {
@@ -16,143 +21,212 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
 }
 
 body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "SF Pro Text",
+    "Segoe UI Variable", "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
-  background: #ffffff;
-  color: #0B1430;
+  line-height: 1.47;
+  letter-spacing: -0.005em;
 }
 
-/* Navy section utility */
-.section-navy {
-  background:
-    radial-gradient(circle at 15% 0%, rgba(45,68,152,0.55), transparent 55%),
-    radial-gradient(circle at 85% 20%, rgba(31,52,124,0.45), transparent 50%),
-    linear-gradient(170deg, #16285A 0%, #0E1D4A 45%, #091640 100%);
-  color: #EEF2FF;
+/* === Apple-style typographic scale === */
+.h-display {
+  font-size: clamp(48px, 7.2vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: var(--text);
+}
+.h-section {
+  font-size: clamp(40px, 5.6vw, 72px);
+  line-height: 1.07;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+  color: var(--text);
+}
+.h-feature {
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--text);
+}
+.h-page {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--text);
+}
+.subtitle {
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
 }
 
-/* Pill button */
-.btn-primary {
+/* === Apple-style link === */
+.link-apple {
+  color: var(--link);
+  font-weight: 400;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
+  gap: 0.15rem;
+  text-decoration: none;
+  font-size: clamp(17px, 1.4vw, 19px);
+}
+.link-apple:hover {
+  text-decoration: underline;
+}
+.link-apple::after {
+  content: '›';
+  display: inline-block;
+  margin-left: 0.1rem;
+  font-weight: 400;
+  transition: transform .2s ease;
+}
+.link-apple:hover::after {
+  transform: translateX(2px);
+}
+
+/* === Apple-style pill button (CTA) === */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: -0.005em;
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.btn-pill-primary {
+  background: var(--accent);
   color: #fff;
-  background: linear-gradient(180deg, #2D4498 0%, #1F347C 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 8px 24px -6px rgba(14, 29, 74, 0.45);
-  transition: transform .2s ease, box-shadow .2s ease;
 }
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 14px 30px -6px rgba(14, 29, 74, 0.55);
+.btn-pill-primary:hover {
+  background: var(--accent-hover);
 }
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  color: #0E1D4A;
-  border: 1px solid rgba(14, 29, 74, 0.15);
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(6px);
-  transition: background .2s ease, border-color .2s ease;
+.btn-pill-ghost {
+  background: transparent;
+  color: var(--link);
+  border: 1px solid transparent;
 }
-.btn-ghost:hover {
-  background: #ffffff;
-  border-color: rgba(14, 29, 74, 0.3);
+.btn-pill-ghost:hover {
+  color: var(--accent-hover);
 }
 
-.section-navy .btn-ghost {
-  color: #EEF2FF;
-  border-color: rgba(168, 182, 240, 0.35);
-  background: rgba(255, 255, 255, 0.05);
+/* === Sections === */
+.section {
+  padding-top: clamp(72px, 8vw, 120px);
+  padding-bottom: clamp(72px, 8vw, 120px);
 }
-.section-navy .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(168, 182, 240, 0.55);
+.section-tight {
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+.section-gray { background: var(--bg-section); }
+
+/* === Apple container width === */
+.apple-wrap {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.apple-wrap-wide {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 22px;
+  padding-right: 22px;
 }
 
-/* Glass card */
-.card {
-  background: #ffffff;
-  border: 1px solid rgba(14, 29, 74, 0.08);
-  border-radius: 1.25rem;
-  box-shadow: 0 1px 2px rgba(14, 29, 74, 0.04);
+/* === Mockup floating effect (Apple uses subtle shadow under devices) === */
+.mockup-float {
+  filter:
+    drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.06));
 }
 
-/* Subtle anchor focus */
+/* === Subtle focus for accessibility (keep visible only for keyboard) === */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #2D4498;
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Section spacing */
-.section {
-  padding-top: clamp(4rem, 8vw, 7rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+/* === Legal prose for Privacy & Terms === */
+.prose-legal {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
 }
-
-/* Eyebrow label */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #2D4498;
-}
-.section-navy .eyebrow {
-  color: #A8B6F0;
-}
-
 .prose-legal h2 {
-  margin-top: 2.2rem;
+  margin-top: 2.4rem;
   margin-bottom: 0.6rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0E1D4A;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 .prose-legal h3 {
   margin-top: 1.6rem;
   margin-bottom: 0.4rem;
-  font-size: 1.05rem;
+  font-size: 19px;
   font-weight: 600;
-  color: #1F347C;
+  color: var(--text);
 }
-.prose-legal p { margin: 0.6rem 0; line-height: 1.7; color: #1f2937; }
-.prose-legal ul { list-style: disc; padding-left: 1.4rem; margin: 0.6rem 0; }
-.prose-legal li { margin: 0.15rem 0; line-height: 1.7; color: #1f2937; }
-.prose-legal strong { color: #0E1D4A; }
+.prose-legal p { margin: 0.7rem 0; }
+.prose-legal ul { list-style: disc; padding-left: 1.4rem; margin: 0.7rem 0; }
+.prose-legal li { margin: 0.2rem 0; }
+.prose-legal strong { color: var(--text); font-weight: 600; }
+.prose-legal a { color: var(--link); text-decoration: none; }
+.prose-legal a:hover { text-decoration: underline; }
 .prose-legal table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
-  font-size: 0.95rem;
+  font-size: 15px;
 }
 .prose-legal th,
 .prose-legal td {
-  border: 1px solid rgba(14, 29, 74, 0.12);
+  border: 1px solid var(--divider);
   padding: 0.6rem 0.8rem;
   text-align: left;
   vertical-align: top;
 }
 .prose-legal th {
-  background: #EEF2FF;
+  background: var(--bg-section);
   font-weight: 600;
-  color: #0E1D4A;
+}
+.prose-legal code {
+  font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  font-size: 14px;
+  background: var(--bg-section);
+  padding: 1px 6px;
+  border-radius: 4px;
 }

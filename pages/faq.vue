@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 definePageMeta({ name: 'faq' })
 
@@ -31,43 +31,80 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
-    <section class="section-navy">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-12">
-        <span class="eyebrow">{{ t('faq.eyebrow') }}</span>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-white max-w-3xl">{{ t('faq.title') }}</h1>
-        <p class="mt-5 text-navy-100/85 max-w-2xl leading-relaxed">{{ t('faq.subtitle') }}</p>
-      </div>
-    </section>
+  <section class="section">
+    <div class="apple-wrap text-center">
+      <h1 class="h-page">{{ t('faq.title') }}</h1>
+      <p class="subtitle mt-5 mx-auto" style="max-width: 720px;">{{ t('faq.subtitle') }}</p>
+    </div>
+  </section>
 
-    <section class="section bg-white">
-      <div class="max-w-3xl mx-auto px-5 sm:px-8 space-y-3">
+  <section class="section-tight">
+    <div class="apple-wrap" style="max-width: 820px;">
+      <div class="faq-list">
         <details
           v-for="(item, i) in items"
           :key="i"
-          class="card overflow-hidden"
+          class="faq-item"
           :open="open === i"
-          @toggle="(e) => (e.target as HTMLDetailsElement).open && (open = i)"
         >
           <summary
-            class="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 text-navy-800 font-semibold"
+            class="faq-summary"
             @click.prevent="toggle(i)"
           >
             <span>{{ item.q }}</span>
-            <span
-              class="w-7 h-7 rounded-full bg-navy-50 flex items-center justify-center text-navy-800 transition-transform"
-              :class="open === i ? 'rotate-45' : ''"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
+            <span class="faq-plus" :class="open === i ? 'is-open' : ''">+</span>
           </summary>
-          <div class="px-6 pb-5 -mt-1 text-slate-600 leading-relaxed text-sm">{{ item.a }}</div>
+          <div class="faq-answer">{{ item.a }}</div>
         </details>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-summary::-webkit-details-marker { display: none; }
+.faq-list {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.faq-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 4px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  font-weight: 500;
+  color: #1d1d1f;
+  letter-spacing: -0.005em;
+}
+.faq-summary::-webkit-details-marker { display: none; }
+.faq-plus {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+.faq-plus.is-open {
+  transform: rotate(45deg);
+  background: #1d1d1f;
+  color: #fff;
+}
+.faq-answer {
+  padding: 0 4px 24px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #1d1d1f;
+}
 </style>
