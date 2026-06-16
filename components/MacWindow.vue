@@ -1,6 +1,6 @@
 <script setup lang="ts">
 withDefaults(defineProps<{ title?: string; tone?: 'light' | 'dark' }>(), {
-  title: 'LexCase',
+  title: 'Lexcase',
   tone: 'light'
 })
 </script>

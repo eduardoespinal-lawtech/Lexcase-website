@@ -12,14 +12,14 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       htmlAttrs: { lang: 'es' },
-      title: 'LexCase — Gestor de expedientes legales para Mac',
+      title: 'Lexcase — Gestor de expedientes legales para Mac',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#0E1D4A' },
-        { name: 'description', content: 'LexCase es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.' },
+        { name: 'description', content: 'Lexcase es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'LexCase' },
+        { property: 'og:site_name', content: 'Lexcase' },
         { property: 'og:image', content: 'https://lexcase.com.do/og-image.svg' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image', content: 'https://lexcase.com.do/og-image.svg' }

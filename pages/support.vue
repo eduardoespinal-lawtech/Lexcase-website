@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 definePageMeta({ name: 'support' })
 
 useHead(() => ({
-  title: `${t('support.title')} — LexCase`,
+  title: `${t('support.title')} — Lexcase`,
   meta: [{ name: 'description', content: t('support.subtitle') }]
 }))
 </script>

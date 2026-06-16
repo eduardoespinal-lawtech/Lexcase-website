@@ -4,7 +4,7 @@ const { t } = useI18n()
 definePageMeta({ name: 'contact' })
 
 useHead(() => ({
-  title: `${t('contact.title')} — LexCase`,
+  title: `${t('contact.title')} — Lexcase`,
   meta: [{ name: 'description', content: t('contact.subtitle') }]
 }))
 </script>

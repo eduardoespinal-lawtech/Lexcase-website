@@ -1,6 +1,6 @@
 {
-  "name": "LexCase",
-  "short_name": "LexCase",
+  "name": "Lexcase",
+  "short_name": "Lexcase",
   "description": "Gestor de expedientes legales para macOS.",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },

@@ -1,10 +1,10 @@
 {
   "common": {
-    "brand": "LexCase",
+    "brand": "Lexcase",
     "downloadMac": "Download for Mac",
     "comingSoonWin": "Windows coming soon",
     "learnMore": "Learn more",
-    "tryNow": "Try LexCase",
+    "tryNow": "Try Lexcase",
     "viewFeatures": "View features"
   },
   "nav": {
@@ -19,17 +19,17 @@
     "close": "Close menu"
   },
   "seo": {
-    "defaultDescription": "LexCase is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your Mac."
+    "defaultDescription": "Lexcase is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your Mac."
   },
   "footer": {
-    "availability": "LexCase is available for macOS 11 Big Sur or later. A Windows 11 version is coming soon.",
+    "availability": "Lexcase is available for macOS 11 Big Sur or later. A Windows 11 version is coming soon.",
     "product": "Product",
     "contact": "Contact",
     "legal": "Legal",
     "rights": "All rights reserved."
   },
   "home": {
-    "heroEyebrow": "LexCase",
+    "heroEyebrow": "Lexcase",
     "heroTitle": "Your practice,",
     "heroTitle2": "organized to the detail.",
     "heroSubtitle": "Cases, hearings, contacts and finances in one native Mac app. No third-party cloud. No telemetry. No leaks.",
@@ -50,7 +50,7 @@
     "section4Point2": "Automatic backups to the folder you choose",
     "section4Point3": "JSON export and import any time",
     "ctaSectionEyebrow": "Get started today",
-    "ctaSectionTitle": "Download LexCase.",
+    "ctaSectionTitle": "Download Lexcase.",
     "ctaSectionBody": "Available for Mac. Windows coming soon."
   },
   "features": {
@@ -110,7 +110,7 @@
   },
   "contact": {
     "title": "Let's talk.",
-    "subtitle": "For anything about LexCase, technical support, partnerships or data privacy, write to us directly. We don't use forms — we prefer a human channel.",
+    "subtitle": "For anything about Lexcase, technical support, partnerships or data privacy, write to us directly. We don't use forms — we prefer a human channel.",
     "emailTitle": "Primary email",
     "emailHint": "Support, sales and privacy",
     "responseTitle": "Response time",
@@ -120,36 +120,36 @@
   },
   "faq": {
     "title": "What we get asked the most.",
-    "subtitle": "Common questions about LexCase, its privacy model and how it compares to other legal case managers.",
+    "subtitle": "Common questions about Lexcase, its privacy model and how it compares to other legal case managers.",
     "q1": "Are my cases uploaded to any cloud?",
-    "a1": "No. All your information lives inside the app's sandbox container on your own Mac (~/Library/Containers/com.lexcaserd.app/). LexCase has no servers of ours. The only internet request it ever makes is optional: fetching the public exchange rate from the Central Bank of the Dominican Republic.",
-    "q2": "Does LexCase work offline?",
-    "a2": "Yes. LexCase works fully offline. The only feature requiring internet is updating the BCRD exchange rate for the Finances section, and the last cached rate can be used when there's no connection.",
+    "a1": "No. All your information lives inside the app's sandbox container on your own Mac (~/Library/Containers/com.lexcaserd.app/). Lexcase has no servers of ours. The only internet request it ever makes is optional: fetching the public exchange rate from the Central Bank of the Dominican Republic.",
+    "q2": "Does Lexcase work offline?",
+    "a2": "Yes. Lexcase works fully offline. The only feature requiring internet is updating the BCRD exchange rate for the Finances section, and the last cached rate can be used when there's no connection.",
     "q3": "Which versions of macOS are supported?",
-    "a3": "LexCase requires macOS 11 Big Sur or later. It runs natively on Apple Silicon Macs (M1, M2, M3, M4) and on Intel Macs.",
+    "a3": "Lexcase requires macOS 11 Big Sur or later. It runs natively on Apple Silicon Macs (M1, M2, M3, M4) and on Intel Macs.",
     "q4": "Will there be a Windows version?",
     "a4": "Yes, a Windows 11 version is in development. If you'd like to be notified when it's available, send us an email at our support address.",
     "q5": "How do I back up my data?",
-    "a5": "LexCase can perform automatic daily, weekly or monthly backups to the folder you choose. You can also manually export your entire database to JSON from Settings and import it back at any time.",
+    "a5": "Lexcase can perform automatic daily, weekly or monthly backups to the folder you choose. You can also manually export your entire database to JSON from Settings and import it back at any time.",
     "q6": "What if I stop using the app?",
     "a6": "Your data is always yours. You can export it to JSON at any time. If you delete the app from your Mac, the sandbox container is removed along with the local data — so we recommend exporting before uninstalling.",
-    "q7": "Is LexCase only for the Dominican Republic?",
-    "a7": "LexCase is optimized for legal practice in the Dominican Republic, but it includes specific support for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
+    "q7": "Is Lexcase only for the Dominican Republic?",
+    "a7": "Lexcase is optimized for legal practice in the Dominican Republic, but it includes specific support for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "What payment methods will the paid version accept?",
     "a8": "The current version is distributed through the Mac App Store, which handles payments in your local currency. We do not process payment information on our servers.",
     "q9": "How does it integrate with the macOS Calendar?",
-    "a9": "LexCase offers optional sync with the native macOS Calendar. When enabled, your hearings and deadlines appear as regular system events and you receive alerts like any other event.",
+    "a9": "Lexcase offers optional sync with the native macOS Calendar. When enabled, your hearings and deadlines appear as regular system events and you receive alerts like any other event.",
     "q10": "Can I work from multiple Macs?",
-    "a10": "Today LexCase is a local-first app by design. If you work from multiple Macs you can move your database manually by exporting and importing the JSON file. An optional end-to-end encrypted sync service is under evaluation for the future."
+    "a10": "Today Lexcase is a local-first app by design. If you work from multiple Macs you can move your database manually by exporting and importing the JSON file. An optional end-to-end encrypted sync service is under evaluation for the future."
   },
   "privacy": {
     "title": "Privacy Policy",
     "updated": "Last updated: June 14, 2026",
-    "intro": "ICLVS Legal Intelligence LLC (\"we\") operates the macOS application LexCase (the \"App\"). This Privacy Policy explains what information we handle, how we handle it, and your rights."
+    "intro": "ICLVS Legal Intelligence LLC (\"we\") operates the macOS application Lexcase (the \"App\"). This Privacy Policy explains what information we handle, how we handle it, and your rights."
   },
   "terms": {
     "title": "Terms & Conditions",
     "updated": "Last updated: June 15, 2026",
-    "intro": "These Terms and Conditions (the \"Terms\") govern the use of the macOS application LexCase (the \"App\") provided by ICLVS Legal Intelligence LLC (\"we\"). By downloading, installing or using the App, you accept these Terms."
+    "intro": "These Terms and Conditions (the \"Terms\") govern the use of the macOS application Lexcase (the \"App\") provided by ICLVS Legal Intelligence LLC (\"we\"). By downloading, installing or using the App, you accept these Terms."
   }
 }

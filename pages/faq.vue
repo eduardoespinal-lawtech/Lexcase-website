@@ -22,7 +22,7 @@ const structured = computed(() => ({
 }))
 
 useHead(() => ({
-  title: `${t('faq.title')} — LexCase`,
+  title: `${t('faq.title')} — Lexcase`,
   meta: [{ name: 'description', content: t('faq.subtitle') }],
   script: [
     { type: 'application/ld+json', innerHTML: JSON.stringify(structured.value) }

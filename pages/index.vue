@@ -3,10 +3,10 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 useHead(() => ({
-  title: 'LexCase — Apple-style legal practice for Mac',
+  title: 'Lexcase — Apple-style legal practice for Mac',
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
-    { property: 'og:title', content: 'LexCase' },
+    { property: 'og:title', content: 'Lexcase' },
     { property: 'og:description', content: t('home.heroSubtitle') },
     { property: 'og:url', content: locale.value === 'es' ? 'https://lexcase.com.do/' : 'https://lexcase.com.do/en' }
   ],
@@ -42,7 +42,7 @@ useHead(() => ({
     <!-- Mockup floating below hero -->
     <div class="apple-wrap-wide mt-14 sm:mt-20">
       <div class="mockup-float rounded-[18px] overflow-hidden">
-        <MacWindow title="LexCase">
+        <MacWindow title="Lexcase">
           <div style="height: 520px;">
             <MockCases />
           </div>

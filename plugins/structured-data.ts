@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
-          name: 'LexCase',
+          name: 'Lexcase',
           description:
             'Gestor de expedientes legales nativo para macOS. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.',
           applicationCategory: 'BusinessApplication',

@@ -4,7 +4,7 @@ const { t, locale } = useI18n()
 definePageMeta({ name: 'privacy' })
 
 useHead(() => ({
-  title: `${t('privacy.title')} — LexCase`,
+  title: `${t('privacy.title')} — Lexcase`,
   meta: [{ name: 'description', content: t('privacy.intro') }]
 }))
 </script>
@@ -24,14 +24,14 @@ useHead(() => ({
       <template v-if="locale === 'es'">
         <h2>1. Resumen rápido</h2>
         <ul>
-          <li>LexCase <strong>no recolecta</strong> información personal en servidores nuestros.</li>
+          <li>Lexcase <strong>no recolecta</strong> información personal en servidores nuestros.</li>
           <li>Toda la información de tus expedientes, clientes, notas, calendario y finanzas vive <strong>exclusivamente en tu Mac</strong>.</li>
-          <li>LexCase <strong>no rastrea</strong> tu actividad ni comparte datos con terceros.</li>
-          <li>LexCase <strong>no usa</strong> Google Analytics, Mixpanel, Sentry, Firebase ni servicios de telemetría.</li>
+          <li>Lexcase <strong>no rastrea</strong> tu actividad ni comparte datos con terceros.</li>
+          <li>Lexcase <strong>no usa</strong> Google Analytics, Mixpanel, Sentry, Firebase ni servicios de telemetría.</li>
         </ul>
 
         <h2>2. Información que la Aplicación maneja</h2>
-        <p>LexCase almacena localmente en tu Mac la siguiente información que tú mismo introduces:</p>
+        <p>Lexcase almacena localmente en tu Mac la siguiente información que tú mismo introduces:</p>
         <ul>
           <li><strong>Clientes:</strong> nombre, cédula, teléfono, correo, dirección, observaciones.</li>
           <li><strong>Expedientes:</strong> datos del caso según su tipo (judicial, administrativo, migración, empresa, alquiler, compraventa).</li>
@@ -41,7 +41,7 @@ useHead(() => ({
         </ul>
         <p>Toda esta información se guarda en el contenedor de datos privado de la Aplicación en tu Mac (<code>~/Library/Containers/com.lexcaserd.app/</code>) y nunca sale de tu dispositivo a menos que tú decidas exportarla.</p>
 
-        <h2>3. Permisos del sistema que LexCase solicita</h2>
+        <h2>3. Permisos del sistema que Lexcase solicita</h2>
         <table>
           <thead>
             <tr><th>Permiso</th><th>Para qué lo usa</th></tr>
@@ -57,14 +57,14 @@ useHead(() => ({
         <p>Todos los permisos son revocables desde <strong>Configuración del Sistema → Privacidad y seguridad</strong> de macOS.</p>
 
         <h2>4. Conexiones a internet</h2>
-        <p>LexCase realiza una sola consulta a internet, y es opcional:</p>
+        <p>Lexcase realiza una sola consulta a internet, y es opcional:</p>
         <ul>
           <li><strong>Banco Central de la República Dominicana (BCRD):</strong> la Aplicación consulta <code>https://www.bancentral.gov.do/</code> para obtener la tasa de cambio del día y convertir montos en USD/EUR a DOP en la sección de Finanzas. Esta consulta no envía información tuya — solo solicita la tasa pública.</li>
         </ul>
-        <p>LexCase NO se comunica con servidores nuestros, NO sube tus datos a ninguna nube y NO descarga código adicional.</p>
+        <p>Lexcase NO se comunica con servidores nuestros, NO sube tus datos a ninguna nube y NO descarga código adicional.</p>
 
         <h2>5. Compartir información con terceros</h2>
-        <p>LexCase <strong>no comparte ninguna información tuya con terceros</strong>. No vendemos datos. No tenemos socios publicitarios. No incrustamos analíticas.</p>
+        <p>Lexcase <strong>no comparte ninguna información tuya con terceros</strong>. No vendemos datos. No tenemos socios publicitarios. No incrustamos analíticas.</p>
 
         <h2>6. Exportación e importación de datos</h2>
         <p>La Aplicación te permite:</p>
@@ -83,10 +83,10 @@ useHead(() => ({
         </ul>
 
         <h2>8. Servicios futuros de sincronización</h2>
-        <p>Estamos evaluando ofrecer en el futuro un <strong>servicio opcional</strong> de sincronización cifrada extremo a extremo entre varias Macs (y eventualmente Windows) del mismo usuario. Si lo lanzamos, será siempre <strong>opcional</strong>, activado por ti, claramente comunicado y descrito en esta Política antes de habilitarse. Mientras tanto, LexCase sigue siendo 100% local.</p>
+        <p>Estamos evaluando ofrecer en el futuro un <strong>servicio opcional</strong> de sincronización cifrada extremo a extremo entre varias Macs (y eventualmente Windows) del mismo usuario. Si lo lanzamos, será siempre <strong>opcional</strong>, activado por ti, claramente comunicado y descrito en esta Política antes de habilitarse. Mientras tanto, Lexcase sigue siendo 100% local.</p>
 
         <h2>9. Niños</h2>
-        <p>LexCase está dirigida a profesionales del derecho. No está diseñada para personas menores de 13 años y no recolecta deliberadamente información de menores.</p>
+        <p>Lexcase está dirigida a profesionales del derecho. No está diseñada para personas menores de 13 años y no recolecta deliberadamente información de menores.</p>
 
         <h2>10. Tus derechos</h2>
         <p>Como toda la información vive en tu Mac, tú tienes el control total: puedes acceder, modificar, exportar o eliminar tus datos en cualquier momento desde la propia Aplicación, sin pedirnos permiso ni esperar respuesta.</p>
@@ -99,21 +99,21 @@ useHead(() => ({
         <ul>
           <li><strong>Correo:</strong> <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a></li>
           <li><strong>Desarrollador:</strong> ICLVS Legal Intelligence LLC</li>
-          <li><strong>Aplicación:</strong> LexCase para macOS</li>
+          <li><strong>Aplicación:</strong> Lexcase para macOS</li>
         </ul>
       </template>
 
       <template v-else>
         <h2>1. Quick summary</h2>
         <ul>
-          <li>LexCase <strong>does not collect</strong> personal information on our servers.</li>
+          <li>Lexcase <strong>does not collect</strong> personal information on our servers.</li>
           <li>All information about your cases, contacts, notes, calendar and finances lives <strong>exclusively on your Mac</strong>.</li>
-          <li>LexCase <strong>does not track</strong> your activity or share data with third parties.</li>
-          <li>LexCase <strong>does not use</strong> Google Analytics, Mixpanel, Sentry, Firebase or any telemetry service.</li>
+          <li>Lexcase <strong>does not track</strong> your activity or share data with third parties.</li>
+          <li>Lexcase <strong>does not use</strong> Google Analytics, Mixpanel, Sentry, Firebase or any telemetry service.</li>
         </ul>
 
         <h2>2. Information the App handles</h2>
-        <p>LexCase stores locally on your Mac the following information you enter yourself:</p>
+        <p>Lexcase stores locally on your Mac the following information you enter yourself:</p>
         <ul>
           <li><strong>Contacts:</strong> name, ID number, phone, email, address, notes.</li>
           <li><strong>Cases:</strong> case data depending on its type (judicial, administrative, immigration, business, rental, real estate sale).</li>
@@ -123,7 +123,7 @@ useHead(() => ({
         </ul>
         <p>All this information is stored in the App's private data container on your Mac (<code>~/Library/Containers/com.lexcaserd.app/</code>) and never leaves your device unless you choose to export it.</p>
 
-        <h2>3. System permissions LexCase requests</h2>
+        <h2>3. System permissions Lexcase requests</h2>
         <table>
           <thead>
             <tr><th>Permission</th><th>Used for</th></tr>
@@ -139,14 +139,14 @@ useHead(() => ({
         <p>All permissions can be revoked from <strong>System Settings → Privacy &amp; Security</strong> on macOS.</p>
 
         <h2>4. Internet connections</h2>
-        <p>LexCase makes one optional internet request:</p>
+        <p>Lexcase makes one optional internet request:</p>
         <ul>
           <li><strong>Central Bank of the Dominican Republic (BCRD):</strong> the App queries <code>https://www.bancentral.gov.do/</code> to fetch the daily exchange rate and convert USD/EUR amounts to DOP in the Finances section. This request does not send any of your information — it only retrieves a public rate.</li>
         </ul>
-        <p>LexCase does NOT communicate with our servers, does NOT upload your data to any cloud, and does NOT download additional code.</p>
+        <p>Lexcase does NOT communicate with our servers, does NOT upload your data to any cloud, and does NOT download additional code.</p>
 
         <h2>5. Sharing information with third parties</h2>
-        <p>LexCase <strong>does not share any of your information with third parties</strong>. We do not sell data. We have no advertising partners. We embed no analytics.</p>
+        <p>Lexcase <strong>does not share any of your information with third parties</strong>. We do not sell data. We have no advertising partners. We embed no analytics.</p>
 
         <h2>6. Data export and import</h2>
         <p>The App lets you:</p>
@@ -165,10 +165,10 @@ useHead(() => ({
         </ul>
 
         <h2>8. Future sync services</h2>
-        <p>We are evaluating an <strong>optional</strong> end-to-end encrypted sync service across multiple Macs (and eventually Windows) of the same user. If we launch it, it will be strictly opt-in, clearly communicated, and documented in this Policy before being enabled. Until then, LexCase remains 100% local.</p>
+        <p>We are evaluating an <strong>optional</strong> end-to-end encrypted sync service across multiple Macs (and eventually Windows) of the same user. If we launch it, it will be strictly opt-in, clearly communicated, and documented in this Policy before being enabled. Until then, Lexcase remains 100% local.</p>
 
         <h2>9. Children</h2>
-        <p>LexCase is intended for legal professionals. It is not designed for individuals under 13 and does not knowingly collect information from minors.</p>
+        <p>Lexcase is intended for legal professionals. It is not designed for individuals under 13 and does not knowingly collect information from minors.</p>
 
         <h2>10. Your rights</h2>
         <p>Because all data lives on your Mac, you are in full control: you can access, modify, export or delete your data at any time from within the App, without asking us or waiting for a response.</p>
@@ -181,7 +181,7 @@ useHead(() => ({
         <ul>
           <li><strong>Email:</strong> <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a></li>
           <li><strong>Developer:</strong> ICLVS Legal Intelligence LLC</li>
-          <li><strong>App:</strong> LexCase for macOS</li>
+          <li><strong>App:</strong> Lexcase for macOS</li>
         </ul>
       </template>
     </article>
