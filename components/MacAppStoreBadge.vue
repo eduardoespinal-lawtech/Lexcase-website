@@ -28,21 +28,26 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Tamaño idéntico al badge de Microsoft: mismo ancho fijo, alto natural
-   según la proporción nativa del SVG. Aliniados por su centro vertical
-   en el contenedor flex padre. Sin fondo, sin borde — el SVG ya lleva
-   su propio botón con esquinas redondeadas. */
+/* Caja idéntica al badge de Microsoft. Mismo ancho, mismo alto. La imagen
+   oficial se ajusta dentro con object-fit contain — sin distorsión y sin
+   modificar el arte original. Aliniación perfecta porque ambos botones
+   ocupan exactamente la misma huella. */
 .store-badge {
-  display: inline-block;
-  width: 175px;
-  line-height: 0;
-  transition: transform .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 52px;
   vertical-align: middle;
+  transition: transform .2s ease;
 }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
+  object-fit: contain;
 }
 </style>

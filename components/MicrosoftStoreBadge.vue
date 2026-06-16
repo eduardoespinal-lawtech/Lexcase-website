@@ -31,14 +31,15 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Mismo ancho exacto que el badge de Apple. Sin etiqueta amarilla.
-   El padre se encarga de la alineación vertical. */
+/* Caja idéntica al badge de Apple — misma huella exacta. */
 .store-badge {
-  display: inline-block;
-  width: 175px;
-  line-height: 0;
-  transition: transform .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 52px;
   vertical-align: middle;
+  transition: transform .2s ease;
 }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge.is-disabled {
@@ -47,7 +48,10 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
+  object-fit: contain;
 }
 </style>
