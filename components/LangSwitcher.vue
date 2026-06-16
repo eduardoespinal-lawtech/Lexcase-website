@@ -12,38 +12,46 @@ const available = computed(() =>
 
 <template>
   <div class="lang-switch" role="group" aria-label="Language">
-    <NuxtLink
-      v-for="l in available"
-      :key="l.code"
-      :to="switchLocalePath(l.code)"
-      class="lang-link"
-      :class="locale === l.code ? 'lang-link-active' : ''"
-      :aria-current="locale === l.code ? 'true' : undefined"
-    >
-      {{ l.code.toUpperCase() }}
-    </NuxtLink>
+    <template v-for="(l, i) in available" :key="l.code">
+      <span v-if="i > 0" class="lang-sep" aria-hidden="true">·</span>
+      <NuxtLink
+        :to="switchLocalePath(l.code)"
+        class="lang-link"
+        :class="locale === l.code ? 'is-active' : ''"
+        :aria-current="locale === l.code ? 'true' : undefined"
+      >
+        {{ l.code.toUpperCase() }}
+      </NuxtLink>
+    </template>
   </div>
 </template>
 
 <style scoped>
+/* Mismo tamaño y color que los links del menú. Sin pill, sin fondo, sin
+   borde — solo texto. El idioma activo se distingue por opacidad y peso,
+   nada más. */
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 6px;
   font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.005em;
 }
 .lang-link {
-  padding: 4px 8px;
-  border-radius: 999px;
   color: #1d1d1f;
-  opacity: 0.7;
+  opacity: 0.55;
   text-decoration: none;
-  letter-spacing: 0.02em;
+  transition: opacity .15s ease;
 }
 .lang-link:hover { opacity: 1; }
-.lang-link-active {
-  background: #1d1d1f;
-  color: #fff;
+.is-active {
   opacity: 1;
+  font-weight: 500;
+}
+.lang-sep {
+  color: #1d1d1f;
+  opacity: 0.25;
+  user-select: none;
 }
 </style>
