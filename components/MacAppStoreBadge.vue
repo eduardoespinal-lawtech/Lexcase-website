@@ -45,8 +45,7 @@ const alt = computed(() =>
 .store-link:hover { transform: translateY(-1px); }
 .store-link img {
   display: block;
-  /* Match Microsoft badge visual height — Apple SVG renders ~50px height at width 180. */
-  height: 54px;
+  height: 40px;
   width: auto;
 }
 </style>

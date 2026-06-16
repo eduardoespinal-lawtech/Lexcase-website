@@ -29,7 +29,7 @@ const alt = computed(() =>
       :aria-label="comingSoon ? `${alt} — ${locale === 'es' ? 'próximamente' : 'coming soon'}` : alt"
       :tabindex="comingSoon ? -1 : undefined"
     >
-      <img :src="badgeSrc" :alt="alt" width="180" />
+      <img :src="badgeSrc" :alt="alt" />
     </a>
     <span v-if="comingSoon" class="store-caption">
       {{ locale === 'es' ? 'Próximamente' : 'Coming soon' }}
@@ -50,7 +50,7 @@ const alt = computed(() =>
   transition: transform .2s ease, opacity .2s ease;
 }
 .store-link:hover { transform: translateY(-1px); }
-.store-link img { display: block; width: 180px; height: auto; }
+.store-link img { display: block; height: 40px; width: auto; }
 .store-link-disabled {
   pointer-events: none;
   cursor: default;
