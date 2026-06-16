@@ -7,6 +7,7 @@ const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
 
 const links = computed(() => [
+  { to: localePath('index'), label: t('nav.home') },
   { to: localePath('features'), label: t('nav.features') },
   { to: localePath('support'), label: t('nav.support') },
   { to: localePath('faq'), label: t('nav.faq') },
