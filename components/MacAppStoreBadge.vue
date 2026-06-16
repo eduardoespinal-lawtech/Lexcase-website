@@ -28,26 +28,23 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Both store badges use the exact same button box dimensions so they are
-   perfectly aligned and visually identical in size. The badge artwork is
-   centered inside via object-fit, preserving its native aspect ratio. */
+/* Sin fondo propio del contenedor — el SVG oficial de Apple ya trae su
+   botón negro con sus propias esquinas redondeadas. Si añadimos un fondo
+   adicional al contenedor, aparece una franja/raya alrededor del SVG.
+   Solo controlamos la altura; el ancho lo dicta la proporción nativa. */
 .store-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
   height: 52px;
-  border-radius: 10px;
-  background: #000;
-  overflow: hidden;
+  background: transparent;
   transition: transform .2s ease;
   vertical-align: middle;
 }
 .store-button:hover { transform: translateY(-1px); }
 .store-button img {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 52px;
+  width: auto;
 }
 </style>

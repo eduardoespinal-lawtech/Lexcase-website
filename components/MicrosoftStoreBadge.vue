@@ -36,48 +36,44 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Wrapper has the same 180x52 footprint as the Apple badge so flex parents
-   align both buttons by their bounding boxes — same top, same bottom, same
-   center, every time. The yellow tag is absolutely positioned over the
-   button corner without affecting the wrap's bounding box. */
+/* Sin fondo de contenedor — el SVG oficial de Microsoft trae su propio
+   botón. La etiqueta amarilla flota COMPLETAMENTE por encima del botón,
+   sin tocar el logo (no choca con el logo de Microsoft a la izquierda). */
 .store-wrap {
   position: relative;
-  display: inline-block;
-  width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: 52px;
   vertical-align: middle;
-  /* Allow the tag to overflow above without clipping. */
   overflow: visible;
 }
 .store-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background: #000;
-  overflow: hidden;
+  height: 52px;
+  background: transparent;
   transition: transform .2s ease;
 }
 .store-button:hover { transform: translateY(-1px); }
 .store-button img {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 52px;
+  width: auto;
 }
 .store-button-disabled {
   pointer-events: none;
   cursor: default;
 }
 
-/* Yellow "Próximamente" tag, centered horizontally over the top edge of
-   the Microsoft button. Sits ON TOP of the icon area without covering the
-   Microsoft logo (the logo is on the left, the tag stays centered above). */
+/* Etiqueta amarilla "Próximamente": completamente sobre el botón, separada
+   por 6px. bottom: 100% ancla la BASE de la etiqueta al borde superior del
+   wrap; margin-bottom añade el aire entre etiqueta y botón.
+   No invade el botón ni choca con el logo de Microsoft. */
 .store-tag {
   position: absolute;
-  top: -11px;
+  bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
