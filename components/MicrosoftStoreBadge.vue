@@ -35,11 +35,10 @@ const alt = computed(() =>
 .store-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 240px;
   height: 68px;
   vertical-align: middle;
   transition: transform .2s ease;
+  line-height: 0;
 }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge.is-disabled {
@@ -48,10 +47,7 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  height: 68px;
   width: auto;
-  height: auto;
-  object-fit: contain;
 }
 </style>
