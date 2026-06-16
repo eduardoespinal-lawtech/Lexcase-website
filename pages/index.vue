@@ -31,9 +31,18 @@ useHead(() => ({
         {{ t('home.heroSubtitle') }}
       </p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-1.5">
-        <MacAppStoreBadge />
-        <MicrosoftStoreBadge />
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+        <a
+          href="https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
+          class="link-apple"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ t('common.downloadMac') }}
+        </a>
+        <span class="text-smoke text-[17px] leading-none">
+          {{ t('common.comingSoonWin') }}
+        </span>
       </div>
 
       <p class="mt-6 text-smoke text-[14px]">{{ t('home.platformsLine') }}</p>
@@ -145,9 +154,18 @@ useHead(() => ({
       <h2 class="h-section mt-1">{{ t('home.ctaSectionTitle') }}</h2>
       <p class="subtitle mt-5">{{ t('home.ctaSectionBody') }}</p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-1.5">
-        <MacAppStoreBadge />
-        <MicrosoftStoreBadge />
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+        <a
+          href="https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
+          class="link-apple"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ t('common.downloadMac') }}
+        </a>
+        <span class="text-smoke text-[17px] leading-none">
+          {{ t('common.comingSoonWin') }}
+        </span>
       </div>
     </div>
   </section>

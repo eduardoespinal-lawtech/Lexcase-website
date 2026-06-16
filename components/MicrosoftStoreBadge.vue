@@ -1,7 +1,8 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ href?: string; comingSoon?: boolean }>(), {
+withDefaults(defineProps<{ href?: string; comingSoon?: boolean; compact?: boolean }>(), {
   href: 'https://apps.microsoft.com/',
-  comingSoon: true
+  comingSoon: true,
+  compact: false
 })
 
 const { locale } = useI18n()
@@ -21,7 +22,7 @@ const alt = computed(() =>
   <a
     :href="comingSoon ? undefined : href"
     class="store-badge"
-    :class="comingSoon ? 'is-disabled' : ''"
+    :class="[comingSoon ? 'is-disabled' : '', compact ? 'is-compact' : '']"
     rel="noopener"
     target="_blank"
     :aria-label="alt"
@@ -49,6 +50,7 @@ const alt = computed(() =>
   line-height: 0;
   overflow: hidden;
 }
+.store-badge.is-compact { width: 168px; height: 56px; }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge.is-disabled {
   pointer-events: none;
@@ -56,8 +58,8 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  width: 246px;
-  height: 82px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transform: scale(1.08);
   transform-origin: center center;
