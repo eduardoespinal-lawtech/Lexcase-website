@@ -82,24 +82,26 @@ useHead(() => ({
   letter-spacing: -0.005em;
 }
 .faq-summary::-webkit-details-marker { display: none; }
+/* Botón minimalista: solo el carácter "+" en gris suave, sin fondo, sin
+   borde, sin círculo. Al abrir rota 45° para convertirse en "×" y cambia
+   levemente a un gris más oscuro. */
 .faq-plus {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #f5f5f7;
-  color: #1d1d1f;
+  width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 300;
   line-height: 1;
-  transition: transform .2s ease;
+  color: #6e6e73;
+  background: transparent;
+  transition: transform .2s ease, color .2s ease;
 }
 .faq-plus.is-open {
   transform: rotate(45deg);
-  background: #1d1d1f;
-  color: #fff;
+  color: #1d1d1f;
 }
 .faq-answer {
   padding: 0 4px 24px;
