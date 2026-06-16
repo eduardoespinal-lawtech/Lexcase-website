@@ -19,47 +19,37 @@ useHead(() => ({
 </script>
 
 <template>
-  <!-- =================== HERO =================== -->
-  <section class="section pt-16 sm:pt-20">
-    <div class="apple-wrap text-center">
-      <span class="eyebrow">{{ t('home.heroEyebrow') }}</span>
-      <h1 class="h-display mt-1">
+  <!-- =================== HERO Apple/Things-style =================== -->
+  <section class="apple-hero">
+    <div class="apple-hero-content">
+      <h1 class="apple-hero-title">
         {{ t('home.heroTitle') }}<br />
-        <span class="text-smoke">{{ t('home.heroTitle2') }}</span>
+        <span class="apple-hero-title-smoke">{{ t('home.heroTitle2') }}</span>
       </h1>
-      <p class="subtitle mt-5 mx-auto" style="max-width: 720px;">
-        {{ t('home.heroSubtitle') }}
-      </p>
+      <p class="apple-hero-subtitle">{{ t('home.heroSubtitle') }}</p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+      <div class="apple-hero-ctas">
         <a
           href="https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
-          class="link-apple"
+          class="btn-pill btn-pill-primary"
           target="_blank"
           rel="noopener"
         >
           {{ t('common.downloadMac') }}
         </a>
-        <span class="text-smoke text-[17px] leading-none">
-          {{ t('common.comingSoonWin') }}
-        </span>
+        <span class="apple-hero-coming">{{ t('common.comingSoonWin') }}</span>
       </div>
-
-      <p class="mt-6 text-smoke text-[14px]">{{ t('home.platformsLine') }}</p>
     </div>
 
-    <!-- Hero shot: captura real con expedientes y panel de plazos -->
-    <div class="apple-wrap-wide mt-14 sm:mt-20">
-      <div class="mockup-float rounded-[18px] overflow-hidden">
-        <img
-          src="/screenshots/plazos.png"
-          alt="Lexcase mostrando expedientes activos con panel de plazos procesales"
-          class="block w-full h-auto"
-          loading="eager"
-          width="1600"
-          height="1000"
-        />
-      </div>
+    <!-- Captura desbordando por la parte inferior del viewport -->
+    <div class="apple-hero-screenshot mockup-float">
+      <img
+        src="/screenshots/plazos.png"
+        alt="Lexcase mostrando expedientes activos con panel de plazos procesales"
+        loading="eager"
+        width="1600"
+        height="1000"
+      />
     </div>
   </section>
 
@@ -243,6 +233,76 @@ useHead(() => ({
 </template>
 
 <style scoped>
+/* === HERO Apple/Things-style ===
+   Full viewport con título gigante centrado horizontal y vertical (mucho
+   espacio negativo arriba/abajo del bloque de contenido), CTA pill primario
+   y captura grande que naturalmente desborda por la parte inferior del
+   viewport — la sección crece a su tamaño real, así el usuario ve la mitad
+   superior de la app al cargar y descubre el resto al hacer scroll. */
+.apple-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 48px);
+  padding: clamp(56px, 12vh, 120px) 22px 0;
+  background: #fff;
+}
+.apple-hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.apple-hero-title {
+  font-size: clamp(48px, 7.6vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0;
+}
+.apple-hero-title-smoke { color: #6e6e73; }
+.apple-hero-subtitle {
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  color: #6e6e73;
+  margin: 22px auto 0;
+  max-width: 680px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.apple-hero-ctas {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.apple-hero-coming {
+  font-size: 16px;
+  color: #6e6e73;
+  line-height: 1;
+}
+.apple-hero-screenshot {
+  margin: clamp(48px, 7vh, 88px) auto 0;
+  width: 100%;
+  max-width: 1300px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.apple-hero-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .apple-hero {
+    padding-top: 8vh;
+    min-height: auto;
+  }
+}
+
 /* Tarjetas "Para quién" — fondo gris suave dentro de sección blanca, estilo
    Apple cards. Icono coloreado por tipo según paleta de la app real. */
 .audience-card {
