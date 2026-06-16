@@ -19,9 +19,9 @@ useHead(() => ({
 
   <section class="section-tight section-gray">
     <div class="apple-wrap grid gap-6 md:grid-cols-2">
-      <a href="mailto:eduardoespinaldeaza@gmail.com" class="contact-card contact-card-link">
+      <a href="mailto:support@lexcase.com.do" class="contact-card contact-card-link">
         <p class="contact-eyebrow">{{ t('contact.emailTitle') }}</p>
-        <p class="contact-email">eduardoespinaldeaza@gmail.com</p>
+        <p class="contact-email">support@lexcase.com.do</p>
         <p class="contact-hint">{{ t('contact.emailHint') }}</p>
       </a>
 
@@ -60,12 +60,13 @@ useHead(() => ({
   margin: 0 0 12px;
 }
 .contact-email {
-  font-size: clamp(20px, 2.4vw, 28px);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   color: #1d1d1f;
   margin: 0;
-  word-break: break-all;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 .contact-hint {
   margin-top: 8px;

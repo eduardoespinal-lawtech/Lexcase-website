@@ -18,7 +18,7 @@ export default defineNuxtPlugin(() => {
           publisher: {
             '@type': 'Organization',
             name: 'ICLVS Legal Intelligence LLC',
-            email: 'eduardoespinaldeaza@gmail.com',
+            email: 'support@lexcase.com.do',
             url: 'https://lexcase.com.do'
           },
           offers: {

@@ -97,7 +97,7 @@ useHead(() => ({
         <h2>12. Contacto</h2>
         <p>Si tienes preguntas, dudas o solicitudes sobre privacidad:</p>
         <ul>
-          <li><strong>Correo:</strong> <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a></li>
+          <li><strong>Correo:</strong> <a href="mailto:support@lexcase.com.do">support@lexcase.com.do</a></li>
           <li><strong>Desarrollador:</strong> ICLVS Legal Intelligence LLC</li>
           <li><strong>Aplicación:</strong> Lexcase para macOS</li>
         </ul>
@@ -179,7 +179,7 @@ useHead(() => ({
         <h2>12. Contact</h2>
         <p>If you have questions, concerns or requests regarding privacy:</p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:support@lexcase.com.do">support@lexcase.com.do</a></li>
           <li><strong>Developer:</strong> ICLVS Legal Intelligence LLC</li>
           <li><strong>App:</strong> Lexcase for macOS</li>
         </ul>

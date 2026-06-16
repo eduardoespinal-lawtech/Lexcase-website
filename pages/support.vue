@@ -31,10 +31,10 @@ useHead(() => ({
       <article class="support-card">
         <h2 class="support-title">{{ t('support.emailTitle') }}</h2>
         <p class="support-body">{{ t('support.emailBody') }}</p>
-        <a href="mailto:eduardoespinaldeaza@gmail.com" class="link-apple mt-5">
+        <a href="mailto:support@lexcase.com.do" class="link-apple mt-5">
           {{ t('support.emailLabel') }}
         </a>
-        <p class="support-mail">eduardoespinaldeaza@gmail.com</p>
+        <p class="support-mail">support@lexcase.com.do</p>
       </article>
 
       <article class="support-card">

@@ -79,7 +79,7 @@ useHead(() => ({
         <p>Estos Términos se rigen por las leyes de la <strong>República Dominicana</strong>, sin atender a sus principios sobre conflictos de leyes. Cualquier controversia derivada del uso de la Aplicación se someterá a los tribunales competentes del Distrito Nacional, sin perjuicio de los derechos imperativos del consumidor donde residas.</p>
 
         <h2>13. Contacto</h2>
-        <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a>.</p>
+        <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:support@lexcase.com.do">support@lexcase.com.do</a>.</p>
       </template>
 
       <template v-else>
@@ -140,7 +140,7 @@ useHead(() => ({
         <p>These Terms are governed by the laws of the <strong>Dominican Republic</strong>, without regard to its conflict of laws principles. Any dispute arising from the use of the App will be submitted to the competent courts of the National District, without prejudice to mandatory consumer rights where you reside.</p>
 
         <h2>13. Contact</h2>
-        <p>For questions about these Terms, write to <a href="mailto:eduardoespinaldeaza@gmail.com">eduardoespinaldeaza@gmail.com</a>.</p>
+        <p>For questions about these Terms, write to <a href="mailto:support@lexcase.com.do">support@lexcase.com.do</a>.</p>
       </template>
     </article>
   </section>

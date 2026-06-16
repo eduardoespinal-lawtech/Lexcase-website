@@ -18,7 +18,7 @@ const sections = computed(() => [
     title: t('footer.contact'),
     links: [
       { to: localePath('contact'), label: t('nav.contact') },
-      { href: 'mailto:eduardoespinaldeaza@gmail.com', label: 'eduardoespinaldeaza@gmail.com' }
+      { href: 'mailto:support@lexcase.com.do', label: 'support@lexcase.com.do' }
     ]
   },
   {
