@@ -36,8 +36,8 @@ const alt = computed(() =>
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 220px;
-  height: 60px;
+  width: 260px;
+  height: 68px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
