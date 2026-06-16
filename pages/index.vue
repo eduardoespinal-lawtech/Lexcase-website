@@ -16,17 +16,47 @@ useHead(() => ({
     { rel: 'alternate', hreflang: 'x-default', href: 'https://lexcase.com.do/' }
   ]
 }))
+
+/* Tabs por audiencia — cada perfil revela un subtítulo y captura diferentes.
+   Misma app, distinto enfoque. */
+const audiences = computed(() => [
+  { id: 'abogados',      label: t('home.audAbogados'),       subtitle: t('home.audAbogadosSub'),       img: '/screenshots/plazos.png',      alt: 'Lexcase con expedientes y panel de plazos procesales' },
+  { id: 'inmobiliarias', label: t('home.audInmobiliarias'),  subtitle: t('home.audInmobiliariasSub'),  img: '/screenshots/clientes.png',    alt: 'Lexcase con directorio de clientes' },
+  { id: 'migracion',     label: t('home.audMigracion'),      subtitle: t('home.audMigracionSub'),      img: '/screenshots/expedientes.png', alt: 'Lexcase con expediente migratorio detallado' },
+  { id: 'empresas',      label: t('home.audEmpresas'),       subtitle: t('home.audEmpresasSub'),       img: '/screenshots/finanzas.png',    alt: 'Lexcase con finanzas y tasa BCRD' }
+])
+const activeId = ref('abogados')
+const active = computed(() => audiences.value.find(a => a.id === activeId.value) || audiences.value[0])
 </script>
 
 <template>
-  <!-- =================== HERO Apple/Things-style =================== -->
+  <!-- =================== HERO con tabs por audiencia =================== -->
   <section class="apple-hero">
     <div class="apple-hero-content">
       <h1 class="apple-hero-title">
         {{ t('home.heroTitle') }}<br />
         <span class="apple-hero-title-smoke">{{ t('home.heroTitle2') }}</span>
       </h1>
-      <p class="apple-hero-subtitle">{{ t('home.heroSubtitle') }}</p>
+
+      <!-- Segmented control — la misma app vista desde cada perfil -->
+      <div class="hero-tabs" role="tablist" :aria-label="t('home.audienceEyebrow')">
+        <button
+          v-for="a in audiences"
+          :key="a.id"
+          role="tab"
+          :aria-selected="activeId === a.id"
+          class="hero-tab"
+          :class="activeId === a.id ? 'is-active' : ''"
+          @click="activeId = a.id"
+        >
+          {{ a.label }}
+        </button>
+      </div>
+
+      <!-- Subtítulo dinámico según el perfil activo -->
+      <Transition name="hero-sub" mode="out-in">
+        <p :key="active.id" class="apple-hero-subtitle">{{ active.subtitle }}</p>
+      </Transition>
 
       <div class="apple-hero-ctas">
         <a
@@ -39,76 +69,28 @@ useHead(() => ({
         </a>
         <span class="apple-hero-coming">{{ t('common.comingSoonWin') }}</span>
       </div>
+
+      <!-- Trust strip: 4 métricas duras separadas por middot -->
+      <ul class="hero-trust" aria-label="Highlights">
+        <li>{{ t('home.trust1') }}</li>
+        <li>{{ t('home.trust2') }}</li>
+        <li>{{ t('home.trust3') }}</li>
+        <li>{{ t('home.trust4') }}</li>
+      </ul>
     </div>
 
-    <!-- Captura desbordando por la parte inferior del viewport -->
+    <!-- Captura dinámica con fade entre perfiles -->
     <div class="apple-hero-screenshot mockup-float">
-      <img
-        src="/screenshots/plazos.png"
-        alt="Lexcase mostrando expedientes activos con panel de plazos procesales"
-        loading="eager"
-        width="1600"
-        height="1000"
-      />
-    </div>
-  </section>
-
-  <!-- =================== AUDIENCE: ¿PARA QUIÉN? =================== -->
-  <section class="section">
-    <div class="apple-wrap text-center">
-      <span class="eyebrow">{{ t('home.audienceEyebrow') }}</span>
-      <h2 class="h-section mt-2">{{ t('home.audienceTitle') }}</h2>
-      <p class="subtitle mt-6 mx-auto" style="max-width: 720px;">{{ t('home.audienceBody') }}</p>
-    </div>
-
-    <div class="apple-wrap-wide mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <article class="audience-card">
-        <div class="audience-icon icon-indigo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11 10" />
-            <path d="m16 16 6-6" />
-            <path d="m8 8 6-6" />
-            <path d="m9 7 8 8" />
-            <path d="m21 11-8-8" />
-          </svg>
-        </div>
-        <h3 class="audience-title">{{ t('home.audience1Title') }}</h3>
-        <p class="audience-body">{{ t('home.audience1Body') }}</p>
-      </article>
-
-      <article class="audience-card">
-        <div class="audience-icon icon-cyan">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
-          </svg>
-        </div>
-        <h3 class="audience-title">{{ t('home.audience2Title') }}</h3>
-        <p class="audience-body">{{ t('home.audience2Body') }}</p>
-      </article>
-
-      <article class="audience-card">
-        <div class="audience-icon icon-emerald">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.2.6-.6.5-1.1z" />
-          </svg>
-        </div>
-        <h3 class="audience-title">{{ t('home.audience3Title') }}</h3>
-        <p class="audience-body">{{ t('home.audience3Body') }}</p>
-      </article>
-
-      <article class="audience-card">
-        <div class="audience-icon icon-rose">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2" />
-            <line x1="9" y1="6" x2="15" y2="6" />
-            <line x1="9" y1="10" x2="15" y2="10" />
-            <line x1="9" y1="14" x2="13" y2="14" />
-          </svg>
-        </div>
-        <h3 class="audience-title">{{ t('home.audience4Title') }}</h3>
-        <p class="audience-body">{{ t('home.audience4Body') }}</p>
-      </article>
+      <Transition name="hero-shot" mode="out-in">
+        <img
+          :key="active.img"
+          :src="active.img"
+          :alt="active.alt"
+          loading="eager"
+          width="1600"
+          height="1000"
+        />
+      </Transition>
     </div>
   </section>
 
@@ -303,40 +285,76 @@ useHead(() => ({
   }
 }
 
-/* Tarjetas "Para quién" — fondo gris suave dentro de sección blanca, estilo
-   Apple cards. Icono coloreado por tipo según paleta de la app real. */
-.audience-card {
-  background: #f5f5f7;
-  border-radius: 18px;
-  padding: 30px 26px;
-  text-align: left;
-  transition: transform .2s ease;
-}
-.audience-card:hover { transform: translateY(-2px); }
-.audience-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+/* === Segmented control (tabs por audiencia) — estilo Apple Compare === */
+.hero-tabs {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
+  background: #f5f5f7;
+  padding: 4px;
+  border-radius: 999px;
+  margin: 30px auto 0;
+  gap: 0;
 }
-.icon-indigo  { background: rgba(99, 102, 241, 0.14);  color: #4f46e5; }
-.icon-cyan    { background: rgba(6, 182, 212, 0.14);   color: #0e7490; }
-.icon-emerald { background: rgba(16, 185, 129, 0.14);  color: #047857; }
-.icon-rose    { background: rgba(244, 63, 94, 0.14);   color: #be123c; }
-.audience-title {
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #1d1d1f;
-  margin: 0 0 8px;
-}
-.audience-body {
-  font-size: 15px;
-  line-height: 1.5;
+.hero-tab {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   color: #6e6e73;
-  margin: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.hero-tab:hover { color: #1d1d1f; }
+.hero-tab.is-active {
+  background: #fff;
+  color: #1d1d1f;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 0.5px rgba(0, 0, 0, 0.04);
+}
+@media (max-width: 600px) {
+  .hero-tabs { flex-wrap: wrap; justify-content: center; padding: 5px; }
+  .hero-tab { padding: 8px 14px; font-size: 12.5px; }
+}
+
+/* Subtítulo dinámico: el padding y dimensiones quedan estables aunque
+   cambie el texto entre tabs. */
+.apple-hero-subtitle { min-height: 64px; }
+
+/* === Trust strip de 4 métricas separadas por middot === */
+.hero-trust {
+  list-style: none;
+  margin: 32px auto 0;
+  padding: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 13px;
+  color: #6e6e73;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+.hero-trust li { display: inline-flex; align-items: center; }
+.hero-trust li + li::before {
+  content: "·";
+  margin: 0 14px;
+  color: #d2d2d7;
+  font-weight: 500;
+}
+
+/* === Transición fade del subtítulo y del screenshot al cambiar de tab === */
+.hero-sub-enter-active, .hero-sub-leave-active {
+  transition: opacity .2s ease, transform .2s ease;
+}
+.hero-sub-enter-from, .hero-sub-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+.hero-shot-enter-active, .hero-shot-leave-active {
+  transition: opacity .28s ease;
+}
+.hero-shot-enter-from, .hero-shot-leave-to {
+  opacity: 0;
 }
 </style>

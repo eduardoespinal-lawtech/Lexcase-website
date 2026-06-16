@@ -1,1 +1,0 @@
-import"./C56q3U4T.js";const e=""+new URL("plazos.BDWgtxkE.png",import.meta.url).href,r=""+new URL("expedientes.BXE_czOx.png",import.meta.url).href,p=""+new URL("finanzas.DF7B6i7Z.png",import.meta.url).href;export{e as _,r as a,p as b};
