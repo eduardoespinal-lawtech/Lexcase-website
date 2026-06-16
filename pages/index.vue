@@ -52,7 +52,7 @@ useHead(() => ({
     <div class="apple-wrap-wide mt-14 sm:mt-20">
       <div class="mockup-float rounded-[18px] overflow-hidden">
         <img
-          src="/screenshots/plazos.jpg"
+          src="/screenshots/plazos.png"
           alt="Lexcase mostrando expedientes activos con panel de plazos procesales"
           class="block w-full h-auto"
           loading="eager"
@@ -76,7 +76,7 @@ useHead(() => ({
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden">
         <img
-          src="/screenshots/expedientes.jpg"
+          src="/screenshots/expedientes.png"
           alt="Detalle de expediente Recurso Contencioso Tributario en Lexcase"
           class="block w-full h-auto"
           loading="lazy"
@@ -100,7 +100,7 @@ useHead(() => ({
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden lg:order-1">
         <img
-          src="/screenshots/clientes.jpg"
+          src="/screenshots/clientes.png"
           alt="Directorio de clientes en Lexcase con cartera de contactos"
           class="block w-full h-auto"
           loading="lazy"
@@ -124,7 +124,7 @@ useHead(() => ({
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden">
         <img
-          src="/screenshots/finanzas.jpg"
+          src="/screenshots/finanzas.png"
           alt="Vista de finanzas en Lexcase con KPIs y tasa BCRD"
           class="block w-full h-auto"
           loading="lazy"
