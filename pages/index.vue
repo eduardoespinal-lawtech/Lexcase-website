@@ -48,14 +48,17 @@ useHead(() => ({
       <p class="mt-6 text-smoke text-[14px]">{{ t('home.platformsLine') }}</p>
     </div>
 
-    <!-- Mockup floating below hero -->
+    <!-- Hero shot: captura real con expedientes y panel de plazos -->
     <div class="apple-wrap-wide mt-14 sm:mt-20">
       <div class="mockup-float rounded-[18px] overflow-hidden">
-        <MacWindow title="Lexcase">
-          <div style="height: 520px;">
-            <MockCases />
-          </div>
-        </MacWindow>
+        <img
+          src="/screenshots/plazos.jpg"
+          alt="Lexcase mostrando expedientes activos con panel de plazos procesales"
+          class="block w-full h-auto"
+          loading="eager"
+          width="1600"
+          height="1000"
+        />
       </div>
     </div>
   </section>
@@ -72,16 +75,19 @@ useHead(() => ({
         </NuxtLink>
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden">
-        <MacWindow title="Expedientes">
-          <div style="height: 440px;">
-            <MockCases />
-          </div>
-        </MacWindow>
+        <img
+          src="/screenshots/expedientes.jpg"
+          alt="Detalle de expediente Recurso Contencioso Tributario en Lexcase"
+          class="block w-full h-auto"
+          loading="lazy"
+          width="1600"
+          height="1000"
+        />
       </div>
     </div>
   </section>
 
-  <!-- =================== SECTION 2: CALENDAR =================== -->
+  <!-- =================== SECTION 2: CLIENTES =================== -->
   <section class="section">
     <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
       <div class="lg:order-2">
@@ -93,11 +99,14 @@ useHead(() => ({
         </NuxtLink>
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden lg:order-1">
-        <MacWindow title="Calendario">
-          <div style="height: 440px;">
-            <MockCalendar />
-          </div>
-        </MacWindow>
+        <img
+          src="/screenshots/clientes.jpg"
+          alt="Directorio de clientes en Lexcase con cartera de contactos"
+          class="block w-full h-auto"
+          loading="lazy"
+          width="1600"
+          height="1000"
+        />
       </div>
     </div>
   </section>
@@ -114,11 +123,14 @@ useHead(() => ({
         </NuxtLink>
       </div>
       <div class="mockup-float rounded-[18px] overflow-hidden">
-        <MacWindow title="Finanzas">
-          <div style="height: 440px;">
-            <MockFinances />
-          </div>
-        </MacWindow>
+        <img
+          src="/screenshots/finanzas.jpg"
+          alt="Vista de finanzas en Lexcase con KPIs y tasa BCRD"
+          class="block w-full h-auto"
+          loading="lazy"
+          width="1600"
+          height="1000"
+        />
       </div>
     </div>
   </section>
