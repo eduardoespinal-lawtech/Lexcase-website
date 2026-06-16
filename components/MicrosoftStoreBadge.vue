@@ -32,9 +32,11 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Misma caja exacta que Apple (220×60). El SVG oficial de Microsoft tiene
-   ratio 3.66 — prácticamente el mismo que 220/60 (3.67), así que llena
-   la caja casi por completo sin aire vacío. */
+/* Misma caja exacta que Apple (246×82). El SVG oficial de Microsoft trae
+   ~12% de padding transparente interno alrededor del botón visible. Lo
+   compensamos: la caja recorta cualquier overflow (overflow:hidden) y
+   escalamos el SVG por 1.08, lo que efectivamente "muerde" ese padding
+   interno y hace que el botón visible llegue al mismo ancho que Apple. */
 .store-badge {
   display: inline-flex;
   align-items: center;
@@ -45,6 +47,7 @@ const alt = computed(() =>
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
+  overflow: hidden;
 }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge.is-disabled {
@@ -56,5 +59,7 @@ const alt = computed(() =>
   width: 246px;
   height: 82px;
   object-fit: contain;
+  transform: scale(1.08);
+  transform-origin: center center;
 }
 </style>
