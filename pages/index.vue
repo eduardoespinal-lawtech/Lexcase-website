@@ -17,15 +17,17 @@ useHead(() => ({
   ]
 }))
 
-/* Tabs por audiencia — cada perfil revela un subtítulo y captura diferentes.
-   Misma app, distinto enfoque. */
+/* Pestañas por tipo de expediente real — cada una con su captura del
+   demo data y su subtítulo describiendo los campos jurídicos específicos. */
 const audiences = computed(() => [
-  { id: 'abogados',      label: t('home.audAbogados'),       subtitle: t('home.audAbogadosSub'),       img: '/screenshots/plazos.png',      alt: 'Lexcase con expedientes y panel de plazos procesales' },
-  { id: 'inmobiliarias', label: t('home.audInmobiliarias'),  subtitle: t('home.audInmobiliariasSub'),  img: '/screenshots/clientes.png',    alt: 'Lexcase con directorio de clientes' },
-  { id: 'migracion',     label: t('home.audMigracion'),      subtitle: t('home.audMigracionSub'),      img: '/screenshots/expedientes.png', alt: 'Lexcase con expediente migratorio detallado' },
-  { id: 'empresas',      label: t('home.audEmpresas'),       subtitle: t('home.audEmpresasSub'),       img: '/screenshots/finanzas.png',    alt: 'Lexcase con finanzas y tasa BCRD' }
+  { id: 'judicial',       label: t('home.tabJudicial'),       subtitle: t('home.tabJudicialSub'),       img: '/screenshots/judicial.png',       alt: 'Lexcase con caso judicial Pérez vs. Banco Popular' },
+  { id: 'administrativo', label: t('home.tabAdministrativo'), subtitle: t('home.tabAdministrativoSub'), img: '/screenshots/administrativo.png', alt: 'Lexcase con recurso contencioso tributario ante la DGII' },
+  { id: 'migracion',      label: t('home.tabMigracion'),      subtitle: t('home.tabMigracionSub'),      img: '/screenshots/migracion.png',      alt: 'Lexcase con caso migratorio NVC Rodríguez' },
+  { id: 'empresa',        label: t('home.tabEmpresa'),        subtitle: t('home.tabEmpresaSub'),        img: '/screenshots/empresa.png',        alt: 'Lexcase con constitución de sociedad Importadora del Caribe SRL' },
+  { id: 'alquiler',       label: t('home.tabAlquiler'),       subtitle: t('home.tabAlquilerSub'),       img: '/screenshots/alquiler.png',       alt: 'Lexcase con contrato de alquiler Av. Anacaona 38' },
+  { id: 'compraventa',    label: t('home.tabCompraventa'),    subtitle: t('home.tabCompraventaSub'),    img: '/screenshots/compraventa.png',    alt: 'Lexcase con compraventa de apartamento Bella Vista' }
 ])
-const activeId = ref('abogados')
+const activeId = ref('judicial')
 const active = computed(() => audiences.value.find(a => a.id === activeId.value) || audiences.value[0])
 </script>
 
