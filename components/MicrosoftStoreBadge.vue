@@ -6,9 +6,15 @@ withDefaults(defineProps<{ href?: string; comingSoon?: boolean }>(), {
 
 const { locale } = useI18n()
 
-const supLabel = computed(() => locale.value === 'es' ? 'Obtener en' : 'Get it from')
-const mainLabel = 'Microsoft'
-const ariaLabel = computed(() => `${supLabel.value} ${mainLabel}`)
+/* Imagen oficial servida desde el CDN de Microsoft. */
+const badgeSrc = computed(() => {
+  const loc = locale.value === 'es' ? 'es' : 'en-us'
+  return `https://get.microsoft.com/images/${loc}%20dark.svg`
+})
+
+const alt = computed(() =>
+  locale.value === 'es' ? 'Obtener en Microsoft Store' : 'Get it from Microsoft'
+)
 </script>
 
 <template>
@@ -18,84 +24,39 @@ const ariaLabel = computed(() => `${supLabel.value} ${mainLabel}`)
     :class="comingSoon ? 'is-disabled' : ''"
     rel="noopener"
     target="_blank"
-    :aria-label="comingSoon ? `${ariaLabel} — ${locale === 'es' ? 'próximamente' : 'coming soon'}` : ariaLabel"
+    :aria-label="alt"
     :tabindex="comingSoon ? -1 : undefined"
   >
-    <span class="store-badge-inner">
-      <svg
-        class="store-badge-icon"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <rect x="2"  y="2"  width="9.2" height="9.2" fill="currentColor" />
-        <rect x="12.8" y="2"  width="9.2" height="9.2" fill="currentColor" />
-        <rect x="2"  y="12.8" width="9.2" height="9.2" fill="currentColor" />
-        <rect x="12.8" y="12.8" width="9.2" height="9.2" fill="currentColor" />
-      </svg>
-      <span class="store-badge-text">
-        <span class="store-badge-sup">{{ supLabel }}</span>
-        <span class="store-badge-main">{{ mainLabel }}</span>
-      </span>
-    </span>
+    <img :src="badgeSrc" :alt="alt" />
   </a>
 </template>
 
 <style scoped>
-/* Pill custom — dimensiones IDÉNTICAS al badge de Apple.
-   Mismo padding, mismo gap, mismo line-height, mismo tipografía. */
+/* Misma caja exacta que Apple (220×60). El SVG oficial de Microsoft tiene
+   ratio 3.66 — prácticamente el mismo que 220/60 (3.67), así que llena
+   la caja casi por completo sin aire vacío. */
 .store-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   box-sizing: border-box;
   width: 220px;
   height: 60px;
-  padding: 0 18px;
-  border-radius: 12px;
-  background: #000;
-  color: #fff;
-  border: 1px solid #000;
-  text-decoration: none;
   vertical-align: middle;
-  transition: transform .2s ease, background .15s ease;
-  white-space: nowrap;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable', system-ui, sans-serif;
+  transition: transform .2s ease;
+  line-height: 0;
 }
-.store-badge:hover {
-  background: #1a1a1a;
-  transform: translateY(-1px);
-}
-.is-disabled {
+.store-badge:hover { transform: translateY(-1px); }
+.store-badge.is-disabled {
   pointer-events: none;
   cursor: default;
 }
-.store-badge-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-}
-.store-badge-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-}
-.store-badge-text {
-  display: inline-flex;
-  flex-direction: column;
-  line-height: 1.05;
-  letter-spacing: -0.005em;
-  min-width: 0;
-}
-.store-badge-sup {
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.95;
-  margin-bottom: 2px;
-}
-.store-badge-main {
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+.store-badge img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 </style>
