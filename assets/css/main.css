@@ -46,16 +46,16 @@ body {
   color: var(--text);
 }
 .h-section {
-  font-size: clamp(40px, 5.6vw, 72px);
-  line-height: 1.07;
-  letter-spacing: -0.022em;
+  font-size: clamp(34px, 4.4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   font-weight: 600;
   color: var(--text);
 }
 .h-feature {
-  font-size: clamp(32px, 4.4vw, 56px);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.018em;
   font-weight: 600;
   color: var(--text);
 }
