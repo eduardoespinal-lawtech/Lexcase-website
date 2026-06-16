@@ -1,18 +1,19 @@
 <script setup lang="ts">
 withDefaults(defineProps<{ href?: string }>(), {
-  href: 'https://apps.apple.com/'
+  href: 'https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324'
 })
 
 const { locale } = useI18n()
 
-/* Imagen oficial servida desde el CDN de Apple. */
+/* Imagen oficial servida desde el CDN de Apple Marketing Tools.
+   Locale: es-es | en-us. */
 const badgeSrc = computed(() => {
   const loc = locale.value === 'es' ? 'es-es' : 'en-us'
-  return `https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/${loc}?releaseDate=1750982400`
+  return `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/${loc}?releaseDate=1780012800`
 })
 
 const alt = computed(() =>
-  locale.value === 'es' ? 'Descargar en la Mac App Store' : 'Download on the Mac App Store'
+  locale.value === 'es' ? 'Descargar en el App Store' : 'Download on the App Store'
 )
 </script>
 
@@ -29,15 +30,15 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Caja idéntica al badge de Microsoft (220×60). La imagen oficial se ajusta
-   dentro con object-fit contain sin distorsionar. */
+/* Caja idéntica al badge de Microsoft. Imagen oficial encajada con
+   object-fit contain. */
 .store-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 260px;
-  height: 68px;
+  width: 246px;
+  height: 82px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
@@ -45,10 +46,8 @@ const alt = computed(() =>
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 246px;
+  height: 82px;
   object-fit: contain;
 }
 </style>

@@ -40,8 +40,8 @@ const alt = computed(() =>
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 260px;
-  height: 68px;
+  width: 246px;
+  height: 82px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
@@ -53,10 +53,8 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 246px;
+  height: 82px;
   object-fit: contain;
 }
 </style>
