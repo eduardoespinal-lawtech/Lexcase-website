@@ -18,7 +18,7 @@ const alt = computed(() =>
 <template>
   <a
     :href="href"
-    class="store-button"
+    class="store-badge"
     rel="noopener"
     target="_blank"
     :aria-label="alt"
@@ -28,23 +28,21 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Sin fondo propio del contenedor — el SVG oficial de Apple ya trae su
-   botón negro con sus propias esquinas redondeadas. Si añadimos un fondo
-   adicional al contenedor, aparece una franja/raya alrededor del SVG.
-   Solo controlamos la altura; el ancho lo dicta la proporción nativa. */
-.store-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 52px;
-  background: transparent;
+/* Tamaño idéntico al badge de Microsoft: mismo ancho fijo, alto natural
+   según la proporción nativa del SVG. Aliniados por su centro vertical
+   en el contenedor flex padre. Sin fondo, sin borde — el SVG ya lleva
+   su propio botón con esquinas redondeadas. */
+.store-badge {
+  display: inline-block;
+  width: 175px;
+  line-height: 0;
   transition: transform .2s ease;
   vertical-align: middle;
 }
-.store-button:hover { transform: translateY(-1px); }
-.store-button img {
+.store-badge:hover { transform: translateY(-1px); }
+.store-badge img {
   display: block;
-  height: 52px;
-  width: auto;
+  width: 100%;
+  height: auto;
 }
 </style>
