@@ -32,16 +32,12 @@ const alt = computed(() =>
 
 <style scoped>
 /* Caja idéntica al badge de Apple — misma huella exacta. */
-/* Caja idéntica a la huella natural del badge de Apple a height 72px.
-   - Apple SVG ratio 3.9025 (156.10054/40) → ancho natural 72 × 3.9025 = 281px.
-   - Microsoft SVG ratio 3.6591 (161/44) — más estrecho de fábrica.
-   Forzamos a Microsoft a 281×72 con object-fit contain para que el bounding
-   box sea idéntico al Apple. El SVG queda centrado dentro sin distorsión. */
+/* Misma altura exacta que Apple. Ancho natural según la proporción del SVG
+   oficial (ratio 3.66 → ~263px de ancho). Sin caja forzada, sin aire vacío
+   interno — el SVG se ve a su tamaño nativo. */
 .store-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 281px;
   height: 72px;
   vertical-align: middle;
   transition: transform .2s ease;
@@ -54,10 +50,7 @@ const alt = computed(() =>
 }
 .store-badge img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  height: 72px;
   width: auto;
-  height: auto;
-  object-fit: contain;
 }
 </style>
