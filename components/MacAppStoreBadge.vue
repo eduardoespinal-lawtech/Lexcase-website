@@ -1,16 +1,18 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ href?: string; compact?: boolean }>(), {
+const props = withDefaults(defineProps<{ href?: string; compact?: boolean; light?: boolean }>(), {
   href: 'https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324',
-  compact: false
+  compact: false,
+  light: false
 })
 
 const { locale } = useI18n()
 
-/* Imagen oficial servida desde el CDN de Apple Marketing Tools.
-   Locale: es-es | en-us. */
+/* Imagen oficial servida desde el CDN de Apple Marketing Tools (sin alterar).
+   Variante blanca sobre fondos oscuros, negra sobre claros. Locale: es-es | en-us. */
 const badgeSrc = computed(() => {
   const loc = locale.value === 'es' ? 'es-es' : 'en-us'
-  return `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/${loc}?releaseDate=1780012800`
+  const variant = props.light ? 'white' : 'black'
+  return `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/${variant}/${loc}?releaseDate=1780012800`
 })
 
 const alt = computed(() =>
@@ -32,20 +34,19 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Caja idéntica al badge de Microsoft. Imagen oficial encajada con
-   object-fit contain. */
+/* Caja idéntica al badge de Microsoft. Imagen oficial encajada con object-fit. */
 .store-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 246px;
-  height: 82px;
+  width: 200px;
+  height: 67px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
 }
-.store-badge.is-compact { width: 168px; height: 56px; }
+.store-badge.is-compact { width: 160px; height: 54px; }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge img {
   display: block;

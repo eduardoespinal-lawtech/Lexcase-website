@@ -34,9 +34,10 @@ const sections = computed(() => [
 <template>
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <p class="site-footer-availability">
-        {{ t('footer.availability') }}
-      </p>
+      <div class="site-footer-top">
+        <AppDownload light compact />
+        <p class="site-footer-availability">{{ t('footer.availability') }}</p>
+      </div>
 
       <hr class="site-footer-hr" />
 
@@ -64,7 +65,7 @@ const sections = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #071026;
+  background: #180A15;
   color: rgba(255, 255, 255, 0.60);
   font-size: 12px;
   line-height: 1.5;
@@ -74,10 +75,18 @@ const sections = computed(() => [
   margin: 0 auto;
   padding: 30px 22px;
 }
+.site-footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
 .site-footer-availability {
-  margin: 0 0 18px;
+  margin: 0;
   font-size: 12px;
   letter-spacing: -0.005em;
+  max-width: 460px;
 }
 .site-footer-hr {
   border: 0;

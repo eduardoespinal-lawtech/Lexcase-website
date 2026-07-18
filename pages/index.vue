@@ -17,8 +17,6 @@ useHead(() => ({
   ]
 }))
 
-const APP_STORE = 'https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324'
-
 /* Seis tipos de expediente — cada uno con su icono de línea (sin capturas). */
 const types = computed(() => [
   { label: t('home.tabJudicial'),       sub: t('home.tabJudicialSub'),       paths: ['m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8', 'm16 16 6-6', 'm8 8 6-6', 'm9 7 8 8', 'm21 11-8-8'] },
@@ -42,10 +40,7 @@ const types = computed(() => [
       <p class="hero-sub">{{ t('home.heroSubtitle') }}</p>
 
       <div class="hero-ctas">
-        <a :href="APP_STORE" class="btn-pill btn-pill-light" target="_blank" rel="noopener">
-          {{ t('common.downloadMac') }}
-        </a>
-        <span class="hero-coming">{{ t('common.comingSoonWin') }}</span>
+        <AppDownload light center />
       </div>
 
       <ul class="hero-trust" aria-label="Highlights">
@@ -149,9 +144,8 @@ const types = computed(() => [
       <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
       <h2 class="h-section mt-1">{{ t('home.ctaSectionTitle') }}</h2>
       <p class="subtitle mt-5 mx-auto" style="max-width: 640px;">{{ t('home.ctaSectionBody') }}</p>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-        <a :href="APP_STORE" class="btn-pill btn-pill-light" target="_blank" rel="noopener">{{ t('common.downloadMac') }}</a>
-        <span class="text-[15px]" style="color: rgba(255,255,255,0.6);">{{ t('common.comingSoonWin') }}</span>
+      <div class="mt-10 flex justify-center">
+        <AppDownload light center />
       </div>
     </div>
   </section>

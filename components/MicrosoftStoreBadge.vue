@@ -1,20 +1,23 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ href?: string; comingSoon?: boolean; compact?: boolean }>(), {
+const props = withDefaults(defineProps<{ href?: string; comingSoon?: boolean; compact?: boolean; light?: boolean }>(), {
   href: 'https://apps.microsoft.com/',
   comingSoon: true,
-  compact: false
+  compact: false,
+  light: false
 })
 
 const { locale } = useI18n()
 
-/* Imagen oficial servida desde el CDN de Microsoft. */
+/* Imagen oficial servida desde el CDN de Microsoft (sin alterar).
+   Variante clara sobre fondos oscuros, oscura sobre claros. */
 const badgeSrc = computed(() => {
   const loc = locale.value === 'es' ? 'es' : 'en-us'
-  return `https://get.microsoft.com/images/${loc}%20dark.svg`
+  const variant = props.light ? 'light' : 'dark'
+  return `https://get.microsoft.com/images/${loc}%20${variant}.svg`
 })
 
 const alt = computed(() =>
-  locale.value === 'es' ? 'Obtener en Microsoft Store' : 'Get it from Microsoft'
+  locale.value === 'es' ? 'Consíguelo en Microsoft Store' : 'Get it from Microsoft'
 )
 </script>
 
@@ -33,28 +36,26 @@ const alt = computed(() =>
 </template>
 
 <style scoped>
-/* Misma caja exacta que Apple (246×82). El SVG oficial de Microsoft trae
-   ~12% de padding transparente interno alrededor del botón visible. Lo
-   compensamos: la caja recorta cualquier overflow (overflow:hidden) y
-   escalamos el SVG por 1.08, lo que efectivamente "muerde" ese padding
-   interno y hace que el botón visible llegue al mismo ancho que Apple. */
+/* Misma caja que Apple. El SVG oficial trae ~padding transparente interno;
+   overflow:hidden + scale(1.08) lo compensan para igualar el ancho visible. */
 .store-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 246px;
-  height: 82px;
+  width: 200px;
+  height: 67px;
   vertical-align: middle;
   transition: transform .2s ease;
   line-height: 0;
   overflow: hidden;
 }
-.store-badge.is-compact { width: 168px; height: 56px; }
+.store-badge.is-compact { width: 160px; height: 54px; }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge.is-disabled {
   pointer-events: none;
   cursor: default;
+  opacity: 0.55;
 }
 .store-badge img {
   display: block;

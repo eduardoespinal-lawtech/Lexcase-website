@@ -5,7 +5,8 @@
     "comingSoonWin": "Windows coming soon",
     "learnMore": "Learn more",
     "tryNow": "Try Lexbell",
-    "viewFeatures": "View features"
+    "viewFeatures": "View features",
+    "availabilityNote": "macOS 11 or later · Windows coming soon"
   },
   "nav": {
     "home": "Home",
@@ -19,7 +20,7 @@
     "close": "Close menu"
   },
   "seo": {
-    "defaultDescription": "Lexbell is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your Mac."
+    "defaultDescription": "Lexbell is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your device, for Mac and Windows."
   },
   "footer": {
     "availability": "Lexbell is available for macOS 11 Big Sur or later. A Windows 11 version is coming soon.",
@@ -32,7 +33,7 @@
     "heroEyebrow": "Lexbell",
     "heroTitle": "Your practice,",
     "heroTitle2": "organized to the detail.",
-    "heroSubtitle": "Cases, contacts, deadlines and finances in one native Mac app. For attorneys, real estate offices, immigration consultants and any professional handling case records. All local, no external cloud.",
+    "heroSubtitle": "Cases, contacts, deadlines and finances in one native desktop app. For attorneys, real estate offices, immigration consultants and any professional handling case records. All local, no external cloud.",
     "audienceEyebrow": "Made for the work you do",
     "audienceTitle": "If case records are your day, this is for you.",
     "audienceBody": "Lexbell was built for professionals who live between documents, deadlines and clients. The same app fits a law firm, a real estate office or an immigration consultancy — each case type with the right fields.",

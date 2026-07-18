@@ -5,7 +5,8 @@
     "comingSoonWin": "Windows próximamente",
     "learnMore": "Más información",
     "tryNow": "Probar Lexbell",
-    "viewFeatures": "Ver características"
+    "viewFeatures": "Ver características",
+    "availabilityNote": "macOS 11 o superior · Windows próximamente"
   },
   "nav": {
     "home": "Inicio",
@@ -19,7 +20,7 @@
     "close": "Cerrar menú"
   },
   "seo": {
-    "defaultDescription": "Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac."
+    "defaultDescription": "Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu equipo, para Mac y Windows."
   },
   "footer": {
     "availability": "Lexbell está disponible para macOS 11 Big Sur o superior. La versión para Windows 11 llegará próximamente.",
@@ -32,7 +33,7 @@
     "heroEyebrow": "Lexbell",
     "heroTitle": "Tu práctica,",
     "heroTitle2": "ordenada al detalle.",
-    "heroSubtitle": "Expedientes, contactos, plazos y finanzas en una sola app nativa de Mac. Para abogados, inmobiliarias, consultores migratorios y todo profesional que maneja expedientes. Todo local, sin nube ajena.",
+    "heroSubtitle": "Expedientes, contactos, plazos y finanzas en una sola app de escritorio nativa. Para abogados, inmobiliarias, consultores migratorios y todo profesional que maneja expedientes. Todo local, sin nube ajena.",
     "audienceEyebrow": "Para quien lo necesita",
     "audienceTitle": "Si tu día son los expedientes, esto es para ti.",
     "audienceBody": "Lexbell fue pensado para profesionales que viven entre documentos, plazos y clientes. La misma app sirve para una firma legal, una inmobiliaria o una consultoría migratoria — cada tipo de expediente con sus campos correctos.",
