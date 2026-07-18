@@ -39,7 +39,7 @@ const available = computed(() =>
   letter-spacing: -0.005em;
 }
 .lang-link {
-  color: #1d1d1f;
+  color: #ffffff;
   opacity: 0.55;
   text-decoration: none;
   transition: opacity .15s ease;
@@ -50,7 +50,7 @@ const available = computed(() =>
   font-weight: 500;
 }
 .lang-sep {
-  color: #1d1d1f;
+  color: #ffffff;
   opacity: 0.25;
   user-select: none;
 }

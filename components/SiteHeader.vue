@@ -19,7 +19,7 @@ const links = computed(() => [
   <header class="site-header">
     <div class="site-header-inner">
       <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
-        <LogoMark :size="20" />
+        <LogoMark :size="20" light />
       </NuxtLink>
 
       <nav class="site-header-nav" aria-label="Primary">
@@ -75,10 +75,10 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(10, 21, 56, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .site-header-inner {
   max-width: 1240px;
@@ -94,7 +94,7 @@ const links = computed(() => [
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #1d1d1f;
+  color: #fff;
 }
 .site-header-nav {
   display: none;
@@ -108,7 +108,7 @@ const links = computed(() => [
 }
 .site-header-link {
   font-size: 12px;
-  color: #1d1d1f;
+  color: #fff;
   text-decoration: none;
   opacity: 0.88;
   transition: opacity .15s ease;
@@ -129,16 +129,16 @@ const links = computed(() => [
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  color: #1d1d1f;
+  color: #fff;
 }
-.site-header-burger:hover { background: rgba(0, 0, 0, 0.05); }
+.site-header-burger:hover { background: rgba(255, 255, 255, 0.08); }
 @media (min-width: 833px) {
   .site-header-burger { display: none; }
 }
 
 .site-header-mobile {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 21, 56, 0.94);
 }
 .site-header-mobile-inner {
   max-width: 1240px;
@@ -150,9 +150,9 @@ const links = computed(() => [
 .site-header-mobile-link {
   padding: 10px 0;
   font-size: 17px;
-  color: #1d1d1f;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .site-header-mobile-link:last-child { border-bottom: 0; }
 

@@ -64,8 +64,8 @@ const sections = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #f5f5f7;
-  color: #6e6e73;
+  background: #071026;
+  color: rgba(255, 255, 255, 0.60);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -81,7 +81,7 @@ const sections = computed(() => [
 }
 .site-footer-hr {
   border: 0;
-  border-top: 1px solid #d2d2d7;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
   margin: 18px 0;
 }
 .site-footer-cols {
@@ -95,7 +95,7 @@ const sections = computed(() => [
 .site-footer-h4 {
   font-size: 12px;
   font-weight: 600;
-  color: #1d1d1f;
+  color: #ffffff;
   margin: 0 0 10px;
   letter-spacing: -0.005em;
 }
@@ -108,10 +108,10 @@ const sections = computed(() => [
   gap: 6px;
 }
 .site-footer-link {
-  color: #6e6e73;
+  color: rgba(255, 255, 255, 0.60);
   text-decoration: none;
 }
-.site-footer-link:hover { color: #1d1d1f; text-decoration: underline; }
+.site-footer-link:hover { color: #ffffff; text-decoration: underline; }
 .site-footer-base {
   display: flex;
   flex-wrap: wrap;
