@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lexcase.com.do/sitemap.xml
+Sitemap: https://lex-bell.com/sitemap.xml

@@ -17,7 +17,7 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
       stroke-linecap="round"
       stroke-linejoin="round"
       :class="light ? 'text-white' : 'text-ink'"
-      aria-label="Lexcase"
+      aria-label="Lexbell"
       role="img"
     >
       <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -26,6 +26,6 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
     <span
       class="font-semibold tracking-tight text-[17px] leading-none"
       :class="light ? 'text-white' : 'text-ink'"
-    >Lexcase</span>
+    >Lexbell</span>
   </span>
 </template>

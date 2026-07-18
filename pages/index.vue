@@ -3,29 +3,29 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 useHead(() => ({
-  title: 'Lexcase — Apple-style legal practice for Mac',
+  title: 'Lexbell — Apple-style legal practice for Mac',
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
-    { property: 'og:title', content: 'Lexcase' },
+    { property: 'og:title', content: 'Lexbell' },
     { property: 'og:description', content: t('home.heroSubtitle') },
-    { property: 'og:url', content: locale.value === 'es' ? 'https://lexcase.com.do/' : 'https://lexcase.com.do/en' }
+    { property: 'og:url', content: locale.value === 'es' ? 'https://lex-bell.com/' : 'https://lex-bell.com/en' }
   ],
   link: [
-    { rel: 'alternate', hreflang: 'es', href: 'https://lexcase.com.do/' },
-    { rel: 'alternate', hreflang: 'en', href: 'https://lexcase.com.do/en' },
-    { rel: 'alternate', hreflang: 'x-default', href: 'https://lexcase.com.do/' }
+    { rel: 'alternate', hreflang: 'es', href: 'https://lex-bell.com/' },
+    { rel: 'alternate', hreflang: 'en', href: 'https://lex-bell.com/en' },
+    { rel: 'alternate', hreflang: 'x-default', href: 'https://lex-bell.com/' }
   ]
 }))
 
 /* Pestañas por tipo de expediente real — cada una con su captura del
    demo data y su subtítulo describiendo los campos jurídicos específicos. */
 const audiences = computed(() => [
-  { id: 'judicial',       label: t('home.tabJudicial'),       subtitle: t('home.tabJudicialSub'),       img: '/screenshots/judicial.png',       alt: 'Lexcase con caso judicial Pérez vs. Banco Popular' },
-  { id: 'administrativo', label: t('home.tabAdministrativo'), subtitle: t('home.tabAdministrativoSub'), img: '/screenshots/administrativo.png', alt: 'Lexcase con recurso contencioso tributario ante la DGII' },
-  { id: 'migracion',      label: t('home.tabMigracion'),      subtitle: t('home.tabMigracionSub'),      img: '/screenshots/migracion.png',      alt: 'Lexcase con caso migratorio NVC Rodríguez' },
-  { id: 'empresa',        label: t('home.tabEmpresa'),        subtitle: t('home.tabEmpresaSub'),        img: '/screenshots/empresa.png',        alt: 'Lexcase con constitución de sociedad Importadora del Caribe SRL' },
-  { id: 'alquiler',       label: t('home.tabAlquiler'),       subtitle: t('home.tabAlquilerSub'),       img: '/screenshots/alquiler.png',       alt: 'Lexcase con contrato de alquiler Av. Anacaona 38' },
-  { id: 'compraventa',    label: t('home.tabCompraventa'),    subtitle: t('home.tabCompraventaSub'),    img: '/screenshots/compraventa.png',    alt: 'Lexcase con compraventa de apartamento Bella Vista' }
+  { id: 'judicial',       label: t('home.tabJudicial'),       subtitle: t('home.tabJudicialSub'),       img: '/screenshots/judicial.png',       alt: 'Lexbell con caso judicial Pérez vs. Banco Popular' },
+  { id: 'administrativo', label: t('home.tabAdministrativo'), subtitle: t('home.tabAdministrativoSub'), img: '/screenshots/administrativo.png', alt: 'Lexbell con recurso contencioso tributario ante la DGII' },
+  { id: 'migracion',      label: t('home.tabMigracion'),      subtitle: t('home.tabMigracionSub'),      img: '/screenshots/migracion.png',      alt: 'Lexbell con caso migratorio NVC Rodríguez' },
+  { id: 'empresa',        label: t('home.tabEmpresa'),        subtitle: t('home.tabEmpresaSub'),        img: '/screenshots/empresa.png',        alt: 'Lexbell con constitución de sociedad Importadora del Caribe SRL' },
+  { id: 'alquiler',       label: t('home.tabAlquiler'),       subtitle: t('home.tabAlquilerSub'),       img: '/screenshots/alquiler.png',       alt: 'Lexbell con contrato de alquiler Av. Anacaona 38' },
+  { id: 'compraventa',    label: t('home.tabCompraventa'),    subtitle: t('home.tabCompraventaSub'),    img: '/screenshots/compraventa.png',    alt: 'Lexbell con compraventa de apartamento Bella Vista' }
 ])
 const activeId = ref('judicial')
 const active = computed(() => audiences.value.find(a => a.id === activeId.value) || audiences.value[0])
@@ -62,7 +62,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
 
       <div class="apple-hero-ctas">
         <a
-          href="https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
+          href="https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
           class="btn-pill btn-pill-primary"
           target="_blank"
           rel="noopener"
@@ -110,7 +110,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
       <div class="mockup-float rounded-[18px] overflow-hidden">
         <img
           src="/screenshots/expedientes.png"
-          alt="Detalle de expediente Recurso Contencioso Tributario en Lexcase"
+          alt="Detalle de expediente Recurso Contencioso Tributario en Lexbell"
           class="block w-full h-auto"
           loading="lazy"
           width="1600"
@@ -134,7 +134,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
       <div class="mockup-float rounded-[18px] overflow-hidden lg:order-1">
         <img
           src="/screenshots/clientes.png"
-          alt="Directorio de clientes en Lexcase con cartera de contactos"
+          alt="Directorio de clientes en Lexbell con cartera de contactos"
           class="block w-full h-auto"
           loading="lazy"
           width="1600"
@@ -158,7 +158,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
       <div class="mockup-float rounded-[18px] overflow-hidden">
         <img
           src="/screenshots/finanzas.png"
-          alt="Vista de finanzas en Lexcase con KPIs y tasa BCRD"
+          alt="Vista de finanzas en Lexbell con KPIs y tasa BCRD"
           class="block w-full h-auto"
           loading="lazy"
           width="1600"
@@ -201,7 +201,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
         <a
-          href="https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
+          href="https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324"
           class="link-apple"
           target="_blank"
           rel="noopener"

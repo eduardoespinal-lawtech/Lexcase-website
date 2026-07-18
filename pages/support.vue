@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 definePageMeta({ name: 'support' })
 
 useHead(() => ({
-  title: `${t('support.title')} — Lexcase`,
+  title: `${t('support.title')} — Lexbell`,
   meta: [{ name: 'description', content: t('support.subtitle') }]
 }))
 </script>
@@ -31,10 +31,10 @@ useHead(() => ({
       <article class="support-card">
         <h2 class="support-title">{{ t('support.emailTitle') }}</h2>
         <p class="support-body">{{ t('support.emailBody') }}</p>
-        <a href="mailto:support@lexcase.com.do" class="link-apple mt-5">
+        <a href="mailto:soporte@lex-bell.com" class="link-apple mt-5">
           {{ t('support.emailLabel') }}
         </a>
-        <p class="support-mail">support@lexcase.com.do</p>
+        <p class="support-mail">soporte@lex-bell.com</p>
       </article>
 
       <article class="support-card">
@@ -50,10 +50,10 @@ useHead(() => ({
       <article class="support-card">
         <h2 class="support-title">{{ t('support.winTitle') }}</h2>
         <p class="support-body">{{ t('support.winBody') }}</p>
-        <a href="mailto:support@lexcase.com.do" class="link-apple mt-5">
+        <a href="mailto:soporte@lex-bell.com" class="link-apple mt-5">
           {{ t('support.emailLabel') }}
         </a>
-        <p class="support-mail">support@lexcase.com.do</p>
+        <p class="support-mail">soporte@lex-bell.com</p>
       </article>
     </div>
   </section>

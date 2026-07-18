@@ -1,6 +1,6 @@
 <script setup lang="ts">
 withDefaults(defineProps<{ href?: string; compact?: boolean }>(), {
-  href: 'https://apps.apple.com/us/app/lexcase/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324',
+  href: 'https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324',
   compact: false
 })
 

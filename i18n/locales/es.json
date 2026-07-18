@@ -1,10 +1,10 @@
 {
   "common": {
-    "brand": "Lexcase",
+    "brand": "Lexbell",
     "downloadMac": "Descargar para Mac",
     "comingSoonWin": "Windows próximamente",
     "learnMore": "Más información",
-    "tryNow": "Probar Lexcase",
+    "tryNow": "Probar Lexbell",
     "viewFeatures": "Ver características"
   },
   "nav": {
@@ -19,23 +19,23 @@
     "close": "Cerrar menú"
   },
   "seo": {
-    "defaultDescription": "Lexcase es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac."
+    "defaultDescription": "Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac."
   },
   "footer": {
-    "availability": "Lexcase está disponible para macOS 11 Big Sur o superior. La versión para Windows 11 llegará próximamente.",
+    "availability": "Lexbell está disponible para macOS 11 Big Sur o superior. La versión para Windows 11 llegará próximamente.",
     "product": "Producto",
     "contact": "Contacto",
     "legal": "Legal",
     "rights": "Todos los derechos reservados."
   },
   "home": {
-    "heroEyebrow": "Lexcase",
+    "heroEyebrow": "Lexbell",
     "heroTitle": "Tu práctica,",
     "heroTitle2": "ordenada al detalle.",
     "heroSubtitle": "Expedientes, contactos, plazos y finanzas en una sola app nativa de Mac. Para abogados, inmobiliarias, consultores migratorios y todo profesional que maneja expedientes. Todo local, sin nube ajena.",
     "audienceEyebrow": "Para quien lo necesita",
     "audienceTitle": "Si tu día son los expedientes, esto es para ti.",
-    "audienceBody": "Lexcase fue pensado para profesionales que viven entre documentos, plazos y clientes. La misma app sirve para una firma legal, una inmobiliaria o una consultoría migratoria — cada tipo de expediente con sus campos correctos.",
+    "audienceBody": "Lexbell fue pensado para profesionales que viven entre documentos, plazos y clientes. La misma app sirve para una firma legal, una inmobiliaria o una consultoría migratoria — cada tipo de expediente con sus campos correctos.",
     "audience1Title": "Abogados",
     "audience1Body": "Casos judiciales y administrativos con tribunal, contraparte, audiencias y próximas gestiones organizadas.",
     "audience2Title": "Inmobiliarias",
@@ -79,7 +79,7 @@
     "section4Point2": "Respaldos automáticos a la carpeta que elijas",
     "section4Point3": "Exportación e importación en JSON cuando quieras",
     "ctaSectionEyebrow": "Empieza hoy",
-    "ctaSectionTitle": "Descarga Lexcase.",
+    "ctaSectionTitle": "Descarga Lexbell.",
     "ctaSectionBody": "Disponible para Mac. Próximamente en Windows."
   },
   "features": {
@@ -136,7 +136,7 @@
 
     "sp3Eyebrow": "Finanzas",
     "sp3Title": "Honorarios en DOP, USD o EUR.",
-    "sp3Body": "Lexcase consulta la tasa oficial del Banco Central de la República Dominicana y convierte automáticamente. KPIs de ganado, perdido, por cobrar y balance — por expediente y agregados.",
+    "sp3Body": "Lexbell consulta la tasa oficial del Banco Central de la República Dominicana y convierte automáticamente. KPIs de ganado, perdido, por cobrar y balance — por expediente y agregados.",
 
     "sp4Eyebrow": "Privacidad por diseño",
     "sp4Title": "Tus datos viven en tu Mac. Punto.",
@@ -177,7 +177,7 @@
   },
   "contact": {
     "title": "Hablemos.",
-    "subtitle": "Para cualquier consulta sobre Lexcase, soporte técnico, alianzas o privacidad de datos, escríbenos directo. No usamos formularios — preferimos un canal humano.",
+    "subtitle": "Para cualquier consulta sobre Lexbell, soporte técnico, alianzas o privacidad de datos, escríbenos directo. No usamos formularios — preferimos un canal humano.",
     "emailTitle": "Correo principal",
     "emailHint": "Soporte, ventas y privacidad",
     "responseTitle": "Tiempo de respuesta",
@@ -187,36 +187,36 @@
   },
   "faq": {
     "title": "Lo que más nos preguntan.",
-    "subtitle": "Las respuestas más comunes sobre Lexcase, su modelo de privacidad y cómo se compara con otros gestores legales.",
+    "subtitle": "Las respuestas más comunes sobre Lexbell, su modelo de privacidad y cómo se compara con otros gestores legales.",
     "q1": "¿Mis expedientes se suben a alguna nube?",
-    "a1": "No. Toda la información vive dentro del contenedor sandbox de la aplicación en tu propia Mac (~/Library/Containers/com.lexcaserd.app/). Lexcase no tiene servidores nuestros. La única conexión a internet que hace es opcional: consulta la tasa de cambio pública del Banco Central de la República Dominicana.",
-    "q2": "¿Lexcase funciona sin conexión a internet?",
-    "a2": "Sí. Lexcase funciona completamente offline. La única función que requiere internet es la actualización de la tasa de cambio del BCRD para la sección de Finanzas, y se puede usar la última tasa guardada en caché si no hay conexión.",
+    "a1": "No. Toda la información vive dentro del contenedor sandbox de la aplicación en tu propia Mac (~/Library/Containers/com.eduardoespinal.lexbell/). Lexbell no tiene servidores nuestros. La única conexión a internet que hace es opcional: consulta la tasa de cambio pública del Banco Central de la República Dominicana.",
+    "q2": "¿Lexbell funciona sin conexión a internet?",
+    "a2": "Sí. Lexbell funciona completamente offline. La única función que requiere internet es la actualización de la tasa de cambio del BCRD para la sección de Finanzas, y se puede usar la última tasa guardada en caché si no hay conexión.",
     "q3": "¿En qué versiones de macOS funciona?",
-    "a3": "Lexcase requiere macOS 11 Big Sur o superior. Funciona de forma nativa en Macs con chip Apple Silicon (M1, M2, M3, M4) y en Macs Intel.",
+    "a3": "Lexbell requiere macOS 11 Big Sur o superior. Funciona de forma nativa en Macs con chip Apple Silicon (M1, M2, M3, M4) y en Macs Intel.",
     "q4": "¿Habrá versión para Windows?",
     "a4": "Sí, estamos trabajando en una versión para Windows 11. Si quieres que te avisemos en cuanto esté disponible, escríbenos al correo de soporte.",
     "q5": "¿Cómo hago respaldos de mis datos?",
-    "a5": "Lexcase puede hacer respaldos automáticos diarios, semanales o mensuales en la carpeta que tú elijas. Además puedes exportar manualmente toda tu base de datos en formato JSON desde Configuración, e importarla cuando quieras.",
+    "a5": "Lexbell puede hacer respaldos automáticos diarios, semanales o mensuales en la carpeta que tú elijas. Además puedes exportar manualmente toda tu base de datos en formato JSON desde Configuración, e importarla cuando quieras.",
     "q6": "¿Qué pasa si dejo de usar la aplicación?",
     "a6": "Tus datos son siempre tuyos. Puedes exportarlos a JSON en cualquier momento. Si eliminas la aplicación de tu Mac, el contenedor sandbox se elimina y con él toda la información local — por eso recomendamos exportar antes de desinstalar.",
-    "q7": "¿Lexcase está pensada solo para República Dominicana?",
-    "a7": "Lexcase está optimizada para la práctica jurídica en República Dominicana, pero incluye soporte específico para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
+    "q7": "¿Lexbell está pensada solo para República Dominicana?",
+    "a7": "Lexbell está optimizada para la práctica jurídica en República Dominicana, pero incluye soporte específico para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Qué métodos de pago aceptarán cuando salga la versión paga?",
     "a8": "La versión actual está disponible mediante la Mac App Store, que gestiona los pagos en tu moneda local. No procesamos información de pago en nuestros servidores.",
     "q9": "¿Cómo se integra con el Calendario de macOS?",
-    "a9": "Lexcase ofrece sincronización opcional con el Calendario nativo de macOS. Cuando lo activas, tus audiencias y plazos aparecen como eventos normales del sistema y recibes alertas como cualquier otro evento.",
+    "a9": "Lexbell ofrece sincronización opcional con el Calendario nativo de macOS. Cuando lo activas, tus audiencias y plazos aparecen como eventos normales del sistema y recibes alertas como cualquier otro evento.",
     "q10": "¿Puedo trabajar en varias Macs?",
-    "a10": "Hoy Lexcase es una aplicación local por diseño. Si trabajas desde varias Macs, puedes mover la base de datos manualmente exportando e importando el archivo JSON. Estamos evaluando un servicio opcional de sincronización cifrada extremo a extremo para el futuro."
+    "a10": "Hoy Lexbell es una aplicación local por diseño. Si trabajas desde varias Macs, puedes mover la base de datos manualmente exportando e importando el archivo JSON. Estamos evaluando un servicio opcional de sincronización cifrada extremo a extremo para el futuro."
   },
   "privacy": {
     "title": "Política de Privacidad",
     "updated": "Última actualización: 14 de junio de 2026",
-    "intro": "ICLVS Legal Intelligence LLC (\"nosotros\") opera la aplicación de macOS Lexcase (la \"Aplicación\"). Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos y cuáles son tus derechos."
+    "intro": "ICLVS Legal Intelligence LLC (\"nosotros\") opera la aplicación de macOS Lexbell (la \"Aplicación\"). Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos y cuáles son tus derechos."
   },
   "terms": {
     "title": "Términos y Condiciones",
     "updated": "Última actualización: 15 de junio de 2026",
-    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de la aplicación de macOS Lexcase (la \"Aplicación\") provista por ICLVS Legal Intelligence LLC (\"nosotros\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
+    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de la aplicación de macOS Lexbell (la \"Aplicación\") provista por ICLVS Legal Intelligence LLC (\"nosotros\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
   }
 }

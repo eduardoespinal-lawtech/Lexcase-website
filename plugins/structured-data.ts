@@ -7,19 +7,19 @@ export default defineNuxtPlugin(() => {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
-          name: 'Lexcase',
+          name: 'Lexbell',
           description:
             'Gestor de expedientes legales nativo para macOS. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.',
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'macOS 11+',
-          url: 'https://lexcase.com.do',
+          url: 'https://lex-bell.com',
           inLanguage: ['es', 'en'],
           softwareVersion: '0.1.0',
           publisher: {
             '@type': 'Organization',
             name: 'ICLVS Legal Intelligence LLC',
-            email: 'support@lexcase.com.do',
-            url: 'https://lexcase.com.do'
+            email: 'soporte@lex-bell.com',
+            url: 'https://lex-bell.com'
           },
           offers: {
             '@type': 'Offer',

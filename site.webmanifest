@@ -1,6 +1,6 @@
 {
-  "name": "Lexcase",
-  "short_name": "Lexcase",
+  "name": "Lexbell",
+  "short_name": "Lexbell",
   "description": "Gestor de expedientes legales para macOS.",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },

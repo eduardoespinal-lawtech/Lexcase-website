@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* Reflejo fiel del layout real:
    sidebar navy 108px | aside crema #F6F2EC con lista | panel detalle blanco.
-   Color de selección activa = #1164A3 (Lexcase blue), no navy.
+   Color de selección activa = #1164A3 (Lexbell blue), no navy.
    Colores por tipo (TYPE_VIS de Clients.tsx): indigo/amber/emerald/rose/cyan/violet. */
 const cases = [
   { id: 'JD-0142', title: 'Pérez vs. Inversiones del Caribe', client: 'Pérez Solano, María', type: 'Judicial',       iconBg: 'bg-indigo-500/15',  iconColor: 'text-indigo-600' },

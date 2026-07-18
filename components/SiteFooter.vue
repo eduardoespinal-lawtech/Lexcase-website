@@ -18,7 +18,7 @@ const sections = computed(() => [
     title: t('footer.contact'),
     links: [
       { to: localePath('contact'), label: t('nav.contact') },
-      { href: 'mailto:support@lexcase.com.do', label: 'support@lexcase.com.do' }
+      { href: 'mailto:soporte@lex-bell.com', label: 'soporte@lex-bell.com' }
     ]
   },
   {
@@ -56,7 +56,7 @@ const sections = computed(() => [
 
       <div class="site-footer-base">
         <p>© {{ year }} ICLVS Legal Intelligence LLC. {{ t('footer.rights') }}</p>
-        <p>lexcase.com.do</p>
+        <p>lex-bell.com</p>
       </div>
     </div>
   </footer>

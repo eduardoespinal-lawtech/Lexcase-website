@@ -12,23 +12,23 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       htmlAttrs: { lang: 'es' },
-      title: 'Lexcase — Gestor de expedientes legales para Mac',
+      title: 'Lexbell — Gestor de expedientes legales para Mac',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#0E1D4A' },
-        { name: 'description', content: 'Lexcase es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.' },
+        { name: 'description', content: 'Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'Lexcase' },
-        { property: 'og:image', content: 'https://lexcase.com.do/og-image.svg' },
+        { property: 'og:site_name', content: 'Lexbell' },
+        { property: 'og:image', content: 'https://lex-bell.com/og-image.svg' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:image', content: 'https://lexcase.com.do/og-image.svg' }
+        { name: 'twitter:image', content: 'https://lex-bell.com/og-image.svg' }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'mask-icon', href: '/favicon.svg', color: '#0E1D4A' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        { rel: 'canonical', href: 'https://lexcase.com.do/' }
+        { rel: 'canonical', href: 'https://lex-bell.com/' }
       ]
     }
   },
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     ],
     langDir: 'locales/',
     detectBrowserLanguage: false,
-    baseUrl: 'https://lexcase.com.do',
+    baseUrl: 'https://lex-bell.com',
     customRoutes: 'config',
     pages: {
       features: { es: '/caracteristicas', en: '/features' },

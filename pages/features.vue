@@ -4,7 +4,7 @@ const { t, locale } = useI18n()
 definePageMeta({ name: 'features' })
 
 useHead(() => ({
-  title: `${t('features.title')} — Lexcase`,
+  title: `${t('features.title')} — Lexbell`,
   meta: [{ name: 'description', content: t('features.subtitle') }]
 }))
 
@@ -52,7 +52,7 @@ const tiles = computed(() => [
       <div class="mockup-float rounded-[22px] overflow-hidden">
         <img
           src="/screenshots/expedientes.png"
-          alt="Detalle de expediente en Lexcase"
+          alt="Detalle de expediente en Lexbell"
           class="block w-full h-auto"
           loading="lazy"
         />
@@ -71,7 +71,7 @@ const tiles = computed(() => [
       <div class="mockup-float rounded-[22px] overflow-hidden lg:order-1">
         <img
           src="/screenshots/plazos.png"
-          alt="Lista de plazos procesales en Lexcase"
+          alt="Lista de plazos procesales en Lexbell"
           class="block w-full h-auto"
           loading="lazy"
         />
