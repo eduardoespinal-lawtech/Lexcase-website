@@ -4,10 +4,10 @@
   "description": "Gestor de expedientes legales para macOS.",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
-    { "src": "/apple-touch-icon.svg", "sizes": "180x180", "type": "image/svg+xml" }
+    { "src": "/apple-touch-icon.png", "sizes": "1024x1024", "type": "image/png" }
   ],
   "start_url": "/",
-  "background_color": "#0E1D4A",
-  "theme_color": "#0E1D4A",
+  "background_color": "#1C0C1B",
+  "theme_color": "#AC56A0",
   "display": "standalone"
 }
