@@ -230,8 +230,26 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   align-items: center;
   min-height: calc(100vh - 48px);
   padding: clamp(56px, 12vh, 120px) 22px 0;
-  background: #fff;
+  background:
+    radial-gradient(120% 70% at 50% -10%, var(--brand-tint) 0%, rgba(238, 242, 255, 0) 55%),
+    #fff;
 }
+/* Resplandor navy difuso detrás de la captura — da profundidad sin ruido. */
+.apple-hero::before {
+  content: "";
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  width: min(1100px, 92vw);
+  height: 620px;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(45, 68, 152, 0.16) 0%, rgba(45, 68, 152, 0) 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+.apple-hero-content,
+.apple-hero-screenshot { position: relative; z-index: 1; }
 .apple-hero-content {
   text-align: center;
   max-width: 900px;
@@ -245,7 +263,13 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   color: #1d1d1f;
   margin: 0;
 }
-.apple-hero-title-smoke { color: #6e6e73; }
+/* Segunda línea del título en degradado de marca (navy → azul suave). */
+.apple-hero-title-smoke {
+  background: linear-gradient(120deg, var(--brand-deep) 0%, var(--accent) 50%, var(--accent-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .apple-hero-subtitle {
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.45;
@@ -330,7 +354,7 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   list-style: none;
   margin: 32px auto 0;
   padding: 0;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   font-size: 13px;

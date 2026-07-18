@@ -330,7 +330,7 @@ onMounted(() => {
 }
 .privacy-toc-link.is-active {
   color: #1d1d1f;
-  border-left-color: #0071e3;
+  border-left-color: var(--accent);
   font-weight: 500;
 }
 .privacy-toc-num {
@@ -340,7 +340,7 @@ onMounted(() => {
   font-variant-numeric: tabular-nums;
 }
 .privacy-toc-link.is-active .privacy-toc-num {
-  color: #0071e3;
+  color: var(--accent);
 }
 
 /* === Content card === */

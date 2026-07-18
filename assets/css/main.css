@@ -2,18 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === Apple-inspired design tokens ===
-   Paleta neutra: blanco / gris muy claro / casi negro / azul accent.
-   El navy oscuro queda solo dentro de la app real, no en el sitio. */
+/* === Design tokens — identidad Lexbell ===
+   Base clara estilo Apple (blanco / gris muy claro / casi negro) pero el
+   ACENTO es el navy de la marca (el mismo de la app), no el azul genérico de
+   Apple. Eso ancla el sitio a Lexbell en botones, enlaces, eyebrows y realces. */
 :root {
   --bg:          #ffffff;
-  --bg-section:  #f5f5f7;
+  --bg-section:  #f6f7fb;   /* gris con un pelín de azul, no neutro puro */
   --text:        #1d1d1f;
   --text-muted:  #6e6e73;
-  --accent:      #0071e3;
-  --accent-hover:#0077ed;
-  --link:        #0066cc;
-  --divider:     rgba(0, 0, 0, 0.08);
+  --accent:      #2D4498;   /* navy-500 — marca */
+  --accent-hover:#1F347C;   /* navy-600 */
+  --accent-soft: #4F65BC;   /* navy-400 — realces suaves */
+  --brand-deep:  #0E1D4A;   /* navy-800 — profundidad/sombra */
+  --brand-tint:  #EEF2FF;   /* navy-50 — fondos/burbujas */
+  --link:        #2D4498;
+  --divider:     rgba(14, 29, 74, 0.10);
 }
 
 html {
@@ -75,12 +79,13 @@ body {
 }
 .eyebrow {
   display: inline-block;
-  font-size: clamp(17px, 1.6vw, 21px);
+  font-size: 13px;
   line-height: 1.2;
-  letter-spacing: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
 }
 
 /* === Apple-style link === */
@@ -122,11 +127,23 @@ body {
   white-space: nowrap;
 }
 .btn-pill-primary {
-  background: var(--accent);
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--accent) 55%, var(--accent-hover) 100%);
   color: #fff;
+  font-weight: 500;
+  box-shadow:
+    0 1px 1px rgba(14, 29, 74, 0.20),
+    0 8px 22px rgba(45, 68, 152, 0.30);
 }
 .btn-pill-primary:hover {
-  background: var(--accent-hover);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 60%, var(--brand-deep) 100%);
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 3px rgba(14, 29, 74, 0.22),
+    0 12px 28px rgba(45, 68, 152, 0.36);
+}
+.btn-pill-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(14, 29, 74, 0.25);
 }
 .btn-pill-ghost {
   background: transparent;
@@ -164,11 +181,17 @@ body {
   padding-right: 22px;
 }
 
-/* === Mockup floating effect (Apple uses subtle shadow under devices) === */
+/* === Marco de "producto" bajo las capturas ===
+   Sombra difusa tintada de navy (no gris plano) + aro fino para que la captura
+   se lea como una pieza enmarcada, estilo Apple product shot. */
 .mockup-float {
-  filter:
-    drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12))
-    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.06));
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 0 0 1px rgba(14, 29, 74, 0.06),
+    0 2px 6px rgba(14, 29, 74, 0.05),
+    0 30px 60px -12px rgba(14, 29, 74, 0.22),
+    0 12px 24px -8px rgba(14, 29, 74, 0.12);
 }
 
 /* === Subtle focus for accessibility (keep visible only for keyboard) === */
