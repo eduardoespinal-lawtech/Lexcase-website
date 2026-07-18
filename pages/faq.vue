@@ -3,7 +3,7 @@ const { t } = useI18n()
 
 definePageMeta({ name: 'faq' })
 
-const items = computed(() => Array.from({ length: 10 }, (_, i) => ({
+const items = computed(() => Array.from({ length: 8 }, (_, i) => ({
   q: t(`faq.q${i + 1}`),
   a: t(`faq.a${i + 1}`)
 })))

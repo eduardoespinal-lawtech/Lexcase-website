@@ -3,7 +3,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 useHead(() => ({
-  title: 'Lexbell — Gestor de expedientes legales para Mac',
+  title: `Lexbell — ${t('home.heroTitle')} ${t('home.heroTitle2')}`,
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
     { property: 'og:title', content: 'Lexbell' },
@@ -91,9 +91,20 @@ const types = computed(() => [
               <rect width="20" height="14" x="2" y="7" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
             </svg>
           </span>
-          <h3 class="card-title">{{ t('features.groups.cases') }}</h3>
+          <h3 class="card-title">{{ t('home.cardCasesTitle') }}</h3>
           <p class="card-body" style="max-width: 640px;">{{ t('home.section1Body') }}</p>
           <NuxtLink :to="localePath('features')" class="link-apple mt-4 inline-flex">{{ t('common.learnMore') }}</NuxtLink>
+        </article>
+
+        <!-- Mapa de vínculos -->
+        <article class="bento-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </span>
+          <h3 class="card-title">{{ t('home.mapTitle') }}</h3>
+          <p class="card-body">{{ t('home.mapBody') }}</p>
         </article>
 
         <!-- Clientes -->
@@ -119,20 +130,14 @@ const types = computed(() => [
         </article>
 
         <!-- Privacidad -->
-        <article class="bento-card bento-wide">
+        <article class="bento-card">
           <span class="card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" />
             </svg>
           </span>
           <h3 class="card-title">{{ t('home.section4Title') }}</h3>
-          <p class="card-body" style="max-width: 640px;">{{ t('home.section4Body') }}</p>
-          <ul class="card-points">
-            <li v-for="p in [t('home.section4Point1'), t('home.section4Point2'), t('home.section4Point3')]" :key="p">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-              {{ p }}
-            </li>
-          </ul>
+          <p class="card-body">{{ t('home.section4Body') }}</p>
         </article>
       </div>
     </div>
@@ -143,8 +148,7 @@ const types = computed(() => [
     <div class="apple-wrap text-center" style="position: relative; z-index: 1;">
       <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
       <h2 class="h-section mt-1">{{ t('home.ctaSectionTitle') }}</h2>
-      <p class="subtitle mt-5 mx-auto" style="max-width: 640px;">{{ t('home.ctaSectionBody') }}</p>
-      <div class="mt-10 flex justify-center">
+      <div class="mt-8 flex justify-center">
         <AppDownload light center />
       </div>
     </div>

@@ -95,8 +95,26 @@ const tiles = computed(() => [
     </div>
   </section>
 
-  <!-- ========= SPOTLIGHT 4 · Privacidad (texto centrado, full-bleed minimal) ========= -->
+  <!-- ========= SPOTLIGHT 5 · Mapa de vínculos ========= -->
   <section class="section">
+    <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
+      <div class="lg:order-2">
+        <span class="eyebrow">{{ t('features.sp5Eyebrow') }}</span>
+        <h2 class="h-feature mt-2">{{ t('features.sp5Title') }}</h2>
+        <p class="subtitle mt-5">{{ t('features.sp5Body') }}</p>
+      </div>
+      <div class="spot-panel lg:order-1">
+        <span class="spot-badge" aria-hidden="true">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= SPOTLIGHT 4 · Privacidad (texto centrado, full-bleed minimal) ========= -->
+  <section class="section section-gray">
     <div class="apple-wrap text-center">
       <span class="eyebrow">{{ t('features.sp4Eyebrow') }}</span>
       <h2 class="h-section mt-2">{{ t('features.sp4Title') }}</h2>
@@ -120,7 +138,7 @@ const tiles = computed(() => [
   </section>
 
   <!-- ========= TILES · And everything else ========= -->
-  <section class="section section-gray">
+  <section class="section">
     <div class="apple-wrap text-center">
       <span class="eyebrow">{{ t('features.moreEyebrow') }}</span>
       <h2 class="h-section mt-2">{{ t('features.moreTitle') }}</h2>

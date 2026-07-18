@@ -26,7 +26,7 @@ useHead(() => ({
         <p>Al instalar o utilizar la Aplicación, declaras haber leído, entendido y aceptado estos Términos. Si no estás de acuerdo, no instales ni utilices la Aplicación.</p>
 
         <h2>2. Licencia de uso</h2>
-        <p>Te concedemos una licencia limitada, personal, no exclusiva, no transferible y revocable para instalar y usar la Aplicación en los dispositivos macOS sobre los cuales tengas control, exclusivamente para fines lícitos de tu práctica profesional.</p>
+        <p>Te concedemos una licencia limitada, personal, no exclusiva, no transferible y revocable para instalar y usar la Aplicación en los equipos (Mac o Windows) sobre los cuales tengas control, exclusivamente para fines lícitos de tu práctica profesional.</p>
         <p>Esta licencia <strong>no</strong> incluye los siguientes derechos:</p>
         <ul>
           <li>Copiar, distribuir o sublicenciar la Aplicación.</li>
@@ -39,7 +39,7 @@ useHead(() => ({
         <p>La Aplicación, sus textos, diseños, código fuente, íconos, marcas, logotipos y materiales asociados son propiedad de ICLVS Legal Intelligence LLC o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos no te transfieren ningún derecho de propiedad.</p>
 
         <h2>4. Contenido del usuario</h2>
-        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, finanzas). Como toda esa información vive localmente en tu Mac, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
+        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, finanzas). Como toda esa información vive localmente en tu equipo, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
         <p>Eres responsable de:</p>
         <ul>
           <li>La exactitud y legalidad de la información que registres.</li>
@@ -67,7 +67,7 @@ useHead(() => ({
         <p>Aceptas indemnizar y mantener indemne a ICLVS Legal Intelligence LLC frente a cualquier reclamación, demanda o daño derivado del uso indebido de la Aplicación o del incumplimiento de estos Términos por tu parte.</p>
 
         <h2>9. Actualizaciones</h2>
-        <p>Podemos publicar actualizaciones de la Aplicación periódicamente. Algunas actualizaciones pueden ser obligatorias por motivos de seguridad o compatibilidad con nuevas versiones de macOS. No estamos obligados a mantener compatibilidad indefinida con versiones antiguas de macOS.</p>
+        <p>Podemos publicar actualizaciones de la Aplicación periódicamente. Algunas actualizaciones pueden ser obligatorias por motivos de seguridad o compatibilidad con nuevas versiones de tu sistema operativo. No estamos obligados a mantener compatibilidad indefinida con versiones antiguas de macOS o Windows.</p>
 
         <h2>10. Terminación</h2>
         <p>Estos Términos permanecen vigentes mientras conserves la Aplicación instalada. Podemos suspender o terminar tu licencia si incumples estos Términos. Tú puedes terminar la licencia en cualquier momento desinstalando la Aplicación. Las cláusulas que por su naturaleza deban sobrevivir (propiedad intelectual, limitación de responsabilidad, legislación aplicable) seguirán vigentes tras la terminación.</p>
@@ -87,7 +87,7 @@ useHead(() => ({
         <p>By installing or using the App, you declare that you have read, understood and accepted these Terms. If you do not agree, do not install or use the App.</p>
 
         <h2>2. License</h2>
-        <p>We grant you a limited, personal, non-exclusive, non-transferable and revocable license to install and use the App on macOS devices you control, solely for lawful purposes within your professional practice.</p>
+        <p>We grant you a limited, personal, non-exclusive, non-transferable and revocable license to install and use the App on the devices (Mac or Windows) you control, solely for lawful purposes within your professional practice.</p>
         <p>This license does <strong>not</strong> include the rights to:</p>
         <ul>
           <li>Copy, distribute or sublicense the App.</li>
@@ -100,7 +100,7 @@ useHead(() => ({
         <p>The App, its texts, designs, source code, icons, trademarks, logos and associated materials are owned by ICLVS Legal Intelligence LLC or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
 
         <h2>4. User content</h2>
-        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, finances). Because all of it lives locally on your Mac, we do not receive or store any copy on our servers.</p>
+        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, finances). Because all of it lives locally on your device, we do not receive or store any copy on our servers.</p>
         <p>You are responsible for:</p>
         <ul>
           <li>The accuracy and legality of the information you record.</li>
@@ -128,7 +128,7 @@ useHead(() => ({
         <p>You agree to indemnify and hold harmless ICLVS Legal Intelligence LLC against any claim, demand or damage arising from misuse of the App or breach of these Terms.</p>
 
         <h2>9. Updates</h2>
-        <p>We may release updates to the App from time to time. Some updates may be mandatory for security or compatibility with new macOS versions. We are not obligated to maintain indefinite compatibility with older macOS versions.</p>
+        <p>We may release updates to the App from time to time. Some updates may be mandatory for security or compatibility with new versions of your operating system. We are not obligated to maintain indefinite compatibility with older macOS or Windows versions.</p>
 
         <h2>10. Termination</h2>
         <p>These Terms remain in effect while you keep the App installed. We may suspend or terminate your license if you breach these Terms. You may terminate the license at any time by uninstalling the App. Clauses that by their nature should survive (intellectual property, limitation of liability, governing law) will remain in effect after termination.</p>

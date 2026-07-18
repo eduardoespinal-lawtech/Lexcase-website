@@ -9,9 +9,9 @@ export default defineNuxtPlugin(() => {
           '@type': 'SoftwareApplication',
           name: 'Lexbell',
           description:
-            'Gestor de expedientes legales nativo para macOS. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.',
+            'App de escritorio para gestionar expedientes legales: casos, plazos, clientes y finanzas, todo local en tu equipo. Para Mac y Windows.',
           applicationCategory: 'BusinessApplication',
-          operatingSystem: 'macOS 11+',
+          operatingSystem: 'macOS 11+, Windows 10 and 11',
           url: 'https://lex-bell.com',
           inLanguage: ['es', 'en'],
           softwareVersion: '0.1.0',
@@ -20,11 +20,6 @@ export default defineNuxtPlugin(() => {
             name: 'ICLVS Legal Intelligence LLC',
             email: 'soporte@lex-bell.com',
             url: 'https://lex-bell.com'
-          },
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD'
           }
         })
       }

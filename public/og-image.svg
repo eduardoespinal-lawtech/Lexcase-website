@@ -28,6 +28,6 @@
 
   <!-- Wordmark + tagline -->
   <text x="410" y="288" fill="#ffffff" font-size="104" font-weight="700" letter-spacing="-3">Lexbell</text>
-  <text x="414" y="352" fill="#E0A9D6" font-size="34" font-weight="500" letter-spacing="-0.5">Gestión de expedientes legales para Mac</text>
-  <text x="414" y="410" fill="rgba(255,255,255,0.55)" font-size="25" font-family="ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.5">macOS · 100% local · cero conexiones</text>
+  <text x="414" y="352" fill="#E0A9D6" font-size="34" font-weight="500" letter-spacing="-0.5">Gestión de expedientes legales para Mac y Windows</text>
+  <text x="414" y="410" fill="rgba(255,255,255,0.55)" font-size="25" font-family="ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.5">Mac y Windows · 100% local · cero conexiones</text>
 </svg>

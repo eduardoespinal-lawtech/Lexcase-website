@@ -4,30 +4,11 @@ withDefaults(defineProps<{ light?: boolean; center?: boolean }>(), {
   center: false
 })
 const { t } = useI18n()
-
-/* Mac: ficha del App Store. Windows: instalador (GitHub Releases del repo de la app). */
-const MAC = 'https://apps.apple.com/us/app/lexbell/id6773133324'
-const WIN = 'https://github.com/eduardoespinal-lawtech/LEXBELL/releases/latest'
 </script>
 
 <template>
   <div class="app-download" :class="center ? 'is-center' : ''">
-    <div class="app-download-links">
-      <a
-        :href="MAC"
-        class="btn-pill"
-        :class="light ? 'btn-pill-light' : 'btn-pill-primary'"
-        target="_blank"
-        rel="noopener"
-      >{{ t('common.downloadMac') }}</a>
-      <a
-        :href="WIN"
-        class="btn-pill"
-        :class="light ? 'btn-pill-light' : 'btn-pill-primary'"
-        target="_blank"
-        rel="noopener"
-      >{{ t('common.downloadWin') }}</a>
-    </div>
+    <p class="app-download-stores" :class="light ? 'is-light' : ''">{{ t('common.availableStores') }}</p>
     <p class="app-download-note" :class="light ? 'is-light' : ''">{{ t('common.availabilityNote') }}</p>
   </div>
 </template>
@@ -36,16 +17,17 @@ const WIN = 'https://github.com/eduardoespinal-lawtech/LEXBELL/releases/latest'
 .app-download {
   display: inline-flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
-.app-download.is-center { align-items: center; }
-.app-download-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
+.app-download.is-center { align-items: center; text-align: center; }
+.app-download-stores {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
-.app-download.is-center .app-download-links { justify-content: center; }
+.app-download-stores.is-light { color: #fff; }
 .app-download-note {
   margin: 0;
   font-size: 13px;

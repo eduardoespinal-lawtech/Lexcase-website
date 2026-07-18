@@ -37,7 +37,7 @@ useHead(() => ({
         <p class="support-mail">soporte@lex-bell.com</p>
       </article>
 
-      <article class="support-card">
+      <article class="support-card lg:col-span-2">
         <h2 class="support-title">{{ t('support.compatTitle') }}</h2>
         <ul class="support-list">
           <li>{{ t('support.compatItem1') }}</li>
@@ -45,14 +45,6 @@ useHead(() => ({
           <li>{{ t('support.compatItem3') }}</li>
           <li>{{ t('support.compatItem4') }}</li>
         </ul>
-      </article>
-
-      <article class="support-card">
-        <h2 class="support-title">{{ t('support.winTitle') }}</h2>
-        <p class="support-body">{{ t('support.winBody') }}</p>
-        <a href="https://github.com/eduardoespinal-lawtech/LEXBELL/releases/latest" class="link-apple mt-5" target="_blank" rel="noopener">
-          {{ t('common.downloadWin') }}
-        </a>
       </article>
     </div>
   </section>

@@ -12,12 +12,12 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       htmlAttrs: { lang: 'es' },
-      title: 'Lexbell — Gestor de expedientes legales para Mac',
+      title: 'Lexbell — Gestor de expedientes legales para Mac y Windows',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#AC56A0' },
-        { name: 'description', content: 'Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu equipo, para Mac y Windows.' },
+        { name: 'description', content: 'Lexbell es la app de escritorio para gestionar expedientes legales: casos, plazos, clientes y finanzas, todo local en tu equipo. Para Mac y Windows.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Lexbell' },
         { property: 'og:image', content: 'https://lex-bell.com/og-image.svg' },
