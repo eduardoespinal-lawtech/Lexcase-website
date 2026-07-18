@@ -50,7 +50,6 @@ const sections = computed(() => [
 
       <div class="site-footer-base">
         <p>© {{ year }} ICLVS Legal Intelligence LLC. {{ t('footer.rights') }}</p>
-        <p>lex-bell.com</p>
       </div>
     </div>
   </footer>
