@@ -44,18 +44,17 @@ const tiles = computed(() => [
         <h2 class="h-feature mt-2">{{ t('features.sp1Title') }}</h2>
         <p class="subtitle mt-5">{{ t('features.sp1Body') }}</p>
         <div class="mt-8 flex flex-wrap gap-2">
-          <span v-for="tt in caseTypes" :key="tt.name" class="case-chip" :class="tt.tone">
+          <span v-for="tt in caseTypes" :key="tt.name" class="type-chip">
             {{ tt.name }}
           </span>
         </div>
       </div>
-      <div class="mockup-float rounded-[22px] overflow-hidden">
-        <img
-          src="/screenshots/expedientes.png"
-          alt="Detalle de expediente en Lexbell"
-          class="block w-full h-auto"
-          loading="lazy"
-        />
+      <div class="spot-panel">
+        <span class="spot-badge" aria-hidden="true">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="7" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+        </span>
       </div>
     </div>
   </section>
@@ -68,13 +67,12 @@ const tiles = computed(() => [
         <h2 class="h-feature mt-2">{{ t('features.sp2Title') }}</h2>
         <p class="subtitle mt-5">{{ t('features.sp2Body') }}</p>
       </div>
-      <div class="mockup-float rounded-[22px] overflow-hidden lg:order-1">
-        <img
-          src="/screenshots/plazos.png"
-          alt="Lista de plazos procesales en Lexbell"
-          class="block w-full h-auto"
-          loading="lazy"
-        />
+      <div class="spot-panel lg:order-1">
+        <span class="spot-badge" aria-hidden="true">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" />
+          </svg>
+        </span>
       </div>
     </div>
   </section>
@@ -87,13 +85,12 @@ const tiles = computed(() => [
         <h2 class="h-feature mt-2">{{ t('features.sp3Title') }}</h2>
         <p class="subtitle mt-5">{{ t('features.sp3Body') }}</p>
       </div>
-      <div class="mockup-float rounded-[22px] overflow-hidden">
-        <img
-          src="/screenshots/finanzas.png"
-          alt="Sección de finanzas por expediente"
-          class="block w-full h-auto"
-          loading="lazy"
-        />
+      <div class="spot-panel">
+        <span class="spot-badge" aria-hidden="true">
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5" /><path d="M18 12h.01" />
+          </svg>
+        </span>
       </div>
     </div>
   </section>
@@ -147,23 +144,43 @@ const tiles = computed(() => [
 </template>
 
 <style scoped>
-/* === Chips de tipo de expediente (spotlight 1) === */
-.case-chip {
+/* === Panel visual icon-driven de cada spotlight (sin capturas) === */
+.spot-panel {
+  position: relative;
+  border-radius: 22px;
+  aspect-ratio: 16 / 11;
+  background: radial-gradient(120% 100% at 50% 0%, #F7E9F4 0%, #ffffff 72%);
+  border: 1px solid var(--divider);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(94, 41, 87, 0.05),
+    0 30px 60px -22px rgba(94, 41, 87, 0.24);
+}
+.spot-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(94, 41, 87, 0.11) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(120% 90% at 50% 42%, #000 28%, transparent 74%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 42%, #000 28%, transparent 74%);
+}
+.spot-badge {
+  position: relative;
+  z-index: 1;
+  width: 108px;
+  height: 108px;
+  border-radius: 28px;
   display: inline-flex;
   align-items: center;
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  line-height: 1;
+  justify-content: center;
+  background: linear-gradient(155deg, #B86AAC 0%, #AC56A0 50%, #974A8B 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 18px 42px -14px rgba(151, 74, 139, 0.7);
 }
-.tone-indigo  { background: rgba(99, 102, 241, 0.12);  color: #4338ca; }
-.tone-amber   { background: rgba(245, 158, 11, 0.14);  color: #b45309; }
-.tone-emerald { background: rgba(16, 185, 129, 0.14);  color: #047857; }
-.tone-rose    { background: rgba(244, 63, 94, 0.14);   color: #be123c; }
-.tone-cyan    { background: rgba(6, 182, 212, 0.14);   color: #0e7490; }
-.tone-violet  { background: rgba(139, 92, 246, 0.14);  color: #6d28d9; }
 
 /* === Stat row del spotlight de privacidad === */
 .privacy-stat-row {
@@ -195,13 +212,12 @@ const tiles = computed(() => [
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #fff;
-  color: #1d1d1f;
+  background: var(--brand-tint);
+  color: var(--accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .ft-tile-title {
   font-size: 20px;

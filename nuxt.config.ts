@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0E1D4A' },
+        { name: 'theme-color', content: '#AC56A0' },
         { name: 'description', content: 'Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu Mac.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Lexbell' },
@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'mask-icon', href: '/favicon.svg', color: '#0E1D4A' },
+        { rel: 'mask-icon', href: '/favicon.svg', color: '#AC56A0' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'canonical', href: 'https://lex-bell.com/' }
       ]

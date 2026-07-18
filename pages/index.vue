@@ -3,7 +3,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 useHead(() => ({
-  title: 'Lexbell — Apple-style legal practice for Mac',
+  title: 'Lexbell — Gestor de expedientes legales para Mac',
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
     { property: 'og:title', content: 'Lexbell' },
@@ -19,47 +19,27 @@ useHead(() => ({
 
 const APP_STORE = 'https://apps.apple.com/us/app/lexbell/id6773133324?itscg=30200&itsct=apps_box_badge&mttnsubad=6773133324'
 
-/* Pestañas por tipo de expediente real — cada una con su captura del
-   demo data y su subtítulo describiendo los campos jurídicos específicos. */
-const audiences = computed(() => [
-  { id: 'judicial',       label: t('home.tabJudicial'),       subtitle: t('home.tabJudicialSub'),       img: '/screenshots/judicial.png',       alt: 'Lexbell con caso judicial Pérez vs. Banco Popular' },
-  { id: 'administrativo', label: t('home.tabAdministrativo'), subtitle: t('home.tabAdministrativoSub'), img: '/screenshots/administrativo.png', alt: 'Lexbell con recurso contencioso tributario ante la DGII' },
-  { id: 'migracion',      label: t('home.tabMigracion'),      subtitle: t('home.tabMigracionSub'),      img: '/screenshots/migracion.png',      alt: 'Lexbell con caso migratorio NVC Rodríguez' },
-  { id: 'empresa',        label: t('home.tabEmpresa'),        subtitle: t('home.tabEmpresaSub'),        img: '/screenshots/empresa.png',        alt: 'Lexbell con constitución de sociedad Importadora del Caribe SRL' },
-  { id: 'alquiler',       label: t('home.tabAlquiler'),       subtitle: t('home.tabAlquilerSub'),       img: '/screenshots/alquiler.png',       alt: 'Lexbell con contrato de alquiler Av. Anacaona 38' },
-  { id: 'compraventa',    label: t('home.tabCompraventa'),    subtitle: t('home.tabCompraventaSub'),    img: '/screenshots/compraventa.png',    alt: 'Lexbell con compraventa de apartamento Bella Vista' }
+/* Seis tipos de expediente — cada uno con su icono de línea (sin capturas). */
+const types = computed(() => [
+  { label: t('home.tabJudicial'),       sub: t('home.tabJudicialSub'),       paths: ['m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8', 'm16 16 6-6', 'm8 8 6-6', 'm9 7 8 8', 'm21 11-8-8'] },
+  { label: t('home.tabAdministrativo'), sub: t('home.tabAdministrativoSub'), paths: ['M10 18v-7', 'M11.12 2.2a2 2 0 0 1 1.76 0l7.87 3.85c.48.23.31.95-.22.95H3.47c-.53 0-.7-.72-.22-.95z', 'M14 18v-7', 'M18 18v-7', 'M3 22h18', 'M6 18v-7'] },
+  { label: t('home.tabMigracion'),      sub: t('home.tabMigracionSub'),      paths: ['M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'] },
+  { label: t('home.tabEmpresa'),        sub: t('home.tabEmpresaSub'),        paths: ['M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z', 'M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2', 'M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2', 'M10 6h4', 'M10 10h4', 'M10 14h4', 'M10 18h4'] },
+  { label: t('home.tabAlquiler'),       sub: t('home.tabAlquilerSub'),       paths: ['M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z', 'M16.5 7.5h.01'] },
+  { label: t('home.tabCompraventa'),    sub: t('home.tabCompraventaSub'),    paths: ['M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8', 'M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'] }
 ])
-const activeId = ref('judicial')
-const active = computed(() => audiences.value.find(a => a.id === activeId.value) || audiences.value[0])
 </script>
 
 <template>
-  <!-- =================== HERO OSCURO =================== -->
-  <section class="hero-dark">
-    <div class="hero-dark-inner">
+  <!-- =================== HERO =================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="/icon.svg" alt="Lexbell" class="hero-icon" width="92" height="92" />
       <h1 class="hero-title">
         {{ t('home.heroTitle') }}<br />
         <span class="hero-title-accent">{{ t('home.heroTitle2') }}</span>
       </h1>
-
-      <!-- Segmented control — la misma app vista desde cada perfil -->
-      <div class="hero-tabs" role="tablist" :aria-label="t('home.audienceEyebrow')">
-        <button
-          v-for="a in audiences"
-          :key="a.id"
-          role="tab"
-          :aria-selected="activeId === a.id"
-          class="hero-tab"
-          :class="activeId === a.id ? 'is-active' : ''"
-          @click="activeId = a.id"
-        >
-          {{ a.label }}
-        </button>
-      </div>
-
-      <Transition name="hero-sub" mode="out-in">
-        <p :key="active.id" class="hero-sub">{{ active.subtitle }}</p>
-      </Transition>
+      <p class="hero-sub">{{ t('home.heroSubtitle') }}</p>
 
       <div class="hero-ctas">
         <a :href="APP_STORE" class="btn-pill btn-pill-light" target="_blank" rel="noopener">
@@ -74,47 +54,51 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
         <li>{{ t('home.trust3') }}</li>
         <li>{{ t('home.trust4') }}</li>
       </ul>
-
-      <!-- Captura flotante con resplandor -->
-      <div class="hero-shot">
-        <Transition name="hero-shot" mode="out-in">
-          <img
-            :key="active.img"
-            :src="active.img"
-            :alt="active.alt"
-            loading="eager"
-            width="1600"
-            height="1000"
-          />
-        </Transition>
-      </div>
     </div>
   </section>
 
-  <!-- =================== BENTO DE FEATURES =================== -->
+  <!-- =================== SEIS TIPOS DE EXPEDIENTE (icon grid) =================== -->
   <section class="section">
     <div class="apple-wrap-wide">
       <div class="bento-head">
         <span class="eyebrow">{{ t('home.audienceEyebrow') }}</span>
         <h2 class="h-feature mt-1">{{ t('home.audienceTitle') }}</h2>
+        <p class="subtitle mt-4" style="max-width: 680px; font-size: clamp(17px,1.8vw,21px);">{{ t('home.audienceBody') }}</p>
+      </div>
+
+      <div class="type-grid mt-12">
+        <article v-for="ty in types" :key="ty.label" class="type-card">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path v-for="(d, i) in ty.paths" :key="i" :d="d" />
+            </svg>
+          </span>
+          <h3 class="type-name">{{ ty.label }}</h3>
+          <p class="type-sub">{{ ty.sub }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== BENTO DE CAPACIDADES =================== -->
+  <section class="section section-gray">
+    <div class="apple-wrap-wide">
+      <div class="bento-head">
+        <span class="eyebrow">{{ t('home.section1Eyebrow') }}</span>
+        <h2 class="h-feature mt-1">{{ t('home.section1Title') }}</h2>
       </div>
 
       <div class="bento mt-12">
-        <!-- Expedientes — tarjeta ancha con captura -->
-        <article class="bento-card bento-wide bento-hero-card">
-          <div class="bento-hero-text">
-            <span class="card-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="14" x="2" y="7" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
-            </span>
-            <h3 class="card-title">{{ t('home.section1Title') }}</h3>
-            <p class="card-body">{{ t('home.section1Body') }}</p>
-            <NuxtLink :to="localePath('features')" class="link-apple mt-4 inline-flex">{{ t('common.learnMore') }}</NuxtLink>
-          </div>
-          <div class="card-shot bento-hero-shot">
-            <img src="/screenshots/expedientes.png" alt="Detalle de expediente en Lexbell" loading="lazy" width="1600" height="1000" />
-          </div>
+        <!-- Expedientes -->
+        <article class="bento-card bento-wide">
+          <span class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="7" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+          </span>
+          <h3 class="card-title">{{ t('features.groups.cases') }}</h3>
+          <p class="card-body" style="max-width: 640px;">{{ t('home.section1Body') }}</p>
+          <NuxtLink :to="localePath('features')" class="link-apple mt-4 inline-flex">{{ t('common.learnMore') }}</NuxtLink>
         </article>
 
         <!-- Clientes -->
@@ -132,40 +116,22 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
         <article class="bento-card">
           <span class="card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" />
+              <rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" />
             </svg>
           </span>
           <h3 class="card-title">{{ t('home.section3Title') }}</h3>
           <p class="card-body">{{ t('home.section3Body') }}</p>
         </article>
 
-        <!-- 6 tipos de expediente -->
-        <article class="bento-card">
-          <span class="card-icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /><path d="m6.08 9.5-3.48 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59" />
-            </svg>
-          </span>
-          <h3 class="card-title">{{ t('home.trust1') }}</h3>
-          <div class="card-chips">
-            <span class="type-chip">{{ t('home.tabJudicial') }}</span>
-            <span class="type-chip">{{ t('home.tabAdministrativo') }}</span>
-            <span class="type-chip">{{ t('home.tabMigracion') }}</span>
-            <span class="type-chip">{{ t('home.tabEmpresa') }}</span>
-            <span class="type-chip">{{ t('home.tabAlquiler') }}</span>
-            <span class="type-chip">{{ t('home.tabCompraventa') }}</span>
-          </div>
-        </article>
-
-        <!-- Privacidad — con puntos -->
-        <article class="bento-card">
+        <!-- Privacidad -->
+        <article class="bento-card bento-wide">
           <span class="card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" />
             </svg>
           </span>
           <h3 class="card-title">{{ t('home.section4Title') }}</h3>
-          <p class="card-body">{{ t('home.section4Body') }}</p>
+          <p class="card-body" style="max-width: 640px;">{{ t('home.section4Body') }}</p>
           <ul class="card-points">
             <li v-for="p in [t('home.section4Point1'), t('home.section4Point2'), t('home.section4Point3')]" :key="p">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
@@ -192,24 +158,35 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
 </template>
 
 <style scoped>
-/* === HERO OSCURO === */
-.hero-dark {
+/* === HERO — ciruela profunda, minimalista === */
+.hero {
   position: relative;
   background:
-    radial-gradient(90% 55% at 50% 8%, rgba(79, 101, 188, 0.38) 0%, rgba(79, 101, 188, 0) 58%),
-    linear-gradient(180deg, #0E1D4A 0%, #0A1738 55%, #061230 100%);
-  padding: clamp(72px, 12vh, 128px) 22px clamp(64px, 9vh, 110px);
+    radial-gradient(85% 55% at 50% 6%, rgba(192, 107, 180, 0.34) 0%, rgba(192, 107, 180, 0) 60%),
+    linear-gradient(180deg, #3F1B3A 0%, #2A1228 55%, #1C0C1B 100%);
+  padding: clamp(80px, 13vh, 140px) 22px clamp(72px, 10vh, 120px);
   overflow: hidden;
 }
-.hero-dark-inner {
+.hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 960px;
+  max-width: 820px;
   margin: 0 auto;
   text-align: center;
 }
+.hero-icon {
+  width: 92px;
+  height: 92px;
+  border-radius: 22px;
+  margin: 0 auto 30px;
+  display: block;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 18px 40px -12px rgba(0, 0, 0, 0.55),
+    0 0 60px -8px rgba(192, 107, 180, 0.55);
+}
 .hero-title {
-  font-size: clamp(44px, 7vw, 88px);
+  font-size: clamp(44px, 7vw, 84px);
   line-height: 1.05;
   letter-spacing: -0.025em;
   font-weight: 600;
@@ -217,54 +194,22 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   margin: 0;
 }
 .hero-title-accent {
-  background: linear-gradient(110deg, #ffffff 0%, #C7D2F5 45%, #8FA2E8 100%);
+  background: linear-gradient(110deg, #ffffff 0%, #F0C9E6 45%, #C06BB4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
-/* Segmented control sobre oscuro */
-.hero-tabs {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  padding: 4px;
-  border-radius: 999px;
-  margin: 30px auto 0;
-  backdrop-filter: blur(8px);
-}
-.hero-tab {
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  color: rgba(255, 255, 255, 0.62);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: color .15s ease, background .2s ease;
-  line-height: 1;
-}
-.hero-tab:hover { color: #fff; }
-.hero-tab.is-active { background: #fff; color: #0E1D4A; }
-@media (max-width: 600px) { .hero-tab { padding: 7px 11px; font-size: 11.5px; } }
-
 .hero-sub {
-  font-size: clamp(17px, 1.5vw, 21px);
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.74);
   margin: 22px auto 0;
-  max-width: 660px;
-  min-height: 62px;
+  max-width: 640px;
   font-weight: 400;
   letter-spacing: -0.005em;
 }
 .hero-ctas {
-  margin-top: 32px;
+  margin-top: 34px;
   display: inline-flex;
   align-items: center;
   gap: 22px;
@@ -272,16 +217,15 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
   justify-content: center;
 }
 .hero-coming { font-size: 15px; color: rgba(255, 255, 255, 0.55); line-height: 1; }
-
 .hero-trust {
   list-style: none;
-  margin: 30px auto 0;
+  margin: 32px auto 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.60);
+  color: rgba(255, 255, 255, 0.62);
   letter-spacing: -0.005em;
   font-weight: 500;
 }
@@ -289,52 +233,42 @@ const active = computed(() => audiences.value.find(a => a.id === activeId.value)
 .hero-trust li + li::before {
   content: "·";
   margin: 0 14px;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.3);
 }
 
-/* Captura con resplandor y aro */
-.hero-shot {
-  position: relative;
-  margin: clamp(44px, 7vh, 80px) auto 0;
-  max-width: 1180px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.10),
-    0 40px 90px -30px rgba(0, 0, 0, 0.65),
-    0 0 120px -20px rgba(79, 101, 188, 0.45);
+/* === Rejilla de tipos (icon-driven, técnica) === */
+.bento-head { max-width: 760px; }
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
-.hero-shot img { display: block; width: 100%; height: auto; }
-
-/* === Bento === */
-.bento-head { max-width: 720px; }
-.bento-hero-card { padding: 0; overflow: hidden; }
-.bento-hero-text { padding: 28px 28px 0; }
-.bento-hero-shot {
-  margin: 22px 0 0;
-  border-radius: 0;
-  border: 0;
-  border-top: 1px solid rgba(14, 29, 74, 0.08);
-  box-shadow: none;
+@media (min-width: 640px) { .type-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .type-grid { grid-template-columns: repeat(3, 1fr); } }
+.type-card {
+  background: #fff;
+  border: 1px solid var(--divider);
+  border-radius: 16px;
+  padding: 22px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
-@media (min-width: 900px) {
-  .bento-hero-card { flex-direction: row; align-items: stretch; }
-  .bento-hero-text { flex: 1; padding: 30px 0 30px 30px; display: flex; flex-direction: column; justify-content: center; }
-  .bento-hero-shot {
-    flex: 1.1;
-    margin: 0;
-    border-top: 0;
-    border-left: 1px solid rgba(14, 29, 74, 0.08);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-  .bento-hero-shot img { height: 100%; object-fit: cover; object-position: left center; }
+.type-card:hover {
+  border-color: rgba(168, 71, 155, 0.32);
+  box-shadow: 0 14px 34px -22px rgba(94, 41, 87, 0.34);
+  transform: translateY(-2px);
 }
-
-/* Transiciones fade del subtítulo y captura al cambiar de tab */
-.hero-sub-enter-active, .hero-sub-leave-active { transition: opacity .2s ease, transform .2s ease; }
-.hero-sub-enter-from, .hero-sub-leave-to { opacity: 0; transform: translateY(4px); }
-.hero-shot-enter-active, .hero-shot-leave-active { transition: opacity .28s ease; }
-.hero-shot-enter-from, .hero-shot-leave-to { opacity: 0; }
+.type-card .card-icon { width: 42px; height: 42px; margin-bottom: 14px; }
+.type-name {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.type-sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 6px 0 0;
+}
 </style>
