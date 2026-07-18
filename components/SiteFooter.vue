@@ -34,13 +34,6 @@ const sections = computed(() => [
 <template>
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <div class="site-footer-top">
-        <AppDownload light />
-        <p class="site-footer-availability">{{ t('footer.availability') }}</p>
-      </div>
-
-      <hr class="site-footer-hr" />
-
       <div class="site-footer-cols">
         <div v-for="s in sections" :key="s.title" class="site-footer-col">
           <h4 class="site-footer-h4">{{ s.title }}</h4>
@@ -74,19 +67,6 @@ const sections = computed(() => [
   max-width: 1240px;
   margin: 0 auto;
   padding: 30px 22px;
-}
-.site-footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-.site-footer-availability {
-  margin: 0;
-  font-size: 12px;
-  letter-spacing: -0.005em;
-  max-width: 460px;
 }
 .site-footer-hr {
   border: 0;
