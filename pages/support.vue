@@ -50,10 +50,9 @@ useHead(() => ({
       <article class="support-card">
         <h2 class="support-title">{{ t('support.winTitle') }}</h2>
         <p class="support-body">{{ t('support.winBody') }}</p>
-        <a href="mailto:soporte@lex-bell.com" class="link-apple mt-5">
-          {{ t('support.emailLabel') }}
+        <a href="https://github.com/eduardoespinal-lawtech/LEXBELL/releases/latest" class="link-apple mt-5" target="_blank" rel="noopener">
+          {{ t('common.downloadWin') }}
         </a>
-        <p class="support-mail">soporte@lex-bell.com</p>
       </article>
     </div>
   </section>

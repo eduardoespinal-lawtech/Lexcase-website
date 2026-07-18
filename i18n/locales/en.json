@@ -2,11 +2,11 @@
   "common": {
     "brand": "Lexbell",
     "downloadMac": "Download for Mac",
-    "comingSoonWin": "Windows coming soon",
+    "downloadWin": "Download for Windows",
     "learnMore": "Learn more",
     "tryNow": "Try Lexbell",
     "viewFeatures": "View features",
-    "availabilityNote": "macOS 11 or later · Windows coming soon"
+    "availabilityNote": "macOS 11 or later · Windows 10 and 11"
   },
   "nav": {
     "home": "Home",
@@ -23,7 +23,7 @@
     "defaultDescription": "Lexbell is the professional legal case management platform for attorneys. Cases, calendar, contacts and finances — all stored locally on your device, for Mac and Windows."
   },
   "footer": {
-    "availability": "Lexbell is available for macOS 11 Big Sur or later. A Windows 11 version is coming soon.",
+    "availability": "Lexbell is available for macOS 11 Big Sur or later and for Windows 10 and 11.",
     "product": "Product",
     "contact": "Contact",
     "legal": "Legal",
@@ -63,7 +63,7 @@
     "trust2": "Multi-currency",
     "trust3": "100% local",
     "trust4": "Zero telemetry",
-    "platformsLine": "Built for macOS 11 or later. Windows coming soon.",
+    "platformsLine": "Built for macOS 11 or later and Windows 10 and 11.",
     "section1Eyebrow": "Cases by practice area",
     "section1Title": "Complex matters, the right templates.",
     "section1Body": "Judicial, administrative, immigration, business, rental and real estate — every type with the legal fields you actually need.",
@@ -81,7 +81,7 @@
     "section4Point3": "JSON export and import any time",
     "ctaSectionEyebrow": "Get started today",
     "ctaSectionTitle": "Download Lexbell.",
-    "ctaSectionBody": "Available for Mac. Windows coming soon."
+    "ctaSectionBody": "Available for Mac and Windows."
   },
   "features": {
     "title": "Every feature built for busy attorneys.",
@@ -173,8 +173,8 @@
     "compatItem2": "Apple Silicon or Intel Macs",
     "compatItem3": "150 MB of disk space",
     "compatItem4": "Runs 100% without an internet connection",
-    "winTitle": "Windows coming soon",
-    "winBody": "We're working on the Windows 11 version. If you'd like to be notified when it's ready, drop us a line at our support email."
+    "winTitle": "Available for Windows",
+    "winBody": "Lexbell runs on Windows 10 and 11. Download the latest installer and set it up like any desktop app."
   },
   "contact": {
     "title": "Let's talk.",

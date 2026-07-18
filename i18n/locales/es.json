@@ -2,11 +2,11 @@
   "common": {
     "brand": "Lexbell",
     "downloadMac": "Descargar para Mac",
-    "comingSoonWin": "Windows próximamente",
+    "downloadWin": "Descargar para Windows",
     "learnMore": "Más información",
     "tryNow": "Probar Lexbell",
     "viewFeatures": "Ver características",
-    "availabilityNote": "macOS 11 o superior · Windows próximamente"
+    "availabilityNote": "macOS 11 o superior · Windows 10 y 11"
   },
   "nav": {
     "home": "Inicio",
@@ -23,7 +23,7 @@
     "defaultDescription": "Lexbell es la plataforma profesional de gestión de expedientes legales para abogados. Expedientes, calendario, clientes y finanzas — todo local en tu equipo, para Mac y Windows."
   },
   "footer": {
-    "availability": "Lexbell está disponible para macOS 11 Big Sur o superior. La versión para Windows 11 llegará próximamente.",
+    "availability": "Lexbell está disponible para macOS 11 Big Sur o superior y para Windows 10 y 11.",
     "product": "Producto",
     "contact": "Contacto",
     "legal": "Legal",
@@ -63,7 +63,7 @@
     "trust2": "Multimoneda",
     "trust3": "100% local",
     "trust4": "0 telemetría",
-    "platformsLine": "Para macOS 11 o superior. Windows próximamente.",
+    "platformsLine": "Para macOS 11 o superior y Windows 10 y 11.",
     "section1Eyebrow": "Expedientes por área",
     "section1Title": "Casos complejos, plantillas correctas.",
     "section1Body": "Judicial, administrativo, migratorio, empresarial, alquiler y compraventa — cada tipo con los campos jurídicos que de verdad necesitas.",
@@ -81,7 +81,7 @@
     "section4Point3": "Exportación e importación en JSON cuando quieras",
     "ctaSectionEyebrow": "Empieza hoy",
     "ctaSectionTitle": "Descarga Lexbell.",
-    "ctaSectionBody": "Disponible para Mac. Próximamente en Windows."
+    "ctaSectionBody": "Disponible para Mac y Windows."
   },
   "features": {
     "title": "Cada función, pensada para abogados ocupados.",
@@ -173,8 +173,8 @@
     "compatItem2": "Macs con chip Apple Silicon o Intel",
     "compatItem3": "150 MB de espacio en disco",
     "compatItem4": "Funciona 100% sin conexión a internet",
-    "winTitle": "Windows próximamente",
-    "winBody": "Estamos trabajando en la versión para Windows 11. Si quieres que te avisemos cuando esté lista, escríbenos a nuestro correo de soporte."
+    "winTitle": "Disponible para Windows",
+    "winBody": "Lexbell funciona en Windows 10 y 11. Descarga el instalador más reciente e instálalo como cualquier aplicación de escritorio."
   },
   "contact": {
     "title": "Hablemos.",

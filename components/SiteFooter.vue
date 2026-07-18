@@ -35,7 +35,7 @@ const sections = computed(() => [
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="site-footer-top">
-        <AppDownload light compact />
+        <AppDownload light />
         <p class="site-footer-availability">{{ t('footer.availability') }}</p>
       </div>
 
