@@ -134,16 +134,12 @@ onMounted(() => {
               <tr><td>Contactos</td><td>Importar contactos desde la libreta de direcciones de macOS, si tú lo solicitas.</td></tr>
               <tr><td>Carpetas seleccionadas</td><td>Permitirte elegir una carpeta donde la Aplicación guarda copias de respaldo automáticas.</td></tr>
               <tr><td>Notificaciones</td><td>Avisarte cuando se acercan audiencias o plazos.</td></tr>
-              <tr><td>Conexión a internet</td><td>Consultar la tasa de cambio del Banco Central de la República Dominicana (BCRD) para la sección de Finanzas.</td></tr>
             </tbody>
           </table>
           <p>Todos los permisos son revocables desde <strong>Configuración del Sistema → Privacidad y seguridad</strong> de macOS.</p>
 
           <h2 id="internet">4. Conexiones a internet</h2>
-          <p>Lexbell realiza una sola consulta a internet, y es opcional:</p>
-          <ul>
-            <li><strong>Banco Central de la República Dominicana (BCRD):</strong> la Aplicación consulta <code>https://www.bancentral.gov.do/</code> para obtener la tasa de cambio del día y convertir montos en USD/EUR a DOP en la sección de Finanzas. Esta consulta no envía información tuya — solo solicita la tasa pública.</li>
-          </ul>
+          <p>Lexbell <strong>no realiza ninguna conexión a internet</strong> y funciona completamente sin conexión.</p>
           <p>Lexbell NO se comunica con servidores nuestros, NO sube tus datos a ninguna nube y NO descarga código adicional.</p>
 
           <h2 id="terceros">5. Compartir información con terceros</h2>
@@ -217,16 +213,12 @@ onMounted(() => {
               <tr><td>Contacts</td><td>Import contacts from macOS Address Book, on your request.</td></tr>
               <tr><td>User-selected folders</td><td>Let you choose a folder where the App writes automatic backups.</td></tr>
               <tr><td>Notifications</td><td>Alert you when hearings or deadlines are approaching.</td></tr>
-              <tr><td>Internet access</td><td>Query the Central Bank of the Dominican Republic (BCRD) exchange rate for the Finances section.</td></tr>
             </tbody>
           </table>
           <p>All permissions can be revoked from <strong>System Settings → Privacy &amp; Security</strong> on macOS.</p>
 
           <h2 id="internet">4. Internet connections</h2>
-          <p>Lexbell makes one optional internet request:</p>
-          <ul>
-            <li><strong>Central Bank of the Dominican Republic (BCRD):</strong> the App queries <code>https://www.bancentral.gov.do/</code> to fetch the daily exchange rate and convert USD/EUR amounts to DOP in the Finances section. This request does not send any of your information — it only retrieves a public rate.</li>
-          </ul>
+          <p>Lexbell <strong>makes no internet connections at all</strong> and works fully offline.</p>
           <p>Lexbell does NOT communicate with our servers, does NOT upload your data to any cloud, and does NOT download additional code.</p>
 
           <h2 id="terceros">5. Sharing information with third parties</h2>

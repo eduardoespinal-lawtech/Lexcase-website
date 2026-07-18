@@ -90,7 +90,7 @@ const tiles = computed(() => [
       <div class="mockup-float rounded-[22px] overflow-hidden">
         <img
           src="/screenshots/finanzas.png"
-          alt="Sección de finanzas con tasa BCRD en vivo"
+          alt="Sección de finanzas por expediente"
           class="block w-full h-auto"
           loading="lazy"
         />

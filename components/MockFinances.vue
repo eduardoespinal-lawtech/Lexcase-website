@@ -1,13 +1,13 @@
 <script setup lang="ts">
 /* Finanzas: una sola columna sin aside (como en la app real). Header con
-   tile emerald + título + meta-row con selector de moneda; ticker BCRD;
-   strip de 4 KPIs (Ganado / Perdido / Por cobrar / Balance) usando el
-   mismo molde KpiPill que la app; tabla de honorarios por expediente. */
+   tile emerald + título + meta-row con selector de moneda; strip de 4 KPIs
+   (Cobrado / Gastos / Por cobrar / Ganancia neta) usando el mismo molde
+   KpiPill que la app; tabla de honorarios por expediente. */
 const kpis = [
-  { label: 'Ganado',     value: 'RD$ 4,820,000', iconBg: 'bg-emerald-500/15', iconColor: 'text-emerald-600', dir: 'up'   },
-  { label: 'Perdido',    value: 'RD$ 142,000',   iconBg: 'bg-rose-500/15',    iconColor: 'text-rose-600',    dir: 'down' },
-  { label: 'Por cobrar', value: 'RD$ 1,635,000', iconBg: 'bg-amber-500/15',   iconColor: 'text-amber-600',   dir: 'trend' },
-  { label: 'Balance',    value: 'RD$ 4,678,000', iconBg: 'bg-emerald-500/15', iconColor: 'text-emerald-600', dir: 'wallet' }
+  { label: 'Cobrado',       value: 'RD$ 4,820,000', iconBg: 'bg-emerald-500/15', iconColor: 'text-emerald-600', dir: 'up'   },
+  { label: 'Gastos',        value: 'RD$ 142,000',   iconBg: 'bg-rose-500/15',    iconColor: 'text-rose-600',    dir: 'down' },
+  { label: 'Por cobrar',    value: 'RD$ 1,635,000', iconBg: 'bg-amber-500/15',   iconColor: 'text-amber-600',   dir: 'trend' },
+  { label: 'Ganancia neta', value: 'RD$ 4,678,000', iconBg: 'bg-emerald-500/15', iconColor: 'text-emerald-600', dir: 'wallet' }
 ]
 
 const rows = [
@@ -41,8 +41,6 @@ const rows = [
               <span>6 expedientes activos</span>
               <span class="text-slate-300">·</span>
               <span>Mostrando en <span class="text-emerald-600 font-semibold">Peso Dominicano</span></span>
-              <span class="text-slate-300">·</span>
-              <span>Tasa <span class="text-slate-700 font-semibold">promedio</span></span>
             </div>
           </div>
           <div class="inline-flex p-1 bg-slate-100 rounded-lg gap-1 shrink-0 text-[12px] font-semibold">
@@ -51,30 +49,6 @@ const rows = [
             <button class="px-3 py-1 rounded-md text-slate-600">EUR</button>
           </div>
         </header>
-
-        <!-- BCRD ticker -->
-        <div class="bg-slate-100 border border-slate-200 rounded-xl p-2.5 flex items-center gap-3 flex-wrap">
-          <div class="px-1 shrink-0 leading-tight">
-            <p class="text-[11px] font-bold text-slate-800 leading-tight">Banco Central de la República Dominicana</p>
-            <p class="text-[10px] text-slate-600 leading-tight">Tasa oficial al día de hoy · <span class="font-semibold">Hace 12 min</span></p>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-md px-2.5 py-1.5 text-[10.5px] flex items-center gap-2">
-            <span class="font-bold text-slate-700">USD</span>
-            <span class="text-emerald-600 font-semibold tabular-nums">Compra 60.80</span>
-            <span class="text-rose-600 font-semibold tabular-nums">Venta 61.30</span>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-md px-2.5 py-1.5 text-[10.5px] flex items-center gap-2">
-            <span class="font-bold text-slate-700">EUR</span>
-            <span class="text-emerald-600 font-semibold tabular-nums">Compra 65.45</span>
-            <span class="text-rose-600 font-semibold tabular-nums">Venta 66.10</span>
-          </div>
-          <div class="flex-1"></div>
-          <div class="inline-flex p-0.5 bg-white border border-slate-200 rounded-md gap-0.5 text-[11px] font-semibold">
-            <button class="px-2 py-0.5 rounded bg-emerald-600 text-white">Promedio</button>
-            <button class="px-2 py-0.5 rounded text-slate-600">Compra</button>
-            <button class="px-2 py-0.5 rounded text-slate-600">Venta</button>
-          </div>
-        </div>
 
         <!-- KPI strip -->
         <div class="grid grid-cols-4 gap-2.5">
