@@ -18,13 +18,16 @@ useHead(() => ({
 }))
 
 /* Seis tipos de expediente — cada uno con su icono de línea (sin capturas). */
+/* Iconos idénticos a los que usa la app (lucide): Judicial=scale,
+   Administrativo=landmark, Migración=tickets-plane, Empresa=building-2,
+   Alquiler=warehouse, Compraventa=handshake. */
 const types = computed(() => [
-  { label: t('home.tabJudicial'),       sub: t('home.tabJudicialSub'),       paths: ['m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8', 'm16 16 6-6', 'm8 8 6-6', 'm9 7 8 8', 'm21 11-8-8'] },
-  { label: t('home.tabAdministrativo'), sub: t('home.tabAdministrativoSub'), paths: ['M10 18v-7', 'M11.12 2.2a2 2 0 0 1 1.76 0l7.87 3.85c.48.23.31.95-.22.95H3.47c-.53 0-.7-.72-.22-.95z', 'M14 18v-7', 'M18 18v-7', 'M3 22h18', 'M6 18v-7'] },
-  { label: t('home.tabMigracion'),      sub: t('home.tabMigracionSub'),      paths: ['M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'] },
-  { label: t('home.tabEmpresa'),        sub: t('home.tabEmpresaSub'),        paths: ['M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z', 'M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2', 'M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2', 'M10 6h4', 'M10 10h4', 'M10 14h4', 'M10 18h4'] },
-  { label: t('home.tabAlquiler'),       sub: t('home.tabAlquilerSub'),       paths: ['M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z', 'M16.5 7.5h.01'] },
-  { label: t('home.tabCompraventa'),    sub: t('home.tabCompraventaSub'),    paths: ['M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8', 'M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'] }
+  { label: t('home.tabJudicial'),       sub: t('home.tabJudicialSub'),       paths: ['M12 3v18', 'm19 8 3 8a5 5 0 0 1-6 0zV7', 'M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1', 'm5 8 3 8a5 5 0 0 1-6 0zV7', 'M7 21h10'] },
+  { label: t('home.tabAdministrativo'), sub: t('home.tabAdministrativoSub'), paths: ['M10 18v-7', 'M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z', 'M14 18v-7', 'M18 18v-7', 'M3 22h18', 'M6 18v-7'] },
+  { label: t('home.tabMigracion'),      sub: t('home.tabMigracionSub'),      paths: ['M10.5 17h1.227a2 2 0 0 0 1.345-.52L18 12', 'm12 13.5 3.794.506', 'm3.173 8.18 11-5a2 2 0 0 1 2.647.993L18.56 8', 'M6 10V8', 'M6 14v1', 'M6 19v2'] },
+  { label: t('home.tabEmpresa'),        sub: t('home.tabEmpresaSub'),        paths: ['M10 12h4', 'M10 8h4', 'M14 21v-3a2 2 0 0 0-4 0v3', 'M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2', 'M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16'] },
+  { label: t('home.tabAlquiler'),       sub: t('home.tabAlquilerSub'),       paths: ['M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11', 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z', 'M6 13h12', 'M6 17h12'] },
+  { label: t('home.tabCompraventa'),    sub: t('home.tabCompraventaSub'),    paths: ['m11 17 2 2a1 1 0 1 0 3-3', 'm14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4', 'm21 3 1 11h-2', 'M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3', 'M3 4h8'] }
 ])
 </script>
 
@@ -122,7 +125,7 @@ const types = computed(() => [
         <article class="bento-card">
           <span class="card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" />
+              <path d="M12 16v5" /><path d="M16 14.639V21" /><path d="M20 10.656V21" /><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" /><path d="M4 18.463V21" /><path d="M8 14.656V21" />
             </svg>
           </span>
           <h3 class="card-title">{{ t('home.section3Title') }}</h3>
