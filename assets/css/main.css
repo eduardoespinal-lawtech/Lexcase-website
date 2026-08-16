@@ -4,21 +4,21 @@
 
 /* === Design tokens — identidad Lexbell ===
    Base clara, técnica y minimalista (blanco / gris muy claro / casi negro).
-   El ACENTO es la CIRUELA/ORQUÍDEA del icono real de la app (la campana de
-   cristal sobre fondo #AC56A0). Ancla el sitio a la marca en botones, enlaces,
+   El ACENTO es el AZUL del icono real de la app (la campana de cristal sobre
+   fondo azul #007AFF). Ancla el sitio a la marca en botones, enlaces,
    eyebrows, iconos y realces — sin depender de capturas de pantalla. */
 :root {
   --bg:          #ffffff;
-  --bg-section:  #faf7f9;   /* gris con un pelín de ciruela, no neutro puro */
+  --bg-section:  #f5f8ff;   /* gris con un pelín de azul, no neutro puro */
   --text:        #1d1d1f;
   --text-muted:  #6e6e73;
-  --accent:      #A8479B;   /* orquídea — marca */
-  --accent-hover:#8E3A83;   /* ciruela más profunda */
-  --accent-soft: #C06BB4;   /* orquídea clara — realces suaves */
-  --brand-deep:  #5E2957;   /* ciruela profunda — profundidad/sombra */
-  --brand-tint:  #F7E9F4;   /* ciruela muy clara — fondos/burbujas */
-  --link:        #9A3D8D;
-  --divider:     rgba(94, 41, 87, 0.10);
+  --accent:      #007AFF;   /* azul — marca */
+  --accent-hover:#0059CC;   /* azul más profundo */
+  --accent-soft: #3D9BFF;   /* azul claro — realces suaves */
+  --brand-deep:  #003E99;   /* azul profundo — profundidad/sombra */
+  --brand-tint:  #E9F1FF;   /* azul muy claro — fondos/burbujas */
+  --link:        #0066CC;
+  --divider:     rgba(0, 62, 153, 0.10);
 }
 
 html {
@@ -132,19 +132,19 @@ body {
   color: #fff;
   font-weight: 500;
   box-shadow:
-    0 1px 1px rgba(94, 41, 87, 0.20),
-    0 8px 22px rgba(168, 71, 155, 0.30);
+    0 1px 1px rgba(0, 62, 153, 0.20),
+    0 8px 22px rgba(0, 122, 255, 0.30);
 }
 .btn-pill-primary:hover {
   background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 60%, var(--brand-deep) 100%);
   transform: translateY(-1px);
   box-shadow:
-    0 2px 3px rgba(94, 41, 87, 0.22),
-    0 12px 28px rgba(168, 71, 155, 0.36);
+    0 2px 3px rgba(0, 62, 153, 0.22),
+    0 12px 28px rgba(0, 122, 255, 0.36);
 }
 .btn-pill-primary:active {
   transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(94, 41, 87, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 62, 153, 0.25);
 }
 .btn-pill-ghost {
   background: transparent;
@@ -189,22 +189,22 @@ body {
   border-radius: 18px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 0 0 1px rgba(94, 41, 87, 0.06),
-    0 2px 6px rgba(94, 41, 87, 0.05),
-    0 30px 60px -12px rgba(94, 41, 87, 0.22),
-    0 12px 24px -8px rgba(94, 41, 87, 0.12);
+    0 0 0 1px rgba(0, 62, 153, 0.06),
+    0 2px 6px rgba(0, 62, 153, 0.05),
+    0 30px 60px -12px rgba(0, 62, 153, 0.22),
+    0 12px 24px -8px rgba(0, 62, 153, 0.12);
 }
 
 /* === Secciones oscuras (hero + CTA) — ciruela profunda de marca === */
 .section-dark {
   position: relative;
   background:
-    radial-gradient(100% 60% at 50% 0%, rgba(192, 107, 180, 0.28) 0%, rgba(192, 107, 180, 0) 60%),
-    linear-gradient(180deg, #3F1B3A 0%, #1C0C1B 100%);
+    radial-gradient(100% 60% at 50% 0%, rgba(61, 155, 255, 0.28) 0%, rgba(61, 155, 255, 0) 60%),
+    linear-gradient(180deg, #0A2A5E 0%, #04122E 100%);
   color: #fff;
   overflow: hidden;
 }
-.section-dark .eyebrow { color: #E0A9D6; }
+.section-dark .eyebrow { color: #A9CBFF; }
 .section-dark .h-section,
 .section-dark .h-feature { color: #fff; }
 .section-dark .subtitle { color: rgba(255, 255, 255, 0.70); }
@@ -217,7 +217,7 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 12px 28px rgba(0, 0, 0, 0.28);
 }
 .btn-pill-light:hover {
-  background: #f6ecf3;
+  background: #eaf2ff;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28), 0 16px 34px rgba(0, 0, 0, 0.34);
 }
@@ -238,16 +238,16 @@ body {
   display: flex;
   flex-direction: column;
   background: #fff;
-  border: 1px solid rgba(94, 41, 87, 0.08);
+  border: 1px solid rgba(0, 62, 153, 0.08);
   border-radius: 20px;
   padding: 28px;
-  box-shadow: 0 1px 2px rgba(94, 41, 87, 0.04), 0 14px 34px -22px rgba(94, 41, 87, 0.22);
+  box-shadow: 0 1px 2px rgba(0, 62, 153, 0.04), 0 14px 34px -22px rgba(0, 62, 153, 0.22);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .bento-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(168, 71, 155, 0.30);
-  box-shadow: 0 2px 5px rgba(94, 41, 87, 0.06), 0 26px 50px -24px rgba(94, 41, 87, 0.34);
+  border-color: rgba(0, 122, 255, 0.30);
+  box-shadow: 0 2px 5px rgba(0, 62, 153, 0.06), 0 26px 50px -24px rgba(0, 62, 153, 0.34);
 }
 .card-icon {
   display: inline-flex;
@@ -311,8 +311,8 @@ body {
   margin-top: 22px;
   border-radius: 13px;
   overflow: hidden;
-  border: 1px solid rgba(94, 41, 87, 0.08);
-  box-shadow: 0 18px 40px -24px rgba(94, 41, 87, 0.35);
+  border: 1px solid rgba(0, 62, 153, 0.08);
+  box-shadow: 0 18px 40px -24px rgba(0, 62, 153, 0.35);
 }
 .card-shot img { display: block; width: 100%; height: auto; }
 

@@ -163,8 +163,8 @@ const types = computed(() => [
 .hero {
   position: relative;
   background:
-    radial-gradient(85% 55% at 50% 6%, rgba(192, 107, 180, 0.34) 0%, rgba(192, 107, 180, 0) 60%),
-    linear-gradient(180deg, #3F1B3A 0%, #2A1228 55%, #1C0C1B 100%);
+    radial-gradient(85% 55% at 50% 6%, rgba(61, 155, 255, 0.34) 0%, rgba(61, 155, 255, 0) 60%),
+    linear-gradient(180deg, #0A2A5E 0%, #071C42 55%, #04122E 100%);
   padding: clamp(80px, 13vh, 140px) 22px clamp(72px, 10vh, 120px);
   overflow: hidden;
 }
@@ -184,7 +184,7 @@ const types = computed(() => [
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.14) inset,
     0 18px 40px -12px rgba(0, 0, 0, 0.55),
-    0 0 60px -8px rgba(192, 107, 180, 0.55);
+    0 0 60px -8px rgba(61, 155, 255, 0.55);
 }
 .hero-title {
   font-size: clamp(44px, 7vw, 84px);
@@ -195,7 +195,7 @@ const types = computed(() => [
   margin: 0;
 }
 .hero-title-accent {
-  background: linear-gradient(110deg, #ffffff 0%, #F0C9E6 45%, #C06BB4 100%);
+  background: linear-gradient(110deg, #ffffff 0%, #CFE4FF 45%, #3D9BFF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -254,8 +254,8 @@ const types = computed(() => [
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 .type-card:hover {
-  border-color: rgba(168, 71, 155, 0.32);
-  box-shadow: 0 14px 34px -22px rgba(94, 41, 87, 0.34);
+  border-color: rgba(0, 122, 255, 0.32);
+  box-shadow: 0 14px 34px -22px rgba(0, 62, 153, 0.34);
   transform: translateY(-2px);
 }
 .type-card .card-icon { width: 42px; height: 42px; margin-bottom: 14px; }

@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#3F1B3A"/>
-      <stop offset="1" stop-color="#1C0C1B"/>
+      <stop offset="0" stop-color="#0A2A5E"/>
+      <stop offset="1" stop-color="#04122E"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.28" cy="0.18" r="0.75">
-      <stop offset="0" stop-color="#C06BB4" stop-opacity="0.34"/>
-      <stop offset="1" stop-color="#C06BB4" stop-opacity="0"/>
+      <stop offset="0" stop-color="#3D9BFF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#3D9BFF" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#B86AAC"/>
-      <stop offset=".5" stop-color="#AC56A0"/>
-      <stop offset="1" stop-color="#974A8B"/>
+      <stop offset="0" stop-color="#3D9BFF"/>
+      <stop offset=".5" stop-color="#007AFF"/>
+      <stop offset="1" stop-color="#0059CC"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -28,6 +28,6 @@
 
   <!-- Wordmark + tagline -->
   <text x="410" y="288" fill="#ffffff" font-size="104" font-weight="700" letter-spacing="-3">Lexbell</text>
-  <text x="414" y="352" fill="#E0A9D6" font-size="34" font-weight="500" letter-spacing="-0.5">Gestión de expedientes legales para Mac y Windows</text>
+  <text x="414" y="352" fill="#A9CBFF" font-size="34" font-weight="500" letter-spacing="-0.5">Gestión de expedientes legales para Mac y Windows</text>
   <text x="414" y="410" fill="rgba(255,255,255,0.55)" font-size="25" font-family="ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.5">Mac y Windows · 100% local · cero conexiones</text>
 </svg>

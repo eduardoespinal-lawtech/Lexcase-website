@@ -167,20 +167,20 @@ const tiles = computed(() => [
   position: relative;
   border-radius: 22px;
   aspect-ratio: 16 / 11;
-  background: radial-gradient(120% 100% at 50% 0%, #F7E9F4 0%, #ffffff 72%);
+  background: radial-gradient(120% 100% at 50% 0%, #E9F1FF 0%, #ffffff 72%);
   border: 1px solid var(--divider);
   display: grid;
   place-items: center;
   overflow: hidden;
   box-shadow:
-    0 0 0 1px rgba(94, 41, 87, 0.05),
-    0 30px 60px -22px rgba(94, 41, 87, 0.24);
+    0 0 0 1px rgba(0, 62, 153, 0.05),
+    0 30px 60px -22px rgba(0, 62, 153, 0.24);
 }
 .spot-panel::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(94, 41, 87, 0.11) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 62, 153, 0.11) 1px, transparent 1px);
   background-size: 22px 22px;
   mask-image: radial-gradient(120% 90% at 50% 42%, #000 28%, transparent 74%);
   -webkit-mask-image: radial-gradient(120% 90% at 50% 42%, #000 28%, transparent 74%);
@@ -194,10 +194,10 @@ const tiles = computed(() => [
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(155deg, #B86AAC 0%, #AC56A0 50%, #974A8B 100%);
+  background: linear-gradient(155deg, #3D9BFF 0%, #007AFF 50%, #0059CC 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 18px 42px -14px rgba(151, 74, 139, 0.7);
+    0 18px 42px -14px rgba(0, 62, 153, 0.7);
 }
 
 /* === Stat row del spotlight de privacidad === */

@@ -1,14 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 1024 1024">
+  <!-- Icono Lexbell: fondo AZUL con degradado de tonalidades (estilo Apple) +
+       campana de LÍNEA amarilla (sin relleno interior). El trazo tiene RELIEVE
+       de ranura (luz arriba-izq + sombra abajo-der). Una sola fuente → icns/ico. -->
   <defs>
+    <!-- Azul #007AFF con degradado de tonalidades (más claro arriba). -->
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#B86AAC"/>
-      <stop offset=".5" stop-color="#AC56A0"/>
-      <stop offset="1" stop-color="#974A8B"/>
+      <stop offset="0"   stop-color="#3D9BFF"/>
+      <stop offset="0.5" stop-color="#007AFF"/>
+      <stop offset="1"   stop-color="#0059CC"/>
+    </linearGradient>
+    <!-- Realce de luz superior (brillo sutil, como los iconos de Apple). -->
+    <radialGradient id="topLight" cx="0.5" cy="0.02" r="0.9">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Sombra proyectada suave → da VOLUMEN a la campana (la levanta del fondo).
+         Valores en el espacio local del glifo (escala 40.5). -->
+    <filter id="vol" x="-40%" y="-40%" width="180%" height="200%">
+      <feDropShadow dx="0" dy="0.34" stdDeviation="0.45" flood-color="#002A5E" flood-opacity="0.42"/>
+    </filter>
+    <!-- Desvanecido vertical del trazo: mitad superior sólida, mitad inferior
+         hacia transparente (efecto vidrio). En el espacio local del glifo
+         (24u): y≈2 arriba, y≈21 abajo; sólido hasta el centro y luego cae. -->
+    <linearGradient id="bellFade" x1="0" y1="2" x2="0" y2="21" gradientUnits="userSpaceOnUse">
+      <stop offset="0"    stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="0.5"  stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1"    stop-color="#FFFFFF" stop-opacity="0.8"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-  <g transform="translate(5.6 6.7) scale(2.2)" fill="#fff" stroke="#fff" stroke-width="0.4" stroke-linejoin="round">
-    <path d="M6 8a6 6 0 0 1 12 0C18 15 18.92 15.61 20 16.33Q21 17 19.8 17H4.2Q3 17 4 16.33C5.08 15.61 6 15 6 8"/>
-    <path d="M10.3 19a1.94 1.94 0 0 0 3.4 0"/>
+
+  <rect width="1024" height="1024" rx="230" fill="url(#bg)"/>
+  <rect width="1024" height="1024" rx="230" fill="url(#topLight)"/>
+
+  <g transform="translate(512 512) scale(0.9288) translate(-512 -512) translate(26 66.5) scale(40.5)"
+     fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Campana blanca translúcida (cristal): trazo con desvanecido vertical
+         (arriba sólida, abajo hacia transparente) vía url(#bellFade). -->
+    <g stroke="url(#bellFade)" stroke-width="1.944" stroke-opacity="0.8" filter="url(#vol)">
+      <path d="M6 8a6 6 0 0 1 12 0C18 15 18.92 15.61 20 16.33Q21 17 19.8 17H4.2Q3 17 4 16.33C5.08 15.61 6 15 6 8"/>
+      <path d="M10.3 19a1.94 1.94 0 0 0 3.4 0"/>
+    </g>
   </g>
 </svg>

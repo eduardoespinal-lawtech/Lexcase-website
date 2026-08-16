@@ -39,9 +39,9 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
   align-items: center;
   justify-content: center;
   border-radius: 27%;
-  background: linear-gradient(155deg, #B86AAC 0%, #AC56A0 50%, #974A8B 100%);
+  background: linear-gradient(155deg, #3D9BFF 0%, #007AFF 50%, #0059CC 100%);
   box-shadow:
-    0 1px 2px rgba(94, 41, 87, 0.35),
+    0 1px 2px rgba(0, 62, 153, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 </style>
