@@ -108,7 +108,7 @@ onMounted(() => {
           <h2 id="resumen">1. Resumen rápido</h2>
           <ul>
             <li>Lexbell <strong>no recolecta</strong> información personal en servidores nuestros.</li>
-            <li>Toda la información de tus expedientes, clientes, notas, calendario y finanzas vive <strong>exclusivamente en tu equipo</strong>.</li>
+            <li>Toda la información de tus expedientes, clientes, notas, calendario y documentos vive <strong>exclusivamente en tu equipo</strong>.</li>
             <li>Lexbell <strong>no rastrea</strong> tu actividad ni comparte datos con terceros.</li>
             <li>Lexbell <strong>no usa</strong> Google Analytics, Mixpanel, Sentry, Firebase ni servicios de telemetría.</li>
           </ul>
@@ -120,7 +120,7 @@ onMounted(() => {
             <li><strong>Expedientes:</strong> datos del caso según su tipo (judicial, administrativo, migración, empresa, alquiler, compraventa).</li>
             <li><strong>Calendario:</strong> audiencias, plazos, tareas, reuniones que programes.</li>
             <li><strong>Notas:</strong> notas adjuntas a expedientes.</li>
-            <li><strong>Finanzas:</strong> honorarios, gastos y transacciones de cada expediente.</li>
+            <li><strong>Documentos:</strong> archivos que adjuntas a cada expediente (se copian a tu equipo).</li>
           </ul>
           <p>Toda esta información se guarda en el contenedor de datos privado de la Aplicación en tu equipo (en macOS, <code>~/Library/Containers/com.eduardoespinal.lexbell/</code>; en Windows, la carpeta de datos de la aplicación) y nunca sale de tu dispositivo a menos que tú decidas exportarla.</p>
 
@@ -187,7 +187,7 @@ onMounted(() => {
           <h2 id="resumen">1. Quick summary</h2>
           <ul>
             <li>Lexbell <strong>does not collect</strong> personal information on our servers.</li>
-            <li>All information about your cases, contacts, notes, calendar and finances lives <strong>exclusively on your device</strong>.</li>
+            <li>All information about your cases, contacts, notes, calendar and documents lives <strong>exclusively on your device</strong>.</li>
             <li>Lexbell <strong>does not track</strong> your activity or share data with third parties.</li>
             <li>Lexbell <strong>does not use</strong> Google Analytics, Mixpanel, Sentry, Firebase or any telemetry service.</li>
           </ul>
@@ -199,7 +199,7 @@ onMounted(() => {
             <li><strong>Cases:</strong> case data depending on its type (judicial, administrative, immigration, business, rental, real estate sale).</li>
             <li><strong>Calendar:</strong> hearings, deadlines, tasks and meetings you schedule.</li>
             <li><strong>Notes:</strong> notes attached to cases.</li>
-            <li><strong>Finances:</strong> fees, expenses and transactions per case.</li>
+            <li><strong>Documents:</strong> files you attach to each case (copied to your device).</li>
           </ul>
           <p>All this information is stored in the App's private data container on your device (on macOS, <code>~/Library/Containers/com.eduardoespinal.lexbell/</code>; on Windows, the application data folder) and never leaves your device unless you choose to export it.</p>
 

@@ -17,7 +17,7 @@
     "close": "Cerrar menú"
   },
   "seo": {
-    "defaultDescription": "Lexbell es la app de escritorio para gestionar expedientes legales: casos, plazos, clientes y finanzas, todo local en tu equipo. Para Mac y Windows."
+    "defaultDescription": "Lexbell es la app de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows."
   },
   "footer": {
     "product": "Producto",
@@ -28,10 +28,10 @@
   "home": {
     "heroTitle": "Tu práctica,",
     "heroTitle2": "ordenada al detalle.",
-    "heroSubtitle": "Expedientes, plazos, clientes y finanzas en una sola app de escritorio. Todo en tu equipo, sin nube ajena.",
+    "heroSubtitle": "Expedientes, plazos, documentos y notas en una sola app de escritorio. Todo en tu equipo, sin nube ajena.",
 
     "trust1": "6 tipos de expediente",
-    "trust2": "Multimoneda",
+    "trust2": "Respaldos diarios",
     "trust3": "100% local",
     "trust4": "0 telemetría",
 
@@ -60,8 +60,8 @@
     "mapBody": "Un grafo interactivo muestra cómo se conectan expedientes, clientes y contrapartes. Descubre relaciones de un vistazo.",
     "section2Title": "Clientes",
     "section2Body": "Directorio con cédula, teléfono, correo y observaciones. Detección de duplicados y filtros por estado.",
-    "section3Title": "Finanzas",
-    "section3Body": "Honorarios, adelantos y gastos por expediente en DOP, USD o EUR, con KPIs claros.",
+    "section3Title": "Documentos y respaldos",
+    "section3Body": "Adjunta archivos a cada expediente —se copian a tu equipo— y Lexbell guarda un respaldo automático a diario.",
     "section4Title": "Privacidad",
     "section4Body": "Tus datos nunca salen de tu equipo. Sin servidores nuestros, sin rastreadores, sin telemetría.",
 
@@ -70,7 +70,7 @@
   },
   "features": {
     "title": "Todo lo que tu práctica necesita.",
-    "subtitle": "Del expediente a las finanzas, con la privacidad como base. En Mac y Windows.",
+    "subtitle": "Del expediente a los documentos, con la privacidad como base. En Mac y Windows.",
 
     "sp1Eyebrow": "Expedientes",
     "sp1Title": "Seis tipos. Una sola app.",
@@ -86,9 +86,9 @@
     "sp2Title": "Lo que vence, no se te va.",
     "sp2Body": "Calendario integrado con sincronización opcional al calendario del sistema y el próximo feriado dominicano siempre a la vista.",
 
-    "sp3Eyebrow": "Finanzas",
-    "sp3Title": "Honorarios en DOP, USD o EUR.",
-    "sp3Body": "Cada expediente lleva su moneda. KPIs de cobrado, gastos, por cobrar y ganancia neta, por caso y en conjunto.",
+    "sp3Eyebrow": "Documentos y respaldos",
+    "sp3Title": "Tus documentos, siempre a salvo.",
+    "sp3Body": "Adjunta documentos a cada expediente —se copian a tu equipo— y ten un respaldo automático diario. Nada se pierde.",
 
     "sp5Eyebrow": "Mapa de vínculos",
     "sp5Title": "Ve cómo se conecta todo.",
@@ -157,7 +157,7 @@
     "q7": "¿Sirve fuera de República Dominicana?",
     "a7": "Está optimizada para la práctica en República Dominicana, con soporte específico para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Cómo se adquiere Lexbell?",
-    "a8": "Es una aplicación de pago. En Mac se obtiene desde la Mac App Store y en Windows desde la Microsoft Store; ambas tiendas gestionan el cobro en tu moneda local. No procesamos datos de pago en nuestros servidores."
+    "a8": "Puedes empezar gratis: hasta 10 expedientes sin costo. Para expedientes ilimitados hay una suscripción anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
   },
   "privacy": {
     "title": "Política de Privacidad",

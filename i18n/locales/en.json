@@ -17,7 +17,7 @@
     "close": "Close menu"
   },
   "seo": {
-    "defaultDescription": "Lexbell is the desktop app for managing legal case records: cases, deadlines, contacts and finances, all stored locally on your device. For Mac and Windows."
+    "defaultDescription": "Lexbell is the desktop app for managing legal case records: cases, deadlines, documents and notes, all stored locally on your device. For Mac and Windows."
   },
   "footer": {
     "product": "Product",
@@ -28,10 +28,10 @@
   "home": {
     "heroTitle": "Your practice,",
     "heroTitle2": "organized to the detail.",
-    "heroSubtitle": "Cases, deadlines, contacts and finances in one desktop app. All on your device, no external cloud.",
+    "heroSubtitle": "Cases, deadlines, documents and notes in one desktop app. All on your device, no external cloud.",
 
     "trust1": "6 case types",
-    "trust2": "Multi-currency",
+    "trust2": "Daily backups",
     "trust3": "100% local",
     "trust4": "Zero telemetry",
 
@@ -60,8 +60,8 @@
     "mapBody": "An interactive graph shows how cases, clients and opposing parties connect. Spot relationships at a glance.",
     "section2Title": "Contacts",
     "section2Body": "Directory with ID number, phone, email and notes. Duplicate detection and filters by status.",
-    "section3Title": "Finances",
-    "section3Body": "Fees, advances and expenses per case in DOP, USD or EUR, with clear KPIs.",
+    "section3Title": "Documents & backups",
+    "section3Body": "Attach files to each case —they are copied to your device— and Lexbell keeps an automatic daily backup.",
     "section4Title": "Privacy",
     "section4Body": "Your data never leaves your device. No servers of ours, no trackers, no telemetry.",
 
@@ -70,7 +70,7 @@
   },
   "features": {
     "title": "Everything your practice needs.",
-    "subtitle": "From the case record to finances, with privacy as the foundation. On Mac and Windows.",
+    "subtitle": "From the case record to its documents, with privacy as the foundation. On Mac and Windows.",
 
     "sp1Eyebrow": "Cases",
     "sp1Title": "Six types. One app.",
@@ -86,9 +86,9 @@
     "sp2Title": "What's due never slips by.",
     "sp2Body": "Built-in calendar with optional sync to the system calendar and the next Dominican Republic holiday always in view.",
 
-    "sp3Eyebrow": "Finances",
-    "sp3Title": "Fees in DOP, USD or EUR.",
-    "sp3Body": "Each case carries its currency. KPIs for collected, expenses, receivable and net profit, per case and aggregated.",
+    "sp3Eyebrow": "Documents & backups",
+    "sp3Title": "Your documents, always safe.",
+    "sp3Body": "Attach documents to each case —they are copied to your device— and keep an automatic daily backup. Nothing gets lost.",
 
     "sp5Eyebrow": "Relationship map",
     "sp5Title": "See how everything connects.",
@@ -157,7 +157,7 @@
     "q7": "Does it work outside the Dominican Republic?",
     "a7": "It's optimized for legal practice in the Dominican Republic, with specific support for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "How do I get Lexbell?",
-    "a8": "It's a paid app. On Mac you get it from the Mac App Store and on Windows from the Microsoft Store; both stores handle billing in your local currency. We don't process payment data on our servers."
+    "a8": "You can start free: up to 10 cases at no cost. For unlimited cases there is an annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
   },
   "privacy": {
     "title": "Privacy Policy",

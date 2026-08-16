@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
           '@type': 'SoftwareApplication',
           name: 'Lexbell',
           description:
-            'App de escritorio para gestionar expedientes legales: casos, plazos, clientes y finanzas, todo local en tu equipo. Para Mac y Windows.',
+            'App de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows.',
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'macOS 11+, Windows 10 and 11',
           url: 'https://lex-bell.com',

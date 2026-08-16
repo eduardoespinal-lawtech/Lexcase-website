@@ -39,7 +39,7 @@ useHead(() => ({
         <p>La Aplicación, sus textos, diseños, código fuente, íconos, marcas, logotipos y materiales asociados son propiedad de ICLVS Legal Intelligence LLC o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos no te transfieren ningún derecho de propiedad.</p>
 
         <h2>4. Contenido del usuario</h2>
-        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, finanzas). Como toda esa información vive localmente en tu equipo, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
+        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, documentos). Como toda esa información vive localmente en tu equipo, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
         <p>Eres responsable de:</p>
         <ul>
           <li>La exactitud y legalidad de la información que registres.</li>
@@ -100,7 +100,7 @@ useHead(() => ({
         <p>The App, its texts, designs, source code, icons, trademarks, logos and associated materials are owned by ICLVS Legal Intelligence LLC or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
 
         <h2>4. User content</h2>
-        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, finances). Because all of it lives locally on your device, we do not receive or store any copy on our servers.</p>
+        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, documents). Because all of it lives locally on your device, we do not receive or store any copy on our servers.</p>
         <p>You are responsible for:</p>
         <ul>
           <li>The accuracy and legality of the information you record.</li>

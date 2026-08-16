@@ -121,11 +121,11 @@ const types = computed(() => [
           <p class="card-body">{{ t('home.section2Body') }}</p>
         </article>
 
-        <!-- Finanzas -->
+        <!-- Documentos y respaldos -->
         <article class="bento-card">
           <span class="card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 16v5" /><path d="M16 14.639V21" /><path d="M20 10.656V21" /><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" /><path d="M4 18.463V21" /><path d="M8 14.656V21" />
+              <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" />
             </svg>
           </span>
           <h3 class="card-title">{{ t('home.section3Title') }}</h3>
