@@ -35,7 +35,6 @@ const types = computed(() => [
   <!-- =================== HERO =================== -->
   <section class="hero">
     <div class="hero-inner">
-      <img src="/icon.svg" alt="Lexbell" class="hero-icon" width="92" height="92" />
       <h1 class="hero-title">
         {{ t('home.heroTitle') }}<br />
         <span class="hero-title-accent">{{ t('home.heroTitle2') }}</span>
@@ -165,7 +164,7 @@ const types = computed(() => [
   background:
     radial-gradient(85% 55% at 50% 6%, rgba(61, 155, 255, 0.34) 0%, rgba(61, 155, 255, 0) 60%),
     linear-gradient(180deg, #0A2A5E 0%, #071C42 55%, #04122E 100%);
-  padding: clamp(80px, 13vh, 140px) 22px clamp(72px, 10vh, 120px);
+  padding: clamp(104px, 16vh, 168px) 22px clamp(80px, 11vh, 128px);
   overflow: hidden;
 }
 .hero-inner {
@@ -174,17 +173,6 @@ const types = computed(() => [
   max-width: 820px;
   margin: 0 auto;
   text-align: center;
-}
-.hero-icon {
-  width: 92px;
-  height: 92px;
-  border-radius: 22px;
-  margin: 0 auto 30px;
-  display: block;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.14) inset,
-    0 18px 40px -12px rgba(0, 0, 0, 0.55),
-    0 0 60px -8px rgba(61, 155, 255, 0.55);
 }
 .hero-title {
   font-size: clamp(44px, 7vw, 84px);
@@ -204,13 +192,13 @@ const types = computed(() => [
   font-size: clamp(18px, 1.7vw, 22px);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.74);
-  margin: 22px auto 0;
+  margin: 26px auto 0;
   max-width: 640px;
   font-weight: 400;
   letter-spacing: -0.005em;
 }
 .hero-ctas {
-  margin-top: 34px;
+  margin-top: 40px;
   display: inline-flex;
   align-items: center;
   gap: 22px;
@@ -220,7 +208,7 @@ const types = computed(() => [
 .hero-coming { font-size: 15px; color: rgba(255, 255, 255, 0.55); line-height: 1; }
 .hero-trust {
   list-style: none;
-  margin: 32px auto 0;
+  margin: 44px auto 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
