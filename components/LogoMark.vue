@@ -7,7 +7,7 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
 
 <template>
   <span class="inline-flex items-center gap-2.5 select-none">
-    <!-- Badge ciruela con la campana — mismo mark que el icono real de la app -->
+    <!-- Badge azul con la campana de LÍNEA — mismo mark que el icono real de la app -->
     <span
       class="lexbell-badge"
       :style="{ width: `${Math.round(size * 1.5)}px`, height: `${Math.round(size * 1.5)}px` }"
@@ -16,9 +16,10 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
         :width="size"
         :height="size"
         viewBox="0 0 24 24"
-        fill="#ffffff"
+        fill="none"
         stroke="#ffffff"
-        stroke-width="0.4"
+        stroke-width="2"
+        stroke-linecap="round"
         stroke-linejoin="round"
         aria-hidden="true"
       >
