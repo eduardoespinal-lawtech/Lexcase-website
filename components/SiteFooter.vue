@@ -57,7 +57,7 @@ const sections = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #180A15;
+  background: #04122E;
   color: rgba(255, 255, 255, 0.60);
   font-size: 12px;
   line-height: 1.5;
