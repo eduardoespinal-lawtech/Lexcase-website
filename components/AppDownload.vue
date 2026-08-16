@@ -9,6 +9,7 @@ const { t } = useI18n()
 <template>
   <div class="app-download" :class="center ? 'is-center' : ''">
     <p class="app-download-stores" :class="light ? 'is-light' : ''">{{ t('common.availableStores') }}</p>
+    <p class="app-download-price" :class="light ? 'is-light' : ''">{{ t('common.pricingNote') }}</p>
     <p class="app-download-note" :class="light ? 'is-light' : ''">{{ t('common.availabilityNote') }}</p>
   </div>
 </template>
@@ -28,6 +29,14 @@ const { t } = useI18n()
   color: var(--text);
 }
 .app-download-stores.is-light { color: #fff; }
+.app-download-price {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--accent);
+}
+.app-download-price.is-light { color: #A9CBFF; }
 .app-download-note {
   margin: 0;
   font-size: 13px;

@@ -2,6 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Available on the Mac App Store and the Microsoft Store",
+    "pricingNote": "Free up to 10 cases · annual subscription for unlimited",
     "learnMore": "Learn more",
     "availabilityNote": "macOS 11 or later · Windows 10 and 11"
   },
@@ -84,7 +85,7 @@
 
     "sp2Eyebrow": "Deadlines & hearings",
     "sp2Title": "What's due never slips by.",
-    "sp2Body": "Built-in calendar with optional sync to the system calendar and the next Dominican Republic holiday always in view.",
+    "sp2Body": "Built-in calendar with optional sync to the system calendar and official holidays always in view.",
 
     "sp3Eyebrow": "Documents & backups",
     "sp3Title": "Your documents, always safe.",
@@ -154,8 +155,8 @@
     "a5": "With automatic daily, weekly or monthly backups to the folder you choose. You can also export and import your entire database in JSON format anytime.",
     "q6": "What if I stop using the app?",
     "a6": "Your data is always yours: you can export it to JSON at any time. If you uninstall the app, the local data is removed with it, so it's best to export first.",
-    "q7": "Does it work outside the Dominican Republic?",
-    "a7": "It's optimized for legal practice in the Dominican Republic, with specific support for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
+    "q7": "Which countries does it support?",
+    "a7": "Yes. Lexbell adapts each case's fields to the country and works for several Spanish- and English-speaking countries. It includes specific support for the Dominican Republic and for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "How do I get Lexbell?",
     "a8": "You can start free: up to 10 cases at no cost. For unlimited cases there is an annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
   },

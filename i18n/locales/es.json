@@ -2,6 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Disponible en la Mac App Store y la Microsoft Store",
+    "pricingNote": "Gratis hasta 10 expedientes · suscripción anual para ilimitados",
     "learnMore": "Más información",
     "availabilityNote": "macOS 11 o superior · Windows 10 y 11"
   },
@@ -59,7 +60,7 @@
     "mapTitle": "Mapa de vínculos",
     "mapBody": "Un grafo interactivo muestra cómo se conectan expedientes, clientes y contrapartes. Descubre relaciones de un vistazo.",
     "section2Title": "Clientes",
-    "section2Body": "Directorio con cédula, teléfono, correo y observaciones. Detección de duplicados y filtros por estado.",
+    "section2Body": "Directorio con documento de identidad, teléfono, correo y observaciones. Detección de duplicados y filtros por estado.",
     "section3Title": "Documentos y respaldos",
     "section3Body": "Adjunta archivos a cada expediente —se copian a tu equipo— y Lexbell guarda un respaldo automático a diario.",
     "section4Title": "Privacidad",
@@ -84,7 +85,7 @@
 
     "sp2Eyebrow": "Plazos y audiencias",
     "sp2Title": "Lo que vence, no se te va.",
-    "sp2Body": "Calendario integrado con sincronización opcional al calendario del sistema y el próximo feriado dominicano siempre a la vista.",
+    "sp2Body": "Calendario integrado con sincronización opcional al calendario del sistema y los feriados oficiales siempre a la vista.",
 
     "sp3Eyebrow": "Documentos y respaldos",
     "sp3Title": "Tus documentos, siempre a salvo.",
@@ -106,7 +107,7 @@
     "tile2Title": "Atajos de teclado",
     "tile2Body": "Nuevo, contacto, tarea, audiencia… todo con el teclado. ⌘ en Mac, Ctrl en Windows.",
     "tile3Title": "Detección de duplicados",
-    "tile3Body": "Mismo teléfono o cédula aunque cambie el nombre. Coincidencia por similitud al 90%.",
+    "tile3Body": "Mismo teléfono o documento aunque cambie el nombre. Coincidencia por similitud al 90%.",
     "tile4Title": "Respaldos automáticos",
     "tile4Body": "Exporta toda tu base en JSON a la carpeta que elijas: diario, semanal o mensual.",
     "tile5Title": "Notas con editor",
@@ -154,8 +155,8 @@
     "a5": "Con respaldos automáticos diarios, semanales o mensuales en la carpeta que elijas. También puedes exportar e importar toda tu base en formato JSON cuando quieras.",
     "q6": "¿Qué pasa si dejo de usar la aplicación?",
     "a6": "Tus datos son siempre tuyos: puedes exportarlos a JSON en cualquier momento. Si desinstalas la app, los datos locales se eliminan con ella, así que conviene exportar antes.",
-    "q7": "¿Sirve fuera de República Dominicana?",
-    "a7": "Está optimizada para la práctica en República Dominicana, con soporte específico para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
+    "q7": "¿En qué países funciona?",
+    "a7": "Sí. Lexbell adapta los campos de cada expediente al país y funciona para varios países de habla hispana e inglesa. Incluye soporte específico para República Dominicana y para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Cómo se adquiere Lexbell?",
     "a8": "Puedes empezar gratis: hasta 10 expedientes sin costo. Para expedientes ilimitados hay una suscripción anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
   },
