@@ -36,7 +36,7 @@ useHead(() => ({
         </ul>
 
         <h2>3. Propiedad intelectual</h2>
-        <p>La Aplicación, sus textos, diseños, código fuente, íconos, marcas, logotipos y materiales asociados son propiedad de ICLVS Legal Intelligence LLC o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos no te transfieren ningún derecho de propiedad.</p>
+        <p>La Aplicación, sus textos, diseños, código fuente, íconos, marcas, logotipos y materiales asociados son propiedad de Lexbell o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos no te transfieren ningún derecho de propiedad.</p>
 
         <h2>4. Contenido del usuario</h2>
         <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, documentos). Como toda esa información vive localmente en tu equipo, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
@@ -60,11 +60,11 @@ useHead(() => ({
         <p>La Aplicación se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas, incluyendo pero no limitándose a garantías de comerciabilidad, idoneidad para un propósito particular o no infracción. No garantizamos que la Aplicación esté libre de errores, sea ininterrumpida o cumpla con todos tus requisitos específicos.</p>
 
         <h2>7. Limitación de responsabilidad</h2>
-        <p>En la máxima medida permitida por la ley aplicable, ICLVS Legal Intelligence LLC no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, ni por pérdida de beneficios, ingresos, datos, oportunidades o reputación, derivados del uso o imposibilidad de uso de la Aplicación.</p>
+        <p>En la máxima medida permitida por la ley aplicable, Lexbell no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, ni por pérdida de beneficios, ingresos, datos, oportunidades o reputación, derivados del uso o imposibilidad de uso de la Aplicación.</p>
         <p>En particular, la Aplicación es una herramienta de organización; <strong>no</strong> sustituye el juicio profesional del abogado, ni el cumplimiento de plazos, ni la diligencia en el manejo de expedientes. Eres el único responsable de las decisiones jurídicas y de los plazos procesales que correspondan a tus casos.</p>
 
         <h2>8. Indemnización</h2>
-        <p>Aceptas indemnizar y mantener indemne a ICLVS Legal Intelligence LLC frente a cualquier reclamación, demanda o daño derivado del uso indebido de la Aplicación o del incumplimiento de estos Términos por tu parte.</p>
+        <p>Aceptas indemnizar y mantener indemne a Lexbell frente a cualquier reclamación, demanda o daño derivado del uso indebido de la Aplicación o del incumplimiento de estos Términos por tu parte.</p>
 
         <h2>9. Actualizaciones</h2>
         <p>Podemos publicar actualizaciones de la Aplicación periódicamente. Algunas actualizaciones pueden ser obligatorias por motivos de seguridad o compatibilidad con nuevas versiones de tu sistema operativo. No estamos obligados a mantener compatibilidad indefinida con versiones antiguas de macOS o Windows.</p>
@@ -97,7 +97,7 @@ useHead(() => ({
         </ul>
 
         <h2>3. Intellectual property</h2>
-        <p>The App, its texts, designs, source code, icons, trademarks, logos and associated materials are owned by ICLVS Legal Intelligence LLC or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
+        <p>The App, its texts, designs, source code, icons, trademarks, logos and associated materials are owned by Lexbell or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
 
         <h2>4. User content</h2>
         <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, documents). Because all of it lives locally on your device, we do not receive or store any copy on our servers.</p>
@@ -121,11 +121,11 @@ useHead(() => ({
         <p>The App is provided "as is" and "as available," without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose or non-infringement. We do not warrant that the App will be error-free, uninterrupted or meet all of your specific requirements.</p>
 
         <h2>7. Limitation of liability</h2>
-        <p>To the maximum extent permitted by applicable law, ICLVS Legal Intelligence LLC will not be liable for indirect, incidental, special, consequential or punitive damages, nor for loss of profits, revenue, data, opportunities or reputation, arising from the use of or inability to use the App.</p>
+        <p>To the maximum extent permitted by applicable law, Lexbell will not be liable for indirect, incidental, special, consequential or punitive damages, nor for loss of profits, revenue, data, opportunities or reputation, arising from the use of or inability to use the App.</p>
         <p>Specifically, the App is an organization tool; it does <strong>not</strong> replace the attorney's professional judgment, deadline compliance or due diligence in handling matters. You are solely responsible for legal decisions and procedural deadlines applicable to your cases.</p>
 
         <h2>8. Indemnification</h2>
-        <p>You agree to indemnify and hold harmless ICLVS Legal Intelligence LLC against any claim, demand or damage arising from misuse of the App or breach of these Terms.</p>
+        <p>You agree to indemnify and hold harmless Lexbell against any claim, demand or damage arising from misuse of the App or breach of these Terms.</p>
 
         <h2>9. Updates</h2>
         <p>We may release updates to the App from time to time. Some updates may be mandatory for security or compatibility with new versions of your operating system. We are not obligated to maintain indefinite compatibility with older macOS or Windows versions.</p>

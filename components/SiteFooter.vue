@@ -49,7 +49,7 @@ const sections = computed(() => [
       <hr class="site-footer-hr" />
 
       <div class="site-footer-base">
-        <p>© {{ year }} ICLVS Legal Intelligence LLC. {{ t('footer.rights') }}</p>
+        <p>© {{ year }} Lexbell. {{ t('footer.rights') }}</p>
       </div>
     </div>
   </footer>

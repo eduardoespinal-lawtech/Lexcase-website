@@ -138,7 +138,7 @@
     "responseTitle": "Response time",
     "responseBody": "We reply during Dominican Republic business hours (UTC-4), Monday to Friday. Most emails are answered in less than 24 hours.",
     "developerTitle": "Developer",
-    "developerBody": "ICLVS Legal Intelligence LLC. Application designed and maintained by Eduardo Espinal, attorney and developer, for modern legal practice in the Dominican Republic and the United States."
+    "developerBody": "Application designed and maintained by the Lexbell team, for modern legal practice in the Dominican Republic and the United States."
   },
   "faq": {
     "title": "What we get asked the most.",
@@ -168,6 +168,6 @@
   "terms": {
     "title": "Terms & Conditions",
     "updated": "Last updated: June 15, 2026",
-    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop application for Mac and Windows provided by ICLVS Legal Intelligence LLC (\"we\"). By downloading, installing or using the App, you accept these Terms."
+    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop application for Mac and Windows provided by the Lexbell team (\"we\"). By downloading, installing or using the App, you accept these Terms."
   }
 }
