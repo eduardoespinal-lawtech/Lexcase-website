@@ -130,8 +130,6 @@ onMounted(() => {
               <tr><th>Permiso</th><th>Para qué lo usa</th></tr>
             </thead>
             <tbody>
-              <tr><td>Calendario</td><td>Sincronizar audiencias y plazos con el calendario del sistema, si tú decides activarlo.</td></tr>
-              <tr><td>Contactos</td><td>Importar contactos desde la libreta de direcciones del sistema, si tú lo solicitas.</td></tr>
               <tr><td>Carpetas seleccionadas</td><td>Permitirte elegir una carpeta donde la Aplicación guarda copias de respaldo automáticas.</td></tr>
               <tr><td>Notificaciones</td><td>Avisarte cuando se acercan audiencias o plazos.</td></tr>
             </tbody>
@@ -139,8 +137,8 @@ onMounted(() => {
           <p>Todos los permisos son revocables desde los <strong>ajustes de privacidad</strong> de tu sistema operativo.</p>
 
           <h2 id="internet">4. Conexiones a internet</h2>
-          <p>Lexbell <strong>no realiza ninguna conexión a internet</strong> y funciona completamente sin conexión.</p>
-          <p>Lexbell NO se comunica con servidores nuestros, NO sube tus datos a ninguna nube y NO descarga código adicional.</p>
+          <p>Lexbell funciona <strong>sin conexión</strong> para todas sus funciones de gestión de expedientes. La única excepción es la <strong>suscripción</strong> (activarla o restaurarla), que se gestiona a través de la App Store de Apple y requiere conexión.</p>
+          <p>Lexbell NO se comunica con servidores nuestros, NO sube tus datos a ninguna nube y NO descarga código adicional. En el proceso de suscripción, la App Store gestiona el cobro; nosotros no recibimos ni procesamos tus datos de pago.</p>
 
           <h2 id="terceros">5. Compartir información con terceros</h2>
           <p>Lexbell <strong>no comparte ninguna información tuya con terceros</strong>. No vendemos datos. No tenemos socios publicitarios. No incrustamos analíticas.</p>
@@ -209,8 +207,6 @@ onMounted(() => {
               <tr><th>Permission</th><th>Used for</th></tr>
             </thead>
             <tbody>
-              <tr><td>Calendar</td><td>Sync hearings and deadlines with the system calendar, if you choose to enable it.</td></tr>
-              <tr><td>Contacts</td><td>Import contacts from the system address book, on your request.</td></tr>
               <tr><td>User-selected folders</td><td>Let you choose a folder where the App writes automatic backups.</td></tr>
               <tr><td>Notifications</td><td>Alert you when hearings or deadlines are approaching.</td></tr>
             </tbody>
@@ -218,8 +214,8 @@ onMounted(() => {
           <p>All permissions can be revoked from your operating system's <strong>privacy settings</strong>.</p>
 
           <h2 id="internet">4. Internet connections</h2>
-          <p>Lexbell <strong>makes no internet connections at all</strong> and works fully offline.</p>
-          <p>Lexbell does NOT communicate with our servers, does NOT upload your data to any cloud, and does NOT download additional code.</p>
+          <p>Lexbell works <strong>offline</strong> for all its case-management features. The only exception is the <strong>subscription</strong> (activating or restoring it), which is handled through Apple's App Store and requires a connection.</p>
+          <p>Lexbell does NOT communicate with our servers, does NOT upload your data to any cloud, and does NOT download additional code. During the subscription process, the App Store handles billing; we do not receive or process your payment data.</p>
 
           <h2 id="terceros">5. Sharing information with third parties</h2>
           <p>Lexbell <strong>does not share any of your information with third parties</strong>. We do not sell data. We have no advertising partners. We embed no analytics.</p>
