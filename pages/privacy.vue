@@ -177,7 +177,7 @@ onMounted(() => {
           <p>Si tienes preguntas, dudas o solicitudes sobre privacidad:</p>
           <ul>
             <li><strong>Correo:</strong> <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a></li>
-            <li><strong>Desarrollador:</strong> ICLVS Legal Intelligence LLC</li>
+            <li><strong>Desarrollador:</strong> Equipo de Lexbell</li>
             <li><strong>Aplicación:</strong> Lexbell para Mac y Windows</li>
           </ul>
         </template>
@@ -256,7 +256,7 @@ onMounted(() => {
           <p>If you have questions, concerns or requests regarding privacy:</p>
           <ul>
             <li><strong>Email:</strong> <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a></li>
-            <li><strong>Developer:</strong> ICLVS Legal Intelligence LLC</li>
+            <li><strong>Developer:</strong> Lexbell team</li>
             <li><strong>App:</strong> Lexbell for Mac and Windows</li>
           </ul>
         </template>
