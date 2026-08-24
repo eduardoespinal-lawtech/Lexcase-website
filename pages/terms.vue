@@ -78,7 +78,17 @@ useHead(() => ({
         <h2>12. Legislación aplicable y jurisdicción</h2>
         <p>Estos Términos se rigen por las leyes de la <strong>República Dominicana</strong>, sin atender a sus principios sobre conflictos de leyes. Cualquier controversia derivada del uso de la Aplicación se someterá a los tribunales competentes del Distrito Nacional, sin perjuicio de los derechos imperativos del consumidor donde residas.</p>
 
-        <h2>13. Contacto</h2>
+        <h2>13. Suscripción y compras dentro de la app</h2>
+        <p>Lexbell puede usarse gratis hasta cierto límite de expedientes. Las funciones ilimitadas se ofrecen mediante <strong>Lexbell Pro</strong>, una <strong>suscripción anual de renovación automática</strong>.</p>
+        <ul>
+          <li>El precio y la duración se muestran en la app antes de comprar y en la pantalla de compra de la App Store.</li>
+          <li>El pago se carga a tu cuenta de Apple al confirmar la compra.</li>
+          <li>La suscripción <strong>se renueva automáticamente</strong> por el mismo periodo, salvo que la canceles al menos 24 horas antes de que termine el periodo en curso.</li>
+          <li>Puedes gestionar o cancelar la suscripción en cualquier momento desde los ajustes de tu cuenta en la App Store.</li>
+          <li>El cobro y los reembolsos los gestiona Apple conforme a las políticas de la App Store; nosotros no procesamos datos de pago.</li>
+        </ul>
+
+        <h2>14. Contacto</h2>
         <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a>.</p>
       </template>
 
@@ -139,7 +149,17 @@ useHead(() => ({
         <h2>12. Governing law and jurisdiction</h2>
         <p>These Terms are governed by the laws of the <strong>Dominican Republic</strong>, without regard to its conflict of laws principles. Any dispute arising from the use of the App will be submitted to the competent courts of the National District, without prejudice to mandatory consumer rights where you reside.</p>
 
-        <h2>13. Contact</h2>
+        <h2>13. Subscription and in-app purchases</h2>
+        <p>Lexbell can be used for free up to a certain number of cases. Unlimited features are offered through <strong>Lexbell Pro</strong>, an <strong>auto-renewable annual subscription</strong>.</p>
+        <ul>
+          <li>The price and duration are shown in the app before purchase and on the App Store purchase screen.</li>
+          <li>Payment is charged to your Apple account upon confirming the purchase.</li>
+          <li>The subscription <strong>renews automatically</strong> for the same period unless you cancel at least 24 hours before the end of the current period.</li>
+          <li>You can manage or cancel the subscription at any time in your App Store account settings.</li>
+          <li>Billing and refunds are handled by Apple under App Store policies; we do not process payment data.</li>
+        </ul>
+
+        <h2>14. Contact</h2>
         <p>For questions about these Terms, write to <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a>.</p>
       </template>
     </article>
