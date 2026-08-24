@@ -2,9 +2,9 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Available on the Mac App Store and the Microsoft Store",
-    "pricingNote": "Free up to 10 cases · annual subscription for unlimited",
+    "pricingNote": "Free up to 30 cases · annual subscription for unlimited",
     "learnMore": "Learn more",
-    "availabilityNote": "macOS 11 or later · Windows 10 and 11"
+    "availabilityNote": "macOS 12 or later · Windows 10 and 11"
   },
   "nav": {
     "home": "Home",
@@ -125,7 +125,7 @@
     "emailBody": "To report an issue, suggest an improvement or ask for help. We reply during Dominican Republic business hours.",
     "emailLabel": "Send an email",
     "compatTitle": "Compatibility",
-    "compatItem1": "macOS 11 Big Sur or later (Apple Silicon or Intel)",
+    "compatItem1": "macOS 12 Monterey or later (Apple Silicon or Intel)",
     "compatItem2": "Windows 10 and 11 (64-bit)",
     "compatItem3": "150 MB of disk space",
     "compatItem4": "Runs 100% without an internet connection"
@@ -144,11 +144,11 @@
     "title": "What we get asked the most.",
     "subtitle": "Quick answers about Lexbell, its privacy model and how it works on Mac and Windows.",
     "q1": "Are my cases uploaded to the cloud?",
-    "a1": "No. All your information lives on your own device and never leaves it. Lexbell has no servers of ours and makes no internet connection.",
+    "a1": "No. All your information lives on your own device and never leaves it. Lexbell has no servers of ours. The only connection is with the App Store to manage the subscription, and no personal data is sent through it.",
     "q2": "Does it work offline?",
-    "a2": "Yes, fully. Lexbell needs no internet for any of its features.",
+    "a2": "Yes. All case-management features work without internet. Only activating or restoring the subscription needs a connection, and the App Store handles that.",
     "q3": "What do I need to use Lexbell?",
-    "a3": "macOS 11 Big Sur or later (Apple Silicon or Intel Macs) or 64-bit Windows 10 and 11. Around 150 MB of space.",
+    "a3": "macOS 12 Monterey or later (Apple Silicon or Intel Macs) or 64-bit Windows 10 and 11. Around 150 MB of space.",
     "q4": "Does it work the same on Mac and Windows?",
     "a4": "Yes. It's the same app with the same features on both systems; only the shortcuts change: ⌘ on Mac and Ctrl on Windows.",
     "q5": "How do I back up my data?",
@@ -158,7 +158,7 @@
     "q7": "Which countries does it support?",
     "a7": "Yes. Lexbell adapts each case's fields to the country and works for several Spanish- and English-speaking countries. It includes specific support for the Dominican Republic and for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "How do I get Lexbell?",
-    "a8": "You can start free: up to 10 cases at no cost. For unlimited cases there is an annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
+    "a8": "You can start free: up to 30 cases at no cost. For unlimited cases there is an annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
   },
   "privacy": {
     "title": "Privacy Policy",

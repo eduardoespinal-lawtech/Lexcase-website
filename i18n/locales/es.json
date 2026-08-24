@@ -2,9 +2,9 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Disponible en la Mac App Store y la Microsoft Store",
-    "pricingNote": "Gratis hasta 10 expedientes · suscripción anual para ilimitados",
+    "pricingNote": "Gratis hasta 30 expedientes · suscripción anual para ilimitados",
     "learnMore": "Más información",
-    "availabilityNote": "macOS 11 o superior · Windows 10 y 11"
+    "availabilityNote": "macOS 12 o superior · Windows 10 y 11"
   },
   "nav": {
     "home": "Inicio",
@@ -125,7 +125,7 @@
     "emailBody": "Para reportar un fallo, sugerir una mejora o pedir ayuda. Respondemos en horario laboral de República Dominicana.",
     "emailLabel": "Escribir un correo",
     "compatTitle": "Compatibilidad",
-    "compatItem1": "macOS 11 Big Sur o superior (Apple Silicon o Intel)",
+    "compatItem1": "macOS 12 Monterey o superior (Apple Silicon o Intel)",
     "compatItem2": "Windows 10 y 11 (64 bits)",
     "compatItem3": "150 MB de espacio en disco",
     "compatItem4": "Funciona 100% sin conexión a internet"
@@ -144,11 +144,11 @@
     "title": "Lo que más nos preguntan.",
     "subtitle": "Respuestas rápidas sobre Lexbell, su modelo de privacidad y cómo funciona en Mac y Windows.",
     "q1": "¿Mis expedientes se suben a la nube?",
-    "a1": "No. Toda la información vive en tu propio equipo y nunca sale de él. Lexbell no tiene servidores nuestros ni hace conexiones a internet.",
+    "a1": "No. Toda la información vive en tu propio equipo y nunca sale de él. Lexbell no tiene servidores nuestros. La única conexión es con la App Store para gestionar la suscripción, y en ella no se envían tus datos.",
     "q2": "¿Funciona sin conexión a internet?",
-    "a2": "Sí, por completo. Lexbell no necesita internet para ninguna de sus funciones.",
+    "a2": "Sí. Todas las funciones de gestión de expedientes funcionan sin internet. Solo activar o restaurar la suscripción requiere conexión, y de eso se encarga la App Store.",
     "q3": "¿Qué necesito para usar Lexbell?",
-    "a3": "macOS 11 Big Sur o superior (Macs con Apple Silicon o Intel) o Windows 10 y 11 de 64 bits. Alrededor de 150 MB de espacio.",
+    "a3": "macOS 12 Monterey o superior (Macs con Apple Silicon o Intel) o Windows 10 y 11 de 64 bits. Alrededor de 150 MB de espacio.",
     "q4": "¿Funciona igual en Mac y en Windows?",
     "a4": "Sí. Es la misma app con las mismas funciones en ambos sistemas; solo cambian los atajos: ⌘ en Mac y Ctrl en Windows.",
     "q5": "¿Cómo respaldo mis datos?",
@@ -158,7 +158,7 @@
     "q7": "¿En qué países funciona?",
     "a7": "Sí. Lexbell adapta los campos de cada expediente al país y funciona para varios países de habla hispana e inglesa. Incluye soporte específico para República Dominicana y para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Cómo se adquiere Lexbell?",
-    "a8": "Puedes empezar gratis: hasta 10 expedientes sin costo. Para expedientes ilimitados hay una suscripción anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
+    "a8": "Puedes empezar gratis: hasta 30 expedientes sin costo. Para expedientes ilimitados hay una suscripción anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
   },
   "privacy": {
     "title": "Política de Privacidad",
