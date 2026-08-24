@@ -11,13 +11,13 @@ export default defineNuxtPlugin(() => {
           description:
             'App de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows.',
           applicationCategory: 'BusinessApplication',
-          operatingSystem: 'macOS 11+, Windows 10 and 11',
+          operatingSystem: 'macOS 12+, Windows 10 and 11',
           url: 'https://lex-bell.com',
           inLanguage: ['es', 'en'],
-          softwareVersion: '0.1.0',
+          softwareVersion: '1.0.0',
           publisher: {
             '@type': 'Organization',
-            name: 'ICLVS Legal Intelligence LLC',
+            name: 'Lexbell',
             email: 'soporte@lex-bell.com',
             url: 'https://lex-bell.com'
           }
