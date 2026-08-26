@@ -79,7 +79,7 @@ useHead(() => ({
         <p>Estos Términos se rigen por las leyes de la <strong>República Dominicana</strong>, sin atender a sus principios sobre conflictos de leyes. Cualquier controversia derivada del uso de la Aplicación se someterá a los tribunales competentes del Distrito Nacional, sin perjuicio de los derechos imperativos del consumidor donde residas.</p>
 
         <h2>13. Suscripción y compras dentro de la app</h2>
-        <p>Lexbell puede usarse gratis hasta cierto límite de expedientes. Las funciones ilimitadas se ofrecen mediante <strong>Lexbell Pro</strong>, una <strong>suscripción anual de renovación automática</strong>.</p>
+        <p>Lexbell puede usarse gratis hasta cierto límite de expedientes. Las funciones ilimitadas se ofrecen mediante <strong>Lexbell Premium</strong>, una <strong>suscripción anual de renovación automática</strong>.</p>
         <ul>
           <li>El precio y la duración se muestran en la app antes de comprar y en la pantalla de compra de la App Store.</li>
           <li>El pago se carga a tu cuenta de Apple al confirmar la compra.</li>
@@ -150,7 +150,7 @@ useHead(() => ({
         <p>These Terms are governed by the laws of the <strong>Dominican Republic</strong>, without regard to its conflict of laws principles. Any dispute arising from the use of the App will be submitted to the competent courts of the National District, without prejudice to mandatory consumer rights where you reside.</p>
 
         <h2>13. Subscription and in-app purchases</h2>
-        <p>Lexbell can be used for free up to a certain number of cases. Unlimited features are offered through <strong>Lexbell Pro</strong>, an <strong>auto-renewable annual subscription</strong>.</p>
+        <p>Lexbell can be used for free up to a certain number of cases. Unlimited features are offered through <strong>Lexbell Premium</strong>, an <strong>auto-renewable annual subscription</strong>.</p>
         <ul>
           <li>The price and duration are shown in the app before purchase and on the App Store purchase screen.</li>
           <li>Payment is charged to your Apple account upon confirming the purchase.</li>
