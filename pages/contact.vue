@@ -19,9 +19,9 @@ useHead(() => ({
 
   <section class="section-tight section-gray">
     <div class="apple-wrap grid gap-6 md:grid-cols-2">
-      <a href="mailto:soporte@lex-bell.com" class="contact-card contact-card-link">
+      <a href="mailto:support@lex-bell.com" class="contact-card contact-card-link">
         <p class="contact-eyebrow">{{ t('contact.emailTitle') }}</p>
-        <p class="contact-email">soporte@lex-bell.com</p>
+        <p class="contact-email">support@lex-bell.com</p>
         <p class="contact-hint">{{ t('contact.emailHint') }}</p>
       </a>
 

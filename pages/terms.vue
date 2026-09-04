@@ -89,7 +89,7 @@ useHead(() => ({
         </ul>
 
         <h2>14. Contacto</h2>
-        <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a>.</p>
+        <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
       </template>
 
       <template v-else>
@@ -160,7 +160,7 @@ useHead(() => ({
         </ul>
 
         <h2>14. Contact</h2>
-        <p>For questions about these Terms, write to <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a>.</p>
+        <p>For questions about these Terms, write to <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
       </template>
     </article>
   </section>

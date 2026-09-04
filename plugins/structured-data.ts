@@ -18,7 +18,7 @@ export default defineNuxtPlugin(() => {
           publisher: {
             '@type': 'Organization',
             name: 'Lexbell',
-            email: 'soporte@lex-bell.com',
+            email: 'support@lex-bell.com',
             url: 'https://lex-bell.com'
           }
         })

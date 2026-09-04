@@ -174,7 +174,7 @@ onMounted(() => {
           <h2 id="contacto">12. Contacto</h2>
           <p>Si tienes preguntas, dudas o solicitudes sobre privacidad:</p>
           <ul>
-            <li><strong>Correo:</strong> <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a></li>
+            <li><strong>Correo:</strong> <a href="mailto:support@lex-bell.com">support@lex-bell.com</a></li>
             <li><strong>Desarrollador:</strong> Equipo de Lexbell</li>
             <li><strong>Aplicación:</strong> Lexbell para Mac y Windows</li>
           </ul>
@@ -251,7 +251,7 @@ onMounted(() => {
           <h2 id="contacto">12. Contact</h2>
           <p>If you have questions, concerns or requests regarding privacy:</p>
           <ul>
-            <li><strong>Email:</strong> <a href="mailto:soporte@lex-bell.com">soporte@lex-bell.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:support@lex-bell.com">support@lex-bell.com</a></li>
             <li><strong>Developer:</strong> Lexbell team</li>
             <li><strong>App:</strong> Lexbell for Mac and Windows</li>
           </ul>
