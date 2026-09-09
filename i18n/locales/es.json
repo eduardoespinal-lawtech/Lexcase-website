@@ -2,7 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Disponible en la Mac App Store y la Microsoft Store",
-    "pricingNote": "Gratis hasta 30 expedientes · suscripción mensual o anual para ilimitados",
+    "pricingNote": "Gratis hasta 50 expedientes · suscripción mensual o anual para ilimitados",
     "learnMore": "Más información",
     "availabilityNote": "macOS 12 o superior · Windows 10 y 11"
   },
@@ -158,7 +158,7 @@
     "q7": "¿En qué países funciona?",
     "a7": "Sí. Lexbell adapta los campos de cada expediente al país y funciona para varios países de habla hispana e inglesa. Incluye soporte específico para República Dominicana y para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Cómo se adquiere Lexbell?",
-    "a8": "Puedes empezar gratis: hasta 30 expedientes sin costo. Para expedientes ilimitados hay una suscripción mensual o anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
+    "a8": "Puedes empezar gratis: hasta 50 expedientes sin costo. Para expedientes ilimitados hay una suscripción mensual o anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
   },
   "privacy": {
     "title": "Política de Privacidad",

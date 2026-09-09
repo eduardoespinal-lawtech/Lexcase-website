@@ -2,7 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Available on the Mac App Store and the Microsoft Store",
-    "pricingNote": "Free up to 30 cases · monthly or annual subscription for unlimited",
+    "pricingNote": "Free up to 50 cases · monthly or annual subscription for unlimited",
     "learnMore": "Learn more",
     "availabilityNote": "macOS 12 or later · Windows 10 and 11"
   },
@@ -158,7 +158,7 @@
     "q7": "Which countries does it support?",
     "a7": "Yes. Lexbell adapts each case's fields to the country and works for several Spanish- and English-speaking countries. It includes specific support for the Dominican Republic and for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "How do I get Lexbell?",
-    "a8": "You can start free: up to 30 cases at no cost. For unlimited cases there is a monthly or annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
+    "a8": "You can start free: up to 50 cases at no cost. For unlimited cases there is a monthly or annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
   },
   "privacy": {
     "title": "Privacy Policy",
