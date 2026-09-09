@@ -115,7 +115,7 @@ onMounted(() => {
           <h2 id="resumen">1. Resumen rápido</h2>
           <ul>
             <li>Tus expedientes, clientes, notas, calendario y documentos viven <strong>en tu equipo</strong>, cifrados. Por defecto, nada sale de él.</li>
-            <li>Si activas la <strong>sincronización con tu teléfono</strong> (opcional, incluida en Lexbell Premium), una copia de esos datos se guarda en nuestro servidor solo para llevarla a tu iPhone. Al cerrar sesión se borra.</li>
+            <li>La <strong>sincronización con tu teléfono</strong> todavía no está disponible. Cuando lo esté, será opcional (incluida en Lexbell Premium): una copia de esos datos se guardará en nuestro servidor solo para llevarla a tu iPhone, y se borrará al cerrar sesión.</li>
             <li>No hace falta correo, nombre ni contraseña: la cuenta del despacho es <strong>anónima</strong>.</li>
             <li>Lexbell <strong>no rastrea</strong> tu actividad, no vende datos y no usa analíticas ni publicidad.</li>
           </ul>
@@ -154,12 +154,12 @@ onMounted(() => {
           <p>Lexbell funciona <strong>sin conexión</strong> para todas sus funciones de gestión de expedientes. Se conecta a internet solo en dos casos:</p>
           <ul>
             <li>La <strong>suscripción</strong> (activarla o restaurarla), que gestiona la App Store de Apple. Apple cobra; nosotros no recibimos ni procesamos tus datos de pago.</li>
-            <li>La <strong>sincronización con tu teléfono</strong>, descrita en la sección siguiente, y solo si tú la activas.</li>
+            <li>La <strong>sincronización con tu teléfono</strong>, descrita en la sección siguiente, cuando esté disponible y solo si tú la activas.</li>
           </ul>
           <p>Lexbell no descarga código adicional ni envía informes de uso, errores o telemetría.</p>
 
           <h2 id="sincronizacion">6. Sincronización con tu teléfono</h2>
-          <p>La sincronización es <strong>opcional</strong> y forma parte de Lexbell Premium. No empieza hasta que tú pulsas «Generar clave» en Ajustes → Sincronizar. A partir de ahí:</p>
+          <p><strong>Todavía no está disponible:</strong> la versión actual de la Aplicación no envía ningún dato a ningún servidor. Cuando la ofrezcamos, avisaremos dentro de la Aplicación y funcionará así: será <strong>opcional</strong>, formará parte de Lexbell Premium y no empezará hasta que tú pulses «Generar clave» en Ajustes → Sincronizar. A partir de ahí:</p>
           <ul>
             <li><strong>Qué se sube:</strong> tus expedientes, las personas de cada expediente, las notas, los eventos del calendario y los documentos adjuntos, hasta 7 GB por despacho.</li>
             <li><strong>Con qué cuenta:</strong> una cuenta <strong>anónima</strong>, sin correo, nombre ni contraseña. El despacho se identifica con un código aleatorio y una clave de 20 símbolos que solo tú ves en tu equipo y que introduces o escaneas en tu iPhone.</li>
@@ -231,7 +231,7 @@ onMounted(() => {
           <ul>
             <li><strong>Correo:</strong> <a href="mailto:support@lex-bell.com">support@lex-bell.com</a></li>
             <li><strong>Responsable:</strong> Eduardo Espinal, Santo Domingo, República Dominicana</li>
-            <li><strong>Aplicación:</strong> Lexbell para Mac y Windows, y Lexbell para iPhone</li>
+            <li><strong>Aplicación:</strong> Lexbell para Mac y Windows (y, cuando esté disponible, Lexbell para iPhone)</li>
           </ul>
         </template>
 
@@ -240,7 +240,7 @@ onMounted(() => {
           <h2 id="resumen">1. Quick summary</h2>
           <ul>
             <li>Your cases, contacts, notes, calendar and documents live <strong>on your device</strong>, encrypted. By default, nothing leaves it.</li>
-            <li>If you turn on <strong>sync with your phone</strong> (optional, part of Lexbell Premium), a copy of that data is kept on our server only to deliver it to your iPhone. Signing out deletes it.</li>
+            <li><strong>Sync with your phone</strong> is not available yet. When it is, it will be optional (part of Lexbell Premium): a copy of that data will be kept on our server only to deliver it to your iPhone, and deleted when you sign out.</li>
             <li>No email, name or password is needed: the firm account is <strong>anonymous</strong>.</li>
             <li>Lexbell <strong>does not track</strong> your activity, does not sell data, and uses no analytics or advertising.</li>
           </ul>
@@ -279,12 +279,12 @@ onMounted(() => {
           <p>Lexbell works <strong>offline</strong> for all its case-management features. It connects to the internet in only two cases:</p>
           <ul>
             <li>The <strong>subscription</strong> (activating or restoring it), handled by Apple's App Store. Apple bills you; we do not receive or process your payment data.</li>
-            <li><strong>Sync with your phone</strong>, described in the next section, and only if you turn it on.</li>
+            <li><strong>Sync with your phone</strong>, described in the next section, once available and only if you turn it on.</li>
           </ul>
           <p>Lexbell does not download additional code and sends no usage reports, crash reports or telemetry.</p>
 
           <h2 id="sincronizacion">6. Sync with your phone</h2>
-          <p>Sync is <strong>optional</strong> and part of Lexbell Premium. It does not start until you press "Generate key" in Settings → Sync. From then on:</p>
+          <p><strong>Not available yet:</strong> the current version of the App sends no data to any server. When we offer it, we will announce it inside the App and it will work like this: it will be <strong>optional</strong>, part of Lexbell Premium, and will not start until you press "Generate key" in Settings → Sync. From then on:</p>
           <ul>
             <li><strong>What is uploaded:</strong> your cases, the people in each case, notes, calendar events and attached documents, up to 7 GB per firm.</li>
             <li><strong>Which account:</strong> an <strong>anonymous</strong> account, with no email, name or password. The firm is identified by a random code and a 20-character key that only you see on your computer and that you type or scan on your iPhone.</li>
@@ -356,7 +356,7 @@ onMounted(() => {
           <ul>
             <li><strong>Email:</strong> <a href="mailto:support@lex-bell.com">support@lex-bell.com</a></li>
             <li><strong>Controller:</strong> Eduardo Espinal, Santo Domingo, Dominican Republic</li>
-            <li><strong>App:</strong> Lexbell for Mac and Windows, and Lexbell for iPhone</li>
+            <li><strong>App:</strong> Lexbell for Mac and Windows (and, once available, Lexbell for iPhone)</li>
           </ul>
         </template>
       </article>

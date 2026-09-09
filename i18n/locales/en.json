@@ -29,7 +29,7 @@
   "home": {
     "heroTitle": "Your practice,",
     "heroTitle2": "organized to the detail.",
-    "heroSubtitle": "Cases, deadlines, documents and notes in one desktop app. All on your device, and on your iPhone only if you turn it on.",
+    "heroSubtitle": "Cases, deadlines, documents and notes in one desktop app. All on your device. Soon, on your iPhone too.",
 
     "trust1": "6 case types",
     "trust2": "Daily backups",
@@ -64,7 +64,7 @@
     "section3Title": "Documents & backups",
     "section3Body": "Attach files to each case —they are copied to your device— and Lexbell keeps an automatic daily backup.",
     "section4Title": "Privacy",
-    "section4Body": "Your data lives on your device, encrypted. No trackers, no telemetry. Only if you turn on sync with your iPhone does a copy travel to our server, and it is deleted when you sign out.",
+    "section4Body": "Your data lives on your device, encrypted. No trackers, no telemetry. The app sends nothing to any server; when iPhone sync arrives it will be optional and deleted when you sign out.",
 
     "ctaSectionEyebrow": "Get started today",
     "ctaSectionTitle": "Download Lexbell."
@@ -97,7 +97,7 @@
 
     "sp4Eyebrow": "Privacy by design",
     "sp4Title": "Your data lives on your device.",
-    "sp4Body": "No Google Analytics, Mixpanel, Sentry or Firebase. Lexbell needs no internet to work: it only connects for the subscription and, if you turn it on, to bring your cases to your iPhone.",
+    "sp4Body": "No Google Analytics, Mixpanel, Sentry or Firebase. Lexbell needs no internet to work: it only connects for the subscription. iPhone sync will arrive as an option you turn on.",
 
     "moreEyebrow": "And everything else",
     "moreTitle": "Small things that change your flow.",
@@ -144,7 +144,7 @@
     "title": "What we get asked the most.",
     "subtitle": "Quick answers about Lexbell, its privacy model and how it works on Mac and Windows.",
     "q1": "Are my cases uploaded to the cloud?",
-    "a1": "Only if you decide so. By default, all your information lives on your device and never leaves it. If you turn on sync with your iPhone (Lexbell Premium), a copy is kept on our server solely to bring it to your phone, and it is deleted as soon as you sign out.",
+    "a1": "No. All your information lives on your device and never leaves it; the app sends nothing to any server. When iPhone sync arrives (Lexbell Premium), it will be optional: only if you turn it on will a copy be kept on our server to bring it to your phone, deleted as soon as you sign out.",
     "q2": "Does it work offline?",
     "a2": "Yes. All case-management features work without internet. Only activating or restoring the subscription needs a connection, and the App Store handles that.",
     "q3": "What do I need to use Lexbell?",
@@ -163,11 +163,11 @@
   "privacy": {
     "title": "Privacy Policy",
     "updated": "Last updated: September 8, 2026",
-    "intro": "Eduardo Espinal (\"we\") develops Lexbell (the \"App\"), a desktop app for Mac and Windows with a companion app for iPhone. This Privacy Policy explains what information we handle, how we do it, where it is stored and what your rights are, including those granted by the European Union's General Data Protection Regulation."
+    "intro": "Eduardo Espinal (\"we\") develops Lexbell (the \"App\"), a desktop app for Mac and Windows and, soon, a companion app for iPhone. This Privacy Policy explains what information we handle, how we do it, where it is stored and what your rights are, including those granted by the European Union's General Data Protection Regulation."
   },
   "terms": {
     "title": "Terms & Conditions",
     "updated": "Last updated: September 8, 2026",
-    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop app for Mac and Windows with a companion app for iPhone, provided by Eduardo Espinal (\"we\", \"Lexbell\"). By downloading, installing or using the App, you accept these Terms."
+    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop app for Mac and Windows and, soon, a companion app for iPhone, provided by Eduardo Espinal (\"we\", \"Lexbell\"). By downloading, installing or using the App, you accept these Terms."
   }
 }

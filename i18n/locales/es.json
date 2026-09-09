@@ -29,7 +29,7 @@
   "home": {
     "heroTitle": "Tu práctica,",
     "heroTitle2": "ordenada al detalle.",
-    "heroSubtitle": "Expedientes, plazos, documentos y notas en una sola app de escritorio. Todo en tu equipo, y en tu iPhone solo si tú lo activas.",
+    "heroSubtitle": "Expedientes, plazos, documentos y notas en una sola app de escritorio. Todo en tu equipo. Pronto, también en tu iPhone.",
 
     "trust1": "6 tipos de expediente",
     "trust2": "Respaldos diarios",
@@ -64,7 +64,7 @@
     "section3Title": "Documentos y respaldos",
     "section3Body": "Adjunta archivos a cada expediente —se copian a tu equipo— y Lexbell guarda un respaldo automático a diario.",
     "section4Title": "Privacidad",
-    "section4Body": "Tus datos viven en tu equipo, cifrados. Sin rastreadores ni telemetría. Solo si activas la sincronización con tu iPhone, una copia viaja a nuestro servidor, y se borra al cerrar sesión.",
+    "section4Body": "Tus datos viven en tu equipo, cifrados. Sin rastreadores ni telemetría. La app no envía nada a ningún servidor; cuando llegue la sincronización con el iPhone, será opcional y se borrará al cerrar sesión.",
 
     "ctaSectionEyebrow": "Empieza hoy",
     "ctaSectionTitle": "Descarga Lexbell."
@@ -97,7 +97,7 @@
 
     "sp4Eyebrow": "Privacidad por diseño",
     "sp4Title": "Tus datos viven en tu equipo.",
-    "sp4Body": "Sin Google Analytics, Mixpanel, Sentry ni Firebase. Lexbell no necesita internet para trabajar: solo se conecta para la suscripción y, si tú lo activas, para llevar tus expedientes a tu iPhone.",
+    "sp4Body": "Sin Google Analytics, Mixpanel, Sentry ni Firebase. Lexbell no necesita internet para trabajar: solo se conecta para la suscripción. La sincronización con el iPhone llegará como opción que tú activas.",
 
     "moreEyebrow": "Y todo lo demás",
     "moreTitle": "Detalles que cambian el flujo.",
@@ -144,7 +144,7 @@
     "title": "Lo que más nos preguntan.",
     "subtitle": "Respuestas rápidas sobre Lexbell, su modelo de privacidad y cómo funciona en Mac y Windows.",
     "q1": "¿Mis expedientes se suben a la nube?",
-    "a1": "Solo si tú lo decides. Por defecto, toda la información vive en tu equipo y no sale de él. Si activas la sincronización con tu iPhone (Lexbell Premium), una copia se guarda en nuestro servidor únicamente para llevarla a tu teléfono, y se borra en cuanto cierras sesión.",
+    "a1": "No. Toda la información vive en tu equipo y no sale de él; la app no envía nada a ningún servidor. Cuando llegue la sincronización con el iPhone (Lexbell Premium), será opcional: solo si la activas se guardará una copia en nuestro servidor para llevarla a tu teléfono, y se borrará en cuanto cierres sesión.",
     "q2": "¿Funciona sin conexión a internet?",
     "a2": "Sí. Todas las funciones de gestión de expedientes funcionan sin internet. Solo activar o restaurar la suscripción requiere conexión, y de eso se encarga la App Store.",
     "q3": "¿Qué necesito para usar Lexbell?",
@@ -163,11 +163,11 @@
   "privacy": {
     "title": "Política de Privacidad",
     "updated": "Última actualización: 8 de septiembre de 2026",
-    "intro": "Eduardo Espinal (\"nosotros\") desarrolla Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows con una app complementaria para iPhone. Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos, dónde se guarda y cuáles son tus derechos, incluidos los que te reconoce el Reglamento General de Protección de Datos de la Unión Europea."
+    "intro": "Eduardo Espinal (\"nosotros\") desarrolla Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows y, próximamente, una app complementaria para iPhone. Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos, dónde se guarda y cuáles son tus derechos, incluidos los que te reconoce el Reglamento General de Protección de Datos de la Unión Europea."
   },
   "terms": {
     "title": "Términos y Condiciones",
     "updated": "Última actualización: 8 de septiembre de 2026",
-    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows con una app complementaria para iPhone, provista por Eduardo Espinal (\"nosotros\", \"Lexbell\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
+    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows y, próximamente, una app complementaria para iPhone, provista por Eduardo Espinal (\"nosotros\", \"Lexbell\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
   }
 }
