@@ -2,7 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Disponible en la Mac App Store y la Microsoft Store",
-    "pricingNote": "Gratis hasta 30 expedientes · suscripción anual para ilimitados",
+    "pricingNote": "Gratis hasta 30 expedientes · suscripción mensual o anual para ilimitados",
     "learnMore": "Más información",
     "availabilityNote": "macOS 12 o superior · Windows 10 y 11"
   },
@@ -29,11 +29,11 @@
   "home": {
     "heroTitle": "Tu práctica,",
     "heroTitle2": "ordenada al detalle.",
-    "heroSubtitle": "Expedientes, plazos, documentos y notas en una sola app de escritorio. Todo en tu equipo, sin nube ajena.",
+    "heroSubtitle": "Expedientes, plazos, documentos y notas en una sola app de escritorio. Todo en tu equipo, y en tu iPhone solo si tú lo activas.",
 
     "trust1": "6 tipos de expediente",
     "trust2": "Respaldos diarios",
-    "trust3": "100% local",
+    "trust3": "Local por defecto",
     "trust4": "0 telemetría",
 
     "audienceEyebrow": "Seis tipos de expediente",
@@ -64,7 +64,7 @@
     "section3Title": "Documentos y respaldos",
     "section3Body": "Adjunta archivos a cada expediente —se copian a tu equipo— y Lexbell guarda un respaldo automático a diario.",
     "section4Title": "Privacidad",
-    "section4Body": "Tus datos nunca salen de tu equipo. Sin servidores nuestros, sin rastreadores, sin telemetría.",
+    "section4Body": "Tus datos viven en tu equipo, cifrados. Sin rastreadores ni telemetría. Solo si activas la sincronización con tu iPhone, una copia viaja a nuestro servidor, y se borra al cerrar sesión.",
 
     "ctaSectionEyebrow": "Empieza hoy",
     "ctaSectionTitle": "Descarga Lexbell."
@@ -96,8 +96,8 @@
     "sp5Body": "Un grafo interactivo revela las relaciones entre expedientes, clientes y contrapartes. Detecta conexiones y posibles conflictos de interés de un vistazo.",
 
     "sp4Eyebrow": "Privacidad por diseño",
-    "sp4Title": "Tus datos viven en tu equipo. Punto.",
-    "sp4Body": "Sin servidores nuestros. Sin Google Analytics, Mixpanel, Sentry ni Firebase. Cero conexiones externas: Lexbell no necesita internet.",
+    "sp4Title": "Tus datos viven en tu equipo.",
+    "sp4Body": "Sin Google Analytics, Mixpanel, Sentry ni Firebase. Lexbell no necesita internet para trabajar: solo se conecta para la suscripción y, si tú lo activas, para llevar tus expedientes a tu iPhone.",
 
     "moreEyebrow": "Y todo lo demás",
     "moreTitle": "Detalles que cambian el flujo.",
@@ -144,7 +144,7 @@
     "title": "Lo que más nos preguntan.",
     "subtitle": "Respuestas rápidas sobre Lexbell, su modelo de privacidad y cómo funciona en Mac y Windows.",
     "q1": "¿Mis expedientes se suben a la nube?",
-    "a1": "No. Toda la información vive en tu propio equipo y nunca sale de él. Lexbell no tiene servidores nuestros. La única conexión es con la App Store para gestionar la suscripción, y en ella no se envían tus datos.",
+    "a1": "Solo si tú lo decides. Por defecto, toda la información vive en tu equipo y no sale de él. Si activas la sincronización con tu iPhone (Lexbell Premium), una copia se guarda en nuestro servidor únicamente para llevarla a tu teléfono, y se borra en cuanto cierras sesión.",
     "q2": "¿Funciona sin conexión a internet?",
     "a2": "Sí. Todas las funciones de gestión de expedientes funcionan sin internet. Solo activar o restaurar la suscripción requiere conexión, y de eso se encarga la App Store.",
     "q3": "¿Qué necesito para usar Lexbell?",
@@ -158,16 +158,16 @@
     "q7": "¿En qué países funciona?",
     "a7": "Sí. Lexbell adapta los campos de cada expediente al país y funciona para varios países de habla hispana e inglesa. Incluye soporte específico para República Dominicana y para Estados Unidos en migración (DS-160, DS-260, A-Number, NVC Case) y constitución de empresas (LLC, C-Corp, S-Corp).",
     "q8": "¿Cómo se adquiere Lexbell?",
-    "a8": "Puedes empezar gratis: hasta 30 expedientes sin costo. Para expedientes ilimitados hay una suscripción anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
+    "a8": "Puedes empezar gratis: hasta 30 expedientes sin costo. Para expedientes ilimitados hay una suscripción mensual o anual. Se descarga desde la Mac App Store (Mac) o la Microsoft Store (Windows), que gestionan el cobro; no procesamos datos de pago en nuestros servidores."
   },
   "privacy": {
     "title": "Política de Privacidad",
-    "updated": "Última actualización: 18 de julio de 2026",
-    "intro": "El equipo de Lexbell (\"nosotros\") desarrolla Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows. Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos y cuáles son tus derechos."
+    "updated": "Última actualización: 8 de septiembre de 2026",
+    "intro": "Eduardo Espinal (\"nosotros\") desarrolla Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows con una app complementaria para iPhone. Esta Política de Privacidad explica qué información manejamos, cómo lo hacemos, dónde se guarda y cuáles son tus derechos, incluidos los que te reconoce el Reglamento General de Protección de Datos de la Unión Europea."
   },
   "terms": {
     "title": "Términos y Condiciones",
-    "updated": "Última actualización: 15 de junio de 2026",
-    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows provista por el equipo de Lexbell (\"nosotros\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
+    "updated": "Última actualización: 8 de septiembre de 2026",
+    "intro": "Estos Términos y Condiciones (los \"Términos\") rigen el uso de Lexbell (la \"Aplicación\"), una app de escritorio para Mac y Windows con una app complementaria para iPhone, provista por Eduardo Espinal (\"nosotros\", \"Lexbell\"). Al descargar, instalar o utilizar la Aplicación, aceptas estos Términos."
   }
 }

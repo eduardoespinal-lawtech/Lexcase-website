@@ -123,15 +123,15 @@ const tiles = computed(() => [
       <div class="privacy-stat-row">
         <div class="privacy-stat">
           <div class="privacy-stat-num">0</div>
-          <div class="privacy-stat-label">{{ locale === 'es' ? 'Servidores nuestros' : 'Our servers' }}</div>
-        </div>
-        <div class="privacy-stat">
-          <div class="privacy-stat-num">0</div>
           <div class="privacy-stat-label">Trackers</div>
         </div>
         <div class="privacy-stat">
-          <div class="privacy-stat-num">100%</div>
-          <div class="privacy-stat-label">Local</div>
+          <div class="privacy-stat-num">0</div>
+          <div class="privacy-stat-label">{{ locale === 'es' ? 'Telemetría' : 'Telemetry' }}</div>
+        </div>
+        <div class="privacy-stat">
+          <div class="privacy-stat-num">AES-256</div>
+          <div class="privacy-stat-label">{{ locale === 'es' ? 'Cifrado en tu equipo' : 'Encrypted on your device' }}</div>
         </div>
       </div>
     </div>

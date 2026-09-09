@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 definePageMeta({ name: 'terms' })
 
@@ -26,7 +27,7 @@ useHead(() => ({
         <p>Al instalar o utilizar la Aplicación, declaras haber leído, entendido y aceptado estos Términos. Si no estás de acuerdo, no instales ni utilices la Aplicación.</p>
 
         <h2>2. Licencia de uso</h2>
-        <p>Te concedemos una licencia limitada, personal, no exclusiva, no transferible y revocable para instalar y usar la Aplicación en los equipos (Mac o Windows) sobre los cuales tengas control, exclusivamente para fines lícitos de tu práctica profesional.</p>
+        <p>Te concedemos una licencia limitada, personal, no exclusiva, no transferible y revocable para instalar y usar la Aplicación en los equipos (Mac o Windows) y el iPhone sobre los cuales tengas control, exclusivamente para fines lícitos de tu práctica profesional.</p>
         <p>Esta licencia <strong>no</strong> incluye los siguientes derechos:</p>
         <ul>
           <li>Copiar, distribuir o sublicenciar la Aplicación.</li>
@@ -39,47 +40,62 @@ useHead(() => ({
         <p>La Aplicación, sus textos, diseños, código fuente, íconos, marcas, logotipos y materiales asociados son propiedad de Lexbell o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables. Estos Términos no te transfieren ningún derecho de propiedad.</p>
 
         <h2>4. Contenido del usuario</h2>
-        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, documentos). Como toda esa información vive localmente en tu equipo, no recibimos ni almacenamos copia alguna en nuestros servidores.</p>
+        <p>Tú conservas todos los derechos sobre la información que introduzcas en la Aplicación (expedientes, clientes, notas, calendario, documentos). Por defecto, toda esa información vive en tu equipo y no recibimos copia alguna. Si activas la sincronización con tu teléfono, guardamos una copia en nuestro servidor únicamente para prestarte ese servicio, en los términos de la cláusula 5 y de la <NuxtLink :to="localePath('privacy')">Política de Privacidad</NuxtLink>; no adquirimos ningún derecho sobre ella.</p>
         <p>Eres responsable de:</p>
         <ul>
           <li>La exactitud y legalidad de la información que registres.</li>
           <li>Cumplir con tus obligaciones de confidencialidad profesional respecto a tus clientes.</li>
-          <li>Mantener respaldos adecuados de tu información (la Aplicación facilita exportación e import).</li>
+          <li>Mantener respaldos adecuados de tu información (la Aplicación facilita exportación e importación).</li>
         </ul>
 
-        <h2>5. Restricciones de uso</h2>
+        <h2>5. Sincronización y encargo de tratamiento</h2>
+        <p>La sincronización con tu teléfono es opcional y forma parte de Lexbell Premium. Cuando la activas, tratamos por tu cuenta los datos personales que contienen tus expedientes. Esta cláusula constituye el acuerdo de encargo de tratamiento previsto en el artículo 28 del Reglamento General de Protección de Datos (RGPD) y en la Ley 172-13 de la República Dominicana, y se aplica mientras la sincronización esté activa:</p>
+        <ul>
+          <li><strong>Objeto y fin:</strong> almacenar y transmitir tus datos entre tu equipo y tu teléfono. Nada más.</li>
+          <li><strong>Instrucciones:</strong> tratamos los datos solo según tus instrucciones, que son las acciones que realizas en la Aplicación (generar clave, sincronizar, cerrar sesión). No los usamos para fines propios.</li>
+          <li><strong>Confidencialidad:</strong> no accedemos al contenido salvo para diagnosticar un fallo que tú nos reportes, y quienes lo hagan están obligados a guardar secreto.</li>
+          <li><strong>Seguridad:</strong> cifrado en tránsito y en reposo, reglas de acceso por despacho, cuentas anónimas y límite de intentos de la clave.</li>
+          <li><strong>Subencargados:</strong> Supabase, Inc. y su infraestructura en Amazon Web Services. Te avisaremos en la Política de Privacidad antes de añadir o cambiar uno, y podrás oponerte cerrando sesión.</li>
+          <li><strong>Transferencias internacionales:</strong> con las garantías descritas en la Política de Privacidad.</li>
+          <li><strong>Asistencia:</strong> te ayudaremos a atender las solicitudes de derechos de las personas afectadas y, si ocurriera una violación de seguridad que afecte a tus datos, te lo notificaremos sin dilación indebida y, en todo caso, en un máximo de 72 horas desde que la conozcamos.</li>
+          <li><strong>Devolución y supresión:</strong> tu equipo conserva siempre la copia completa. Al cerrar sesión o generar otra clave, borramos del servidor todos los datos y archivos del despacho.</li>
+          <li><strong>Verificación:</strong> pondremos a tu disposición la información necesaria para demostrar el cumplimiento de estas obligaciones.</li>
+        </ul>
+        <p>Como responsable de los datos de tus clientes, te corresponde contar con una base jurídica para tratarlos y para encargarnos su almacenamiento.</p>
+
+        <h2>6. Restricciones de uso</h2>
         <p>Te comprometes a no usar la Aplicación para:</p>
         <ul>
           <li>Actividades ilegales, fraudulentas o engañosas.</li>
           <li>Almacenar contenido que viole derechos de terceros.</li>
-          <li>Vulnerar la seguridad de la Aplicación o intentar acceder a partes no autorizadas.</li>
+          <li>Vulnerar la seguridad de la Aplicación o del servicio de sincronización, o intentar acceder a despachos ajenos.</li>
           <li>Distribuir la Aplicación a terceros sin nuestra autorización por escrito.</li>
         </ul>
 
-        <h2>6. Aplicación tal cual ("AS IS")</h2>
-        <p>La Aplicación se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas, incluyendo pero no limitándose a garantías de comerciabilidad, idoneidad para un propósito particular o no infracción. No garantizamos que la Aplicación esté libre de errores, sea ininterrumpida o cumpla con todos tus requisitos específicos.</p>
+        <h2>7. Aplicación tal cual ("AS IS")</h2>
+        <p>La Aplicación se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas, incluyendo pero no limitándose a garantías de comerciabilidad, idoneidad para un propósito particular o no infracción. No garantizamos que la Aplicación o la sincronización estén libres de errores, sean ininterrumpidas o cumplan con todos tus requisitos específicos. Nada de lo anterior limita los derechos que te reconozca la legislación imperativa de consumo de tu país.</p>
 
-        <h2>7. Limitación de responsabilidad</h2>
+        <h2>8. Limitación de responsabilidad</h2>
         <p>En la máxima medida permitida por la ley aplicable, Lexbell no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, ni por pérdida de beneficios, ingresos, datos, oportunidades o reputación, derivados del uso o imposibilidad de uso de la Aplicación.</p>
         <p>En particular, la Aplicación es una herramienta de organización; <strong>no</strong> sustituye el juicio profesional del abogado, ni el cumplimiento de plazos, ni la diligencia en el manejo de expedientes. Eres el único responsable de las decisiones jurídicas y de los plazos procesales que correspondan a tus casos.</p>
 
-        <h2>8. Indemnización</h2>
+        <h2>9. Indemnización</h2>
         <p>Aceptas indemnizar y mantener indemne a Lexbell frente a cualquier reclamación, demanda o daño derivado del uso indebido de la Aplicación o del incumplimiento de estos Términos por tu parte.</p>
 
-        <h2>9. Actualizaciones</h2>
-        <p>Podemos publicar actualizaciones de la Aplicación periódicamente. Algunas actualizaciones pueden ser obligatorias por motivos de seguridad o compatibilidad con nuevas versiones de tu sistema operativo. No estamos obligados a mantener compatibilidad indefinida con versiones antiguas de macOS o Windows.</p>
+        <h2>10. Actualizaciones</h2>
+        <p>Podemos publicar actualizaciones de la Aplicación periódicamente. Algunas actualizaciones pueden ser obligatorias por motivos de seguridad o compatibilidad con nuevas versiones de tu sistema operativo. No estamos obligados a mantener compatibilidad indefinida con versiones antiguas de macOS, Windows o iOS.</p>
 
-        <h2>10. Terminación</h2>
+        <h2>11. Terminación</h2>
         <p>Estos Términos permanecen vigentes mientras conserves la Aplicación instalada. Podemos suspender o terminar tu licencia si incumples estos Términos. Tú puedes terminar la licencia en cualquier momento desinstalando la Aplicación. Las cláusulas que por su naturaleza deban sobrevivir (propiedad intelectual, limitación de responsabilidad, legislación aplicable) seguirán vigentes tras la terminación.</p>
 
-        <h2>11. Modificaciones a estos Términos</h2>
+        <h2>12. Modificaciones a estos Términos</h2>
         <p>Podemos actualizar estos Términos para reflejar cambios legales, técnicos o de negocio. La fecha de la última actualización aparece al inicio del documento. Si los cambios son sustanciales, te lo comunicaremos mediante un aviso dentro de la Aplicación o en esta misma URL.</p>
 
-        <h2>12. Legislación aplicable y jurisdicción</h2>
-        <p>Estos Términos se rigen por las leyes de la <strong>República Dominicana</strong>, sin atender a sus principios sobre conflictos de leyes. Cualquier controversia derivada del uso de la Aplicación se someterá a los tribunales competentes del Distrito Nacional, sin perjuicio de los derechos imperativos del consumidor donde residas.</p>
+        <h2>13. Legislación aplicable y jurisdicción</h2>
+        <p>Estos Términos se rigen por las leyes de la <strong>República Dominicana</strong>, sin atender a sus principios sobre conflictos de leyes. Cualquier controversia derivada del uso de la Aplicación se someterá a los tribunales competentes del Distrito Nacional. Si resides en la Unión Europea, conservas la protección de las normas imperativas de tu país de residencia y el derecho a acudir a sus tribunales.</p>
 
-        <h2>13. Suscripción y compras dentro de la app</h2>
-        <p>Lexbell puede usarse gratis hasta cierto límite de expedientes. Las funciones ilimitadas se ofrecen mediante <strong>Lexbell Premium</strong>, una <strong>suscripción anual de renovación automática</strong>.</p>
+        <h2>14. Suscripción y compras dentro de la app</h2>
+        <p>Lexbell puede usarse gratis hasta cierto límite de expedientes, y todas las funciones se prueban gratis durante 15 días desde la primera apertura. Después, las funciones ilimitadas se ofrecen mediante <strong>Lexbell Premium</strong>, una <strong>suscripción de renovación automática</strong>, mensual o anual, a tu elección.</p>
         <ul>
           <li>El precio y la duración se muestran en la app antes de comprar y en la pantalla de compra de la App Store.</li>
           <li>El pago se carga a tu cuenta de Apple al confirmar la compra.</li>
@@ -88,7 +104,7 @@ useHead(() => ({
           <li>El cobro y los reembolsos los gestiona Apple conforme a las políticas de la App Store; nosotros no procesamos datos de pago.</li>
         </ul>
 
-        <h2>14. Contacto</h2>
+        <h2>15. Contacto</h2>
         <p>Para preguntas sobre estos Términos, escríbenos a <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
       </template>
 
@@ -97,7 +113,7 @@ useHead(() => ({
         <p>By installing or using the App, you declare that you have read, understood and accepted these Terms. If you do not agree, do not install or use the App.</p>
 
         <h2>2. License</h2>
-        <p>We grant you a limited, personal, non-exclusive, non-transferable and revocable license to install and use the App on the devices (Mac or Windows) you control, solely for lawful purposes within your professional practice.</p>
+        <p>We grant you a limited, personal, non-exclusive, non-transferable and revocable license to install and use the App on the computers (Mac or Windows) and the iPhone you control, solely for lawful purposes within your professional practice.</p>
         <p>This license does <strong>not</strong> include the rights to:</p>
         <ul>
           <li>Copy, distribute or sublicense the App.</li>
@@ -110,47 +126,62 @@ useHead(() => ({
         <p>The App, its texts, designs, source code, icons, trademarks, logos and associated materials are owned by Lexbell or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer any ownership rights to you.</p>
 
         <h2>4. User content</h2>
-        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, documents). Because all of it lives locally on your device, we do not receive or store any copy on our servers.</p>
+        <p>You retain all rights over the information you enter in the App (cases, contacts, notes, calendar, documents). By default, all of it lives on your device and we receive no copy. If you turn on sync with your phone, we keep a copy on our server solely to provide that service, under clause 5 and the <NuxtLink :to="localePath('privacy')">Privacy Policy</NuxtLink>; we acquire no rights over it.</p>
         <p>You are responsible for:</p>
         <ul>
           <li>The accuracy and legality of the information you record.</li>
           <li>Complying with your professional confidentiality duties towards your clients.</li>
-          <li>Keeping adequate backups of your information (the App provides JSON export and import).</li>
+          <li>Keeping adequate backups of your information (the App provides export and import).</li>
         </ul>
 
-        <h2>5. Usage restrictions</h2>
+        <h2>5. Sync and data processing on your behalf</h2>
+        <p>Sync with your phone is optional and part of Lexbell Premium. When you turn it on, we process on your behalf the personal data contained in your cases. This clause is the data processing agreement required by Article 28 of the General Data Protection Regulation (GDPR) and by Law 172-13 of the Dominican Republic, and applies for as long as sync is on:</p>
+        <ul>
+          <li><strong>Subject matter and purpose:</strong> storing and transmitting your data between your computer and your phone. Nothing else.</li>
+          <li><strong>Instructions:</strong> we process the data only on your instructions, which are the actions you take in the App (generate key, sync, sign out). We do not use it for our own purposes.</li>
+          <li><strong>Confidentiality:</strong> we do not access the content except to diagnose a problem you report to us, and anyone who does is bound by confidentiality.</li>
+          <li><strong>Security:</strong> encryption in transit and at rest, per-firm access rules, anonymous accounts and an attempt limit on the key.</li>
+          <li><strong>Sub-processors:</strong> Supabase, Inc. and its infrastructure on Amazon Web Services. We will announce in the Privacy Policy before adding or changing one, and you may object by signing out.</li>
+          <li><strong>International transfers:</strong> with the safeguards described in the Privacy Policy.</li>
+          <li><strong>Assistance:</strong> we will help you respond to data-subject requests and, should a security breach affect your data, we will notify you without undue delay and in any case within 72 hours of becoming aware of it.</li>
+          <li><strong>Return and deletion:</strong> your computer always keeps the complete copy. When you sign out or generate a new key, we delete all the firm's data and files from the server.</li>
+          <li><strong>Verification:</strong> we will make available the information needed to demonstrate compliance with these obligations.</li>
+        </ul>
+        <p>As the controller of your clients' data, it is up to you to have a legal basis for processing it and for entrusting its storage to us.</p>
+
+        <h2>6. Usage restrictions</h2>
         <p>You agree not to use the App to:</p>
         <ul>
           <li>Engage in illegal, fraudulent or deceptive activities.</li>
           <li>Store content that infringes third-party rights.</li>
-          <li>Compromise the security of the App or access unauthorized parts.</li>
+          <li>Compromise the security of the App or the sync service, or attempt to access other firms.</li>
           <li>Distribute the App to third parties without our written authorization.</li>
         </ul>
 
-        <h2>6. App provided "AS IS"</h2>
-        <p>The App is provided "as is" and "as available," without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose or non-infringement. We do not warrant that the App will be error-free, uninterrupted or meet all of your specific requirements.</p>
+        <h2>7. App provided "AS IS"</h2>
+        <p>The App is provided "as is" and "as available," without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose or non-infringement. We do not warrant that the App or the sync service will be error-free, uninterrupted or meet all of your specific requirements. Nothing above limits the rights granted to you by the mandatory consumer laws of your country.</p>
 
-        <h2>7. Limitation of liability</h2>
+        <h2>8. Limitation of liability</h2>
         <p>To the maximum extent permitted by applicable law, Lexbell will not be liable for indirect, incidental, special, consequential or punitive damages, nor for loss of profits, revenue, data, opportunities or reputation, arising from the use of or inability to use the App.</p>
         <p>Specifically, the App is an organization tool; it does <strong>not</strong> replace the attorney's professional judgment, deadline compliance or due diligence in handling matters. You are solely responsible for legal decisions and procedural deadlines applicable to your cases.</p>
 
-        <h2>8. Indemnification</h2>
+        <h2>9. Indemnification</h2>
         <p>You agree to indemnify and hold harmless Lexbell against any claim, demand or damage arising from misuse of the App or breach of these Terms.</p>
 
-        <h2>9. Updates</h2>
-        <p>We may release updates to the App from time to time. Some updates may be mandatory for security or compatibility with new versions of your operating system. We are not obligated to maintain indefinite compatibility with older macOS or Windows versions.</p>
+        <h2>10. Updates</h2>
+        <p>We may release updates to the App from time to time. Some updates may be mandatory for security or compatibility with new versions of your operating system. We are not obligated to maintain indefinite compatibility with older macOS, Windows or iOS versions.</p>
 
-        <h2>10. Termination</h2>
+        <h2>11. Termination</h2>
         <p>These Terms remain in effect while you keep the App installed. We may suspend or terminate your license if you breach these Terms. You may terminate the license at any time by uninstalling the App. Clauses that by their nature should survive (intellectual property, limitation of liability, governing law) will remain in effect after termination.</p>
 
-        <h2>11. Changes to these Terms</h2>
+        <h2>12. Changes to these Terms</h2>
         <p>We may update these Terms to reflect legal, technical or business changes. The date of the last update appears at the top of the document. If changes are material, we will notify you via an in-app notice or at this same URL.</p>
 
-        <h2>12. Governing law and jurisdiction</h2>
-        <p>These Terms are governed by the laws of the <strong>Dominican Republic</strong>, without regard to its conflict of laws principles. Any dispute arising from the use of the App will be submitted to the competent courts of the National District, without prejudice to mandatory consumer rights where you reside.</p>
+        <h2>13. Governing law and jurisdiction</h2>
+        <p>These Terms are governed by the laws of the <strong>Dominican Republic</strong>, without regard to its conflict of laws principles. Any dispute arising from the use of the App will be submitted to the competent courts of the National District. If you reside in the European Union, you keep the protection of the mandatory rules of your country of residence and the right to bring proceedings before its courts.</p>
 
-        <h2>13. Subscription and in-app purchases</h2>
-        <p>Lexbell can be used for free up to a certain number of cases. Unlimited features are offered through <strong>Lexbell Premium</strong>, an <strong>auto-renewable annual subscription</strong>.</p>
+        <h2>14. Subscription and in-app purchases</h2>
+        <p>Lexbell can be used for free up to a certain number of cases, and every feature can be tried free for 15 days from the first launch. After that, unlimited features are offered through <strong>Lexbell Premium</strong>, an <strong>auto-renewable subscription</strong>, monthly or annual, at your choice.</p>
         <ul>
           <li>The price and duration are shown in the app before purchase and on the App Store purchase screen.</li>
           <li>Payment is charged to your Apple account upon confirming the purchase.</li>
@@ -159,7 +190,7 @@ useHead(() => ({
           <li>Billing and refunds are handled by Apple under App Store policies; we do not process payment data.</li>
         </ul>
 
-        <h2>14. Contact</h2>
+        <h2>15. Contact</h2>
         <p>For questions about these Terms, write to <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
       </template>
     </article>

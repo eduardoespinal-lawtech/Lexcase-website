@@ -2,7 +2,7 @@
   "common": {
     "brand": "Lexbell",
     "availableStores": "Available on the Mac App Store and the Microsoft Store",
-    "pricingNote": "Free up to 30 cases · annual subscription for unlimited",
+    "pricingNote": "Free up to 30 cases · monthly or annual subscription for unlimited",
     "learnMore": "Learn more",
     "availabilityNote": "macOS 12 or later · Windows 10 and 11"
   },
@@ -29,11 +29,11 @@
   "home": {
     "heroTitle": "Your practice,",
     "heroTitle2": "organized to the detail.",
-    "heroSubtitle": "Cases, deadlines, documents and notes in one desktop app. All on your device, no external cloud.",
+    "heroSubtitle": "Cases, deadlines, documents and notes in one desktop app. All on your device, and on your iPhone only if you turn it on.",
 
     "trust1": "6 case types",
     "trust2": "Daily backups",
-    "trust3": "100% local",
+    "trust3": "Local by default",
     "trust4": "Zero telemetry",
 
     "audienceEyebrow": "Six case types",
@@ -64,7 +64,7 @@
     "section3Title": "Documents & backups",
     "section3Body": "Attach files to each case —they are copied to your device— and Lexbell keeps an automatic daily backup.",
     "section4Title": "Privacy",
-    "section4Body": "Your data never leaves your device. No servers of ours, no trackers, no telemetry.",
+    "section4Body": "Your data lives on your device, encrypted. No trackers, no telemetry. Only if you turn on sync with your iPhone does a copy travel to our server, and it is deleted when you sign out.",
 
     "ctaSectionEyebrow": "Get started today",
     "ctaSectionTitle": "Download Lexbell."
@@ -96,8 +96,8 @@
     "sp5Body": "An interactive graph reveals the relationships between cases, clients and opposing parties. Spot connections and potential conflicts of interest at a glance.",
 
     "sp4Eyebrow": "Privacy by design",
-    "sp4Title": "Your data lives on your device. Period.",
-    "sp4Body": "No servers of ours. No Google Analytics, Mixpanel, Sentry or Firebase. Zero external connections: Lexbell needs no internet.",
+    "sp4Title": "Your data lives on your device.",
+    "sp4Body": "No Google Analytics, Mixpanel, Sentry or Firebase. Lexbell needs no internet to work: it only connects for the subscription and, if you turn it on, to bring your cases to your iPhone.",
 
     "moreEyebrow": "And everything else",
     "moreTitle": "Small things that change your flow.",
@@ -144,7 +144,7 @@
     "title": "What we get asked the most.",
     "subtitle": "Quick answers about Lexbell, its privacy model and how it works on Mac and Windows.",
     "q1": "Are my cases uploaded to the cloud?",
-    "a1": "No. All your information lives on your own device and never leaves it. Lexbell has no servers of ours. The only connection is with the App Store to manage the subscription, and no personal data is sent through it.",
+    "a1": "Only if you decide so. By default, all your information lives on your device and never leaves it. If you turn on sync with your iPhone (Lexbell Premium), a copy is kept on our server solely to bring it to your phone, and it is deleted as soon as you sign out.",
     "q2": "Does it work offline?",
     "a2": "Yes. All case-management features work without internet. Only activating or restoring the subscription needs a connection, and the App Store handles that.",
     "q3": "What do I need to use Lexbell?",
@@ -158,16 +158,16 @@
     "q7": "Which countries does it support?",
     "a7": "Yes. Lexbell adapts each case's fields to the country and works for several Spanish- and English-speaking countries. It includes specific support for the Dominican Republic and for the United States in immigration (DS-160, DS-260, A-Number, NVC Case) and company formation (LLC, C-Corp, S-Corp).",
     "q8": "How do I get Lexbell?",
-    "a8": "You can start free: up to 30 cases at no cost. For unlimited cases there is an annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
+    "a8": "You can start free: up to 30 cases at no cost. For unlimited cases there is a monthly or annual subscription. Download it from the Mac App Store (Mac) or the Microsoft Store (Windows), which handle billing; we don't process payment data on our servers."
   },
   "privacy": {
     "title": "Privacy Policy",
-    "updated": "Last updated: July 18, 2026",
-    "intro": "The Lexbell team (\"we\") builds Lexbell (the \"App\"), a desktop application for Mac and Windows. This Privacy Policy explains what information we handle, how we handle it, and your rights."
+    "updated": "Last updated: September 8, 2026",
+    "intro": "Eduardo Espinal (\"we\") develops Lexbell (the \"App\"), a desktop app for Mac and Windows with a companion app for iPhone. This Privacy Policy explains what information we handle, how we do it, where it is stored and what your rights are, including those granted by the European Union's General Data Protection Regulation."
   },
   "terms": {
     "title": "Terms & Conditions",
-    "updated": "Last updated: June 15, 2026",
-    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop application for Mac and Windows provided by the Lexbell team (\"we\"). By downloading, installing or using the App, you accept these Terms."
+    "updated": "Last updated: September 8, 2026",
+    "intro": "These Terms and Conditions (the \"Terms\") govern the use of Lexbell (the \"App\"), a desktop app for Mac and Windows with a companion app for iPhone, provided by Eduardo Espinal (\"we\", \"Lexbell\"). By downloading, installing or using the App, you accept these Terms."
   }
 }
