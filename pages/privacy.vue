@@ -177,11 +177,11 @@ onMounted(() => {
               <tr><th>Proveedor</th><th>Qué hace</th><th>Dónde</th></tr>
             </thead>
             <tbody>
-              <tr><td>Supabase, Inc.</td><td>Base de datos, autenticación anónima y almacenamiento de archivos.</td><td>Centros de datos de Amazon Web Services en Estados Unidos (Virginia).</td></tr>
+              <tr><td>Supabase, Inc.</td><td>Base de datos, autenticación anónima y almacenamiento de archivos.</td><td>Centros de datos de Amazon Web Services en la Unión Europea (Fráncfort, Alemania).</td></tr>
               <tr><td>Apple</td><td>Cobro de la suscripción a través de la App Store, con su propia política de privacidad.</td><td>Según tu país de la App Store.</td></tr>
             </tbody>
           </table>
-          <p>Si estás en la Unión Europea o el Espacio Económico Europeo, tus datos sincronizados se transfieren a Estados Unidos. Esa transferencia se ampara en las <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea, incorporadas en el acuerdo de tratamiento de datos de Supabase, junto con su evaluación de impacto de la transferencia y las medidas técnicas descritas en la sección 6. Puedes pedirnos una copia de esas garantías en <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
+          <p>Tus datos sincronizados se guardan <strong>dentro de la Unión Europea</strong>. Supabase, Inc. es una empresa estadounidense que puede acceder a ellos de forma limitada para operar el servicio; ese acceso se ampara en las <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea, incorporadas en su acuerdo de tratamiento de datos, junto con su evaluación de impacto de la transferencia y las medidas técnicas descritas en la sección 6. Puedes pedirnos una copia de esas garantías en <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
 
           <h2 id="base-legal">8. Base jurídica del tratamiento</h2>
           <p>Para quienes se encuentran en la Unión Europea, tratamos datos con estas bases del Reglamento General de Protección de Datos (RGPD):</p>
@@ -302,11 +302,11 @@ onMounted(() => {
               <tr><th>Provider</th><th>What it does</th><th>Where</th></tr>
             </thead>
             <tbody>
-              <tr><td>Supabase, Inc.</td><td>Database, anonymous authentication and file storage.</td><td>Amazon Web Services data centers in the United States (Virginia).</td></tr>
+              <tr><td>Supabase, Inc.</td><td>Database, anonymous authentication and file storage.</td><td>Amazon Web Services data centers in the European Union (Frankfurt, Germany).</td></tr>
               <tr><td>Apple</td><td>Subscription billing through the App Store, under its own privacy policy.</td><td>Depends on your App Store country.</td></tr>
             </tbody>
           </table>
-          <p>If you are in the European Union or the European Economic Area, your synced data is transferred to the United States. That transfer relies on the <strong>Standard Contractual Clauses</strong> approved by the European Commission, incorporated in Supabase's data processing agreement, together with its transfer impact assessment and the technical measures described in section 6. You can request a copy of those safeguards at <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
+          <p>Your synced data is stored <strong>within the European Union</strong>. Supabase, Inc. is a US company that may access it in a limited way to operate the service; that access relies on the <strong>Standard Contractual Clauses</strong> approved by the European Commission, incorporated in its data processing agreement, together with its transfer impact assessment and the technical measures described in section 6. You can request a copy of those safeguards at <a href="mailto:support@lex-bell.com">support@lex-bell.com</a>.</p>
 
           <h2 id="base-legal">8. Legal basis for processing</h2>
           <p>For people in the European Union, we process data on these bases under the General Data Protection Regulation (GDPR):</p>
