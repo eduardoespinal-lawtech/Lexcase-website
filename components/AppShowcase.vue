@@ -15,8 +15,8 @@ const tabs = computed(() => {
       imgEn: '/screenshots/cases-en.png',
       captionTitle: isEn ? 'Active Legal Matters' : 'Expedientes en Trámite',
       captionDesc: isEn
-        ? 'Court, statutory filings, claimants, defendants, and assigned attorneys—all structured in one central place.'
-        : 'Tribunal, trámites procesales, demandantes, demandados y abogados vinculados en un solo expediente estructurado.'
+        ? 'Court records, claimant, defendant, opposing counsel, and procedural stages structured in a single view.'
+        : 'Tribunal, cédulas, partes procesales, abogados contrarios y estado del litigio organizados en una sola vista.'
     },
     {
       key: 'calendario' as TabKey,
@@ -26,8 +26,8 @@ const tabs = computed(() => {
       imgEn: '/screenshots/calendar-en.png',
       captionTitle: isEn ? 'Court Calendar & Statutory Deadlines' : 'Agenda Procesal y Plazos Perentorios',
       captionDesc: isEn
-        ? 'Integrated calendar with system reminders so you never miss a court hearing or filing cutoff.'
-        : 'Calendario procesal con alertas del sistema para que ninguna audiencia ni vencimiento de término expire.'
+        ? 'Calendar with native desktop reminders so no hearing or court deadline ever expires.'
+        : 'Calendario procesal con avisos nativos del sistema para que ninguna audiencia ni vencimiento de término expire.'
     },
     {
       key: 'mapa' as TabKey,
@@ -59,8 +59,8 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
 </script>
 
 <template>
-  <div class="lx-real-showcase">
-    <!-- Pestañas de Navegación del Showcase -->
+  <div class="lx-apple-showcase">
+    <!-- Pestañas de Navegación del Showcase estilo Apple / Notion -->
     <div class="showcase-nav" role="tablist">
       <button
         v-for="t in tabs"
@@ -72,7 +72,6 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
         :class="{ 'is-active': activeTab === t.key }"
         @click="activeTab = t.key"
       >
-        <!-- Iconos SVG elegantes -->
         <span class="tab-icon" aria-hidden="true">
           <!-- Scale -->
           <svg v-if="t.icon === 'scale'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -95,52 +94,50 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
       </button>
     </div>
 
-    <!-- Marco de la Captura Real de la App -->
-    <div class="showcase-frame">
-      <div class="screenshot-wrapper">
-        <img
-          :key="currentImage"
-          :src="currentImage"
-          :alt="currentTab.captionTitle"
-          class="app-screenshot"
-          width="2880"
-          height="1800"
-          loading="eager"
-        />
-      </div>
+    <!-- Ventana auténtica de la aplicación flotando con sombra Apple -->
+    <div class="apple-showcase-window">
+      <img
+        :key="currentImage"
+        :src="currentImage"
+        :alt="currentTab.captionTitle"
+        class="apple-app-screenshot"
+        width="2245"
+        height="1335"
+        loading="eager"
+      />
+    </div>
 
-      <!-- Pie explicativo de la vista -->
-      <div class="showcase-caption">
-        <div class="caption-title-row">
-          <span class="caption-dot" />
-          <strong class="caption-title">{{ currentTab.captionTitle }}</strong>
-        </div>
-        <p class="caption-desc">{{ currentTab.captionDesc }}</p>
+    <!-- Pie descriptivo sutil -->
+    <div class="showcase-caption">
+      <div class="caption-title-row">
+        <span class="caption-dot" />
+        <strong class="caption-title">{{ currentTab.captionTitle }}</strong>
       </div>
+      <p class="caption-desc">{{ currentTab.captionDesc }}</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.lx-real-showcase {
+.lx-apple-showcase {
   width: 100%;
-  max-width: 1160px;
-  margin: 40px auto 0;
+  max-width: 1140px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Selector de pestañas superior estilo Notion (píldoras suaves) */
+/* Selector de pestañas superior estilo Apple / Notion */
 .showcase-nav {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: #F1F1EF;
+  background: #f1f1ef;
   padding: 4px;
   border-radius: 999px;
-  border: 1px solid #E5E5E3;
-  margin-bottom: 24px;
+  border: 1px solid #e5e5e3;
+  margin-bottom: 22px;
   max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
@@ -151,12 +148,12 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 999px;
   font-size: 13.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: #5F5E5B;
+  color: #5f5e5b;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -168,7 +165,7 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   color: #050505;
 }
 .showcase-tab-btn.is-active {
-  background: #FFFFFF;
+  background: #ffffff;
   color: #050505;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
@@ -180,82 +177,84 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   justify-content: center;
 }
 
-/* Marco exterior estilo Notion con sombra flotante limpia */
-.showcase-frame {
+/* Ventana auténtica de la aplicación flotando al estilo de Apple */
+.apple-showcase-window {
   width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #FFFFFF;
-  border: 1px solid #EBEBEA;
+  border-radius: 12px;
+  line-height: 0;
   box-shadow:
-    0 24px 60px -15px rgba(0, 0, 0, 0.12),
-    0 10px 24px -10px rgba(0, 0, 0, 0.06),
-    0 0 0 1px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease;
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 12px 30px -4px rgba(0, 0, 0, 0.16),
+    0 35px 70px -15px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.screenshot-wrapper {
-  width: 100%;
-  position: relative;
-  background: #111111;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.apple-showcase-window:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 16px 36px -4px rgba(0, 0, 0, 0.20),
+    0 45px 85px -15px rgba(0, 0, 0, 0.32);
 }
 
-.app-screenshot {
+.apple-app-screenshot {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
-  transition: opacity 0.25s ease-out;
+  border-radius: 12px;
 }
 
-/* Pie explicativo debajo de la captura estilo Notion */
+/* Pie explicativo debajo de la captura */
 .showcase-caption {
-  padding: 18px 26px 20px;
-  background: #FFFFFF;
-  border-top: 1px solid #F1F1EF;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: left;
+  margin-top: 18px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .caption-title-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 .caption-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #007AFF;
+  background: #007aff;
 }
 .caption-title {
-  font-size: 14.5px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: #050505;
 }
 .caption-desc {
   margin: 0;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #5F5E5B;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #5f5e5b;
+}
+
+@media (max-width: 768px) {
+  .showcase-caption {
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
   .showcase-tab-btn {
     padding: 6px 12px;
-    font-size: 12px;
-  }
-  .showcase-caption {
-    padding: 14px 16px;
-  }
-  .caption-desc {
     font-size: 12px;
   }
 }

@@ -35,7 +35,7 @@ const faqs = computed(() => [
 
 <template>
   <div class="notion-landing">
-    <!-- =================== 1. HERO SECTION =================== -->
+    <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
     <section class="notion-hero" id="descargar">
       <div class="notion-hero-inner">
         <!-- Floating announcement pill -->
@@ -58,7 +58,7 @@ const faqs = computed(() => [
         </div>
       </div>
 
-      <!-- Real Interactive Showcase with authentic Retina screenshots -->
+      <!-- Real Interactive Showcase with authentic Retina window -->
       <div class="hero-showcase-container">
         <AppShowcase />
       </div>
@@ -111,7 +111,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 3. MÓDULOS DE PROFUNDIDAD (Alternating Notion Layouts) =================== -->
+    <!-- =================== 3. MÓDULOS DE PROFUNDIDAD (Ventanas de app auténticas estilo Apple) =================== -->
     <section class="section">
       <div class="apple-wrap-wide">
         <div class="text-center max-w-3xl mx-auto mb-20">
@@ -142,20 +142,14 @@ const faqs = computed(() => [
             </ul>
           </div>
           <div class="module-visual">
-            <div class="mac-window-frame">
-              <div class="mac-titlebar">
-                <span class="mac-dot close"></span>
-                <span class="mac-dot min"></span>
-                <span class="mac-dot max"></span>
-                <span class="mac-title">Lexbell — {{ locale === 'en' ? 'Active Cases' : 'Expedientes en Trámite' }}</span>
-              </div>
+            <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'"
                 alt="Gestión de Expedientes en Lexbell"
-                class="module-img"
+                class="apple-app-img"
                 loading="lazy"
-                width="2880"
-                height="1800"
+                width="2245"
+                height="1335"
               />
             </div>
           </div>
@@ -183,20 +177,14 @@ const faqs = computed(() => [
             </ul>
           </div>
           <div class="module-visual">
-            <div class="mac-window-frame">
-              <div class="mac-titlebar">
-                <span class="mac-dot close"></span>
-                <span class="mac-dot min"></span>
-                <span class="mac-dot max"></span>
-                <span class="mac-title">Lexbell — {{ locale === 'en' ? 'Court Calendar' : 'Agenda Procesal' }}</span>
-              </div>
+            <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'"
                 alt="Agenda Judicial y Vencimientos en Lexbell"
-                class="module-img"
+                class="apple-app-img"
                 loading="lazy"
-                width="2880"
-                height="1800"
+                width="2245"
+                height="1335"
               />
             </div>
           </div>
@@ -224,20 +212,14 @@ const faqs = computed(() => [
             </ul>
           </div>
           <div class="module-visual">
-            <div class="mac-window-frame">
-              <div class="mac-titlebar">
-                <span class="mac-dot close"></span>
-                <span class="mac-dot min"></span>
-                <span class="mac-dot max"></span>
-                <span class="mac-title">Lexbell — {{ locale === 'en' ? 'Conflict Graph' : 'Grafo de Relaciones' }}</span>
-              </div>
+            <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/map-en.png' : '/screenshots/mapa.png'"
                 alt="Grafo de Relaciones y Prevención de Conflictos en Lexbell"
-                class="module-img"
+                class="apple-app-img"
                 loading="lazy"
-                width="2880"
-                height="1800"
+                width="2245"
+                height="1335"
               />
             </div>
           </div>
@@ -265,20 +247,14 @@ const faqs = computed(() => [
             </ul>
           </div>
           <div class="module-visual">
-            <div class="mac-window-frame">
-              <div class="mac-titlebar">
-                <span class="mac-dot close"></span>
-                <span class="mac-dot min"></span>
-                <span class="mac-dot max"></span>
-                <span class="mac-title">Lexbell — {{ locale === 'en' ? 'Document Vault' : 'Gestión Documental' }}</span>
-              </div>
+            <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'"
                 alt="Gestión Documental y Bóveda Segura en Lexbell"
-                class="module-img"
+                class="apple-app-img"
                 loading="lazy"
-                width="2880"
-                height="1800"
+                width="2245"
+                height="1335"
               />
             </div>
           </div>
@@ -541,7 +517,7 @@ const faqs = computed(() => [
   margin: 0;
 }
 
-/* === MÓDULOS DE PROFUNDIDAD (Alternating) === */
+/* === MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) === */
 .module-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -556,11 +532,11 @@ const faqs = computed(() => [
 
 @media (min-width: 960px) {
   .module-row {
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: 64px;
   }
   .module-row-reverse {
-    grid-template-columns: 1.25fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
   }
   .module-row-reverse .module-text {
     order: 2;
@@ -619,10 +595,30 @@ const faqs = computed(() => [
   width: 100%;
 }
 
-.module-img {
+.apple-window-box {
+  width: 100%;
+  border-radius: 12px;
+  line-height: 0;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 12px 30px -4px rgba(0, 0, 0, 0.16),
+    0 32px 64px -14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apple-window-box:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 16px 36px -4px rgba(0, 0, 0, 0.20),
+    0 40px 75px -14px rgba(0, 0, 0, 0.32);
+}
+
+.apple-app-img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px;
 }
 
 /* === PRECIOS === */
