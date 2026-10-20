@@ -57,20 +57,21 @@ const sections = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #04122E;
-  color: rgba(255, 255, 255, 0.60);
-  font-size: 12px;
+  background: #F7F7F5;
+  color: #5F5E5B;
+  font-size: 13px;
   line-height: 1.5;
+  border-top: 1px solid #EBEBEA;
 }
 .site-footer-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 30px 22px;
+  padding: 48px 22px 36px;
 }
 .site-footer-hr {
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  margin: 18px 0;
+  border-top: 1px solid #EBEBEA;
+  margin: 32px 0 20px;
 }
 .site-footer-cols {
   display: grid;
@@ -81,11 +82,12 @@ const sections = computed(() => [
   .site-footer-cols { grid-template-columns: repeat(3, 1fr); gap: 36px; }
 }
 .site-footer-h4 {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 10px;
-  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #050505;
+  margin: 0 0 12px;
 }
 .site-footer-ul {
   list-style: none;
@@ -93,18 +95,20 @@ const sections = computed(() => [
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 .site-footer-link {
-  color: rgba(255, 255, 255, 0.60);
+  color: #5F5E5B;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
-.site-footer-link:hover { color: #ffffff; text-decoration: underline; }
+.site-footer-link:hover { color: #000000; text-decoration: underline; }
 .site-footer-base {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  font-size: 12px;
+  font-size: 12.5px;
+  color: #787774;
 }
 </style>

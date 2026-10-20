@@ -32,9 +32,14 @@ const types = computed(() => [
 </script>
 
 <template>
-  <!-- =================== HERO =================== -->
+  <!-- =================== HERO NOTION STYLE =================== -->
   <section class="hero" id="descargar">
     <div class="hero-inner">
+      <div class="notion-badge">
+        <span class="notion-badge-icon">✨</span>
+        <span>{{ locale === 'es' ? 'Publicada en Mac App Store y Microsoft Store · Descarga gratuita' : 'Published on Mac App Store & Microsoft Store · Free download' }}</span>
+      </div>
+
       <h1 class="hero-title">
         {{ t('home.heroTitle') }}<br />
         <span class="hero-title-accent">{{ t('home.heroTitle2') }}</span>
@@ -42,14 +47,14 @@ const types = computed(() => [
       <p class="hero-sub">{{ t('home.heroSubtitle') }}</p>
 
       <div class="hero-ctas">
-        <AppDownload light center />
+        <AppDownload center />
       </div>
 
       <ul class="hero-trust" aria-label="Highlights">
-        <li>{{ t('home.trust1') }}</li>
-        <li>{{ t('home.trust2') }}</li>
-        <li>{{ t('home.trust3') }}</li>
-        <li>{{ t('home.trust4') }}</li>
+        <li>✓ {{ t('home.trust1') }}</li>
+        <li>✓ {{ t('home.trust2') }}</li>
+        <li>✓ {{ t('home.trust3') }}</li>
+        <li>✓ {{ t('home.trust4') }}</li>
       </ul>
     </div>
 
@@ -150,85 +155,92 @@ const types = computed(() => [
     </div>
   </section>
 
-  <!-- =================== CTA OSCURO =================== -->
-  <section class="section section-dark">
-    <div class="apple-wrap text-center" style="position: relative; z-index: 1;">
+  <!-- =================== CTA FINAL NOTION STYLE =================== -->
+  <section class="section section-cta-notion" id="descargar-final">
+    <div class="apple-wrap text-center">
       <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
       <h2 class="h-section mt-1">{{ t('home.ctaSectionTitle') }}</h2>
+      <p class="subtitle mt-3 mx-auto" style="max-width: 620px;">
+        {{ locale === 'es' ? 'Gratis hasta 50 expedientes. Descarga directa desde las tiendas oficiales de Apple y Microsoft.' : 'Free up to 50 cases. Direct download from Apple and Microsoft official stores.' }}
+      </p>
       <div class="mt-8 flex justify-center">
-        <AppDownload light center />
+        <AppDownload center />
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* === HERO — ciruela profunda, minimalista === */
+/* === HERO ESTILO NOTION === */
 .hero {
   position: relative;
-  background:
-    radial-gradient(85% 55% at 50% 6%, rgba(61, 155, 255, 0.34) 0%, rgba(61, 155, 255, 0) 60%),
-    linear-gradient(180deg, #0A2A5E 0%, #071C42 55%, #04122E 100%);
-  padding: clamp(104px, 16vh, 168px) 22px clamp(80px, 11vh, 128px);
+  background: #ffffff;
+  padding: clamp(64px, 9vh, 96px) 22px clamp(60px, 8vh, 88px);
   overflow: hidden;
+  border-bottom: 1px solid #EBEBEA;
 }
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 820px;
+  max-width: 860px;
   margin: 0 auto;
   text-align: center;
 }
+.notion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #F1F1EF;
+  border: 1px solid #E5E5E3;
+  font-size: 13px;
+  font-weight: 500;
+  color: #37352F;
+  margin-bottom: 24px;
+}
 .hero-title {
-  font-size: clamp(44px, 7vw, 84px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  font-weight: 600;
-  color: #fff;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #050505;
   margin: 0;
 }
 .hero-title-accent {
-  background: linear-gradient(110deg, #ffffff 0%, #CFE4FF 45%, #3D9BFF 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #007AFF;
 }
 .hero-sub {
-  font-size: clamp(18px, 1.7vw, 22px);
+  font-size: clamp(17px, 1.7vw, 21px);
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.74);
-  margin: 26px auto 0;
-  max-width: 640px;
+  color: #5F5E5B;
+  margin: 22px auto 0;
+  max-width: 680px;
   font-weight: 400;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
 }
 .hero-ctas {
-  margin-top: 40px;
+  margin-top: 36px;
   display: inline-flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
-.hero-coming { font-size: 15px; color: rgba(255, 255, 255, 0.55); line-height: 1; }
 .hero-trust {
   list-style: none;
-  margin: 44px auto 0;
+  margin: 32px auto 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.62);
+  font-size: 13.5px;
+  color: #5F5E5B;
   letter-spacing: -0.005em;
   font-weight: 500;
+  gap: 8px 18px;
 }
 .hero-trust li { display: inline-flex; align-items: center; }
-.hero-trust li + li::before {
-  content: "·";
-  margin: 0 14px;
-  color: rgba(255, 255, 255, 0.3);
-}
 
 /* === Rejilla de tipos (icon-driven, técnica) === */
 .bento-head { max-width: 760px; }
@@ -270,8 +282,15 @@ const types = computed(() => [
 .hero-showcase-wrap {
   position: relative;
   z-index: 2;
-  max-width: 1120px;
-  margin: 56px auto 0;
+  max-width: 1140px;
+  margin: 48px auto 0;
   padding: 0 12px;
+}
+
+/* === CTA Final Estilo Notion === */
+.section-cta-notion {
+  background: #F7F7F5;
+  border-top: 1px solid #EBEBEA;
+  padding: clamp(72px, 10vh, 110px) 20px;
 }
 </style>

@@ -19,7 +19,7 @@ const links = computed(() => [
   <header class="site-header">
     <div class="site-header-inner">
       <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
-        <LogoMark :size="20" light />
+        <LogoMark :size="20" />
       </NuxtLink>
 
       <nav class="site-header-nav" aria-label="Primary">
@@ -78,15 +78,15 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(4, 18, 46, 0.72);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .site-header-inner {
   max-width: 1240px;
   margin: 0 auto;
-  height: 48px;
+  height: 54px;
   padding: 0 22px;
   display: flex;
   align-items: center;
@@ -97,12 +97,12 @@ const links = computed(() => [
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  color: #050505;
 }
 .site-header-nav {
   display: none;
   align-items: center;
-  gap: 26px;
+  gap: 24px;
   flex: 1;
   justify-content: center;
 }
@@ -110,15 +110,16 @@ const links = computed(() => [
   .site-header-nav { display: flex; }
 }
 .site-header-link {
-  font-size: 12px;
-  color: #fff;
+  font-size: 13.5px;
+  color: #37352F;
   text-decoration: none;
-  opacity: 0.88;
-  transition: opacity .15s ease;
-  letter-spacing: -0.005em;
+  opacity: 0.82;
+  font-weight: 500;
+  transition: opacity .15s ease, color .15s ease;
+  letter-spacing: -0.01em;
 }
-.site-header-link:hover { opacity: 1; }
-.router-link-exact-active.site-header-link { opacity: 1; font-weight: 500; }
+.site-header-link:hover { opacity: 1; color: #000000; }
+.router-link-exact-active.site-header-link { opacity: 1; font-weight: 600; color: #000000; }
 
 .site-header-tail {
   display: flex;
@@ -129,20 +130,20 @@ const links = computed(() => [
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 14px;
-  background: #007AFF;
+  padding: 6px 16px;
+  background: #000000;
   color: #ffffff;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   border-radius: 999px;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 .header-cta-btn:hover {
-  background: #0059CC;
+  background: #2F3437;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 .site-header-burger {
   display: inline-flex;
@@ -151,30 +152,30 @@ const links = computed(() => [
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  color: #fff;
+  color: #050505;
 }
-.site-header-burger:hover { background: rgba(255, 255, 255, 0.08); }
+.site-header-burger:hover { background: rgba(0, 0, 0, 0.05); }
 @media (min-width: 833px) {
   .site-header-burger { display: none; }
 }
 
 .site-header-mobile {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(4, 18, 46, 0.94);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
 }
 .site-header-mobile-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 6px 22px 12px;
+  padding: 6px 22px 14px;
   display: flex;
   flex-direction: column;
 }
 .site-header-mobile-link {
   padding: 10px 0;
-  font-size: 17px;
-  color: #fff;
+  font-size: 16px;
+  color: #050505;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .site-header-mobile-link:last-child { border-bottom: 0; }
 

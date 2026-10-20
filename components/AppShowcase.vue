@@ -124,25 +124,23 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
 <style scoped>
 .lx-real-showcase {
   width: 100%;
-  max-width: 1140px;
-  margin: 36px auto 0;
+  max-width: 1160px;
+  margin: 40px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Selector de pestañas superior */
+/* Selector de pestañas superior estilo Notion (píldoras suaves) */
 .showcase-nav {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 5px;
+  gap: 4px;
+  background: #F1F1EF;
+  padding: 4px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  margin-bottom: 22px;
+  border: 1px solid #E5E5E3;
+  margin-bottom: 24px;
   max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
@@ -155,10 +153,10 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   gap: 8px;
   padding: 8px 18px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.76);
+  color: #5F5E5B;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -167,13 +165,13 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   user-select: none;
 }
 .showcase-tab-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: #050505;
 }
 .showcase-tab-btn.is-active {
-  background: #3478F6;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(52, 120, 246, 0.45);
+  background: #FFFFFF;
+  color: #050505;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
 .tab-icon {
@@ -182,24 +180,24 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   justify-content: center;
 }
 
-/* Marco exterior con sombra y profundidad estilo Apple */
+/* Marco exterior estilo Notion con sombra flotante limpia */
 .showcase-frame {
   width: 100%;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  background: #0D1627;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #FFFFFF;
+  border: 1px solid #EBEBEA;
   box-shadow:
-    0 30px 100px -25px rgba(0, 0, 0, 0.75),
-    0 10px 40px -10px rgba(0, 62, 153, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 24px 60px -15px rgba(0, 0, 0, 0.12),
+    0 10px 24px -10px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease;
 }
 
 .screenshot-wrapper {
   width: 100%;
   position: relative;
-  background: #000000;
+  background: #111111;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -214,13 +212,11 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   transition: opacity 0.25s ease-out;
 }
 
-/* Pie explicativo debajo de la captura */
+/* Pie explicativo debajo de la captura estilo Notion */
 .showcase-caption {
-  padding: 18px 24px 20px;
-  background: rgba(4, 18, 46, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 26px 20px;
+  background: #FFFFFF;
+  border-top: 1px solid #F1F1EF;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -236,20 +232,19 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #38BDF8;
-  box-shadow: 0 0 8px #38BDF8;
+  background: #007AFF;
 }
 .caption-title {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: #ffffff;
+  color: #050505;
 }
 .caption-desc {
   margin: 0;
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
+  color: #5F5E5B;
 }
 
 @media (max-width: 640px) {

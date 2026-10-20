@@ -233,28 +233,28 @@ const onStoreClick = (platform: 'apple' | 'microsoft') => {
   gap: 6px;
   font-size: 13px;
   font-weight: 500;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.1);
-  padding: 4px 12px;
+  color: #37352F;
+  background: #F1F1EF;
+  padding: 4px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid #E5E5E3;
 }
 
-.app-download-wrap:not(.is-light) .store-info-pill {
-  color: #0284c7;
-  background: rgba(2, 132, 199, 0.08);
-  border-color: rgba(2, 132, 199, 0.2);
+.app-download-wrap.is-light .store-info-pill {
+  color: #CFE4FF;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .store-info-sub {
   margin: 0;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 12.5px;
+  color: #787774;
   letter-spacing: -0.005em;
 }
 
-.app-download-wrap:not(.is-light) .store-info-sub {
-  color: #64748b;
+.app-download-wrap.is-light .store-info-sub {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 640px) {
