@@ -1,33 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0A2A5E"/>
+      <stop offset="0.6" stop-color="#071C42"/>
       <stop offset="1" stop-color="#04122E"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.28" cy="0.18" r="0.75">
-      <stop offset="0" stop-color="#3D9BFF" stop-opacity="0.34"/>
-      <stop offset="1" stop-color="#3D9BFF" stop-opacity="0"/>
+    <radialGradient id="glow" cx="0.3" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#3D9BFF"/>
-      <stop offset=".5" stop-color="#007AFF"/>
+      <stop offset="0.5" stop-color="#007AFF"/>
       <stop offset="1" stop-color="#0059CC"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Icono real: badge ciruela + campana -->
-  <g transform="translate(120 205)">
-    <rect width="220" height="220" rx="50" fill="url(#badge)"/>
-    <g transform="translate(19 23) scale(7.6)" fill="#fff" stroke="#fff" stroke-width="0.35" stroke-linejoin="round" opacity="0.97">
+  <!-- Icono de marca -->
+  <g transform="translate(100 190)">
+    <rect width="200" height="200" rx="46" fill="url(#badge)" filter="drop-shadow(0 20px 40px rgba(0,62,153,0.5))"/>
+    <g transform="translate(16 19) scale(7)" fill="#ffffff" stroke="#ffffff" stroke-width="0.35" stroke-linejoin="round" opacity="0.98">
       <path d="M6 8a6 6 0 0 1 12 0C18 15 18.92 15.61 20 16.33Q21 17 19.8 17H4.2Q3 17 4 16.33C5.08 15.61 6 15 6 8"/>
       <path d="M10.3 19a1.94 1.94 0 0 0 3.4 0"/>
     </g>
   </g>
 
-  <!-- Wordmark + tagline -->
-  <text x="410" y="288" fill="#ffffff" font-size="104" font-weight="700" letter-spacing="-3">Lexbell</text>
-  <text x="414" y="352" fill="#A9CBFF" font-size="34" font-weight="500" letter-spacing="-0.5">Gestión de expedientes legales para Mac y Windows</text>
-  <text x="414" y="410" fill="rgba(255,255,255,0.55)" font-size="25" font-family="ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.5">Mac y Windows · 100% local · cero conexiones</text>
+  <!-- Wordmark + Titular persuasivo -->
+  <g transform="translate(350 0)">
+    <text x="0" y="240" fill="#ffffff" font-size="88" font-weight="700" letter-spacing="-2.5">Lexbell</text>
+    <rect x="330" y="180" width="220" height="34" rx="17" fill="rgba(56,189,248,0.18)" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="440" y="202" fill="#38BDF8" font-size="14" font-weight="700" letter-spacing="1" text-anchor="middle">TIENDAS OFICIALES</text>
+
+    <text x="0" y="300" fill="#CFE4FF" font-size="34" font-weight="600" letter-spacing="-0.5">Gestión de Expedientes con Secreto Profesional</text>
+    <text x="0" y="348" fill="rgba(255,255,255,0.78)" font-size="22" font-weight="400">Todo en tu propio equipo · 100% Cifrado · Sin servidores externos</text>
+
+    <!-- Badges Tiendas -->
+    <g transform="translate(0 395)">
+      <!-- Mac App Store Pill -->
+      <rect width="250" height="52" rx="12" fill="#000000" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+      <text x="24" y="24" fill="rgba(255,255,255,0.7)" font-size="11">Consíguelo en el</text>
+      <text x="24" y="42" fill="#ffffff" font-size="16" font-weight="700">Mac App Store</text>
+
+      <!-- Microsoft Store Pill -->
+      <rect x="270" width="250" height="52" rx="12" fill="#0F172A" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+      <text x="294" y="24" fill="rgba(255,255,255,0.7)" font-size="11">Obtener de</text>
+      <text x="294" y="42" fill="#ffffff" font-size="16" font-weight="700">Microsoft Store</text>
+    </g>
+
+    <text x="0" y="500" fill="#38BDF8" font-size="17" font-weight="600">✓ Gratis hasta 50 expedientes · Prueba de 15 días · Cero telemetría</text>
+  </g>
 </svg>

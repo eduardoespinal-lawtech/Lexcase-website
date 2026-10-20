@@ -33,8 +33,13 @@ const types = computed(() => [
 
 <template>
   <!-- =================== HERO =================== -->
-  <section class="hero">
+  <section class="hero" id="descargar">
     <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot" />
+        <span>macOS & Windows · Publicada en Tiendas Oficiales</span>
+      </div>
+
       <h1 class="hero-title">
         {{ t('home.heroTitle') }}<br />
         <span class="hero-title-accent">{{ t('home.heroTitle2') }}</span>
@@ -51,6 +56,70 @@ const types = computed(() => [
         <li>{{ t('home.trust3') }}</li>
         <li>{{ t('home.trust4') }}</li>
       </ul>
+    </div>
+
+    <!-- Product Showcase (Live App UI Frame) -->
+    <div class="hero-showcase-wrap">
+      <AppShowcase />
+    </div>
+  </section>
+
+  <!-- =================== POR QUÉ LEXBELL (SECRETO PROFESIONAL VS NUBE) =================== -->
+  <section class="section section-why">
+    <div class="apple-wrap-wide">
+      <div class="bento-head text-center mx-auto">
+        <span class="eyebrow">{{ t('whyTrust.eyebrow') }}</span>
+        <h2 class="h-feature mt-1">{{ t('whyTrust.title') }}</h2>
+        <p class="subtitle mt-4 mx-auto" style="max-width: 760px; font-size: clamp(16px, 1.6vw, 19px);">
+          {{ t('whyTrust.subtitle') }}
+        </p>
+      </div>
+
+      <div class="why-grid mt-12">
+        <!-- Card 1 -->
+        <article class="why-card">
+          <div class="why-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">{{ t('whyTrust.card1Title') }}</h3>
+          <p class="why-card-desc">{{ t('whyTrust.card1Desc') }}</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="why-card">
+          <div class="why-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">{{ t('whyTrust.card2Title') }}</h3>
+          <p class="why-card-desc">{{ t('whyTrust.card2Desc') }}</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="why-card">
+          <div class="why-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">{{ t('whyTrust.card3Title') }}</h3>
+          <p class="why-card-desc">{{ t('whyTrust.card3Desc') }}</p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="why-card">
+          <div class="why-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">{{ t('whyTrust.card4Title') }}</h3>
+          <p class="why-card-desc">{{ t('whyTrust.card4Desc') }}</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -174,6 +243,26 @@ const types = computed(() => [
   margin: 0 auto;
   text-align: center;
 }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  font-weight: 500;
+  color: #CFE4FF;
+  margin-bottom: 24px;
+}
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
 .hero-title {
   font-size: clamp(44px, 7vw, 84px);
   line-height: 1.05;
@@ -259,5 +348,73 @@ const types = computed(() => [
   line-height: 1.5;
   color: var(--text-muted);
   margin: 6px 0 0;
+}
+
+/* === Showcase wrapper === */
+.hero-showcase-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 56px auto 0;
+  padding: 0 12px;
+}
+
+/* === Seccion Por que Lexbell / Privacidad === */
+.section-why {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--divider);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.why-card {
+  background: #ffffff;
+  border: 1px solid var(--divider);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.why-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 122, 255, 0.35);
+  box-shadow: 0 16px 36px -18px rgba(0, 62, 153, 0.2);
+}
+.why-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 122, 255, 0.08);
+  color: #007AFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.why-card-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.why-card-desc {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 </style>

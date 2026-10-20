@@ -59,6 +59,17 @@ useHead(() => ({
       </div>
     </div>
   </section>
+
+  <!-- CTA FINAL -->
+  <section class="section section-dark" id="descargar">
+    <div class="apple-wrap text-center" style="position: relative; z-index: 1;">
+      <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
+      <h2 class="h-section mt-1 text-white">{{ t('home.ctaSectionTitle') }}</h2>
+      <div class="mt-8 flex justify-center">
+        <AppDownload light center />
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>

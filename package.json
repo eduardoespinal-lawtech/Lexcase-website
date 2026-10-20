@@ -5,8 +5,8 @@
   "description": "Sitio oficial de Lexbell — Gestor de expedientes legales para macOS",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt generate",
-    "generate": "nuxt generate",
+    "build": "nuxt generate && cp -R .output/public/* .",
+    "generate": "nuxt generate && cp -R .output/public/* .",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
