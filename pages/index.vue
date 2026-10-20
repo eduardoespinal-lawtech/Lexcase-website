@@ -44,7 +44,7 @@ const faqs = computed(() => [
         </div>
 
         <h1 class="hero-h1">
-          {{ t('home.heroTitle') }}<br />
+          {{ t('home.heroTitle') }}<br class="hidden sm:inline" />
           <span class="hero-h1-accent">{{ t('home.heroTitle2') }}</span>
         </h1>
 
@@ -52,30 +52,10 @@ const faqs = computed(() => [
           {{ t('home.heroSubtitle') }}
         </p>
 
-        <!-- Official Store Download Buttons -->
+        <!-- Official Store Download Badges -->
         <div class="hero-downloads">
           <AppDownload center />
         </div>
-
-        <!-- Trust checkmarks -->
-        <ul class="hero-trust-list" aria-label="Beneficios clave">
-          <li>
-            <svg class="trust-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
-            <span>{{ t('home.trust1') }}</span>
-          </li>
-          <li>
-            <svg class="trust-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
-            <span>{{ t('home.trust2') }}</span>
-          </li>
-          <li>
-            <svg class="trust-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
-            <span>{{ t('home.trust3') }}</span>
-          </li>
-          <li>
-            <svg class="trust-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
-            <span>{{ t('home.trust4') }}</span>
-          </li>
-        </ul>
       </div>
 
       <!-- Real Interactive Showcase with authentic Retina screenshots -->
@@ -474,22 +454,23 @@ const faqs = computed(() => [
 .notion-hero {
   position: relative;
   background: #ffffff;
-  padding: clamp(64px, 9vh, 96px) 24px clamp(50px, 7vh, 80px);
+  padding: 42px 24px 36px;
   text-align: center;
 }
 
 .notion-hero-inner {
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
 .hero-h1 {
-  font-size: clamp(38px, 5.2vw, 68px);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  font-size: clamp(34px, 4.4vw, 56px);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
   font-weight: 700;
-  color: #050505;
+  color: #111111;
   margin: 0;
+  text-wrap: balance;
 }
 
 .hero-h1-accent {
@@ -497,47 +478,23 @@ const faqs = computed(() => [
 }
 
 .hero-p {
-  font-size: clamp(17px, 1.7vw, 21px);
-  line-height: 1.55;
+  font-size: clamp(16px, 1.4vw, 18.5px);
+  line-height: 1.5;
   color: #5f5e5b;
-  margin: 22px auto 0;
-  max-width: 680px;
+  margin: 16px auto 0;
+  max-width: 660px;
   letter-spacing: -0.01em;
 }
 
 .hero-downloads {
-  margin-top: 36px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
-}
-
-.hero-trust-list {
-  list-style: none;
-  margin: 28px auto 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 12px 24px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: #5f5e5b;
-}
-
-.hero-trust-list li {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.trust-check {
-  color: #10b981;
 }
 
 .hero-showcase-container {
-  max-width: 1180px;
-  margin: 48px auto 0;
+  max-width: 1140px;
+  margin: 28px auto 0;
 }
 
 /* === PILARES (Cards) === */
@@ -828,6 +785,6 @@ const faqs = computed(() => [
 .notion-cta-section {
   background: #f7f7f5;
   border-top: 1px solid #ebebea;
-  padding: clamp(80px, 11vh, 120px) 24px;
+  padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>
