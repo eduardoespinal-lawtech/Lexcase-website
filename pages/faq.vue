@@ -31,93 +31,124 @@ useHead(() => ({
 </script>
 
 <template>
-  <section class="section">
-    <div class="apple-wrap text-center">
-      <h1 class="h-page">{{ t('faq.title') }}</h1>
-      <p class="subtitle mt-5 mx-auto" style="max-width: 720px;">{{ t('faq.subtitle') }}</p>
-    </div>
-  </section>
+  <div class="faq-page">
+    <section class="section">
+      <div class="apple-wrap text-center">
+        <span class="eyebrow">{{ t('nav.faq') }}</span>
+        <h1 class="h-display mt-2">{{ t('faq.title') }}</h1>
+        <p class="subtitle mt-4 mx-auto" style="max-width: 680px;">{{ t('faq.subtitle') }}</p>
+      </div>
+    </section>
 
-  <section class="section-tight">
-    <div class="apple-wrap" style="max-width: 820px;">
-      <div class="faq-list">
-        <details
-          v-for="(item, i) in items"
-          :key="i"
-          class="faq-item"
-          :open="open === i"
-        >
-          <summary
-            class="faq-summary"
-            @click.prevent="toggle(i)"
+    <section class="section-tight" style="padding-bottom: 80px;">
+      <div class="apple-wrap" style="max-width: 820px;">
+        <div class="faq-list">
+          <div
+            v-for="(item, i) in items"
+            :key="i"
+            class="faq-item"
+            :class="{ 'is-open': open === i }"
           >
-            <span>{{ item.q }}</span>
-            <span class="faq-plus" :class="open === i ? 'is-open' : ''">+</span>
-          </summary>
-          <div class="faq-answer">{{ item.a }}</div>
-        </details>
+            <button
+              type="button"
+              class="faq-summary"
+              :aria-expanded="open === i"
+              @click="toggle(i)"
+            >
+              <span>{{ item.q }}</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div v-show="open === i" class="faq-answer">
+              <p>{{ item.a }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA FINAL -->
-  <section class="section section-dark" id="descargar">
-    <div class="apple-wrap text-center" style="position: relative; z-index: 1;">
-      <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
-      <h2 class="h-section mt-1 text-white">{{ t('home.ctaSectionTitle') }}</h2>
-      <div class="mt-8 flex justify-center">
-        <AppDownload light center />
+    <!-- CTA FINAL NOTION -->
+    <section class="notion-cta-section" id="descargar">
+      <div class="apple-wrap text-center">
+        <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
+        <h2 class="h-section max-w-2xl mx-auto">{{ t('home.ctaSectionTitle') }}</h2>
+        <p class="subtitle max-w-xl mx-auto mt-4 mb-8">
+          {{ t('home.ctaSectionBody') }}
+        </p>
+        <div class="flex justify-center">
+          <AppDownload center />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.faq-page {
+  background: #ffffff;
+  color: #191919;
+}
+
 .faq-list {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
+
 .faq-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
 }
+
+.faq-item.is-open {
+  border-color: #d3d3d0;
+}
+
 .faq-summary {
-  list-style: none;
-  cursor: pointer;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 24px 4px;
-  font-size: clamp(18px, 1.6vw, 21px);
-  font-weight: 500;
-  color: #1d1d1f;
-  letter-spacing: -0.005em;
-}
-.faq-summary::-webkit-details-marker { display: none; }
-/* Botón minimalista: solo el carácter "+" en gris suave, sin fondo, sin
-   borde, sin círculo. Al abrir rota 45° para convertirse en "×" y cambia
-   levemente a un gris más oscuro. */
-.faq-plus {
-  flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1;
-  color: #6e6e73;
+  padding: 20px 24px;
   background: transparent;
-  transition: transform .2s ease, color .2s ease;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #050505;
+  gap: 16px;
 }
-.faq-plus.is-open {
-  transform: rotate(45deg);
-  color: #1d1d1f;
+
+.faq-chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  color: #5f5e5b;
 }
+
+.faq-item.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+
 .faq-answer {
-  padding: 0 4px 24px;
-  font-size: 17px;
-  line-height: 1.55;
-  color: #1d1d1f;
+  padding: 0 24px 22px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5f5e5b;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* === CTA Final === */
+.notion-cta-section {
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
+  padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>
