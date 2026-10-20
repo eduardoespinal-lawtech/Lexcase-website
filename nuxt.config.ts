@@ -7,8 +7,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      googleTagId: process.env.NUXT_PUBLIC_GOOGLE_TAG_ID || '', // e.g. 'G-XXXXXX' or 'AW-XXXXXX'
-      metaPixelId: process.env.NUXT_PUBLIC_META_PIXEL_ID || '', // e.g. '123456789012345'
+      googleTagId: process.env.NUXT_PUBLIC_GOOGLE_TAG_ID || 'G-RQJXEKR4QR',
+      metaPixelId: process.env.NUXT_PUBLIC_META_PIXEL_ID || '800461587753013',
       appleStoreUrl: 'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12',
       microsoftStoreUrl: 'https://apps.microsoft.com/detail/9NLZXP46J9G2'
     }
