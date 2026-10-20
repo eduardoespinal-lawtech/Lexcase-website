@@ -2,8 +2,9 @@ export default defineNuxtPlugin(() => {
   if (typeof window === 'undefined') return
 
   const config = useRuntimeConfig()
-  const googleTagId = config.public.googleTagId || ''
-  const metaPixelId = config.public.metaPixelId || ''
+  const googleTagId = config.public.googleTagId || 'G-RQJXEKR4QR'
+  const googleAdsId = config.public.googleAdsId || 'AW-11517925351'
+  const metaPixelId = config.public.metaPixelId || '800461587753013'
 
   // 1. Initialize Google Tag (GA4 / Google Ads)
   if (googleTagId && !document.getElementById('google-tag-script')) {
@@ -22,6 +23,9 @@ export default defineNuxtPlugin(() => {
     gtag('config', googleTagId, {
       send_page_view: true
     })
+    if (googleAdsId) {
+      gtag('config', googleAdsId)
+    }
   }
 
   // 2. Initialize Meta Pixel (Facebook / Instagram)

@@ -17,7 +17,14 @@ export const useAnalytics = () => {
           destination: storeUrl,
           value: 1
         })
-        // Standard Ads conversion trigger if conversion label exists
+        // Direct Google Ads conversion trigger
+        if (config.public.googleAdsId) {
+          ;(window as any).gtag('event', 'conversion', {
+            send_to: config.public.googleAdsId,
+            event_category: 'download',
+            platform: platform
+          })
+        }
         ;(window as any).gtag('event', 'conversion', {
           send_to: config.public.googleTagId,
           event_category: 'download',
