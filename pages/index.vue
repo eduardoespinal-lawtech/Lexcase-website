@@ -77,7 +77,7 @@ const faqs = computed(() => [
           <!-- Pilar 1 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
@@ -88,7 +88,7 @@ const faqs = computed(() => [
           <!-- Pilar 2 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
               </svg>
@@ -100,7 +100,7 @@ const faqs = computed(() => [
           <!-- Pilar 3 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
               </svg>
             </div>
@@ -111,7 +111,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 3. MÓDULOS DE PROFUNDIDAD (Ventanas de app auténticas estilo Apple) =================== -->
+    <!-- =================== 3. MÓDULOS DE PROFUNDIDAD (Ventana de app auténtica flotando) =================== -->
     <section class="section">
       <div class="apple-wrap-wide">
         <div class="text-center max-w-3xl mx-auto mb-20">
@@ -128,15 +128,21 @@ const faqs = computed(() => [
             <p class="module-desc">{{ t('home.m1Desc') }}</p>
             <ul class="module-bullets">
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m1Point1') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m1Point2') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m1Point3') }}</span>
               </li>
             </ul>
@@ -163,15 +169,21 @@ const faqs = computed(() => [
             <p class="module-desc">{{ t('home.m2Desc') }}</p>
             <ul class="module-bullets">
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m2Point1') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m2Point2') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m2Point3') }}</span>
               </li>
             </ul>
@@ -198,15 +210,21 @@ const faqs = computed(() => [
             <p class="module-desc">{{ t('home.m3Desc') }}</p>
             <ul class="module-bullets">
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m3Point1') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m3Point2') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m3Point3') }}</span>
               </li>
             </ul>
@@ -233,15 +251,21 @@ const faqs = computed(() => [
             <p class="module-desc">{{ t('home.m4Desc') }}</p>
             <ul class="module-bullets">
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m4Point1') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m4Point2') }}</span>
               </li>
               <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="bullet-check">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
                 <span>{{ t('home.m4Point3') }}</span>
               </li>
             </ul>
@@ -348,7 +372,7 @@ const faqs = computed(() => [
 
           <!-- Plan Ilimitado -->
           <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Professional' : 'Para despachos' }}</span>
+            <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Professional' : 'Recomendado para despachos' }}</span>
             <h3 class="pricing-name">{{ t('home.proPlanTitle') }}</h3>
             <div class="pricing-price">{{ t('home.proPlanPrice') }}</div>
             <p class="pricing-desc">{{ t('home.proPlanDesc') }}</p>
@@ -359,7 +383,7 @@ const faqs = computed(() => [
               <li>✓ {{ t('home.proPlanFeature4') }}</li>
               <li>✓ {{ t('home.proPlanFeature5') }}</li>
             </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-outline">
+            <a href="#descargar" class="pricing-btn pricing-btn-pro">
               {{ t('home.proPlanCTA') }}
             </a>
           </div>
@@ -430,7 +454,7 @@ const faqs = computed(() => [
 .notion-hero {
   position: relative;
   background: #ffffff;
-  padding: 42px 24px 36px;
+  padding: 44px 24px 36px;
   text-align: center;
 }
 
@@ -455,7 +479,7 @@ const faqs = computed(() => [
 
 .hero-p {
   font-size: clamp(16px, 1.4vw, 18.5px);
-  line-height: 1.5;
+  line-height: 1.55;
   color: #5f5e5b;
   margin: 16px auto 0;
   max-width: 660px;
@@ -548,7 +572,7 @@ const faqs = computed(() => [
 
 .module-eyebrow {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -578,17 +602,30 @@ const faqs = computed(() => [
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .module-bullets li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   font-size: 14.5px;
   font-weight: 500;
   color: #191919;
   line-height: 1.45;
+}
+
+.bullet-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e6f0fa;
+  color: #0066cc;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .module-visual {
@@ -603,7 +640,7 @@ const faqs = computed(() => [
     0 0 0 1px rgba(0, 0, 0, 0.12),
     0 12px 30px -4px rgba(0, 0, 0, 0.16),
     0 32px 64px -14px rgba(0, 0, 0, 0.28);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .apple-window-box:hover {
@@ -633,7 +670,7 @@ const faqs = computed(() => [
 
 .pricing-card-pro {
   border-color: #0066cc;
-  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.08);
+  box-shadow: 0 10px 32px rgba(0, 102, 204, 0.08);
 }
 
 .pricing-badge {
@@ -641,10 +678,10 @@ const faqs = computed(() => [
   align-self: flex-start;
   padding: 4px 10px;
   border-radius: 999px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   background: #f1f1ef;
   color: #37352f;
   margin-bottom: 16px;
@@ -712,13 +749,13 @@ const faqs = computed(() => [
   transform: translateY(-1px);
 }
 
-.pricing-btn-outline {
-  background: transparent;
-  color: #0066cc;
-  border: 1px solid #0066cc;
+.pricing-btn-pro {
+  background: #0066cc;
+  color: #ffffff;
 }
-.pricing-btn-outline:hover {
-  background: #f0f7ff;
+.pricing-btn-pro:hover {
+  background: #0052a3;
+  transform: translateY(-1px);
 }
 
 /* === FAQ ACORDEÓN === */
