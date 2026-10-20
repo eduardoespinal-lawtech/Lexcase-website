@@ -6,7 +6,7 @@ useHead(() => ({
   title: `Lexbell — ${t('home.heroTitle')} ${t('home.heroTitle2')}`,
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
-    { property: 'og:title', content: 'Lexbell — Software Jurídico para Mac y Windows' },
+    { property: 'og:title', content: 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' },
     { property: 'og:description', content: t('home.heroSubtitle') },
     { property: 'og:image', content: 'https://lex-bell.com/og-image.svg' },
     { property: 'og:url', content: locale.value === 'es' ? 'https://lex-bell.com/' : 'https://lex-bell.com/en' }
@@ -17,6 +17,57 @@ useHead(() => ({
     { rel: 'alternate', hreflang: 'x-default', href: 'https://lex-bell.com/' }
   ]
 }))
+
+// Audiencias / Especialidades
+type AudienceKey = 'litigio' | 'migracion' | 'inmobiliario'
+const activeAudience = ref<AudienceKey>('litigio')
+
+const audiences = computed(() => [
+  {
+    key: 'litigio' as AudienceKey,
+    label: t('home.audTab1'),
+    icon: 'scale',
+    eyebrow: t('home.audTab1Eyebrow'),
+    title: t('home.audTab1Title'),
+    desc: t('home.audTab1Desc'),
+    points: [
+      t('home.audTab1Point1'),
+      t('home.audTab1Point2'),
+      t('home.audTab1Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'
+  },
+  {
+    key: 'migracion' as AudienceKey,
+    label: t('home.audTab2'),
+    icon: 'plane',
+    eyebrow: t('home.audTab2Eyebrow'),
+    title: t('home.audTab2Title'),
+    desc: t('home.audTab2Desc'),
+    points: [
+      t('home.audTab2Point1'),
+      t('home.audTab2Point2'),
+      t('home.audTab2Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'
+  },
+  {
+    key: 'inmobiliario' as AudienceKey,
+    label: t('home.audTab3'),
+    icon: 'building',
+    eyebrow: t('home.audTab3Eyebrow'),
+    title: t('home.audTab3Title'),
+    desc: t('home.audTab3Desc'),
+    points: [
+      t('home.audTab3Point1'),
+      t('home.audTab3Point2'),
+      t('home.audTab3Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'
+  }
+])
+
+const currentAudience = computed(() => audiences.value.find(a => a.key === activeAudience.value) || audiences.value[0])
 
 // FAQ Accordion state
 const openFaq = ref<number | null>(null)
@@ -64,7 +115,72 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 2. TRES PILARES FUNDAMENTALES (Notion Cards) =================== -->
+    <!-- =================== 2. ESPECIALIDADES (Audience Selector Estilo Notion) =================== -->
+    <section class="section" id="especialidades">
+      <div class="apple-wrap-wide">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="eyebrow">{{ t('home.audEyebrow') }}</span>
+          <h2 class="h-section">{{ t('home.audTitle') }}</h2>
+          <p class="subtitle mt-3">{{ t('home.audSubtitle') }}</p>
+        </div>
+
+        <!-- Notion Style Audience Tabs -->
+        <div class="audience-nav-wrap">
+          <div class="audience-nav" role="tablist">
+            <button
+              v-for="aud in audiences"
+              :key="aud.key"
+              type="button"
+              role="tab"
+              :aria-selected="activeAudience === aud.key"
+              class="audience-tab-btn"
+              :class="{ 'is-active': activeAudience === aud.key }"
+              @click="activeAudience = aud.key"
+            >
+              <!-- Icon -->
+              <svg v-if="aud.icon === 'scale'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+              <svg v-else-if="aud.icon === 'plane'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>{{ aud.label }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Audience Content Showcase -->
+        <div class="audience-showcase-box">
+          <div class="module-row" style="margin-bottom: 0;">
+            <div class="module-text">
+              <span class="module-eyebrow">{{ currentAudience.eyebrow }}</span>
+              <h3 class="module-title">{{ currentAudience.title }}</h3>
+              <p class="module-desc">{{ currentAudience.desc }}</p>
+              <ul class="module-bullets">
+                <li v-for="(point, pIdx) in currentAudience.points" :key="pIdx">
+                  <span class="bullet-check">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </span>
+                  <span>{{ point }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="module-visual">
+              <div class="apple-window-box">
+                <img
+                  :key="currentAudience.img"
+                  :src="currentAudience.img"
+                  :alt="currentAudience.title"
+                  class="apple-app-img"
+                  loading="lazy"
+                  width="2245"
+                  height="1335"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 3. TRES PILARES FUNDAMENTALES (Notion Cards) =================== -->
     <section class="section section-gray">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-16">
@@ -111,7 +227,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 3. MÓDULOS DE PROFUNDIDAD (Ventana de app auténtica flotando) =================== -->
+    <!-- =================== 4. MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) =================== -->
     <section class="section">
       <div class="apple-wrap-wide">
         <div class="text-center max-w-3xl mx-auto mb-20">
@@ -286,7 +402,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 4. TABLA COMPARATIVA NOTION =================== -->
+    <!-- =================== 5. TABLA COMPARATIVA NOTION =================== -->
     <section class="section section-gray">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -341,7 +457,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 5. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
+    <!-- =================== 6. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
     <section class="section" id="precios">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -391,7 +507,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 6. PREGUNTAS FRECUENTES (Acordeón Notion) =================== -->
+    <!-- =================== 7. PREGUNTAS FRECUENTES (Acordeón Notion) =================== -->
     <section class="section section-gray" id="faq">
       <div class="apple-wrap max-w-3xl">
         <div class="text-center mb-12">
@@ -426,7 +542,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 7. CTA FINAL (Notion Clean Banner) =================== -->
+    <!-- =================== 8. CTA FINAL (Notion Clean Banner) =================== -->
     <section class="notion-cta-section">
       <div class="apple-wrap text-center">
         <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
@@ -459,7 +575,7 @@ const faqs = computed(() => [
 }
 
 .notion-hero-inner {
-  max-width: 920px;
+  max-width: 940px;
   margin: 0 auto;
 }
 
@@ -482,7 +598,7 @@ const faqs = computed(() => [
   line-height: 1.55;
   color: #5f5e5b;
   margin: 16px auto 0;
-  max-width: 660px;
+  max-width: 720px;
   letter-spacing: -0.01em;
 }
 
@@ -495,6 +611,58 @@ const faqs = computed(() => [
 .hero-showcase-container {
   max-width: 1140px;
   margin: 28px auto 0;
+}
+
+/* === ESPECIALIDADES / AUDIENCE SELECTOR === */
+.audience-nav-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.audience-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f1ef;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e3;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.audience-nav::-webkit-scrollbar { display: none; }
+.audience-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #5f5e5b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+.audience-tab-btn:hover {
+  color: #050505;
+}
+.audience-tab-btn.is-active {
+  background: #ffffff;
+  color: #050505;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+.audience-showcase-box {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 56px);
 }
 
 /* === PILARES (Cards) === */
