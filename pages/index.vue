@@ -8,7 +8,10 @@ useHead(() => ({
     { name: 'description', content: t('home.heroSubtitle') },
     { property: 'og:title', content: 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' },
     { property: 'og:description', content: t('home.heroSubtitle') },
-    { property: 'og:image', content: 'https://lex-bell.com/og-image.svg' },
+    { property: 'og:image', content: 'https://lex-bell.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:type', content: 'image/png' },
     { property: 'og:url', content: locale.value === 'es' ? 'https://lex-bell.com/' : 'https://lex-bell.com/en' }
   ],
   link: [
@@ -21,6 +24,19 @@ useHead(() => ({
 // Audiencias / Especialidades
 type AudienceKey = 'litigio' | 'migracion' | 'inmobiliario'
 const activeAudience = ref<AudienceKey>('litigio')
+const route = useRoute()
+
+onMounted(() => {
+  const q = String(route.query.nicho || route.query.audience || route.query.sector || '').toLowerCase()
+  const hash = (typeof window !== 'undefined' ? window.location.hash.toLowerCase() : '')
+  if (q.includes('migra') || q.includes('visa') || hash.includes('migra')) {
+    activeAudience.value = 'migracion'
+  } else if (q.includes('inmo') || q.includes('alqui') || q.includes('real') || hash.includes('inmo') || hash.includes('alqui')) {
+    activeAudience.value = 'inmobiliario'
+  } else if (q.includes('abog') || q.includes('liti') || q.includes('legal') || hash.includes('abog') || hash.includes('liti')) {
+    activeAudience.value = 'litigio'
+  }
+})
 
 const audiences = computed(() => [
   {
@@ -49,7 +65,7 @@ const audiences = computed(() => [
       t('home.audTab2Point2'),
       t('home.audTab2Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'
+    img: locale.value === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'
   },
   {
     key: 'inmobiliario' as AudienceKey,
@@ -63,7 +79,7 @@ const audiences = computed(() => [
       t('home.audTab3Point2'),
       t('home.audTab3Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'
+    img: locale.value === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'
   }
 ])
 
