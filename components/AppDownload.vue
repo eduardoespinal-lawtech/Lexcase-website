@@ -49,8 +49,8 @@ const msBadgeSrc = computed(() => {
           :src="appleBadgeSrc"
           :alt="locale === 'en' ? 'Download on the Mac App Store' : 'Consíguelo en el Mac App Store'"
           class="store-badge-img"
-          width="160"
-          height="42"
+          width="216"
+          height="57"
           loading="eager"
         />
       </a>
@@ -68,8 +68,8 @@ const msBadgeSrc = computed(() => {
           :src="msBadgeSrc"
           :alt="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
           class="store-badge-img"
-          width="160"
-          height="42"
+          width="216"
+          height="57"
           loading="eager"
         />
       </a>
@@ -100,37 +100,28 @@ const msBadgeSrc = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   line-height: 0;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   user-select: none;
-}
-
-.store-badge-link:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
-}
-
-.store-badge-link:active {
-  transform: translateY(0);
+  cursor: pointer;
 }
 
 .store-badge-img {
-  height: 42px;
+  height: 57px;
   width: auto;
   display: block;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 @media (max-width: 640px) {
   .store-buttons {
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 12px;
   }
   .store-badge-img {
-    height: 40px;
+    height: 54px;
   }
 }
 </style>
