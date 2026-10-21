@@ -8,8 +8,6 @@
     "downloadMicrosoft": "Microsoft Store",
     "recommendedMac": "Para tu Mac",
     "recommendedWin": "Para tu PC",
-    "downloadCTA": "Descargar gratis",
-    "pricingNote": "Gratis hasta 50 expedientes · Prueba de 15 días · Sin tarjeta",
     "learnMore": "Más información",
     "availabilityNote": "macOS 12 o superior · Windows 10 y 11 · 100% Sin conexión"
   },
@@ -67,7 +65,6 @@
     "rights": "Todos los derechos reservados."
   },
   "home": {
-    "badge": "✨ Publicada en Mac App Store y Microsoft Store · 100% Cifrado Local",
     "heroTitle": "Gestión de expedientes para abogados,",
     "heroTitle2": "asesores de migración e inmobiliarias.",
     "heroSubtitle": "Casos judiciales, trámites de visado y residencia, y contratos de alquiler o compraventa en una sola app para Mac y Windows. 100% privado en tu equipo, ultra rápido y sin depender de internet.",

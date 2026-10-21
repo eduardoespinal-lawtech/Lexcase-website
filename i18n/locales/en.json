@@ -8,8 +8,6 @@
     "downloadMicrosoft": "Microsoft Store",
     "recommendedMac": "For your Mac",
     "recommendedWin": "For your PC",
-    "downloadCTA": "Download Free",
-    "pricingNote": "Free up to 50 cases · 15-day full trial · No credit card required",
     "learnMore": "Learn more",
     "availabilityNote": "macOS 12 or later · Windows 10 and 11 · 100% Offline"
   },
@@ -67,7 +65,6 @@
     "rights": "All rights reserved."
   },
   "home": {
-    "badge": "✨ Available on Mac App Store & Microsoft Store · 100% Local Encryption",
     "heroTitle": "Practice management for attorneys,",
     "heroTitle2": "immigration consultants & real estate.",
     "heroSubtitle": "Court cases, visa and residency filings, and rental or sales contracts in one desktop app for Mac and Windows. 100% private on your machine, fast, and offline.",
