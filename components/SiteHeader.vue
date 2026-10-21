@@ -35,9 +35,6 @@ const links = computed(() => [
 
       <div class="site-header-tail">
         <LangSwitcher />
-        <a href="#descargar" class="header-cta-btn">
-          <span>{{ t('common.downloadCTA') || 'Descargar' }}</span>
-        </a>
         <button
           class="site-header-burger"
           :aria-label="open ? t('nav.close') : t('nav.menu')"
@@ -125,25 +122,6 @@ const links = computed(() => [
   display: flex;
   align-items: center;
   gap: 12px;
-}
-.header-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 16px;
-  background: #000000;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-}
-.header-cta-btn:hover {
-  background: #2F3437;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 .site-header-burger {
   display: inline-flex;

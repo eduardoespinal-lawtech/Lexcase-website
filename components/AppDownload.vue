@@ -74,11 +74,6 @@ const msBadgeSrc = computed(() => {
         />
       </a>
     </div>
-
-    <!-- Clean, understated trust line (Notion-style, no clutter) -->
-    <p v-if="!compact" class="store-trust-text">
-      {{ t('common.pricingNote') }}
-    </p>
   </div>
 </template>
 
@@ -126,18 +121,6 @@ const msBadgeSrc = computed(() => {
   width: auto;
   display: block;
   border-radius: 6px;
-}
-
-.store-trust-text {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 500;
-  color: #787774;
-  letter-spacing: -0.01em;
-}
-
-.app-download-wrap.is-light .store-trust-text {
-  color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 640px) {

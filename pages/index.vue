@@ -105,11 +105,6 @@ const faqs = computed(() => [
     <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
     <section class="notion-hero" id="descargar">
       <div class="notion-hero-inner">
-        <!-- Floating announcement pill -->
-        <div class="notion-pill">
-          <span>{{ t('home.badge') }}</span>
-        </div>
-
         <h1 class="hero-h1">
           {{ t('home.heroTitle') }}<br class="hidden sm:inline" />
           <span class="hero-h1-accent">{{ t('home.heroTitle2') }}</span>
