@@ -106,8 +106,8 @@ const faqs = computed(() => [
     <section class="notion-hero" id="descargar">
       <div class="notion-hero-inner">
         <h1 class="hero-h1">
-          {{ t('home.heroTitle') }}<br class="hidden sm:inline" />
-          <span class="hero-h1-accent">{{ t('home.heroTitle2') }}</span>
+          <span class="hero-line">{{ t('home.heroTitle') }}</span>
+          <span class="hero-line hero-h1-accent">{{ t('home.heroTitle2') }}</span>
         </h1>
 
         <p class="hero-p">
@@ -586,18 +586,28 @@ const faqs = computed(() => [
 }
 
 .notion-hero-inner {
-  max-width: 940px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .hero-h1 {
-  font-size: clamp(34px, 4.4vw, 56px);
-  line-height: 1.14;
-  letter-spacing: -0.03em;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   font-weight: 700;
   color: #111111;
-  margin: 0;
+  margin: 0 auto;
   text-wrap: balance;
+}
+
+.hero-line {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-line {
+    white-space: nowrap;
+  }
 }
 
 .hero-h1-accent {
