@@ -13,10 +13,7 @@ const tabs = computed(() => {
       icon: 'scale',
       imgEs: '/screenshots/casos.png',
       imgEn: '/screenshots/cases-en.png',
-      captionTitle: isEn ? 'Active Legal Matters' : 'Expedientes en Trámite',
-      captionDesc: isEn
-        ? 'Court records, claimant, defendant, opposing counsel, and procedural stages structured in a single view.'
-        : 'Tribunal, cédulas, partes procesales, abogados contrarios y estado del litigio organizados en una sola vista.'
+      alt: isEn ? 'Lexbell Cases' : 'Expedientes en Lexbell'
     },
     {
       key: 'calendario' as TabKey,
@@ -24,10 +21,7 @@ const tabs = computed(() => {
       icon: 'calendar',
       imgEs: '/screenshots/calendario.png',
       imgEn: '/screenshots/calendar-en.png',
-      captionTitle: isEn ? 'Court Calendar & Statutory Deadlines' : 'Agenda Procesal y Plazos Perentorios',
-      captionDesc: isEn
-        ? 'Calendar with native desktop reminders so no hearing or court deadline ever expires.'
-        : 'Calendario procesal con avisos nativos del sistema para que ninguna audiencia ni vencimiento de término expire.'
+      alt: isEn ? 'Lexbell Court Calendar' : 'Agenda Judicial en Lexbell'
     },
     {
       key: 'mapa' as TabKey,
@@ -35,10 +29,7 @@ const tabs = computed(() => {
       icon: 'network',
       imgEs: '/screenshots/mapa.png',
       imgEn: '/screenshots/map-en.png',
-      captionTitle: isEn ? 'Conflict Prevention & Relationship Graph' : 'Grafo de Relaciones y Conflictos de Interés',
-      captionDesc: isEn
-        ? 'Visual network graph that instantly detects cross-connections between clients, companies, and counterparties.'
-        : 'Grafo interactivo que detecta al instante conexiones entre clientes, empresas y contrapartes para prevenir conflictos éticos.'
+      alt: isEn ? 'Lexbell Relationship Map' : 'Mapa de Vínculos en Lexbell'
     },
     {
       key: 'documentos' as TabKey,
@@ -46,10 +37,7 @@ const tabs = computed(() => {
       icon: 'folder',
       imgEs: '/screenshots/documentos.png',
       imgEn: '/screenshots/documents-en.png',
-      captionTitle: isEn ? 'Local Document Vault & Backups' : 'Gestión Documental y Respaldos',
-      captionDesc: isEn
-        ? 'Attach files directly to cases—stored locally on your device with automatic daily backups.'
-        : 'Adjunta expedientes y archivos directamente en tu disco, con búsqueda instantánea y copia de seguridad diaria.'
+      alt: isEn ? 'Lexbell Documents and Notes' : 'Documentos y Notas en Lexbell'
     }
   ]
 })
@@ -99,21 +87,12 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
       <img
         :key="currentImage"
         :src="currentImage"
-        :alt="currentTab.captionTitle"
+        :alt="currentTab.alt"
         class="apple-app-screenshot"
         width="2245"
         height="1335"
         loading="eager"
       />
-    </div>
-
-    <!-- Pie descriptivo sutil -->
-    <div class="showcase-caption">
-      <div class="caption-title-row">
-        <span class="caption-dot" />
-        <strong class="caption-title">{{ currentTab.captionTitle }}</strong>
-      </div>
-      <p class="caption-desc">{{ currentTab.captionDesc }}</p>
     </div>
   </div>
 </template>
@@ -202,54 +181,6 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   height: auto;
   display: block;
   border-radius: 12px;
-}
-
-/* Pie explicativo debajo de la captura */
-.showcase-caption {
-  margin-top: 18px;
-  padding: 12px 20px;
-  background: #ffffff;
-  border: 1px solid #ebebea;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.caption-title-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.caption-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #007aff;
-}
-.caption-title {
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: #050505;
-}
-.caption-desc {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #5f5e5b;
-}
-
-@media (max-width: 768px) {
-  .showcase-caption {
-    border-radius: 12px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    width: 100%;
-  }
 }
 
 @media (max-width: 640px) {
