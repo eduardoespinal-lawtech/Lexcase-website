@@ -6,7 +6,7 @@ useHead(() => ({
   title: `Lexbell — ${t('home.heroTitle')} ${t('home.heroTitle2')}`,
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
-    { property: 'og:title', content: 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' },
+    { property: 'og:title', content: locale.value === 'es' ? 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' : 'Lexbell — Legal Practice Management Software for Mac & Windows' },
     { property: 'og:description', content: t('home.heroSubtitle') },
     { property: 'og:image', content: 'https://lex-bell.com/og-image.png' },
     { property: 'og:image:width', content: '1200' },
@@ -278,7 +278,7 @@ const faqs = computed(() => [
             <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'"
-                alt="Gestión de Expedientes en Lexbell"
+                :alt="locale === 'en' ? 'Case Management in Lexbell' : 'Gestión de Expedientes en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
                 width="2245"
@@ -319,7 +319,7 @@ const faqs = computed(() => [
             <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'"
-                alt="Agenda Judicial y Vencimientos en Lexbell"
+                :alt="locale === 'en' ? 'Court Calendar and Statutory Deadlines in Lexbell' : 'Agenda Judicial y Vencimientos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
                 width="2245"
@@ -360,7 +360,7 @@ const faqs = computed(() => [
             <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/map-en.png' : '/screenshots/mapa.png'"
-                alt="Grafo de Relaciones y Prevención de Conflictos en Lexbell"
+                :alt="locale === 'en' ? 'Relationship Graph and Conflict Prevention in Lexbell' : 'Grafo de Relaciones y Prevención de Conflictos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
                 width="2245"
@@ -401,7 +401,7 @@ const faqs = computed(() => [
             <div class="apple-window-box">
               <img
                 :src="locale === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'"
-                alt="Gestión Documental y Bóveda Segura en Lexbell"
+                :alt="locale === 'en' ? 'Document Management and Secure Vault in Lexbell' : 'Gestión Documental y Bóveda Segura en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
                 width="2245"
@@ -423,7 +423,7 @@ const faqs = computed(() => [
         </div>
 
         <div class="compare-table-wrap">
-          <table class="compare-table" aria-label="Comparativa de Lexbell frente a la nube">
+          <table class="compare-table" :aria-label="locale === 'en' ? 'Comparison of Lexbell versus cloud software' : 'Comparativa de Lexbell frente a la nube'">
             <thead>
               <tr>
                 <th style="width: 38%;">{{ t('home.compareColFeature') }}</th>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 const open = ref(false)
@@ -64,6 +64,10 @@ const links = computed(() => [
           >
             {{ link.label }}
           </NuxtLink>
+          <div class="site-header-mobile-lang">
+            <span class="mobile-lang-label">{{ locale === 'es' ? 'Idioma' : 'Language' }}</span>
+            <LangSwitcher />
+          </div>
         </div>
       </nav>
     </Transition>
@@ -156,6 +160,19 @@ const links = computed(() => [
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .site-header-mobile-link:last-child { border-bottom: 0; }
+
+.site-header-mobile-lang {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 6px;
+  margin-top: 4px;
+}
+.mobile-lang-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #787774;
+}
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
