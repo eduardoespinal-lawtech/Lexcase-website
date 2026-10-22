@@ -2,20 +2,20 @@ export default defineNuxtPlugin(() => {
   if (typeof window === 'undefined') return
 
   const config = useRuntimeConfig()
-  const googleTagId = config.public.googleTagId || 'G-RQJXEKR4QR'
-  const googleAdsId = config.public.googleAdsId || 'AW-11517925351'
-  const metaPixelId = config.public.metaPixelId || '800461587753013'
+  const googleTagId = (config.public.googleTagId || '').trim()
+  const googleAdsId = (config.public.googleAdsId || '').trim()
+  const metaPixelId = (config.public.metaPixelId || '').trim()
 
   // 1. Initialize Google Tag (GA4 / Google Ads)
   if (googleTagId && !document.getElementById('google-tag-script')) {
     const script = document.createElement('script')
     script.id = 'google-tag-script'
     script.async = true
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleTagId}`
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleTagId)}`
     document.head.appendChild(script)
 
     ;(window as any).dataLayer = (window as any).dataLayer || []
-    function gtag(...args: any[]) {
+    function gtag(..._args: any[]) {
       ;(window as any).dataLayer.push(arguments)
     }
     ;(window as any).gtag = gtag
@@ -30,7 +30,6 @@ export default defineNuxtPlugin(() => {
 
   // 2. Initialize Meta Pixel (Facebook / Instagram)
   if (metaPixelId && !document.getElementById('meta-pixel-script')) {
-    /* eslint-disable */
     ;(function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
       if (f.fbq) return
       n = f.fbq = function () {

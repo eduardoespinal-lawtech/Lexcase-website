@@ -5,7 +5,11 @@ definePageMeta({ name: 'features' })
 
 useHead(() => ({
   title: `${t('features.title')} — Lexbell`,
-  meta: [{ name: 'description', content: t('features.subtitle') }]
+  meta: [
+    { name: 'description', content: t('features.subtitle') },
+    { property: 'og:title', content: `${t('features.title')} — Lexbell` },
+    { property: 'og:description', content: t('features.subtitle') }
+  ]
 }))
 
 const caseTypes = computed(() => [

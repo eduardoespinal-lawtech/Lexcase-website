@@ -25,11 +25,13 @@ export const useAnalytics = () => {
             platform: platform
           })
         }
-        ;(window as any).gtag('event', 'conversion', {
-          send_to: config.public.googleTagId,
-          event_category: 'download',
-          platform: platform
-        })
+        if (config.public.googleTagId) {
+          ;(window as any).gtag('event', 'conversion', {
+            send_to: config.public.googleTagId,
+            event_category: 'download',
+            platform: platform
+          })
+        }
       } catch (err) {
         console.warn('[Analytics] Google Tag error:', err)
       }

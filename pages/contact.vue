@@ -5,7 +5,11 @@ definePageMeta({ name: 'contact' })
 
 useHead(() => ({
   title: `${t('contact.title')} — Lexbell`,
-  meta: [{ name: 'description', content: t('contact.subtitle') }]
+  meta: [
+    { name: 'description', content: t('contact.subtitle') },
+    { property: 'og:title', content: `${t('contact.title')} — Lexbell` },
+    { property: 'og:description', content: t('contact.subtitle') }
+  ]
 }))
 </script>
 

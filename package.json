@@ -2,11 +2,13 @@
   "name": "lexbell-website",
   "private": true,
   "version": "1.0.0",
-  "description": "Sitio oficial de Lexbell — Gestor de expedientes legales para macOS",
+  "type": "module",
+  "description": "Sitio oficial de Lexbell — Gestor de expedientes legales para Mac y Windows",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt generate && cp -R .output/public/* .",
-    "generate": "nuxt generate && cp -R .output/public/* .",
+    "clean": "rm -rf _nuxt .output .nuxt",
+    "build": "nuxt generate && rm -rf _nuxt && cp -R .output/public/* .",
+    "generate": "npm run build",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

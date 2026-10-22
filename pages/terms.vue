@@ -6,7 +6,11 @@ definePageMeta({ name: 'terms' })
 
 useHead(() => ({
   title: `${t('terms.title')} — Lexbell`,
-  meta: [{ name: 'description', content: t('terms.intro') }]
+  meta: [
+    { name: 'description', content: t('terms.intro') },
+    { property: 'og:title', content: `${t('terms.title')} — Lexbell` },
+    { property: 'og:description', content: t('terms.intro') }
+  ]
 }))
 </script>
 

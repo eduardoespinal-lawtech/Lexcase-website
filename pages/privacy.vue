@@ -6,7 +6,11 @@ definePageMeta({ name: 'privacy' })
 
 useHead(() => ({
   title: `${t('privacy.title')} — Lexbell`,
-  meta: [{ name: 'description', content: t('privacy.intro') }]
+  meta: [
+    { name: 'description', content: t('privacy.intro') },
+    { property: 'og:title', content: `${t('privacy.title')} — Lexbell` },
+    { property: 'og:description', content: t('privacy.intro') }
+  ]
 }))
 
 /* Índice de secciones. Los IDs (slugs) son neutros y comunes a ES/EN para

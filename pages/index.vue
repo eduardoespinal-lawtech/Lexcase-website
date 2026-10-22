@@ -7,17 +7,7 @@ useHead(() => ({
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
     { property: 'og:title', content: locale.value === 'es' ? 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' : 'Lexbell — Legal Practice Management Software for Mac & Windows' },
-    { property: 'og:description', content: t('home.heroSubtitle') },
-    { property: 'og:image', content: 'https://lex-bell.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { property: 'og:image:type', content: 'image/png' },
-    { property: 'og:url', content: locale.value === 'es' ? 'https://lex-bell.com/' : 'https://lex-bell.com/en' }
-  ],
-  link: [
-    { rel: 'alternate', hreflang: 'es', href: 'https://lex-bell.com/' },
-    { rel: 'alternate', hreflang: 'en', href: 'https://lex-bell.com/en' },
-    { rel: 'alternate', hreflang: 'x-default', href: 'https://lex-bell.com/' }
+    { property: 'og:description', content: t('home.heroSubtitle') }
   ]
 }))
 

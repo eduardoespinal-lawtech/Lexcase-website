@@ -2,19 +2,19 @@
 // Routes are kept in sync with nuxt.config.ts i18n.pages configuration
 import { defineEventHandler } from 'h3'
 
-const BASE = 'https://lexcase.com.do'
+const BASE = 'https://lex-bell.com'
 const today = new Date().toISOString().slice(0, 10)
 
 type Entry = { es: string; en: string; priority: string }
 
 const entries: Entry[] = [
-  { es: '/',              en: '/en',          priority: '1.0' },
+  { es: '/',                en: '/en',          priority: '1.0' },
   { es: '/caracteristicas', en: '/en/features', priority: '0.9' },
-  { es: '/soporte',       en: '/en/support',  priority: '0.7' },
-  { es: '/contacto',      en: '/en/contact',  priority: '0.7' },
-  { es: '/faq',           en: '/en/faq',      priority: '0.7' },
-  { es: '/privacidad',    en: '/en/privacy',  priority: '0.5' },
-  { es: '/terminos',      en: '/en/terms',    priority: '0.5' }
+  { es: '/soporte',         en: '/en/support',  priority: '0.7' },
+  { es: '/contacto',        en: '/en/contact',  priority: '0.7' },
+  { es: '/faq',             en: '/en/faq',      priority: '0.7' },
+  { es: '/privacidad',      en: '/en/privacy',  priority: '0.5' },
+  { es: '/terminos',        en: '/en/terms',    priority: '0.5' }
 ]
 
 export default defineEventHandler((event) => {
