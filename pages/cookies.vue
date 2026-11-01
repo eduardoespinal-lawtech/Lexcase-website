@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const { openModal } = useCookieConsent()
 
 definePageMeta({ name: 'cookies' })
 
@@ -12,8 +13,6 @@ useHead(() => ({
     { property: 'og:description', content: t('cookies.intro') }
   ]
 }))
-
-const isCookieModalOpen = ref(false)
 </script>
 
 <template>
@@ -35,7 +34,7 @@ const isCookieModalOpen = ref(false)
         </div>
         <button
           type="button"
-          @click="isCookieModalOpen = true"
+          @click="openModal"
           class="inline-flex items-center px-4 py-2 text-[13px] font-medium rounded-lg bg-[#0071E3] text-white hover:bg-[#005BB5] transition-colors whitespace-nowrap"
         >
           {{ t('nav.manageCookies') }}
@@ -143,7 +142,4 @@ const isCookieModalOpen = ref(false)
       </template>
     </article>
   </section>
-
-  <!-- Modal de Gestión de Cookies -->
-  <CookieModal v-if="isCookieModalOpen" @close="isCookieModalOpen = false" />
 </template>

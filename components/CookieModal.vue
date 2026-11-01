@@ -1,45 +1,31 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const emit = defineEmits<{ (e: 'close'): void }>()
+const { isModalOpen, closeModal, setConsent, acceptAll, rejectOptional, consent } = useCookieConsent()
 
 const analyticsConsent = ref(false)
 
-onMounted(() => {
-  if (typeof window !== 'undefined') {
-    try {
-      const stored = localStorage.getItem('lexbell_cookie_consent')
-      if (stored) {
-        const parsed = JSON.parse(stored)
-        analyticsConsent.value = parsed.analytics === true
-      }
-    } catch {
-      // Ignorar errores de parsing
-    }
-  }
-})
+watch(
+  () => consent.value,
+  (val) => {
+    analyticsConsent.value = val?.analytics === true
+  },
+  { immediate: true }
+)
 
-const saveConsent = (allowAnalytics: boolean) => {
-  if (typeof window !== 'undefined') {
-    try {
-      localStorage.setItem('lexbell_cookie_consent', JSON.stringify({
-        essential: true,
-        analytics: allowAnalytics,
-        updatedAt: new Date().toISOString()
-      }))
-    } catch {
-      // Ignorar
-    }
-  }
-  emit('close')
+const handleSavePreferences = () => {
+  setConsent(analyticsConsent.value)
 }
-
-const acceptAll = () => saveConsent(true)
-const rejectOptional = () => saveConsent(false)
-const savePreferences = () => saveConsent(analyticsConsent.value)
 </script>
 
 <template>
-  <div class="cookie-backdrop" @click.self="emit('close')" role="dialog" aria-modal="true" :aria-label="t('cookies.modalTitle')">
+  <div
+    v-if="isModalOpen"
+    class="cookie-backdrop"
+    @click.self="closeModal"
+    role="dialog"
+    aria-modal="true"
+    :aria-label="t('cookies.modalTitle')"
+  >
     <div class="cookie-modal">
       <!-- Header -->
       <div class="cookie-header">
@@ -50,7 +36,7 @@ const savePreferences = () => saveConsent(analyticsConsent.value)
         <button
           type="button"
           class="cookie-close-btn"
-          @click="emit('close')"
+          @click="closeModal"
           :aria-label="t('cookies.close')"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -72,7 +58,7 @@ const savePreferences = () => saveConsent(analyticsConsent.value)
             <p class="cookie-item-desc">{{ t('cookies.essentialDesc') }}</p>
           </div>
           <div class="cookie-switch-wrap">
-            <input type="checkbox" checked disabled class="cookie-checkbox" />
+            <input type="checkbox" checked disabled class="cookie-checkbox" aria-label="Essential cookies always active" />
           </div>
         </div>
 
@@ -89,6 +75,7 @@ const savePreferences = () => saveConsent(analyticsConsent.value)
               type="checkbox"
               v-model="analyticsConsent"
               class="cookie-checkbox"
+              :aria-label="t('cookies.analyticsTitle')"
             />
           </label>
         </div>
@@ -105,7 +92,7 @@ const savePreferences = () => saveConsent(analyticsConsent.value)
         </button>
         <button
           type="button"
-          @click="savePreferences"
+          @click="handleSavePreferences"
           class="cookie-btn cookie-btn-secondary"
         >
           {{ t('cookies.savePrefs') }}

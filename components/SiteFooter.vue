@@ -1,13 +1,9 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { openModal } = useCookieConsent()
 
 const year = new Date().getFullYear()
-const isCookieModalOpen = ref(false)
-
-const openCookieModal = () => {
-  isCookieModalOpen.value = true
-}
 
 const sections = computed(() => [
   {
@@ -33,7 +29,7 @@ const sections = computed(() => [
       { to: localePath('terms'),   label: t('nav.termsOfUse') },
       { to: localePath('privacy'), label: t('nav.privacyPolicy') },
       { to: localePath('cookies'), label: t('nav.cookiePolicy') },
-      { isAction: true, label: t('nav.manageCookies'), action: openCookieModal }
+      { isAction: true, label: t('nav.manageCookies'), action: openModal }
     ]
   }
 ])
@@ -73,15 +69,12 @@ const sections = computed(() => [
           <span class="site-footer-sep">·</span>
           <NuxtLink :to="localePath('cookies')" class="site-footer-base-link">{{ t('nav.cookiePolicy') }}</NuxtLink>
           <span class="site-footer-sep">·</span>
-          <button type="button" @click="openCookieModal" class="site-footer-base-link site-footer-btn">
+          <button type="button" @click="openModal" class="site-footer-base-link site-footer-btn">
             {{ t('nav.manageCookies') }}
           </button>
         </div>
       </div>
     </div>
-
-    <!-- Modal de Gestión de Cookies -->
-    <CookieModal v-if="isCookieModalOpen" @close="isCookieModalOpen = false" />
   </footer>
 </template>
 

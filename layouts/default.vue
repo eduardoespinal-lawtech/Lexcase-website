@@ -2,6 +2,11 @@
 const { locale, t } = useI18n()
 const route = useRoute()
 const switchLocalePath = useSwitchLocalePath()
+const { init } = useCookieConsent()
+
+onMounted(() => {
+  init()
+})
 
 const currentUrl = computed(() => {
   const p = route.path === '/' ? '' : route.path.replace(/\/$/, '')
@@ -49,5 +54,9 @@ useHead(() => ({
       <slot />
     </main>
     <SiteFooter />
+
+    <!-- Cumplimiento de Normativa de la UE (RGPD / ePrivacy) -->
+    <CookieBanner />
+    <CookieModal />
   </div>
 </template>
