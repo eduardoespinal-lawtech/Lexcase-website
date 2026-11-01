@@ -49,7 +49,7 @@ export default defineNuxtPlugin(() => {
               }
             },
             {
-              '@type': 'SoftwareApplication',
+              '@type': ['SoftwareApplication', 'Product'],
               '@id': 'https://lex-bell.com/#software',
               name: 'Lexbell',
               description:
@@ -64,24 +64,24 @@ export default defineNuxtPlugin(() => {
               ],
               isSimilarTo: [
                 {
-                  '@type': 'SoftwareApplication',
+                  '@type': 'Product',
                   name: 'Clio',
-                  applicationSubCategory: 'Law Practice Management Software'
+                  category: 'Law Practice Management Software'
                 },
                 {
-                  '@type': 'SoftwareApplication',
+                  '@type': 'Product',
                   name: 'MyCase',
-                  applicationSubCategory: 'Law Practice Management Software'
+                  category: 'Law Practice Management Software'
                 },
                 {
-                  '@type': 'SoftwareApplication',
+                  '@type': 'Product',
                   name: 'PracticePanther',
-                  applicationSubCategory: 'Law Practice Management Software'
+                  category: 'Law Practice Management Software'
                 },
                 {
-                  '@type': 'SoftwareApplication',
+                  '@type': 'Product',
                   name: 'Sudespacho',
-                  applicationSubCategory: 'Law Practice Management Software'
+                  category: 'Law Practice Management Software'
                 }
               ],
               inLanguage: ['es', 'en'],
@@ -124,7 +124,6 @@ export default defineNuxtPlugin(() => {
               '@type': 'ItemList',
               '@id': 'https://lex-bell.com/#site-navigation-es',
               name: 'Navegación principal de Lexbell',
-              inLanguage: 'es',
               itemListElement: [
                 {
                   '@type': 'SiteNavigationElement',
@@ -174,7 +173,6 @@ export default defineNuxtPlugin(() => {
               '@type': 'ItemList',
               '@id': 'https://lex-bell.com/#site-navigation-en',
               name: 'Lexbell Main Navigation',
-              inLanguage: 'en',
               itemListElement: [
                 {
                   '@type': 'SiteNavigationElement',
