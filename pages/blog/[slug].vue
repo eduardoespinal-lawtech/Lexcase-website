@@ -4,7 +4,6 @@ import { getBlogPostBySlug, blogPosts, type BlogPost } from '~/data/blogPosts'
 const route = useRoute()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const config = useRuntimeConfig()
 
 const slug = computed(() => {
   const s = route.params.slug
@@ -20,6 +19,15 @@ if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artículo no encontrado', fatal: true })
 }
 
+const isEn = computed(() => locale.value === 'en')
+const postTitle = computed(() => (isEn.value ? post.value?.title.en : post.value?.title.es) || '')
+const postDescription = computed(() => (isEn.value ? post.value?.description.en : post.value?.description.es) || '')
+const postCategory = computed(() => (isEn.value ? post.value?.category.en : post.value?.category.es) || '')
+const postReadTime = computed(() => (isEn.value ? post.value?.readTime.en : post.value?.readTime.es) || '')
+const postAuthorRole = computed(() => (isEn.value ? post.value?.author.role.en : post.value?.author.role.es) || '')
+const postKeywords = computed(() => (isEn.value ? post.value?.keywords.en : post.value?.keywords.es) || [])
+const postContent = computed(() => (isEn.value ? post.value?.content.en : post.value?.content.es) || '')
+
 const currentUrl = computed(() => {
   return `https://lex-bell.com${route.path}`
 })
@@ -28,7 +36,7 @@ const formattedDate = computed(() => {
   if (!post.value) return ''
   try {
     const d = new Date(post.value.date + 'T00:00:00')
-    return d.toLocaleDateString(locale.value === 'en' ? 'en-US' : 'es-DO', {
+    return d.toLocaleDateString(isEn.value ? 'en-US' : 'es-DO', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -55,8 +63,7 @@ function copyLink() {
 }
 
 const shareTwitterUrl = computed(() => {
-  if (!post.value) return ''
-  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.value.title)}&url=${encodeURIComponent(currentUrl.value)}`
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(postTitle.value)}&url=${encodeURIComponent(currentUrl.value)}`
 })
 
 const shareLinkedInUrl = computed(() => {
@@ -64,8 +71,7 @@ const shareLinkedInUrl = computed(() => {
 })
 
 const shareWhatsAppUrl = computed(() => {
-  if (!post.value) return ''
-  return `https://api.whatsapp.com/send?text=${encodeURIComponent(post.value.title + ' ' + currentUrl.value)}`
+  return `https://api.whatsapp.com/send?text=${encodeURIComponent(postTitle.value + ' ' + currentUrl.value)}`
 })
 
 // Schema.org Structured Data
@@ -75,8 +81,8 @@ useHead(() => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.value.title,
-    description: post.value.description,
+    headline: postTitle.value,
+    description: postDescription.value,
     datePublished: post.value.date,
     dateModified: post.value.date,
     author: {
@@ -95,20 +101,20 @@ useHead(() => {
       '@type': 'WebPage',
       '@id': currentUrl.value
     },
-    keywords: post.value.keywords.join(', ')
+    keywords: postKeywords.value.join(', ')
   }
 
   return {
-    title: `${post.value.title} — Lexbell`,
+    title: `${postTitle.value} — Lexbell`,
     meta: [
-      { name: 'description', content: post.value.description },
-      { property: 'og:title', content: `${post.value.title} — Lexbell` },
-      { property: 'og:description', content: post.value.description },
+      { name: 'description', content: postDescription.value },
+      { property: 'og:title', content: `${postTitle.value} — Lexbell` },
+      { property: 'og:description', content: postDescription.value },
       { property: 'og:type', content: 'article' },
       { property: 'og:url', content: currentUrl.value },
       { property: 'article:published_time', content: post.value.date },
-      { name: 'twitter:title', content: post.value.title },
-      { name: 'twitter:description', content: post.value.description }
+      { name: 'twitter:title', content: postTitle.value },
+      { name: 'twitter:description', content: postDescription.value }
     ],
     script: [
       {
@@ -133,15 +139,15 @@ useHead(() => {
       <!-- Article Header -->
       <header class="article-header">
         <div class="header-meta">
-          <span class="post-cat-badge">{{ post.category }}</span>
+          <span class="post-cat-badge">{{ postCategory }}</span>
           <span class="meta-dot">·</span>
-          <span class="meta-item">{{ post.readTime }}</span>
+          <span class="meta-item">{{ postReadTime }}</span>
           <span class="meta-dot">·</span>
           <time :datetime="post.date" class="meta-item">{{ formattedDate }}</time>
         </div>
 
-        <h1 class="article-title">{{ post.title }}</h1>
-        <p class="article-lead">{{ post.description }}</p>
+        <h1 class="article-title">{{ postTitle }}</h1>
+        <p class="article-lead">{{ postDescription }}</p>
 
         <!-- Author & Share bar -->
         <div class="author-share-bar">
@@ -149,7 +155,7 @@ useHead(() => {
             <div class="author-icon">⚖️</div>
             <div>
               <span class="author-name">{{ post.author.name }}</span>
-              <span class="author-role">{{ post.author.role }}</span>
+              <span class="author-role">{{ postAuthorRole }}</span>
             </div>
           </div>
 
@@ -185,48 +191,32 @@ useHead(() => {
 
       <!-- Article Body -->
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="prose-legal article-content" v-html="post.content" />
+      <div class="prose-legal article-content" v-html="postContent" />
 
-      <!-- IN-ARTICLE CALL TO ACTION (LEXBELL DOWNLOAD) -->
+      <!-- IN-ARTICLE CALL TO ACTION (LEXBELL OFFICIAL STORE DOWNLOADS) -->
       <aside class="article-cta-box my-16">
         <div class="article-cta-inner">
-          <div class="article-cta-badge">SOFTWARE JURÍDICO RECOMENDADO</div>
+          <div class="article-cta-badge">
+            {{ isEn ? 'RECOMMENDED LEGAL SOFTWARE' : 'SOFTWARE JURÍDICO RECOMENDADO' }}
+          </div>
           <h3 class="article-cta-title">{{ t('blog.ctaTitle') }}</h3>
           <p class="article-cta-desc">
             {{ t('blog.ctaSubtitle') }}
           </p>
 
-          <div class="article-cta-actions">
-            <a
-              :href="config.public.appleStoreUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cta-store-btn"
-            >
-              <img src="/apple-touch-icon.png" alt="Apple" class="w-5 h-5 rounded inline-block mr-2" />
-              <span>{{ t('blog.ctaButtonMac') }}</span>
-            </a>
-            <a
-              :href="config.public.microsoftStoreUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cta-store-btn cta-store-secondary"
-            >
-              <svg class="w-4 h-4 mr-2 inline-block text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.901-1.799"/>
-              </svg>
-              <span>{{ t('blog.ctaButtonWin') }}</span>
-            </a>
+          <div class="article-cta-actions flex justify-center">
+            <AppDownload center />
           </div>
-          <p class="cta-trust-note">
-            Verificado por Apple y Microsoft · Sin cuotas ocultas · Empieza gratis
+
+          <p class="cta-trust-note mt-3">
+            {{ t('common.availabilityNote') }}
           </p>
         </div>
       </aside>
 
       <!-- RELATED ARTICLES -->
       <footer v-if="relatedPosts.length > 0" class="related-section pt-12 mt-12 border-t border-gray-200">
-        <h3 class="related-heading">Artículos recomendados</h3>
+        <h3 class="related-heading">{{ isEn ? 'Recommended Articles' : 'Artículos recomendados' }}</h3>
         <div class="related-grid mt-6">
           <NuxtLink
             v-for="rel in relatedPosts"
@@ -234,11 +224,11 @@ useHead(() => {
             :to="localePath('/blog/' + rel.slug)"
             class="related-card group"
           >
-            <span class="post-cat-badge text-xs">{{ rel.category }}</span>
+            <span class="post-cat-badge text-xs">{{ isEn ? rel.category.en : rel.category.es }}</span>
             <h4 class="related-card-title group-hover:text-blue-600 transition-colors">
-              {{ rel.title }}
+              {{ isEn ? rel.title.en : rel.title.es }}
             </h4>
-            <span class="related-read-more">Leer artículo →</span>
+            <span class="related-read-more">{{ t('blog.readArticle') }} →</span>
           </NuxtLink>
         </div>
       </footer>
@@ -524,36 +514,7 @@ useHead(() => {
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 14px;
-}
-
-.cta-store-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 11px 22px;
-  border-radius: 9999px;
-  background: #050505;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.cta-store-btn:hover {
-  background: #262626;
-  transform: translateY(-1px);
-}
-
-.cta-store-secondary {
-  background: #ffffff;
-  color: #191919;
-  border: 1px solid #d3d3d0;
-}
-
-.cta-store-secondary:hover {
-  background: #f4f4f2;
-  color: #050505;
+  margin-bottom: 8px;
 }
 
 .cta-trust-note {

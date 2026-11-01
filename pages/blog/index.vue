@@ -16,16 +16,25 @@ useHead(() => ({
   ]
 }))
 
+const isEn = computed(() => locale.value === 'en')
 const selectedCategory = ref<string>('all')
 
+// Reset category filter if language toggles
+watch(() => locale.value, () => {
+  selectedCategory.value = 'all'
+})
+
 const categories = computed(() => {
-  const cats = Array.from(new Set(blogPosts.map((p) => p.category)))
+  const cats = Array.from(new Set(blogPosts.map((p) => (isEn.value ? p.category.en : p.category.es))))
   return ['all', ...cats]
 })
 
 const filteredPosts = computed(() => {
   if (selectedCategory.value === 'all') return blogPosts
-  return blogPosts.filter((p) => p.category === selectedCategory.value)
+  return blogPosts.filter((p) => {
+    const cat = isEn.value ? p.category.en : p.category.es
+    return cat === selectedCategory.value
+  })
 })
 
 const featuredPost = computed<BlogPost | undefined>(() => {
@@ -39,7 +48,7 @@ const otherPosts = computed<BlogPost[]>(() => {
 function formatDate(iso: string) {
   try {
     const d = new Date(iso + 'T00:00:00')
-    return d.toLocaleDateString(locale.value === 'en' ? 'en-US' : 'es-DO', {
+    return d.toLocaleDateString(isEn.value ? 'en-US' : 'es-DO', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -55,7 +64,9 @@ function formatDate(iso: string) {
     <!-- HERO HEADER -->
     <section class="section pb-8">
       <div class="apple-wrap text-center">
-        <span class="eyebrow">BLOG & RECURSOS LEGALES</span>
+        <span class="eyebrow">
+          {{ isEn ? 'LEGALTECH & PRACTICE BLOG' : 'BLOG & RECURSOS LEGALES' }}
+        </span>
         <h1 class="h-display mt-2">{{ t('blog.title') }}</h1>
         <p class="subtitle mt-4 mx-auto" style="max-width: 720px;">
           {{ t('blog.subtitle') }}
@@ -87,19 +98,23 @@ function formatDate(iso: string) {
           >
             <div class="featured-card-body">
               <div class="post-meta-row">
-                <span class="post-cat-badge">{{ featuredPost.category }}</span>
+                <span class="post-cat-badge">
+                  {{ isEn ? featuredPost.category.en : featuredPost.category.es }}
+                </span>
                 <span class="post-dot">·</span>
                 <span class="post-date">{{ formatDate(featuredPost.date) }}</span>
                 <span class="post-dot">·</span>
-                <span class="post-readtime">{{ featuredPost.readTime }}</span>
+                <span class="post-readtime">
+                  {{ isEn ? featuredPost.readTime.en : featuredPost.readTime.es }}
+                </span>
               </div>
 
               <h2 class="featured-title group-hover:text-blue-600 transition-colors">
-                {{ featuredPost.title }}
+                {{ isEn ? featuredPost.title.en : featuredPost.title.es }}
               </h2>
 
               <p class="featured-desc">
-                {{ featuredPost.description }}
+                {{ isEn ? featuredPost.description.en : featuredPost.description.es }}
               </p>
 
               <div class="featured-footer">
@@ -107,7 +122,9 @@ function formatDate(iso: string) {
                   <div class="author-avatar-icon">⚖️</div>
                   <div>
                     <span class="author-name">{{ featuredPost.author.name }}</span>
-                    <span class="author-role">{{ featuredPost.author.role }}</span>
+                    <span class="author-role">
+                      {{ isEn ? featuredPost.author.role.en : featuredPost.author.role.es }}
+                    </span>
                   </div>
                 </div>
 
@@ -134,17 +151,21 @@ function formatDate(iso: string) {
               class="post-card-inner"
             >
               <div class="post-meta-row mb-3">
-                <span class="post-cat-badge">{{ post.category }}</span>
+                <span class="post-cat-badge">
+                  {{ isEn ? post.category.en : post.category.es }}
+                </span>
                 <span class="post-dot">·</span>
-                <span class="post-readtime">{{ post.readTime }}</span>
+                <span class="post-readtime">
+                  {{ isEn ? post.readTime.en : post.readTime.es }}
+                </span>
               </div>
 
               <h3 class="post-title group-hover:text-blue-600 transition-colors">
-                {{ post.title }}
+                {{ isEn ? post.title.en : post.title.es }}
               </h3>
 
               <p class="post-desc">
-                {{ post.description }}
+                {{ isEn ? post.description.en : post.description.es }}
               </p>
 
               <div class="post-footer-row mt-auto pt-4">
@@ -157,15 +178,14 @@ function formatDate(iso: string) {
           </article>
         </div>
 
-        <!-- BOTTOM CALL TO ACTION -->
+        <!-- BOTTOM CALL TO ACTION (STANDARDIZED WITH APPDOWNLOAD) -->
         <div class="blog-cta-banner mt-20">
           <div class="blog-cta-content text-center">
+            <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
             <h3 class="blog-cta-title">{{ t('blog.ctaTitle') }}</h3>
             <p class="blog-cta-subtitle">{{ t('blog.ctaSubtitle') }}</p>
-            <div class="blog-cta-buttons">
-              <NuxtLink :to="localePath('features')" class="btn-primary">
-                {{ t('common.learnMore') }}
-              </NuxtLink>
+            <div class="flex justify-center">
+              <AppDownload center />
             </div>
           </div>
         </div>
@@ -405,29 +425,6 @@ function formatDate(iso: string) {
   font-size: 16px;
   color: #5f5e5b;
   max-width: 600px;
-  margin: 0 auto 24px;
-}
-
-.blog-cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  padding: 11px 24px;
-  border-radius: 9999px;
-  background: #050505;
-  color: #ffffff;
-  font-size: 14.5px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-
-.btn-primary:hover {
-  background: #262626;
+  margin: 0 auto 28px;
 }
 </style>

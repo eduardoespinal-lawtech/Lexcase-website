@@ -41,7 +41,7 @@ const audiences = computed(() => [
       t('home.audTab1Point2'),
       t('home.audTab1Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'
+    img: locale.value === 'en' ? '/screenshots/cases-en.png?v=1.1.17' : '/screenshots/casos.png?v=1.1.17'
   },
   {
     key: 'migracion' as AudienceKey,
@@ -55,7 +55,7 @@ const audiences = computed(() => [
       t('home.audTab2Point2'),
       t('home.audTab2Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'
+    img: locale.value === 'en' ? '/screenshots/calendar-en.png?v=1.1.17' : '/screenshots/calendario.png?v=1.1.17'
   },
   {
     key: 'inmobiliario' as AudienceKey,
@@ -69,7 +69,7 @@ const audiences = computed(() => [
       t('home.audTab3Point2'),
       t('home.audTab3Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'
+    img: locale.value === 'en' ? '/screenshots/documents-en.png?v=1.1.17' : '/screenshots/documentos.png?v=1.1.17'
   }
 ])
 
@@ -267,7 +267,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'"
+                :src="locale === 'en' ? '/screenshots/cases-en.png?v=1.1.17' : '/screenshots/casos.png?v=1.1.17'"
                 :alt="locale === 'en' ? 'Case Management in Lexbell' : 'Gestión de Expedientes en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -308,7 +308,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'"
+                :src="locale === 'en' ? '/screenshots/calendar-en.png?v=1.1.17' : '/screenshots/calendario.png?v=1.1.17'"
                 :alt="locale === 'en' ? 'Court Calendar and Statutory Deadlines in Lexbell' : 'Agenda Judicial y Vencimientos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -349,7 +349,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/map-en.png' : '/screenshots/mapa.png'"
+                :src="locale === 'en' ? '/screenshots/map-en.png?v=1.1.17' : '/screenshots/mapa.png?v=1.1.17'"
                 :alt="locale === 'en' ? 'Relationship Graph and Conflict Prevention in Lexbell' : 'Grafo de Relaciones y Prevención de Conflictos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -390,7 +390,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'"
+                :src="locale === 'en' ? '/screenshots/documents-en.png?v=1.1.17' : '/screenshots/documentos.png?v=1.1.17'"
                 :alt="locale === 'en' ? 'Document Management and Secure Vault in Lexbell' : 'Gestión Documental y Bóveda Segura en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"

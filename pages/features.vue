@@ -57,7 +57,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/cases-en.png' : '/screenshots/casos.png'"
+            :src="locale === 'en' ? '/screenshots/cases-en.png?v=1.1.17' : '/screenshots/casos.png?v=1.1.17'"
             :alt="locale === 'en' ? 'Cases in Lexbell' : 'Expedientes en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -78,7 +78,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'"
+            :src="locale === 'en' ? '/screenshots/calendar-en.png?v=1.1.17' : '/screenshots/calendario.png?v=1.1.17'"
             :alt="locale === 'en' ? 'Procedural Calendar in Lexbell' : 'Agenda Procesal en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -99,7 +99,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'"
+            :src="locale === 'en' ? '/screenshots/documents-en.png?v=1.1.17' : '/screenshots/documentos.png?v=1.1.17'"
             :alt="locale === 'en' ? 'Document Vault in Lexbell' : 'Bóveda de Documentos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -120,7 +120,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/map-en.png' : '/screenshots/mapa.png'"
+            :src="locale === 'en' ? '/screenshots/map-en.png?v=1.1.17' : '/screenshots/mapa.png?v=1.1.17'"
             :alt="locale === 'en' ? 'Relationship and Conflict Map in Lexbell' : 'Mapa de Vínculos y Conflictos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
