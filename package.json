@@ -10,6 +10,7 @@
     "build": "nuxt generate && rm -rf _nuxt && cp -R .output/public/* .",
     "generate": "npm run build",
     "preview": "nuxt preview",
+    "indexnow": "node scripts/ping-indexnow.mjs",
     "postinstall": "nuxt prepare"
   },
   "engines": {

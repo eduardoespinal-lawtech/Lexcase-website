@@ -24,6 +24,8 @@ useHead(() => ({
     { name: 'description', content: t('seo.defaultDescription') },
     { property: 'og:url', content: currentUrl.value },
     { property: 'og:site_name', content: 'Lexbell' },
+    { property: 'og:locale', content: locale.value === 'es' ? 'es_DO' : 'en_US' },
+    { property: 'og:locale:alternate', content: locale.value === 'es' ? 'en_US' : 'es_DO' },
     { property: 'og:image', content: 'https://lex-bell.com/og-image.png' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },

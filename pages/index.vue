@@ -10,48 +10,53 @@ const faqs = computed(() => [
   { q: t('faq.q8'), a: t('faq.a8') }
 ])
 
-useHead(() => ({
-  title: locale.value === 'es'
-    ? 'Lexbell: Software de Gestión de Casos para Abogados (Mac y Windows)'
-    : 'Lexbell: Legal Practice Management Software for Mac & Windows',
-  meta: [
-    {
-      name: 'description',
-      content: locale.value === 'es'
-        ? 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-        : 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
-    },
-    {
-      property: 'og:title',
-      content: locale.value === 'es'
-        ? 'Lexbell: Software de Gestión de Casos para Abogados (Mac y Windows)'
-        : 'Lexbell: Legal Practice Management Software for Mac & Windows'
-    },
-    {
-      property: 'og:description',
-      content: locale.value === 'es'
-        ? 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-        : 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
-    }
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faqs.value.map(item => ({
-          '@type': 'Question',
-          name: item.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.a
-          }
-        }))
-      })
-    }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'Lexbell: Legal Practice Management Software for Mac & Windows'
+    : 'Lexbell: Software de Gestión de Casos para Abogados (Mac y Windows)'
+  const desc = isEn
+    ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
+    : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
+  const heroImg = isEn ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: desc }
+    ],
+    link: [
+      {
+        rel: 'preload',
+        as: 'image',
+        type: 'image/webp',
+        href: heroImg,
+        fetchpriority: 'high'
+      }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.value.map(item => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a
+            }
+          }))
+        })
+      }
+    ]
+  }
+})
 
 // Audiencias / Especialidades
 type AudienceKey = 'litigio' | 'migracion' | 'inmobiliario'

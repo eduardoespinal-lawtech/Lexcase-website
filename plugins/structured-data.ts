@@ -33,7 +33,15 @@ export default defineNuxtPlugin(() => {
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
               },
-              inLanguage: ['es', 'en']
+              inLanguage: ['es', 'en'],
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: 'https://lex-bell.com/blog?q={search_term_string}'
+                },
+                'query-input': 'required name=search_term_string'
+              }
             },
             {
               '@type': 'SoftwareApplication',
