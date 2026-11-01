@@ -176,6 +176,52 @@ useHead(() => {
     ]
   }
 
+  const howToLd = slug.value === 'computo-plazos-procesales-dias-habiles-rd' ? {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: isEn.value ? 'How to calculate court procedural deadlines in business days' : 'Cómo calcular plazos procesales judiciales en días hábiles',
+    description: isEn.value
+      ? 'Step-by-step procedural guide to calculate court deadlines excluding weekends and legal judicial holidays.'
+      : 'Guía paso a paso para el cómputo de plazos procesales excluyendo sábados, domingos y días festivos judiciales.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: isEn.value ? 'Identify the notification date (dies a quo)' : 'Identificar la fecha de notificación (dies a quo)',
+        text: isEn.value
+          ? 'Verify the formal receipt timestamp of the judicial notification or court act.'
+          : 'Verificar la fecha y hora de la entrega formal de la notificación del acto procesal.'
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: isEn.value ? 'Set computation start on the next business day' : 'Fijar el inicio del cómputo al día hábil siguiente',
+        text: isEn.value
+          ? 'By general civil procedure rule, the day of notification does not count; counting starts on the next business day.'
+          : 'Por regla general procesal, el día de la notificación no cuenta; el plazo inicia el primer día hábil siguiente.'
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: isEn.value ? 'Exclude non-working days and judicial holidays' : 'Excluir fines de semana y festivos judiciales',
+        text: isEn.value
+          ? 'Count only days when court offices are officially open, skipping weekends and declared holidays.'
+          : 'Contar únicamente los días en que los tribunales están oficialmente abiertos, excluyendo sábados, domingos y festivos.'
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: isEn.value ? 'Determine the final expiration date (dies ad quem)' : 'Determinar la fecha de vencimiento (dies ad quem)',
+        text: isEn.value
+          ? 'The deadline expires at the legal office closing hour of the final computed business day.'
+          : 'El plazo vence en la última hora hábil de atención de secretaría del último día hábil computado.'
+      }
+    ]
+  } : null
+
+  const graphItems = [jsonLd, breadcrumbLd]
+  if (howToLd) graphItems.push(howToLd)
+
   return {
     title: `${postTitle.value} — Lexbell`,
     meta: [
@@ -193,7 +239,7 @@ useHead(() => {
         type: 'application/ld+json',
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
-          '@graph': [jsonLd, breadcrumbLd]
+          '@graph': graphItems
         })
       }
     ]

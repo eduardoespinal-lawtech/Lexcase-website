@@ -81,7 +81,8 @@ export default defineNuxtConfig({
       contact: { es: '/contacto', en: '/contact' },
       faq: { es: '/faq', en: '/faq' },
       privacy: { es: '/privacidad', en: '/privacy' },
-      terms: { es: '/terminos', en: '/terms' }
+      terms: { es: '/terminos', en: '/terms' },
+      'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' }
     }
   },
 
@@ -92,6 +93,10 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/en',
+        '/caracteristicas',
+        '/en/features',
+        '/alternativa-clio',
+        '/en/clio-alternative',
         '/blog',
         '/en/blog',
         '/blog/computo-plazos-procesales-dias-habiles-rd',

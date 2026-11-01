@@ -8,6 +8,8 @@ const URLS = [
   `https://${HOST}/en`,
   `https://${HOST}/caracteristicas`,
   `https://${HOST}/en/features`,
+  `https://${HOST}/alternativa-clio`,
+  `https://${HOST}/en/clio-alternative`,
   `https://${HOST}/blog`,
   `https://${HOST}/en/blog`,
   `https://${HOST}/blog/computo-plazos-procesales-dias-habiles-rd`,

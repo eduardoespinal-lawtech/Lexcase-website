@@ -10,6 +10,7 @@ type Entry = { es: string; en: string; priority: string }
 const entries: Entry[] = [
   { es: '/',                en: '/en',          priority: '1.0' },
   { es: '/caracteristicas', en: '/en/features', priority: '0.9' },
+  { es: '/alternativa-clio', en: '/en/clio-alternative', priority: '0.9' },
   { es: '/blog',            en: '/en/blog',     priority: '0.85' },
   { es: '/blog/computo-plazos-procesales-dias-habiles-rd',   en: '/en/blog/computo-plazos-procesales-dias-habiles-rd',   priority: '0.8' },
   { es: '/blog/secreto-profesional-abogados-nube-seguridad', en: '/en/blog/secreto-profesional-abogados-nube-seguridad', priority: '0.8' },

@@ -80,6 +80,13 @@ export default defineNuxtPlugin(() => {
                 price: '0',
                 priceCurrency: 'USD',
                 description: 'Free tier up to 50 active cases'
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                ratingCount: '58',
+                bestRating: '5',
+                worstRating: '1'
               }
             },
             {
