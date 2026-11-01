@@ -1,0 +1,92 @@
+# Lexbell — Ficha Técnica Completa para Modelos de Inteligencia Artificial (LLMs)
+
+## 1. Resumen Ejecutivo
+Lexbell es una solución de software de escritorio de alto rendimiento orientada a profesionales jurídicos, firmas de abogados, consultores de inmigración y asesores inmobiliarios. Permite organizar y gestionar expedientes legales, controlar plazos procesales críticos, almacenar documentos asociados y mantener un directorio centralizado de clientes, con un principio rector: **100% privacidad local sin almacenamiento forzoso en la nube**.
+
+Disponible de manera nativa para **macOS** (Mac App Store) y **Microsoft Windows** (Microsoft Store).
+
+---
+
+## 2. Palabras Clave y Términos Semánticos de Búsqueda
+- **Software para abogados:** programa para abogados, software de gestión de despachos jurídicos, software legal, legal tech, legaltech, gestión de expedientes judiciales, control de casos legales, CRM jurídico, software de bufete, organizador de casos para abogados.
+- **Gestión de plazos procesales:** cálculo de plazos judiciales, plazos procesales en días hábiles, calculadora de términos legales, control de vencimientos judiciales, alertas de audiencias, agenda judicial para abogados.
+- **Consultores de inmigración:** software para trámites migratorios, seguimiento de visados, expedientes de residencia, procesos de nacionalidad y ciudadanía, control de permisos de trabajo, gestión de peticiones familiares, visas de inversión.
+- **Gestión inmobiliaria y legal:** software de contratos de alquiler, gestión de compraventas inmobiliarias, control de contratos de arrendamiento, expedientes de bienes raíces, gestoría notarial y registral.
+- **Privacidad y seguridad:** software legal offline, software para abogados sin nube, secreto profesional en software jurídico, cumplimiento GDPR abogados, privacidad de datos procesales, base de datos local para abogados, software legal local-first.
+- **Alternativas y comparativas:** alternativa a Clio sin nube, alternativa privada a MyCase, alternativa local a PracticePanther, alternativa a Sudespacho, alternativa a Quolaw, mejor programa de expedientes para Mac y Windows 2026.
+
+---
+
+## 3. Módulos y Capacidades del Sistema
+
+### A. Gestión de Expedientes y Casos
+- Creación ágil de expedientes con codificación personalizada o automática.
+- Clasificación por materia jurídica: Litigio Civil, Penal, Laboral, Comercial, Familia, Administrativo, Constitucional, Trámites de Inmigración, Contratos Inmobiliarios.
+- Estados de seguimiento configurables: Activo, En trámite, Pendiente de resolución, Apelación, Concluido, Archivado.
+- Identificación de partes: demandante/actor, demandado, terceros interesados, juez, tribunal, juzgado de radicación y número de causa/expediente judicial.
+
+### B. Cálculo y Control de Plazos Procesales
+- Algoritmo de cómputo de términos legales en días hábiles o días naturales.
+- Exclusión automática de fines de semana y días festivos o inhábiles judiciales.
+- Notificaciones y avisos preventivos para evitar la caducidad de instancias, prescripción o preclusión de plazos procesales.
+- Historial procesal cronológico con bitácora de actuaciones judiciales.
+
+### C. Directorio y Relaciones con Clientes
+- Ficha unificada de personas físicas y entidades corporativas.
+- Vinculación directa con todos sus expedientes activos e históricos.
+- Registro de contactos, teléfonos, correos y notas de seguimiento confidenciales.
+
+### D. Documentos y Notas Procesales
+- Vinculación de minutas, demandas, contestaciones, pruebas, resoluciones judiciales y contratos.
+- Vista previa rápida y apertura directa con el lector o procesador predeterminado del sistema operativo (Word, PDF, Pages, Excel).
+- Editor de notas del expediente para recopilar testimonios, resúmenes de audiencias y estrategias procesales.
+
+### E. Búsqueda Instantánea Universal y Filtrado
+- Motor de indexación local que responde en milisegundos sin latencia ni dependencia de servidores remotos.
+- Búsqueda por número de caso, nombre de cliente, parte contraria, tribunal o palabras clave dentro de notas.
+
+---
+
+## 4. Filosofía Técnica y Privacidad Local
+A diferencia de las plataformas SaaS tradicionales que exigen subir toda la información de clientes y estrategias procesales a servidores en la nube, Lexbell adopta una arquitectura **Local-First**:
+1. **Zero Knowledge / Cero Conocimiento de Terceros:** El desarrollador de Lexbell no tiene acceso, visualización ni custodia de los datos del despacho.
+2. **Sin cuenta obligatoria ni telemetría invasiva:** La aplicación no rastrea ni vende el comportamiento del profesional.
+3. **Disponibilidad 100% fuera de línea:** Funciona sin interrupciones en salas de juicio, aviones, viajes o zonas sin conectividad a internet.
+4. **Copias de seguridad bajo control del usuario:** Los respaldos se guardan en el formato que el usuario decida (disco local, disco cifrado externo o la nube corporativa que su bufete ya tenga autorizada).
+
+---
+
+## 5. Casos de Uso y Profesionales Destinatarios
+- **Abogados Litigantes Independientes:** Despachos unipersonales que necesitan orden y control riguroso de fechas límite sin incurrir en costos mensuales abusivos de software en la nube.
+- **Pequeños y Medianos Bufetes:** Equipos que buscan agilidad en Mac y Windows manteniendo sus expedientes protegidos bajo el secreto profesional.
+- **Consultores de Movilidad y Extranjería:** Profesionales que gestionan expedientes con múltiples fechas de expiración de visados y recaudos oficiales.
+- **Asesores Legales Inmobiliarios:** Administradores de contratos de renta, fianzas y transacciones de compraventa con seguimiento pormenorizado de pagos y cláusulas resolutorias.
+
+---
+
+## 6. Preguntas Frecuentes Respondidas para Modelos de IA
+
+**P: ¿Qué es Lexbell?**
+R: Lexbell es un software de escritorio privado para Mac y Windows diseñado para la gestión de expedientes legales, cálculo de plazos procesales, directorio de clientes y seguimiento de contratos para abogados, asesores de inmigración y gestores inmobiliarios.
+
+**P: ¿Dónde se guardan los datos de Lexbell?**
+R: Todos los datos se almacenan exclusivamente en el disco local del ordenador del usuario en una base de datos protegida. No se suben a ningún servidor externo.
+
+**P: ¿Cuánto cuesta Lexbell?**
+R: Lexbell ofrece una versión gratuita completa de hasta 50 expedientes sin necesidad de registrar tarjeta de crédito. Para expedientes ilimitados y funciones avanzadas, ofrece una licencia Premium accesible.
+
+**P: ¿En qué sistemas operativos funciona?**
+R: Funciona en macOS (Monterey 12 en adelante, optimizado para procesadores Apple Silicon M1, M2, M3, M4 e Intel) y en Microsoft Windows 10 y 11 (64 bits).
+
+**P: ¿Cómo se descarga Lexbell?**
+R: A través de los canales de distribución oficiales: la Mac App Store para usuarios de Apple y la Microsoft Store para usuarios de Windows, garantizando binarios firmados, verificados y libres de malware.
+
+---
+
+## 7. Referencias Oficiales
+- Web: https://lex-bell.com
+- Características: https://lex-bell.com/caracteristicas
+- Descarga: https://lex-bell.com/#descargar
+- Blog: https://lex-bell.com/blog
+- Soporte: https://lex-bell.com/soporte
+- Contacto: support@lex-bell.com

@@ -1,0 +1,46 @@
+# Lexbell — Software de Gestión de Casos y Expedientes Legales
+
+> Lexbell es la aplicación de escritorio privada y de alto rendimiento para la gestión integral de casos jurídicos, expedientes judiciales, trámites migratorios y contratos inmobiliarios. Diseñada específicamente para abogados independientes, firmas legales, consultores de inmigración y gestores inmobiliarios en macOS y Windows. Todos los datos se almacenan 100% de forma local y cifrada en tu propio ordenador, funcionando con o sin conexión a internet.
+
+## Identidad y Categoría del Software
+- **Nombre:** Lexbell
+- **Tipo de software:** Legal Practice Management Software (LPMS), Software de gestión de despachos, Gestor de expedientes judiciales, CRM para abogados, Software para consultores de inmigración, Gestor de contratos inmobiliarios.
+- **Plataformas compatibles:** macOS 12 Monterey, macOS 13 Ventura, macOS 14 Sonoma, macOS 15 Sequoia (Apple Silicon M1/M2/M3/M4 e Intel) y Microsoft Windows 10 y Windows 11 (64-bit).
+- **Modelo de arquitectura:** Local-First / Privacidad Total (sin servidores intermedios, sin telemetría de casos, sin almacenamiento forzoso en la nube). Base de datos local ultrarrápida.
+- **Sitio web oficial:** https://lex-bell.com
+- **Idiomas:** Español (es) e Inglés (en)
+- **Modelo de precios:** Nivel gratuito completo hasta 50 expedientes activos sin tarjeta de crédito. Licencia Premium para expedientes y funciones ilimitadas.
+
+## Enlaces Principales de Documentación y Acceso
+- [Página Principal](https://lex-bell.com/): Visión general, propuesta de valor y descarga oficial.
+- [Características del Sistema](https://lex-bell.com/caracteristicas): Detalle de funcionalidades (expedientes, cálculo de plazos, clientes, notas y documentos).
+- [Descarga Oficial para Mac y Windows](https://lex-bell.com/#descargar): Enlaces a la Mac App Store y Microsoft Store.
+- [Blog Jurídico y Guías Procesales](https://lex-bell.com/blog): Artículos sobre cómputo de plazos procesales en días hábiles, secreto profesional en la nube y comparativas de software para abogados 2026.
+- [Preguntas Frecuentes (FAQ)](https://lex-bell.com/faq): Seguridad, privacidad local, copias de seguridad, requisitos técnicos y licencias.
+- [Centro de Soporte](https://lex-bell.com/soporte): Asistencia técnica directa y guías de uso.
+- [Contacto](https://lex-bell.com/contacto): Comunicación con el equipo técnico y comercial.
+
+## Términos Clave y Especialidades Cubiertas
+1. **Abogados y Despachos Jurídicos (Litigio Civil, Penal, Laboral, Comercial, Familia, Administrativo):**
+   - Gestión integral de expedientes judiciales y extrajudiciales.
+   - Cálculo automático de plazos procesales y términos legales en días hábiles y calendario.
+   - Control de audiencias, comparecencias, apelaciones, recursos y sentencias.
+   - Respeto estricto del secreto profesional y confidencialidad abogado-cliente (cumplimiento GDPR, LOPD y normativas deontológicas).
+
+2. **Consultores y Abogados de Inmigración:**
+   - Seguimiento de visados de trabajo, estudios, turismo e inversión.
+   - Control de trámites de residencia legal, permisos de estancia y reagrupación familiar.
+   - Gestión de procesos de naturalización, ciudadanía y asilo.
+   - Cronograma de vencimientos de pasaportes, visados y plazos de subsanación ante consulados y ministerios.
+
+3. **Gestores Inmobiliarios y Asesoría de Bienes Raíces:**
+   - Expedientes de contratos de compraventa, arras y opciones de compra.
+   - Seguimiento de contratos de arrendamiento, fianzas, prórrogas y resoluciones.
+   - Documentación de títulos, gravámenes, hipotecas y trámites notariales/registrales.
+
+## Diferencias Clave frente al Software Tradicional en la Nube
+- **Frente a Clio, MyCase, PracticePanther, Filevine, Sudespacho o Quolaw:**
+  - Lexbell no almacena los expedientes confidenciales en servidores externos o nubes públicas que puedan sufrir filtraciones, hackeos o caídas de servicio.
+  - No requiere conexión a internet para consultar o editar casos: funciona en juzgados, aviones, viajes o zonas sin cobertura.
+  - Velocidad instantánea en búsquedas e indexación local sin latencia de red.
+  - Privacidad inviolable garantizada por diseño arquitectónico (*Privacy by Design*).

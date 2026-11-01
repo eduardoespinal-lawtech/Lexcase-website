@@ -13,7 +13,17 @@ export default defineNuxtPlugin(() => {
               name: 'Lexbell',
               url: 'https://lex-bell.com',
               logo: 'https://lex-bell.com/icon.png',
-              email: 'support@lex-bell.com'
+              email: 'support@lex-bell.com',
+              knowsAbout: [
+                'Legal Practice Management Software',
+                'Gestión de expedientes judiciales',
+                'Cálculo de plazos procesales en días hábiles',
+                'Directorio de clientes y partes procesales',
+                'Control de visados y trámites de inmigración',
+                'Gestión de contratos de alquiler y compraventa inmobiliaria',
+                'Secreto profesional y privacidad de datos legales',
+                'Software local-first para abogados'
+              ]
             },
             {
               '@type': 'WebSite',
@@ -30,7 +40,7 @@ export default defineNuxtPlugin(() => {
               '@id': 'https://lex-bell.com/#software',
               name: 'Lexbell',
               description:
-                'App de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows.',
+                'Software de escritorio privado para abogados, consultores de inmigración y gestores inmobiliarios en Mac y Windows. Organiza expedientes, clientes, plazos judiciales y documentos 100% locales sin nube.',
               applicationCategory: 'BusinessApplication',
               applicationSubCategory: 'Law Practice Management Software',
               operatingSystem: 'macOS 12+, Windows 10 and 11 (64-bit)',
@@ -40,6 +50,23 @@ export default defineNuxtPlugin(() => {
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
               },
+              keywords:
+                'software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, calculo plazos procesales dias habiles, software consultores inmigracion, seguimiento visados residencia, gestion contratos alquiler compraventa inmobiliaria, alternativa privada clio sin nube, legal practice management software offline',
+              featureList: [
+                'Gestión integral de expedientes judiciales y extrajudiciales con clasificación por materia',
+                'Cálculo automático de plazos procesales y términos legales en días hábiles y naturales',
+                'Directorio centralizado de clientes, partes contrarias y contactos vinculados',
+                'Seguimiento especializado de trámites de inmigración, visados y residencias',
+                'Control de contratos inmobiliarios de arrendamiento, compraventas y fianzas',
+                'Almacenamiento local cifrado de documentos asociados (Word, PDF, Excel)',
+                'Editor de notas procesales confidenciales por expediente',
+                'Búsqueda universal instantánea indexada en milisegundos sin latencia',
+                'Funcionamiento 100% offline sin necesidad de conexión a internet',
+                'Arquitectura Local-First con privacidad total y respeto al secreto profesional',
+                'Copias de seguridad locales y exportación de datos bajo control del usuario',
+                'Compatibilidad nativa con Apple Silicon (M1/M2/M3/M4), procesadores Intel y Windows 64-bit',
+                'Nivel gratuito completo de hasta 50 expedientes activos sin tarjeta de crédito'
+              ],
               offers: {
                 '@type': 'Offer',
                 price: '0',
