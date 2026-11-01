@@ -35,6 +35,12 @@ const links = computed(() => [
 
       <div class="site-header-tail">
         <LangSwitcher />
+        <a
+          href="#descargar"
+          class="site-header-cta"
+        >
+          {{ locale === 'es' ? 'Descargar' : 'Download' }}
+        </a>
         <button
           class="site-header-burger"
           :aria-label="open ? t('nav.close') : t('nav.menu')"
@@ -79,15 +85,15 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(8, 9, 12, 0.75);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .site-header-inner {
   max-width: 1240px;
   margin: 0 auto;
-  height: 54px;
+  height: 56px;
   padding: 0 22px;
   display: flex;
   align-items: center;
@@ -98,7 +104,6 @@ const links = computed(() => [
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #050505;
 }
 .site-header-nav {
   display: none;
@@ -112,52 +117,79 @@ const links = computed(() => [
 }
 .site-header-link {
   font-size: 13.5px;
-  color: #37352F;
+  color: #a1a1aa;
   text-decoration: none;
-  opacity: 0.82;
   font-weight: 500;
   transition: opacity .15s ease, color .15s ease;
   letter-spacing: -0.01em;
 }
-.site-header-link:hover { opacity: 1; color: #000000; }
-.router-link-exact-active.site-header-link { opacity: 1; font-weight: 600; color: #000000; }
+.site-header-link:hover { color: #ffffff; }
+.router-link-exact-active.site-header-link { font-weight: 600; color: #ffffff; }
 
 .site-header-tail {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
+.site-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0071e3;
+  text-decoration: none;
+  transition: all .15s ease;
+  box-shadow: 0 0 16px -2px rgba(0, 113, 227, 0.4);
+}
+.site-header-cta:hover {
+  background: #0077ed;
+  box-shadow: 0 0 20px 0 rgba(0, 113, 227, 0.6);
+  transform: translateY(-0.5px);
+}
+@media (max-width: 640px) {
+  .site-header-cta { display: none; }
+}
+
 .site-header-burger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  color: #050505;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #f5f5f7;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
 }
-.site-header-burger:hover { background: rgba(0, 0, 0, 0.05); }
+.site-header-burger:hover { background: rgba(255, 255, 255, 0.08); }
 @media (min-width: 833px) {
   .site-header-burger { display: none; }
 }
 
 .site-header-mobile {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 9, 12, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 .site-header-mobile-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 6px 22px 14px;
+  padding: 8px 22px 18px;
   display: flex;
   flex-direction: column;
 }
 .site-header-mobile-link {
-  padding: 10px 0;
+  padding: 12px 0;
   font-size: 16px;
-  color: #050505;
+  color: #f5f5f7;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .site-header-mobile-link:last-child { border-bottom: 0; }
 
@@ -165,13 +197,13 @@ const links = computed(() => [
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0 6px;
-  margin-top: 4px;
+  padding: 16px 0 6px;
+  margin-top: 6px;
 }
 .mobile-lang-label {
   font-size: 14px;
   font-weight: 500;
-  color: #787774;
+  color: #a1a1aa;
 }
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }

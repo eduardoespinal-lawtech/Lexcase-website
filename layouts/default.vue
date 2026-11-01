@@ -41,7 +41,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-white">
+  <div class="min-h-screen flex flex-col bg-[#08090C] text-[#F5F5F7] selection:bg-[#0071E3] selection:text-white">
     <SiteHeader />
     <main class="flex-1">
       <slot />

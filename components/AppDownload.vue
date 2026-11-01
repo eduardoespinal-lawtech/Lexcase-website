@@ -100,11 +100,21 @@ const msBadgeSrc = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 9px;
   text-decoration: none;
   line-height: 0;
   user-select: none;
   cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, filter 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000000;
+  overflow: hidden;
+}
+
+.store-badge-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 10px 28px -6px rgba(0, 113, 227, 0.35);
 }
 
 .store-badge-img {

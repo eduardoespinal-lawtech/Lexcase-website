@@ -10,13 +10,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#1d1d1f',
-        smoke: '#6e6e73',
-        whisper: '#f5f5f7',
+        ink: '#f5f5f7',
+        smoke: '#9496a1',
+        whisper: '#13141b',
+        dark: {
+          bg: '#08090C',
+          surface: '#0e1017',
+          card: 'rgba(255, 255, 255, 0.03)',
+          cardHover: 'rgba(255, 255, 255, 0.06)',
+          border: 'rgba(255, 255, 255, 0.08)',
+          borderGlow: 'rgba(0, 113, 227, 0.4)'
+        },
         accent: {
           DEFAULT: '#0071e3',
           hover: '#0077ed',
-          link: '#0066cc'
+          link: '#2997ff',
+          glow: 'rgba(0, 113, 227, 0.35)'
         },
         navy: {
           50:  '#EEF2FF',
