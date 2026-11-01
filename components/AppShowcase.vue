@@ -89,8 +89,8 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
         :src="currentImage"
         :alt="currentTab.alt"
         class="apple-app-screenshot"
-        width="2245"
-        height="1335"
+        width="2730"
+        height="1600"
         loading="eager"
       />
     </div>

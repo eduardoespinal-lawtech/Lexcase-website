@@ -171,8 +171,8 @@ const faqs = computed(() => [
                   :alt="currentAudience.title"
                   class="apple-app-img"
                   loading="lazy"
-                  width="2245"
-                  height="1335"
+                  width="2730"
+                  height="1600"
                 />
               </div>
             </div>
@@ -271,8 +271,8 @@ const faqs = computed(() => [
                 :alt="locale === 'en' ? 'Case Management in Lexbell' : 'Gestión de Expedientes en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
-                width="2245"
-                height="1335"
+                width="2730"
+                height="1600"
               />
             </div>
           </div>
@@ -312,8 +312,8 @@ const faqs = computed(() => [
                 :alt="locale === 'en' ? 'Court Calendar and Statutory Deadlines in Lexbell' : 'Agenda Judicial y Vencimientos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
-                width="2245"
-                height="1335"
+                width="2730"
+                height="1600"
               />
             </div>
           </div>
@@ -353,8 +353,8 @@ const faqs = computed(() => [
                 :alt="locale === 'en' ? 'Relationship Graph and Conflict Prevention in Lexbell' : 'Grafo de Relaciones y Prevención de Conflictos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
-                width="2245"
-                height="1335"
+                width="2730"
+                height="1600"
               />
             </div>
           </div>
@@ -394,8 +394,8 @@ const faqs = computed(() => [
                 :alt="locale === 'en' ? 'Document Management and Secure Vault in Lexbell' : 'Gestión Documental y Bóveda Segura en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
-                width="2245"
-                height="1335"
+                width="2730"
+                height="1600"
               />
             </div>
           </div>

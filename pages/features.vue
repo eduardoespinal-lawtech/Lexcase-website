@@ -61,8 +61,8 @@ const tiles = computed(() => [
             :alt="locale === 'en' ? 'Cases in Lexbell' : 'Expedientes en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2245"
-            height="1335"
+            width="2730"
+            height="1600"
           />
         </div>
       </div>
@@ -82,8 +82,8 @@ const tiles = computed(() => [
             :alt="locale === 'en' ? 'Procedural Calendar in Lexbell' : 'Agenda Procesal en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2245"
-            height="1335"
+            width="2730"
+            height="1600"
           />
         </div>
       </div>
@@ -103,8 +103,8 @@ const tiles = computed(() => [
             :alt="locale === 'en' ? 'Document Vault in Lexbell' : 'Bóveda de Documentos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2245"
-            height="1335"
+            width="2730"
+            height="1600"
           />
         </div>
       </div>
@@ -124,8 +124,8 @@ const tiles = computed(() => [
             :alt="locale === 'en' ? 'Relationship and Conflict Map in Lexbell' : 'Mapa de Vínculos y Conflictos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2245"
-            height="1335"
+            width="2730"
+            height="1600"
           />
         </div>
       </div>
