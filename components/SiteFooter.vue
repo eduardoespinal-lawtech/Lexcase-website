@@ -75,6 +75,11 @@ const sections = computed(() => [
         </div>
       </div>
     </div>
+
+    <!-- Firma tipográfica gigante moderna -->
+    <div class="site-footer-huge-wordmark" aria-hidden="true">
+      <span class="huge-wordmark-text">Lexbell</span>
+    </div>
   </footer>
 </template>
 
@@ -89,7 +94,7 @@ const sections = computed(() => [
 .site-footer-inner {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 56px 24px 40px;
+  padding: 56px 24px 36px;
 }
 .site-footer-hr {
   border: 0;
@@ -162,5 +167,31 @@ const sections = computed(() => [
 .site-footer-sep {
   color: #B5B5B3;
   user-select: none;
+}
+
+/* Firma tipográfica gigante */
+.site-footer-huge-wordmark {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  user-select: none;
+  pointer-events: none;
+  padding: 20px 16px 0;
+  border-top: 1px solid #ECECEA;
+}
+.huge-wordmark-text {
+  display: block;
+  font-size: clamp(64px, 15.5vw, 220px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.82;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.03) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #E2E2DF;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
 }
 </style>
