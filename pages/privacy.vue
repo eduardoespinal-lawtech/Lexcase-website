@@ -387,8 +387,7 @@ onMounted(() => {
 @media (max-width: 960px) {
   .privacy-toc {
     position: static;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #fff;
     border-radius: 14px;
     padding: 20px 22px;
   }
@@ -398,14 +397,14 @@ onMounted(() => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #a1a1aa;
+  color: #6e6e73;
   margin: 0 0 14px;
 }
 .privacy-toc-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 .privacy-toc-link {
   display: grid;
@@ -415,46 +414,43 @@ onMounted(() => {
   padding: 9px 0 9px 14px;
   font-size: 13px;
   line-height: 1.4;
-  color: #9496a1;
+  color: #6e6e73;
   text-decoration: none;
   border-left: 2px solid transparent;
   margin-left: -1px;
   transition: color .15s ease, border-color .15s ease;
 }
 .privacy-toc-link:hover {
-  color: #ffffff;
+  color: #1d1d1f;
 }
 .privacy-toc-link.is-active {
-  color: #ffffff;
-  border-left-color: #2997ff;
+  color: #1d1d1f;
+  border-left-color: var(--accent);
   font-weight: 500;
 }
 .privacy-toc-num {
   font-size: 11px;
   font-weight: 500;
-  color: #686b78;
+  color: #a1a1a6;
   font-variant-numeric: tabular-nums;
 }
 .privacy-toc-link.is-active .privacy-toc-num {
-  color: #2997ff;
+  color: var(--accent);
 }
 
 /* === Content card === */
 .privacy-content {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #fff;
   border-radius: 22px;
   padding: 48px 56px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #f5f5f7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 @media (max-width: 600px) {
   .privacy-content { padding: 28px 22px; border-radius: 16px; }
 }
 .privacy-content h2 {
   scroll-margin-top: 80px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 2.2rem;
 }
 .privacy-content h2:first-child {

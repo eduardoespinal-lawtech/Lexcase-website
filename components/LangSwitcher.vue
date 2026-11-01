@@ -36,20 +36,18 @@ const switchLocalePath = useSwitchLocalePath()
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f1f1ef;
+  border: 1px solid #e5e5e3;
   border-radius: 9999px;
   padding: 2px 3px 2px 7px;
   user-select: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .lang-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #9496a1;
+  color: #787774;
   margin-right: 2px;
 }
 
@@ -63,7 +61,7 @@ const switchLocalePath = useSwitchLocalePath()
   border-radius: 9999px;
   font-size: 11.5px;
   font-weight: 500;
-  color: #9496a1;
+  color: #787774;
   text-decoration: none;
   line-height: 1;
   letter-spacing: 0.02em;
@@ -71,13 +69,13 @@ const switchLocalePath = useSwitchLocalePath()
 }
 
 .lang-pill-btn:hover {
-  color: #ffffff;
+  color: #111111;
 }
 
 .lang-pill-btn.is-active {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  background: #ffffff;
+  color: #111111;
   font-weight: 600;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.04);
 }
 </style>

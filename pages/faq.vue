@@ -90,8 +90,8 @@ useHead(() => ({
 
 <style scoped>
 .faq-page {
-  background: #08090c;
-  color: #f5f5f7;
+  background: #ffffff;
+  color: #191919;
 }
 
 .faq-list {
@@ -101,18 +101,15 @@ useHead(() => ({
 }
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 12px;
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .faq-item.is-open {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: #d3d3d0;
 }
 
 .faq-summary {
@@ -127,26 +124,25 @@ useHead(() => ({
   text-align: left;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: #050505;
   gap: 16px;
 }
 
 .faq-chevron {
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  color: #9496a1;
+  color: #5f5e5b;
 }
 
 .faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
-  color: #38bdf8;
 }
 
 .faq-answer {
   padding: 0 24px 22px;
   font-size: 15px;
   line-height: 1.6;
-  color: #9496a1;
+  color: #5f5e5b;
 }
 
 .faq-answer p {
@@ -155,8 +151,8 @@ useHead(() => ({
 
 /* === CTA Final === */
 .notion-cta-section {
-  background: radial-gradient(circle at 50% 100%, rgba(0, 113, 227, 0.22) 0%, #08090C 70%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>

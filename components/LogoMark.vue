@@ -28,7 +28,8 @@ withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
       </svg>
     </span>
     <span
-      class="font-semibold tracking-tight text-[17px] leading-none text-white"
+      class="font-semibold tracking-tight text-[17px] leading-none"
+      :class="light ? 'text-white' : 'text-ink'"
     >Lexbell</span>
   </span>
 </template>

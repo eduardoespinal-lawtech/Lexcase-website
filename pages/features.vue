@@ -196,8 +196,8 @@ const tiles = computed(() => [
 
 <style scoped>
 .features-page {
-  background: #08090c;
-  color: #f5f5f7;
+  background: #ffffff;
+  color: #191919;
 }
 
 .module-eyebrow {
@@ -206,7 +206,7 @@ const tiles = computed(() => [
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #2997ff;
+  color: #0066cc;
   margin-bottom: 8px;
 }
 
@@ -214,33 +214,38 @@ const tiles = computed(() => [
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #ebebea;
   font-size: 13px;
   font-weight: 500;
-  color: #e5e5ea;
+  color: #191919;
 }
 
 .apple-window-box {
   width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #0d0f16;
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(0, 113, 227, 0.2);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  border-radius: 12px;
+  line-height: 0;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 12px 30px -4px rgba(0, 0, 0, 0.16),
+    0 32px 64px -14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .apple-window-box:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 16px 36px -4px rgba(0, 0, 0, 0.20),
+    0 40px 75px -14px rgba(0, 0, 0, 0.32);
 }
 
 .apple-app-img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px;
 }
 
 /* === Stat row del spotlight de privacidad === */
@@ -253,11 +258,10 @@ const tiles = computed(() => [
 }
 .privacy-stat-num {
   font-size: clamp(40px, 4.5vw, 56px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
-  color: #22c55e;
+  color: #050505;
   line-height: 1;
-  text-shadow: 0 0 25px rgba(34, 197, 94, 0.3);
 }
 .privacy-stat-label {
   margin-top: 8px;
@@ -265,18 +269,17 @@ const tiles = computed(() => [
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #a1a1aa;
+  color: #5f5e5b;
 }
 
 /* === Tiles minimalistas === */
 .ft-tile { text-align: left; }
 .ft-tile-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(0, 113, 227, 0.12);
-  border: 1px solid rgba(0, 113, 227, 0.25);
-  color: #2997ff;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f1f1ef;
+  color: #050505;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -286,20 +289,20 @@ const tiles = computed(() => [
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  color: #050505;
   margin: 0 0 8px;
 }
 .ft-tile-body {
   font-size: 14.5px;
   line-height: 1.55;
-  color: #9496a1;
+  color: #5f5e5b;
   margin: 0;
 }
 
 /* === CTA Final === */
 .notion-cta-section {
-  background: radial-gradient(circle at 50% 100%, rgba(0, 113, 227, 0.22) 0%, #08090C 70%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>

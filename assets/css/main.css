@@ -2,27 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === Design tokens — Dark Tech Minimalist (Meta Muse / Apple Pro System) === */
+/* === Design tokens — Apple & Notion Minimalist System === */
 :root {
-  --bg:          #08090C;
-  --bg-subtle:   #0D0F15;
-  --bg-section:  #0B0C11;
-  --text:        #F5F5F7;
-  --text-muted:  #9496A1;
-  --text-light:  #686B78;
-  --accent:      #0071E3;
-  --accent-hover:#0077ED;
-  --accent-glow: rgba(0, 113, 227, 0.35);
-  --border:      rgba(255, 255, 255, 0.08);
-  --border-dark: rgba(255, 255, 255, 0.16);
-  --card-bg:     rgba(255, 255, 255, 0.03);
-  --card-hover:  rgba(255, 255, 255, 0.06);
-  --brand-black: #08090C;
-  --brand-black-hover: #13141B;
+  --bg:          #ffffff;
+  --bg-subtle:   #fafafa;
+  --bg-section:  #f7f7f5;
+  --text:        #191919;
+  --text-muted:  #5f5e5b;
+  --text-light:  #8b8a86;
+  --accent:      #0066cc;
+  --accent-hover:#0052a3;
+  --border:      #ebebea;
+  --border-dark: #d3d3d0;
+  --card-bg:     #ffffff;
+  --brand-black: #050505;
+  --brand-black-hover: #262626;
 }
 
 ::selection {
-  background: #0071E3;
+  background: #0066cc;
   color: #ffffff;
 }
 
@@ -133,11 +131,9 @@ body {
   border-spacing: 0;
   font-size: 14.5px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #ffffff;
 }
 
 .compare-table th {
@@ -145,7 +141,7 @@ body {
   text-align: left;
   font-weight: 600;
   font-size: 13.5px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #fbfbfa;
   border-bottom: 1px solid var(--border);
   color: var(--text);
   letter-spacing: -0.01em;
@@ -163,54 +159,9 @@ body {
 }
 
 .compare-table .lexbell-col {
-  background: rgba(0, 113, 227, 0.08);
+  background: #f8fafc;
   font-weight: 500;
-  color: #60a5fa;
-}
-
-/* === Ambient Glow & Glassmorphism Utilities (Meta Muse Style) === */
-.ambient-glow {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.45;
-  z-index: 0;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 24px -6px rgba(0, 113, 227, 0.2);
-}
-
-.glass-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-  font-size: 13px;
-  color: #e5e5ea;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.gradient-text {
-  background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0f172a;
 }
 
 /* === Links & Buttons === */

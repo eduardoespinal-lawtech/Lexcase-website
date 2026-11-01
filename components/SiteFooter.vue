@@ -57,21 +57,21 @@ const sections = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #08090C;
-  color: #9496A1;
+  background: #F7F7F5;
+  color: #5F5E5B;
   font-size: 13px;
   line-height: 1.5;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #EBEBEA;
 }
 .site-footer-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 56px 22px 36px;
+  padding: 48px 22px 36px;
 }
 .site-footer-hr {
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 40px 0 24px;
+  border-top: 1px solid #EBEBEA;
+  margin: 32px 0 20px;
 }
 .site-footer-cols {
   display: grid;
@@ -85,9 +85,9 @@ const sections = computed(() => [
   font-size: 11.5px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #F5F5F7;
-  margin: 0 0 14px;
+  letter-spacing: 0.06em;
+  color: #050505;
+  margin: 0 0 12px;
 }
 .site-footer-ul {
   list-style: none;
@@ -95,20 +95,20 @@ const sections = computed(() => [
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .site-footer-link {
-  color: #9496A1;
+  color: #5F5E5B;
   text-decoration: none;
   transition: color 0.15s ease;
 }
-.site-footer-link:hover { color: #FFFFFF; }
+.site-footer-link:hover { color: #000000; text-decoration: underline; }
 .site-footer-base {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
   font-size: 12.5px;
-  color: #686B78;
+  color: #787774;
 }
 </style>

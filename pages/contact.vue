@@ -76,17 +76,15 @@ useHead(() => ({
 
 <style scoped>
 .contact-page {
-  background: #08090c;
-  color: #f5f5f7;
+  background: #ffffff;
+  color: #191919;
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 14px;
   padding: 32px 28px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -97,17 +95,16 @@ useHead(() => ({
 
 .contact-card-link:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(0, 113, 227, 0.25);
+  border-color: #d3d3d0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
 }
 
 .contact-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(0, 113, 227, 0.12);
-  border: 1px solid rgba(0, 113, 227, 0.25);
-  color: #2997ff;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f1f1ef;
+  color: #050505;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +116,7 @@ useHead(() => ({
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #a1a1aa;
+  color: #5f5e5b;
   margin: 0 0 10px;
 }
 
@@ -127,7 +124,7 @@ useHead(() => ({
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #2997ff;
+  color: #0066cc;
   margin: 0;
   word-break: normal;
   overflow-wrap: anywhere;
@@ -136,20 +133,20 @@ useHead(() => ({
 .contact-hint {
   margin-top: 8px;
   font-size: 14.5px;
-  color: #9496a1;
+  color: #5f5e5b;
 }
 
 .contact-body {
   font-size: 15px;
   line-height: 1.6;
-  color: #e5e5ea;
+  color: #191919;
   margin: 0;
 }
 
 /* === CTA Final === */
 .notion-cta-section {
-  background: radial-gradient(circle at 50% 100%, rgba(0, 113, 227, 0.22) 0%, #08090C 70%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>

@@ -87,35 +87,32 @@ useHead(() => ({
 
 <style scoped>
 .support-page {
-  background: #08090c;
-  color: #f5f5f7;
+  background: #ffffff;
+  color: #191919;
 }
 
 .support-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 14px;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .support-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(0, 113, 227, 0.25);
+  border-color: #d3d3d0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
 }
 
 .support-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(0, 113, 227, 0.12);
-  border: 1px solid rgba(0, 113, 227, 0.25);
-  color: #2997ff;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f1f1ef;
+  color: #050505;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -126,19 +123,19 @@ useHead(() => ({
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  color: #050505;
   margin: 0 0 10px;
 }
 
 .support-body {
   font-size: 15px;
   line-height: 1.6;
-  color: #9496a1;
+  color: #5f5e5b;
   margin: 0;
 }
 
 .support-link {
-  color: #2997ff;
+  color: #0066cc;
   font-size: 14.5px;
   font-weight: 600;
   text-decoration: none;
@@ -159,7 +156,7 @@ useHead(() => ({
   grid-template-columns: 1fr;
   gap: 10px;
   font-size: 14.5px;
-  color: #e5e5ea;
+  color: #37352f;
 }
 
 @media (min-width: 640px) {
@@ -170,8 +167,8 @@ useHead(() => ({
 
 /* === CTA Final === */
 .notion-cta-section {
-  background: radial-gradient(circle at 50% 100%, rgba(0, 113, 227, 0.22) 0%, #08090C 70%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>

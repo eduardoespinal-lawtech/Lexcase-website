@@ -91,26 +91,13 @@ const faqs = computed(() => [
 </script>
 
 <template>
-  <div class="muse-landing">
-    <!-- =================== 1. HERO SECTION (Estilo Meta Muse / Dark Tech) =================== -->
-    <section class="muse-hero" id="descargar">
-      <!-- Ambient Glow Orbs -->
-      <div class="ambient-glow hero-glow-1" aria-hidden="true" />
-      <div class="ambient-glow hero-glow-2" aria-hidden="true" />
-
-      <div class="muse-hero-inner">
-        <!-- Radiant Top Pill -->
-        <div class="inline-flex justify-center mb-6">
-          <div class="hero-top-pill">
-            <span class="pill-spark">✦</span>
-            <span>{{ locale === 'en' ? 'Next-Gen Legal Practice Management' : 'Software Legal de Próxima Generación' }}</span>
-            <span class="pill-badge">{{ locale === 'en' ? 'v1.1.17 Ready' : 'v1.1.17 Disponible' }}</span>
-          </div>
-        </div>
-
+  <div class="notion-landing">
+    <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
+    <section class="notion-hero" id="descargar">
+      <div class="notion-hero-inner">
         <h1 class="hero-h1">
           <span class="hero-line">{{ t('home.heroTitle') }}</span>
-          <span class="hero-line gradient-text hero-h1-accent">{{ t('home.heroTitle2') }}</span>
+          <span class="hero-line hero-h1-accent">{{ t('home.heroTitle2') }}</span>
         </h1>
 
         <p class="hero-p">
@@ -121,22 +108,6 @@ const faqs = computed(() => [
         <div class="hero-downloads">
           <AppDownload center />
         </div>
-
-        <!-- Trust Features Minimal Pill Row -->
-        <div class="hero-trust-bar">
-          <div class="trust-item">
-            <span class="trust-dot" />
-            <span>{{ locale === 'en' ? '100% Offline & Private' : '100% Sin conexión y privado' }}</span>
-          </div>
-          <div class="trust-item">
-            <span class="trust-dot" />
-            <span>{{ locale === 'en' ? 'Zero Cloud Exposure' : 'Cero exposición en la nube' }}</span>
-          </div>
-          <div class="trust-item">
-            <span class="trust-dot" />
-            <span>{{ locale === 'en' ? 'Universal macOS & Windows' : 'Nativo para Mac y Windows' }}</span>
-          </div>
-        </div>
       </div>
 
       <!-- Real Interactive Showcase with authentic Retina window -->
@@ -145,134 +116,16 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 2. BENTO GRID DE CAPACIDADES (Estilo Meta Muse) =================== -->
-    <section class="section" id="capacidades">
+    <!-- =================== 2. ESPECIALIDADES (Audience Selector Estilo Notion) =================== -->
+    <section class="section" id="especialidades">
       <div class="apple-wrap-wide">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="eyebrow">{{ locale === 'en' ? 'INTELLIGENT CAPABILITIES' : 'CAPACIDADES DE ALTO RENDIMIENTO' }}</span>
-          <h2 class="h-section gradient-text">{{ locale === 'en' ? 'Designed for legal excellence.' : 'Diseñado para la excelencia jurídica.' }}</h2>
-          <p class="subtitle mt-3">
-            {{ locale === 'en' ? 'Every tool you need to investigate, organize, and litigate without relying on third-party servers.' : 'Cada herramienta que necesitas para investigar, organizar y litigar sin depender de servidores de terceros.' }}
-          </p>
-        </div>
-
-        <!-- Bento Grid Layout -->
-        <div class="bento-grid">
-          <!-- Bento 1: Mapa de Vínculos (Grande 2 Cols) -->
-          <div class="bento-card bento-span-2">
-            <div class="bento-card-header">
-              <div class="bento-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180">
-                  <circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/>
-                </svg>
-              </div>
-              <span class="bento-tag">{{ locale === 'en' ? 'Conflict Prevention' : 'Prevención de Conflictos' }}</span>
-            </div>
-            <h3 class="bento-title">{{ t('home.m3Title') }}</h3>
-            <p class="bento-desc">{{ t('home.m3Desc') }}</p>
-            <div class="bento-preview-img-wrap">
-              <img
-                :src="locale === 'en' ? '/screenshots/map-en.png' : '/screenshots/mapa.png'"
-                :alt="locale === 'en' ? 'Relationship Graph' : 'Mapa de Vínculos'"
-                class="bento-preview-img"
-                loading="lazy"
-                width="1200"
-                height="650"
-              />
-            </div>
-          </div>
-
-          <!-- Bento 2: Agenda Procesal & Plazos (1 Col) -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <div class="bento-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="18" height="18" x="3" y="4" rx="2" /><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
-                </svg>
-              </div>
-              <span class="bento-tag">{{ locale === 'en' ? 'Statutory Deadlines' : 'Plazos Perentorios' }}</span>
-            </div>
-            <h3 class="bento-title">{{ t('home.m2Title') }}</h3>
-            <p class="bento-desc">{{ t('home.m2Desc') }}</p>
-            <div class="bento-preview-img-wrap">
-              <img
-                :src="locale === 'en' ? '/screenshots/calendar-en.png' : '/screenshots/calendario.png'"
-                :alt="locale === 'en' ? 'Court Calendar' : 'Agenda Judicial'"
-                class="bento-preview-img"
-                loading="lazy"
-                width="1200"
-                height="650"
-              />
-            </div>
-          </div>
-
-          <!-- Bento 3: OCR & Búsqueda Instantánea (1 Col) -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <div class="bento-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-              </div>
-              <span class="bento-tag">{{ locale === 'en' ? 'Instant OCR' : 'Búsqueda & OCR' }}</span>
-            </div>
-            <h3 class="bento-title">{{ locale === 'en' ? 'Local OCR & PDF Deep Search' : 'OCR Local y Búsqueda Profunda' }}</h3>
-            <p class="bento-desc">
-              {{ locale === 'en' ? 'Index and read thousands of scanned pages and PDFs in milliseconds directly on your CPU.' : 'Indexa y lee miles de páginas escaneadas y PDFs en milisegundos directamente en tu procesador.' }}
-            </p>
-            <div class="bento-preview-img-wrap">
-              <img
-                :src="locale === 'en' ? '/screenshots/documents-en.png' : '/screenshots/documentos.png'"
-                :alt="locale === 'en' ? 'Documents OCR' : 'Documentos y OCR'"
-                class="bento-preview-img"
-                loading="lazy"
-                width="1200"
-                height="650"
-              />
-            </div>
-          </div>
-
-          <!-- Bento 4: 100% Local-First & Secreto Profesional (Grande 2 Cols) -->
-          <div class="bento-card bento-span-2 bento-security-card">
-            <div class="bento-card-header">
-              <div class="bento-icon-box bento-icon-shield">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </div>
-              <span class="bento-tag bento-tag-green">{{ locale === 'en' ? 'Client Confidentiality' : 'Secreto Profesional Inviolable' }}</span>
-            </div>
-            <div class="security-grid">
-              <div>
-                <h3 class="bento-title">{{ t('whyTrust.title') }}</h3>
-                <p class="bento-desc">{{ t('whyTrust.subtitle') }}</p>
-                <div class="security-badges-row">
-                  <span class="sec-badge">🔒 SQLite Local Cifrado</span>
-                  <span class="sec-badge">⚡ Cero Latencia</span>
-                  <span class="sec-badge">🛡️ Sin Rastreo de Datos</span>
-                </div>
-              </div>
-              <div class="security-stat-box">
-                <div class="stat-number">0</div>
-                <div class="stat-label">{{ locale === 'en' ? 'Files uploaded to third-party clouds' : 'Archivos subidos a nubes ajenas' }}</div>
-                <p class="stat-sub">{{ locale === 'en' ? 'Your case files remain strictly inside your device encrypted storage.' : 'Tus causas permanecen estrictamente en el almacenamiento seguro de tu equipo.' }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 3. ESPECIALIDADES JURÍDICAS (Audience Selector) =================== -->
-    <section class="section section-dark-border" id="especialidades">
-      <div class="apple-wrap-wide">
-        <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="text-center max-w-2xl mx-auto mb-10">
           <span class="eyebrow">{{ t('home.audEyebrow') }}</span>
-          <h2 class="h-section gradient-text">{{ t('home.audTitle') }}</h2>
+          <h2 class="h-section">{{ t('home.audTitle') }}</h2>
           <p class="subtitle mt-3">{{ t('home.audSubtitle') }}</p>
         </div>
 
-        <!-- Audience Tabs -->
+        <!-- Notion Style Audience Tabs -->
         <div class="audience-nav-wrap">
           <div class="audience-nav" role="tablist">
             <button
@@ -295,11 +148,11 @@ const faqs = computed(() => [
         </div>
 
         <!-- Active Audience Content Showcase -->
-        <div class="audience-showcase-box glass-card">
+        <div class="audience-showcase-box">
           <div class="module-row" style="margin-bottom: 0;">
             <div class="module-text">
               <span class="module-eyebrow">{{ currentAudience.eyebrow }}</span>
-              <h3 class="module-title gradient-text">{{ currentAudience.title }}</h3>
+              <h3 class="module-title">{{ currentAudience.title }}</h3>
               <p class="module-desc">{{ currentAudience.desc }}</p>
               <ul class="module-bullets">
                 <li v-for="(point, pIdx) in currentAudience.points" :key="pIdx">
@@ -328,12 +181,59 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 4. MÓDULOS DE PROFUNDIDAD (Meta Muse Window Flows) =================== -->
+    <!-- =================== 3. TRES PILARES FUNDAMENTALES (Notion Cards) =================== -->
+    <section class="section section-gray">
+      <div class="apple-wrap">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="eyebrow">{{ t('home.pillarsEyebrow') }}</span>
+          <h2 class="h-section">{{ t('home.pillarsTitle') }}</h2>
+          <p class="subtitle mt-3">{{ t('home.pillarsSubtitle') }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Pilar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">{{ t('home.pillar1Title') }}</h3>
+            <p class="pillar-desc">{{ t('home.pillar1Desc') }}</p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">{{ t('home.pillar2Title') }}</h3>
+            <p class="pillar-desc">{{ t('home.pillar2Desc') }}</p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">{{ t('home.pillar3Title') }}</h3>
+            <p class="pillar-desc">{{ t('home.pillar3Desc') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 4. MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) =================== -->
     <section class="section">
       <div class="apple-wrap-wide">
         <div class="text-center max-w-3xl mx-auto mb-20">
           <span class="eyebrow">{{ t('home.modulesEyebrow') }}</span>
-          <h2 class="h-section gradient-text">{{ t('home.modulesTitle') }}</h2>
+          <h2 class="h-section">{{ t('home.modulesTitle') }}</h2>
           <p class="subtitle mt-3">{{ t('home.modulesSubtitle') }}</p>
         </div>
 
@@ -341,7 +241,7 @@ const faqs = computed(() => [
         <div class="module-row">
           <div class="module-text">
             <span class="module-eyebrow">{{ t('home.m1Eyebrow') }}</span>
-            <h3 class="module-title gradient-text">{{ t('home.m1Title') }}</h3>
+            <h3 class="module-title">{{ t('home.m1Title') }}</h3>
             <p class="module-desc">{{ t('home.m1Desc') }}</p>
             <ul class="module-bullets">
               <li>
@@ -382,7 +282,7 @@ const faqs = computed(() => [
         <div class="module-row module-row-reverse">
           <div class="module-text">
             <span class="module-eyebrow">{{ t('home.m2Eyebrow') }}</span>
-            <h3 class="module-title gradient-text">{{ t('home.m2Title') }}</h3>
+            <h3 class="module-title">{{ t('home.m2Title') }}</h3>
             <p class="module-desc">{{ t('home.m2Desc') }}</p>
             <ul class="module-bullets">
               <li>
@@ -423,7 +323,7 @@ const faqs = computed(() => [
         <div class="module-row">
           <div class="module-text">
             <span class="module-eyebrow">{{ t('home.m3Eyebrow') }}</span>
-            <h3 class="module-title gradient-text">{{ t('home.m3Title') }}</h3>
+            <h3 class="module-title">{{ t('home.m3Title') }}</h3>
             <p class="module-desc">{{ t('home.m3Desc') }}</p>
             <ul class="module-bullets">
               <li>
@@ -464,7 +364,7 @@ const faqs = computed(() => [
         <div class="module-row module-row-reverse">
           <div class="module-text">
             <span class="module-eyebrow">{{ t('home.m4Eyebrow') }}</span>
-            <h3 class="module-title gradient-text">{{ t('home.m4Title') }}</h3>
+            <h3 class="module-title">{{ t('home.m4Title') }}</h3>
             <p class="module-desc">{{ t('home.m4Desc') }}</p>
             <ul class="module-bullets">
               <li>
@@ -503,12 +403,12 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 5. TABLA COMPARATIVA DARK =================== -->
-    <section class="section section-dark-border">
+    <!-- =================== 5. TABLA COMPARATIVA NOTION =================== -->
+    <section class="section section-gray">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.compareEyebrow') }}</span>
-          <h2 class="h-section gradient-text">{{ t('home.compareTitle') }}</h2>
+          <h2 class="h-section">{{ t('home.compareTitle') }}</h2>
           <p class="subtitle mt-3">{{ t('home.compareSubtitle') }}</p>
         </div>
 
@@ -558,21 +458,21 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 6. PRECIOS TRANSPARENTES (Dark Glass) =================== -->
+    <!-- =================== 6. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
     <section class="section" id="precios">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.pricingEyebrow') }}</span>
-          <h2 class="h-section gradient-text">{{ t('home.pricingTitle') }}</h2>
+          <h2 class="h-section">{{ t('home.pricingTitle') }}</h2>
           <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <!-- Plan Gratuito -->
-          <div class="pricing-card glass-card">
+          <div class="pricing-card pricing-card-free">
             <span class="pricing-badge">{{ locale === 'en' ? 'Free Forever' : 'Gratis para empezar' }}</span>
             <h3 class="pricing-name">{{ t('home.freePlanTitle') }}</h3>
-            <div class="pricing-price gradient-text">{{ t('home.freePlanPrice') }}</div>
+            <div class="pricing-price">{{ t('home.freePlanPrice') }}</div>
             <p class="pricing-desc">{{ t('home.freePlanDesc') }}</p>
             <ul class="pricing-features">
               <li>✓ {{ t('home.freePlanFeature1') }}</li>
@@ -588,10 +488,10 @@ const faqs = computed(() => [
           </div>
 
           <!-- Plan Ilimitado -->
-          <div class="pricing-card glass-card pricing-card-pro">
+          <div class="pricing-card pricing-card-pro">
             <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Professional' : 'Recomendado para despachos' }}</span>
             <h3 class="pricing-name">{{ t('home.proPlanTitle') }}</h3>
-            <div class="pricing-price gradient-text">{{ t('home.proPlanPrice') }}</div>
+            <div class="pricing-price">{{ t('home.proPlanPrice') }}</div>
             <p class="pricing-desc">{{ t('home.proPlanDesc') }}</p>
             <ul class="pricing-features">
               <li>✓ {{ t('home.proPlanFeature1') }}</li>
@@ -608,12 +508,12 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 7. PREGUNTAS FRECUENTES (Glass Accordion) =================== -->
-    <section class="section section-dark-border" id="faq">
+    <!-- =================== 7. PREGUNTAS FRECUENTES (Acordeón Notion) =================== -->
+    <section class="section section-gray" id="faq">
       <div class="apple-wrap max-w-3xl">
         <div class="text-center mb-12">
           <span class="eyebrow">{{ t('nav.faq') }}</span>
-          <h2 class="h-section gradient-text">{{ t('faq.title') }}</h2>
+          <h2 class="h-section">{{ t('faq.title') }}</h2>
           <p class="subtitle mt-3">{{ t('faq.subtitle') }}</p>
         </div>
 
@@ -621,7 +521,7 @@ const faqs = computed(() => [
           <div
             v-for="(item, idx) in faqs"
             :key="idx"
-            class="faq-item glass-card"
+            class="faq-item"
             :class="{ 'is-open': openFaq === idx }"
           >
             <button
@@ -643,12 +543,11 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <!-- =================== 8. CTA FINAL (Ambient Blue Glow) =================== -->
-    <section class="muse-cta-section">
-      <div class="ambient-glow cta-glow" aria-hidden="true" />
-      <div class="apple-wrap text-center relative z-10">
+    <!-- =================== 8. CTA FINAL (Notion Clean Banner) =================== -->
+    <section class="notion-cta-section">
+      <div class="apple-wrap text-center">
         <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
-        <h2 class="h-section gradient-text max-w-2xl mx-auto">{{ t('home.ctaSectionTitle') }}</h2>
+        <h2 class="h-section max-w-2xl mx-auto">{{ t('home.ctaSectionTitle') }}</h2>
         <p class="subtitle max-w-xl mx-auto mt-4 mb-8">
           {{ t('home.ctaSectionBody') }}
         </p>
@@ -662,85 +561,31 @@ const faqs = computed(() => [
 </template>
 
 <style scoped>
-/* === WRAPPER GENERAL === */
-.muse-landing {
-  background: #08090C;
-  color: #F5F5F7;
-  overflow-x: hidden;
-  position: relative;
+/* === NOTION LANDING WRAPPER === */
+.notion-landing {
+  background: #ffffff;
+  color: #191919;
 }
 
 /* === HERO SECTION === */
-.muse-hero {
+.notion-hero {
   position: relative;
-  background: radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.12) 0%, transparent 60%);
-  padding: 56px 24px 44px;
+  background: #ffffff;
+  padding: 44px 24px 36px;
   text-align: center;
-  overflow: hidden;
 }
 
-.hero-glow-1 {
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 650px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.35) 0%, rgba(120, 80, 255, 0.15) 50%, transparent 70%);
-}
-
-.hero-glow-2 {
-  top: 300px;
-  right: -100px;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, transparent 70%);
-}
-
-.muse-hero-inner {
+.notion-hero-inner {
   max-width: 1040px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* Radiant Top Pill */
-.hero-top-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-size: 13px;
-  color: #E5E5EA;
-  box-shadow: 0 0 20px -5px rgba(0, 113, 227, 0.3);
-}
-
-.pill-spark {
-  color: #38bdf8;
-  font-size: 11px;
-}
-
-.pill-badge {
-  font-size: 11px;
-  font-weight: 600;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 1px 7px;
-  border-radius: 9999px;
-  margin-left: 4px;
 }
 
 .hero-h1 {
-  font-size: clamp(32px, 4.4vw, 56px);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #111111;
   margin: 0 auto;
   text-wrap: balance;
 }
@@ -756,270 +601,58 @@ const faqs = computed(() => [
 }
 
 .hero-h1-accent {
-  background: linear-gradient(135deg, #FFFFFF 0%, #2997FF 50%, #0071E3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0066cc;
 }
 
 .hero-p {
-  font-size: clamp(16px, 1.4vw, 19px);
+  font-size: clamp(16px, 1.4vw, 18.5px);
   line-height: 1.55;
-  color: #9496A1;
-  margin: 18px auto 0;
+  color: #5f5e5b;
+  margin: 16px auto 0;
   max-width: 720px;
   letter-spacing: -0.01em;
 }
 
 .hero-downloads {
-  margin-top: 28px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
-}
-
-.hero-trust-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px 28px;
-  margin-top: 22px;
-  font-size: 13px;
-  color: #686B78;
-}
-
-.trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.trust-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
 }
 
 .hero-showcase-container {
   max-width: 1140px;
-  margin: 36px auto 0;
-  position: relative;
-  z-index: 2;
-}
-
-/* === BENTO GRID SECTION === */
-.bento-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 860px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .bento-span-2 {
-    grid-column: span 2;
-  }
-}
-
-.bento-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 32px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
-  position: relative;
-}
-
-.bento-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px -8px rgba(0, 113, 227, 0.25);
-}
-
-.bento-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.bento-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(0, 113, 227, 0.12);
-  border: 1px solid rgba(0, 113, 227, 0.25);
-  color: #2997ff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bento-icon-shield {
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.25);
-  color: #22c55e;
-}
-
-.bento-tag {
-  font-size: 11.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #a1a1aa;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.bento-tag-green {
-  background: rgba(34, 197, 94, 0.1);
-  color: #4ade80;
-  border-color: rgba(34, 197, 94, 0.2);
-}
-
-.bento-title {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
-  margin: 0 0 10px;
-}
-
-.bento-desc {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #9496A1;
-  margin: 0 0 24px;
-}
-
-.bento-preview-img-wrap {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0d0f16;
-  margin-top: auto;
-}
-
-.bento-preview-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.security-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .security-grid {
-    grid-template-columns: 1.4fr 1fr;
-  }
-}
-
-.security-badges-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.sec-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 12px;
-  font-weight: 500;
-  color: #e5e5ea;
-}
-
-.security-stat-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 64px;
-  font-weight: 800;
-  line-height: 1;
-  color: #22c55e;
-  text-shadow: 0 0 30px rgba(34, 197, 94, 0.35);
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.stat-sub {
-  font-size: 12.5px;
-  color: #9496a1;
-  line-height: 1.45;
-  margin: 0;
+  margin: 28px auto 0;
 }
 
 /* === ESPECIALIDADES / AUDIENCE SELECTOR === */
-.section-dark-border {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: #0a0b10;
-}
-
 .audience-nav-wrap {
   display: flex;
   justify-content: center;
   margin-bottom: 36px;
 }
-
 .audience-nav {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #f1f1ef;
   padding: 5px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 1px solid #e5e5e3;
   max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 .audience-nav::-webkit-scrollbar { display: none; }
-
 .audience-tab-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  border-radius: 9999px;
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: #a1a1aa;
+  color: #5f5e5b;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1028,21 +661,66 @@ const faqs = computed(() => [
   user-select: none;
 }
 .audience-tab-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
+  color: #050505;
 }
 .audience-tab-btn.is-active {
-  background: #0071e3;
-  color: #ffffff;
+  background: #ffffff;
+  color: #050505;
   font-weight: 600;
-  box-shadow: 0 0 16px -2px rgba(0, 113, 227, 0.55);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
-
 .audience-showcase-box {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 20px;
   padding: clamp(28px, 4vw, 56px);
 }
 
-/* === MÓDULOS DE PROFUNDIDAD (Flows) === */
+/* === PILARES (Cards) === */
+.pillar-card {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 14px;
+  padding: 32px 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  border-color: #d3d3d0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+.pillar-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f1f1ef;
+  color: #050505;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pillar-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #050505;
+  margin: 0 0 10px;
+}
+
+.pillar-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #5f5e5b;
+  margin: 0;
+}
+
+/* === MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) === */
 .module-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -1077,7 +755,7 @@ const faqs = computed(() => [
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #2997ff;
+  color: #0066cc;
   margin-bottom: 8px;
 }
 
@@ -1086,13 +764,14 @@ const faqs = computed(() => [
   line-height: 1.18;
   letter-spacing: -0.02em;
   font-weight: 700;
+  color: #050505;
   margin: 0 0 16px;
 }
 
 .module-desc {
   font-size: 15.5px;
   line-height: 1.65;
-  color: #9496A1;
+  color: #5f5e5b;
   margin: 0 0 24px;
 }
 
@@ -1111,7 +790,7 @@ const faqs = computed(() => [
   gap: 12px;
   font-size: 14.5px;
   font-weight: 500;
-  color: #e5e5ea;
+  color: #191919;
   line-height: 1.45;
 }
 
@@ -1122,87 +801,96 @@ const faqs = computed(() => [
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(0, 113, 227, 0.18);
-  color: #2997ff;
-  border: 1px solid rgba(0, 113, 227, 0.35);
+  background: #e6f0fa;
+  color: #0066cc;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
+.module-visual {
+  width: 100%;
+}
+
 .apple-window-box {
   width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #0d0f16;
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(0, 113, 227, 0.2);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  border-radius: 12px;
+  line-height: 0;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 12px 30px -4px rgba(0, 0, 0, 0.16),
+    0 32px 64px -14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .apple-window-box:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 16px 36px -4px rgba(0, 0, 0, 0.20),
+    0 40px 75px -14px rgba(0, 0, 0, 0.32);
 }
 
 .apple-app-img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px;
 }
 
 /* === PRECIOS === */
 .pricing-card {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 16px;
   padding: 36px 30px;
   display: flex;
   flex-direction: column;
 }
 
 .pricing-card-pro {
-  border-color: rgba(0, 113, 227, 0.45);
-  box-shadow: 0 0 35px -5px rgba(0, 113, 227, 0.25);
-  position: relative;
+  border-color: #0066cc;
+  box-shadow: 0 10px 32px rgba(0, 102, 204, 0.08);
 }
 
 .pricing-badge {
   display: inline-block;
   align-self: flex-start;
   padding: 4px 10px;
-  border-radius: 9999px;
+  border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: rgba(255, 255, 255, 0.06);
-  color: #a1a1aa;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f1f1ef;
+  color: #37352f;
   margin-bottom: 16px;
 }
 
 .pricing-badge-pro {
-  background: rgba(0, 113, 227, 0.15);
-  color: #38bdf8;
-  border-color: rgba(0, 113, 227, 0.35);
+  background: #e6f0fa;
+  color: #0066cc;
 }
 
 .pricing-name {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #050505;
   margin: 0 0 8px;
 }
 
 .pricing-price {
-  font-size: 34px;
-  font-weight: 800;
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: -0.03em;
+  color: #050505;
   margin-bottom: 12px;
 }
 
 .pricing-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #9496A1;
+  color: #5f5e5b;
   margin: 0 0 24px;
 }
 
@@ -1214,7 +902,7 @@ const faqs = computed(() => [
   flex-direction: column;
   gap: 10px;
   font-size: 14px;
-  color: #E5E5EA;
+  color: #37352f;
   flex: 1;
 }
 
@@ -1232,23 +920,20 @@ const faqs = computed(() => [
 }
 
 .pricing-btn-dark {
-  background: rgba(255, 255, 255, 0.08);
+  background: #050505;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .pricing-btn-dark:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: #262626;
   transform: translateY(-1px);
 }
 
 .pricing-btn-pro {
-  background: #0071e3;
+  background: #0066cc;
   color: #ffffff;
-  box-shadow: 0 0 20px -2px rgba(0, 113, 227, 0.55);
 }
 .pricing-btn-pro:hover {
-  background: #0077ed;
-  box-shadow: 0 0 25px 0 rgba(0, 113, 227, 0.7);
+  background: #0052a3;
   transform: translateY(-1px);
 }
 
@@ -1260,13 +945,15 @@ const faqs = computed(() => [
 }
 
 .faq-item {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .faq-item.is-open {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: #d3d3d0;
 }
 
 .faq-question-btn {
@@ -1281,47 +968,35 @@ const faqs = computed(() => [
   text-align: left;
   font-size: 15.5px;
   font-weight: 600;
-  color: #F5F5F7;
+  color: #050505;
   gap: 16px;
 }
 
 .faq-chevron {
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  color: #9496A1;
+  color: #5f5e5b;
 }
 
 .faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
-  color: #38bdf8;
 }
 
 .faq-answer {
   padding: 0 22px 20px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #9496A1;
+  color: #5f5e5b;
 }
 
 .faq-answer p {
   margin: 0;
 }
 
-/* === CTA FINAL (Radiant Blue) === */
-.muse-cta-section {
-  position: relative;
-  background: radial-gradient(circle at 50% 100%, rgba(0, 113, 227, 0.22) 0%, #08090C 70%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(70px, 9vh, 110px) 24px;
-  overflow: hidden;
-}
-
-.cta-glow {
-  bottom: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.4) 0%, rgba(88, 86, 214, 0.2) 50%, transparent 70%);
+/* === CTA FINAL NOTION === */
+.notion-cta-section {
+  background: #f7f7f5;
+  border-top: 1px solid #ebebea;
+  padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>
