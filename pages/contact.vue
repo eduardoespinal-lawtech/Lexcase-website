@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 definePageMeta({ name: 'contact' })
 
@@ -17,7 +17,7 @@ useHead(() => ({
   <div class="contact-page">
     <section class="section">
       <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('nav.contact') }}</span>
+        <span class="eyebrow">{{ locale === 'en' ? 'DIRECT COMMUNICATION' : 'CANAL DE COMUNICACIÓN DIRECTA' }}</span>
         <h1 class="h-display mt-2">{{ t('contact.title') }}</h1>
         <p class="subtitle mt-4 mx-auto" style="max-width: 680px;">{{ t('contact.subtitle') }}</p>
       </div>

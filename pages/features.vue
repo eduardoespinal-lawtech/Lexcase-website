@@ -36,7 +36,7 @@ const tiles = computed(() => [
     <!-- HERO -->
     <section class="section">
       <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('nav.features') }}</span>
+        <span class="eyebrow">{{ locale === 'en' ? 'CORE CAPABILITIES' : 'CAPACIDADES DEL SISTEMA' }}</span>
         <h1 class="h-display mt-2">{{ t('features.title') }}</h1>
         <p class="subtitle mt-5 mx-auto" style="max-width: 680px;">{{ t('features.subtitle') }}</p>
       </div>

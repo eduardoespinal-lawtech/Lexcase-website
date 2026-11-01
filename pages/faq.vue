@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const isEn = computed(() => locale.value === 'en')
 
 definePageMeta({ name: 'faq' })
 
@@ -38,7 +39,7 @@ useHead(() => ({
   <div class="faq-page">
     <section class="section">
       <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('nav.faq') }}</span>
+        <span class="eyebrow">{{ isEn ? 'FREQUENTLY ASKED QUESTIONS' : 'PREGUNTAS FRECUENTES' }}</span>
         <h1 class="h-display mt-2">{{ t('faq.title') }}</h1>
         <p class="subtitle mt-4 mx-auto" style="max-width: 680px;">{{ t('faq.subtitle') }}</p>
       </div>

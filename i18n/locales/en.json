@@ -60,8 +60,8 @@
     "close": "Close menu"
   },
   "blog": {
-    "title": "LegalTech & Law Practice Blog",
-    "subtitle": "Procedural guides, security analysis, and legal technology for modern law firms.",
+    "title": "Insights, Guides & Legal Practice",
+    "subtitle": "Court practice guides, privacy analysis, and technology for modern law firms.",
     "allCategories": "All",
     "readArticle": "Read article",
     "readTime": "read",
@@ -285,8 +285,8 @@
     "developerBody": "Application designed and maintained by the Lexbell team, for modern legal practice in the Dominican Republic and the United States."
   },
   "faq": {
-    "title": "What we get asked the most.",
-    "subtitle": "Quick answers about Lexbell, its privacy model and how it works on Mac and Windows.",
+    "title": "Clear answers about Lexbell.",
+    "subtitle": "Everything about our local privacy model, licensing, and Mac and Windows compatibility.",
     "q1": "Are my cases uploaded to the cloud?",
     "a1": "No. All your information lives on your device and never leaves it; the app sends nothing to any server. When iPhone sync arrives (Lexbell Premium), it will be optional: only if you turn it on will a copy be kept on our server to bring it to your phone, deleted as soon as you sign out.",
     "q2": "Does it work offline?",

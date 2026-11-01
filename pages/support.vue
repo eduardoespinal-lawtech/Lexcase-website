@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
 definePageMeta({ name: 'support' })
@@ -18,7 +18,7 @@ useHead(() => ({
   <div class="support-page">
     <section class="section">
       <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('nav.support') }}</span>
+        <span class="eyebrow">{{ locale === 'en' ? 'HELP CENTER & SUPPORT' : 'CENTRO DE ASISTENCIA Y AYUDA' }}</span>
         <h1 class="h-display mt-2">{{ t('support.title') }}</h1>
         <p class="subtitle mt-4 mx-auto" style="max-width: 680px;">{{ t('support.subtitle') }}</p>
       </div>

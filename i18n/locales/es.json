@@ -60,8 +60,8 @@
     "close": "Cerrar menú"
   },
   "blog": {
-    "title": "Blog Jurídico & LegalTech",
-    "subtitle": "Guías prácticas procesales, análisis de privacidad y tecnología para despachos jurídicos modernos.",
+    "title": "Guías, Análisis y Práctica Jurídica",
+    "subtitle": "Artículos procesales, análisis de privacidad y tecnología para despachos jurídicos modernos.",
     "allCategories": "Todos",
     "readArticle": "Leer artículo",
     "readTime": "lectura",
@@ -285,8 +285,8 @@
     "developerBody": "Aplicación diseñada y mantenida por el equipo de Lexbell, para la práctica jurídica moderna en República Dominicana y Estados Unidos."
   },
   "faq": {
-    "title": "Lo que más nos preguntan.",
-    "subtitle": "Respuestas rápidas sobre Lexbell, su modelo de privacidad y cómo funciona en Mac y Windows.",
+    "title": "Respuestas claras sobre Lexbell.",
+    "subtitle": "Todo sobre nuestro modelo de privacidad local, licencias y compatibilidad en Mac y Windows.",
     "q1": "¿Mis expedientes se suben a la nube?",
     "a1": "No. Toda la información vive en tu equipo y no sale de él; la app no envía nada a ningún servidor. Cuando llegue la sincronización con el iPhone (Lexbell Premium), será opcional: solo si la activas se guardará una copia en nuestro servidor para llevarla a tu teléfono, y se borrará en cuanto cierres sesión.",
     "q2": "¿Funciona sin conexión a internet?",

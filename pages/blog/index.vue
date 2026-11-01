@@ -65,7 +65,7 @@ function formatDate(iso: string) {
     <section class="section pb-8">
       <div class="apple-wrap text-center">
         <span class="eyebrow">
-          {{ isEn ? 'LEGALTECH & PRACTICE BLOG' : 'BLOG & RECURSOS LEGALES' }}
+          {{ isEn ? 'LEGALTECH & PRACTICE' : 'RECURSOS LEGALTECH' }}
         </span>
         <h1 class="h-display mt-2">{{ t('blog.title') }}</h1>
         <p class="subtitle mt-4 mx-auto" style="max-width: 720px;">
@@ -281,6 +281,7 @@ function formatDate(iso: string) {
   color: #191919;
   margin-top: 14px;
   margin-bottom: 14px;
+  text-wrap: balance;
 }
 
 .featured-desc {
@@ -289,6 +290,7 @@ function formatDate(iso: string) {
   color: #5f5e5b;
   max-width: 880px;
   margin-bottom: 28px;
+  text-wrap: pretty;
 }
 
 .featured-footer {
@@ -383,6 +385,7 @@ function formatDate(iso: string) {
   letter-spacing: -0.015em;
   color: #191919;
   margin-bottom: 10px;
+  text-wrap: balance;
 }
 
 .post-desc {
@@ -390,6 +393,7 @@ function formatDate(iso: string) {
   line-height: 1.55;
   color: #5f5e5b;
   margin-bottom: 16px;
+  text-wrap: pretty;
 }
 
 .post-footer-row {

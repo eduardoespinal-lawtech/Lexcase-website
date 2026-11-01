@@ -493,6 +493,7 @@ useHead(() => {
   letter-spacing: -0.03em;
   color: #191919;
   margin-bottom: 18px;
+  text-wrap: balance;
 }
 
 .article-lead {
@@ -500,6 +501,7 @@ useHead(() => {
   line-height: 1.55;
   color: #5f5e5b;
   margin-bottom: 28px;
+  text-wrap: pretty;
 }
 
 .author-share-bar {
