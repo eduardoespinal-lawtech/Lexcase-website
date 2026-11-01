@@ -149,9 +149,47 @@ const toggleFaq = (idx: number) => {
         </div>
       </div>
 
-      <!-- Real Interactive Showcase with authentic Retina window -->
-      <div class="hero-showcase-container">
-        <AppShowcase />
+      <!-- Hero Feature Pillars (Estilo Minimalista Muse / Linear) -->
+      <div class="hero-features-grid">
+        <div class="hero-feat-card">
+          <div class="hero-feat-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="hero-feat-title">{{ t('home.heroCard1Title') }}</h3>
+          <p class="hero-feat-desc">{{ t('home.heroCard1Desc') }}</p>
+        </div>
+
+        <div class="hero-feat-card">
+          <div class="hero-feat-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180">
+              <circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/>
+            </svg>
+          </div>
+          <h3 class="hero-feat-title">{{ t('home.heroCard2Title') }}</h3>
+          <p class="hero-feat-desc">{{ t('home.heroCard2Desc') }}</p>
+        </div>
+
+        <div class="hero-feat-card">
+          <div class="hero-feat-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" /><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="hero-feat-title">{{ t('home.heroCard3Title') }}</h3>
+          <p class="hero-feat-desc">{{ t('home.heroCard3Desc') }}</p>
+        </div>
+
+        <div class="hero-feat-card">
+          <div class="hero-feat-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="hero-feat-title">{{ t('home.heroCard4Title') }}</h3>
+          <p class="hero-feat-desc">{{ t('home.heroCard4Desc') }}</p>
+        </div>
       </div>
     </section>
 
@@ -658,9 +696,73 @@ const toggleFaq = (idx: number) => {
   justify-content: center;
 }
 
-.hero-showcase-container {
-  max-width: 1400px;
-  margin: 36px auto 0;
+/* === HERO VALUE CARDS (Estilo Minimalista Muse / Linear) === */
+.hero-features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1120px;
+  margin: 44px auto 0;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .hero-features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+.hero-feat-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e3;
+  border-radius: 14px;
+  padding: 22px 20px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-feat-card:hover {
+  border-color: #d1d1cf;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.hero-feat-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f4f4f2;
+  color: #0066cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border: 1px solid #e9e9e7;
+}
+
+.hero-feat-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.hero-feat-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin: 0;
 }
 
 /* === ESPECIALIDADES / AUDIENCE SELECTOR === */
