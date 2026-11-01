@@ -3,14 +3,24 @@ const { t, locale } = useI18n()
 
 definePageMeta({ name: 'features' })
 
-useHead(() => ({
-  title: `${t('features.title')} — Lexbell`,
-  meta: [
-    { name: 'description', content: t('features.subtitle') },
-    { property: 'og:title', content: `${t('features.title')} — Lexbell` },
-    { property: 'og:description', content: t('features.subtitle') }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'Features: Case Management, Deadlines & Clients — Lexbell'
+    : 'Características: Gestión de Casos, Plazos y Clientes — Lexbell'
+  const desc = isEn
+    ? 'Complete case management, automatic court deadline calculation, client records, and offline documents for Mac and Windows.'
+    : 'Gestión integral de expedientes, cálculo automático de plazos procesales, control de clientes y documentos en Mac y Windows.'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc }
+    ]
+  }
+})
 
 const caseTypes = computed(() => [
   { name: t('features.sp1TypeJudicial') },

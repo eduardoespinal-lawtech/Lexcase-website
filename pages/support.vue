@@ -4,14 +4,24 @@ const localePath = useLocalePath()
 
 definePageMeta({ name: 'support' })
 
-useHead(() => ({
-  title: `${t('support.title')} — Lexbell`,
-  meta: [
-    { name: 'description', content: t('support.subtitle') },
-    { property: 'og:title', content: `${t('support.title')} — Lexbell` },
-    { property: 'og:description', content: t('support.subtitle') }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'Help Center & Technical Support — Lexbell'
+    : 'Centro de Ayuda y Soporte Técnico — Lexbell'
+  const desc = isEn
+    ? 'Direct technical assistance, guides, and support for Lexbell users and modern law firms on Mac and Windows.'
+    : 'Asistencia técnica directa, manuales y resolución de dudas para usuarios y despachos jurídicos en Lexbell.'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc }
+    ]
+  }
+})
 </script>
 
 <template>

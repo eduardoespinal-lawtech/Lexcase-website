@@ -22,17 +22,27 @@ const structured = computed(() => ({
   }))
 }))
 
-useHead(() => ({
-  title: `${t('faq.title')} — Lexbell`,
-  meta: [
-    { name: 'description', content: t('faq.subtitle') },
-    { property: 'og:title', content: `${t('faq.title')} — Lexbell` },
-    { property: 'og:description', content: t('faq.subtitle') }
-  ],
-  script: [
-    { type: 'application/ld+json', innerHTML: JSON.stringify(structured.value) }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'FAQ: Privacy, Licensing & Security — Lexbell'
+    : 'Preguntas Frecuentes sobre Privacidad, Licencias y Seguridad — Lexbell'
+  const desc = isEn
+    ? 'Answers about 100% local private storage, Mac & Windows licensing, system requirements, and secure backups in Lexbell.'
+    : 'Respuestas sobre almacenamiento local privado, licencias para Mac y Windows, requisitos y copias de seguridad de Lexbell.'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc }
+    ],
+    script: [
+      { type: 'application/ld+json', innerHTML: JSON.stringify(structured.value) }
+    ]
+  }
+})
 </script>
 
 <template>

@@ -6,15 +6,25 @@ const localePath = useLocalePath()
 
 definePageMeta({ name: 'blog' })
 
-useHead(() => ({
-  title: `${t('blog.title')} — Lexbell`,
-  meta: [
-    { name: 'description', content: t('blog.subtitle') },
-    { property: 'og:title', content: `${t('blog.title')} — Lexbell` },
-    { property: 'og:description', content: t('blog.subtitle') },
-    { property: 'og:type', content: 'blog' }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'Legal Tech Blog: Privacy, Deadlines & Law Practice — Lexbell'
+    : 'Blog Jurídico: Legaltech, Privacidad y Práctica Procesal — Lexbell'
+  const desc = isEn
+    ? 'Practical guides and insights on court deadlines, legal confidentiality, law firm management, and modern legal tech.'
+    : 'Artículos y guías prácticas sobre computo de plazos procesales, secreto profesional, gestión de despachos y legaltech.'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc },
+      { property: 'og:type', content: 'blog' }
+    ]
+  }
+})
 
 const isEn = computed(() => locale.value === 'en')
 const selectedCategory = ref<string>('all')

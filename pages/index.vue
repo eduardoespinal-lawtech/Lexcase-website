@@ -11,11 +11,28 @@ const faqs = computed(() => [
 ])
 
 useHead(() => ({
-  title: `Lexbell — ${t('home.heroTitle')} ${t('home.heroTitle2')}`,
+  title: locale.value === 'es'
+    ? 'Lexbell: Software de Gestión de Casos para Abogados (Mac y Windows)'
+    : 'Lexbell: Legal Practice Management Software for Mac & Windows',
   meta: [
-    { name: 'description', content: t('home.heroSubtitle') },
-    { property: 'og:title', content: locale.value === 'es' ? 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' : 'Lexbell — Legal Practice Management Software for Mac & Windows' },
-    { property: 'og:description', content: t('home.heroSubtitle') }
+    {
+      name: 'description',
+      content: locale.value === 'es'
+        ? 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
+        : 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
+    },
+    {
+      property: 'og:title',
+      content: locale.value === 'es'
+        ? 'Lexbell: Software de Gestión de Casos para Abogados (Mac y Windows)'
+        : 'Lexbell: Legal Practice Management Software for Mac & Windows'
+    },
+    {
+      property: 'og:description',
+      content: locale.value === 'es'
+        ? 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
+        : 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
+    }
   ],
   script: [
     {

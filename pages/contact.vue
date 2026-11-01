@@ -3,14 +3,24 @@ const { t, locale } = useI18n()
 
 definePageMeta({ name: 'contact' })
 
-useHead(() => ({
-  title: `${t('contact.title')} — Lexbell`,
-  meta: [
-    { name: 'description', content: t('contact.subtitle') },
-    { property: 'og:title', content: `${t('contact.title')} — Lexbell` },
-    { property: 'og:description', content: t('contact.subtitle') }
-  ]
-}))
+useHead(() => {
+  const isEn = locale.value === 'en'
+  const title = isEn
+    ? 'Contact & User Support — Lexbell'
+    : 'Contacto y Atención al Usuario — Lexbell'
+  const desc = isEn
+    ? 'Reach out directly to the Lexbell team for technical inquiries, law firm licensing, or feature requests.'
+    : 'Comunícate directamente con el equipo de Lexbell para consultas técnicas, licencias de despacho o sugerencias.'
+
+  return {
+    title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: desc }
+    ]
+  }
+})
 </script>
 
 <template>
