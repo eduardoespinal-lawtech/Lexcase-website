@@ -9,7 +9,10 @@
     "recommendedMac": "For your Mac",
     "recommendedWin": "For your PC",
     "learnMore": "Learn more",
-    "availabilityNote": "macOS 12 or later · Windows 10 and 11 · 100% Offline"
+    "availabilityNote": "macOS 12 or later · Windows 10 and 11 · 100% Offline",
+    "guaranteeCases": "Free up to 50 active cases",
+    "guaranteeCard": "No credit card required",
+    "guaranteeLocal": "100% Local encryption"
   },
   "showcase": {
     "tabCases": "Cases",
@@ -80,7 +83,7 @@
     "rights": "All rights reserved."
   },
   "home": {
-    "heroTitle": "Practice management for attorneys,",
+    "heroTitle": "Case management software for attorneys,",
     "heroTitle2": "immigration consultants & real estate.",
     "heroSubtitle": "Court cases, visa and residency filings, and rental or sales contracts in one desktop app for Mac and Windows. 100% private on your machine, fast, and offline.",
     "trust1": "100% Local & Encrypted",

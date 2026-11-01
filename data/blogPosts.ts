@@ -110,6 +110,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Vínculo directo con el expediente:</strong> Cada plazo está asociado al número de caso, tribunal, cliente y documentos relevantes, permitiéndote abrir la pieza con un solo clic.</li>
           <li><strong>100% Local y Privado:</strong> Tus fechas, audiencias y estrategias no se comparten con servidores de terceros; viven bajo tu custodia y con total confidencialidad.</li>
         </ul>
+        <p class="mt-4">Para conocer cómo estructurar tu despacho y comparar alternativas del mercado, consulta nuestra guía sobre los <a href="/blog/mejores-programas-gestion-expedientes-abogados-2026">mejores programas de gestión de expedientes para abogados en 2026</a>.</p>
       `,
       en: `
         <p class="lead">One of the greatest fears for any trial lawyer or litigator is facing procedural dismissal or statute of limitations forfeiture due to a docketing calculation mistake. In daily practice, determining whether a deadline counts business days, clear statutory periods, or legal holidays can determine the survival of an essential case.</p>
@@ -150,6 +151,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Direct link to case dossiers:</strong> One-click navigation from any court event to pleadings, parties, and court documents.</li>
           <li><strong>100% Local & Confidential:</strong> Zero exposure to third-party cloud servers; your litigation calendar remains private on your machine.</li>
         </ul>
+        <p class="mt-4">To learn how to structure your firm workflow and compare market alternatives, read our comparison of the <a href="/en/blog/mejores-programas-gestion-expedientes-abogados-2026">best case management software for attorneys in 2026</a>.</p>
       `
     }
   },
@@ -232,6 +234,7 @@ export const blogPosts: BlogPost[] = [
         <h2>4. El compromiso inquebrantable de Lexbell con la confidencialidad</h2>
         <p>Lexbell nació precisamente para subsanar esta vulnerabilidad deontológica. Diseñamos una aplicación de escritorio nativa para <strong>macOS</strong> y <strong>Windows</strong> con un principio rector claro:</p>
         <p><em>Nosotros no vemos tus datos, no los recopilamos en nuestros servidores, no entrenamos inteligencias artificiales con tus documentos y no podemos ser obligados a revelar lo que no poseemos.</em></p>
+        <p class="mt-4">Junto a la custodia de archivos, la prevención de caducidades procesales es el otro pilar de un despacho blindado. Aprende a dominar las reglas de términos en nuestra guía sobre el <a href="/blog/computo-plazos-procesales-dias-habiles-rd">cómputo de plazos procesales en días hábiles</a>.</p>
       `,
       en: `
         <p class="lead">Attorney-client privilege is not merely a procedural safeguard: it is the ethical cornerstone of the legal profession. Clients entrust counsel with sensitive financial records, corporate trade secrets, and personal matters they would never disclose to anyone else. Yet in the rush toward digital transformation, countless law practices have unwittingly uploaded privileged data to third-party cloud servers without evaluating the legal fallout.</p>
@@ -261,6 +264,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2>4. Lexbell's Zero-Knowledge Privacy Architecture</h2>
         <p>Lexbell was engineered from day one to uphold strict attorney privilege. As a native desktop application for <strong>macOS</strong> and <strong>Windows</strong>, our software cannot access your client files, does not train models on your legal pleadings, and can never be compelled to produce what we do not possess.</p>
+        <p class="mt-4">Alongside client document custody, meeting court deadlines is the other critical pillar of modern practice. Master key statutory calculation rules in our litigation guide on <a href="/en/blog/computo-plazos-procesales-dias-habiles-rd">calculating procedural deadlines in business days</a>.</p>
       `
     }
   },
@@ -368,6 +372,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2>3. Conclusión: ¿Cuál elegir?</h2>
         <p>Para litigantes independientes, notarías, consultorías boutique y despachos jurídicos que priorizan la <strong>privacidad de sus clientes, la velocidad operativa y el control absoluto de su información</strong>, <strong>Lexbell</strong> representa la solución de escritorio más equilibrada, moderna y confiable del mercado actual.</p>
+        <p class="mt-4">Para profundizar en los riesgos deontológicos y legales de delegar la custodia de expedientes a servidores externos, lee nuestro análisis sobre <a href="/blog/secreto-profesional-abogados-nube-seguridad">el secreto profesional en la era digital y la seguridad en la nube</a>.</p>
       `,
       en: `
         <p class="lead">Law firm modernization is no longer an optional perk: it is an operational prerequisite. Yet litigators and attorneys frequently find themselves stuck between two impractical extremes: fragile spreadsheet tracking or rigid, expensive web SaaS portals charging exorbitant per-user monthly subscriptions.</p>
@@ -429,6 +434,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2>3. Conclusion: Which Solution Fits Your Firm?</h2>
         <p>For independent litigators, boutique practices, and legal advisers who value <strong>discretion, speed, and sovereign control over case records</strong>, <strong>Lexbell</strong> provides the most reliable, modern desktop experience available today.</p>
+        <p class="mt-4">To examine the regulatory and ethical consequences of storing client documents on shared cloud servers, read our deep dive on <a href="/en/blog/secreto-profesional-abogados-nube-seguridad">attorney-client privilege in the digital age and cloud risks</a>.</p>
       `
     }
   }

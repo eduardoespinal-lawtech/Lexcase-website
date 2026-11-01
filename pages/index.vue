@@ -2,12 +2,37 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
+const faqs = computed(() => [
+  { q: t('faq.q1'), a: t('faq.a1') },
+  { q: t('faq.q2'), a: t('faq.a2') },
+  { q: t('faq.q4'), a: t('faq.a4') },
+  { q: t('faq.q5'), a: t('faq.a5') },
+  { q: t('faq.q8'), a: t('faq.a8') }
+])
+
 useHead(() => ({
   title: `Lexbell — ${t('home.heroTitle')} ${t('home.heroTitle2')}`,
   meta: [
     { name: 'description', content: t('home.heroSubtitle') },
     { property: 'og:title', content: locale.value === 'es' ? 'Lexbell — Software de Gestión de Expedientes para Mac y Windows' : 'Lexbell — Legal Practice Management Software for Mac & Windows' },
     { property: 'og:description', content: t('home.heroSubtitle') }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.value.map(item => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.a
+          }
+        }))
+      })
+    }
   ]
 }))
 
@@ -41,7 +66,7 @@ const audiences = computed(() => [
       t('home.audTab1Point2'),
       t('home.audTab1Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/cases-en.png?v=1.1.18' : '/screenshots/casos.png?v=1.1.18'
+    img: locale.value === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'
   },
   {
     key: 'migracion' as AudienceKey,
@@ -55,7 +80,7 @@ const audiences = computed(() => [
       t('home.audTab2Point2'),
       t('home.audTab2Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.png?v=1.1.18' : '/screenshots/calendario.png?v=1.1.18'
+    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
   },
   {
     key: 'inmobiliario' as AudienceKey,
@@ -69,7 +94,7 @@ const audiences = computed(() => [
       t('home.audTab3Point2'),
       t('home.audTab3Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/documents-en.png?v=1.1.18' : '/screenshots/documentos.png?v=1.1.18'
+    img: locale.value === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'
   }
 ])
 
@@ -80,14 +105,6 @@ const openFaq = ref<number | null>(null)
 const toggleFaq = (idx: number) => {
   openFaq.value = openFaq.value === idx ? null : idx
 }
-
-const faqs = computed(() => [
-  { q: t('faq.q1'), a: t('faq.a1') },
-  { q: t('faq.q2'), a: t('faq.a2') },
-  { q: t('faq.q4'), a: t('faq.a4') },
-  { q: t('faq.q5'), a: t('faq.a5') },
-  { q: t('faq.q8'), a: t('faq.a8') }
-])
 </script>
 
 <template>
@@ -267,7 +284,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/cases-en.png?v=1.1.18' : '/screenshots/casos.png?v=1.1.18'"
+                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
                 :alt="locale === 'en' ? 'Case Management in Lexbell' : 'Gestión de Expedientes en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -308,7 +325,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/calendar-en.png?v=1.1.18' : '/screenshots/calendario.png?v=1.1.18'"
+                :src="locale === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'"
                 :alt="locale === 'en' ? 'Court Calendar and Statutory Deadlines in Lexbell' : 'Agenda Judicial y Vencimientos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -349,7 +366,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/map-en.png?v=1.1.18' : '/screenshots/mapa.png?v=1.1.18'"
+                :src="locale === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/mapa.webp?v=1.1.18'"
                 :alt="locale === 'en' ? 'Relationship Graph and Conflict Prevention in Lexbell' : 'Grafo de Relaciones y Prevención de Conflictos en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"
@@ -390,7 +407,7 @@ const faqs = computed(() => [
           <div class="module-visual">
             <div class="apple-window-box">
               <img
-                :src="locale === 'en' ? '/screenshots/documents-en.png?v=1.1.18' : '/screenshots/documentos.png?v=1.1.18'"
+                :src="locale === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'"
                 :alt="locale === 'en' ? 'Document Management and Secure Vault in Lexbell' : 'Gestión Documental y Bóveda Segura en Lexbell'"
                 class="apple-app-img"
                 loading="lazy"

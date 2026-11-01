@@ -32,12 +32,19 @@ export default defineNuxtPlugin(() => {
               description:
                 'App de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows.',
               applicationCategory: 'BusinessApplication',
-              operatingSystem: 'macOS 12+, Windows 10 and 11',
+              applicationSubCategory: 'Law Practice Management Software',
+              operatingSystem: 'macOS 12+, Windows 10 and 11 (64-bit)',
               url: 'https://lex-bell.com',
               inLanguage: ['es', 'en'],
               softwareVersion: '1.0.0',
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
+              },
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+                description: 'Free tier up to 50 active cases'
               }
             }
           ]

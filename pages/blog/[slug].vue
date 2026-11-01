@@ -410,6 +410,19 @@ useHead(() => {
   margin: 1.25rem 0;
 }
 
+:deep(.article-content a) {
+  color: #0066cc;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+:deep(.article-content a:hover) {
+  color: #004c99;
+}
+
 :deep(.article-content p.lead) {
   font-size: 20px;
   line-height: 1.6;

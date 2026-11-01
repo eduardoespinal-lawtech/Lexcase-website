@@ -9,7 +9,10 @@
     "recommendedMac": "Para tu Mac",
     "recommendedWin": "Para tu PC",
     "learnMore": "Más información",
-    "availabilityNote": "macOS 12 o superior · Windows 10 y 11 · 100% Sin conexión"
+    "availabilityNote": "macOS 12 o superior · Windows 10 y 11 · 100% Sin conexión",
+    "guaranteeCases": "Gratis hasta 50 expedientes",
+    "guaranteeCard": "Sin tarjeta de crédito",
+    "guaranteeLocal": "100% Cifrado local"
   },
   "showcase": {
     "tabCases": "Expedientes",
@@ -80,7 +83,7 @@
     "rights": "Todos los derechos reservados."
   },
   "home": {
-    "heroTitle": "Gestión de expedientes para abogados,",
+    "heroTitle": "Software de gestión de expedientes para abogados,",
     "heroTitle2": "asesores de migración e inmobiliarias.",
     "heroSubtitle": "Casos judiciales, trámites de visado y residencia, y contratos de alquiler o compraventa en una sola app para Mac y Windows. 100% privado en tu equipo, ultra rápido y sin depender de internet.",
     "trust1": "100% Local y cifrado",

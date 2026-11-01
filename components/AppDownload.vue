@@ -74,6 +74,15 @@ const msBadgeSrc = computed(() => {
         />
       </a>
     </div>
+
+    <!-- Micro-guarantees of trust and friction-free download -->
+    <div class="store-guarantee">
+      <span class="guarantee-item">✓ {{ t('common.guaranteeCases') }}</span>
+      <span class="guarantee-sep">·</span>
+      <span class="guarantee-item">✓ {{ t('common.guaranteeCard') }}</span>
+      <span class="guarantee-sep">·</span>
+      <span class="guarantee-item">✓ {{ t('common.guaranteeLocal') }}</span>
+    </div>
   </div>
 </template>
 
@@ -94,6 +103,28 @@ const msBadgeSrc = computed(() => {
   gap: 12px 16px;
   align-items: center;
   justify-content: center;
+}
+
+.store-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-top: 2px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.guarantee-sep {
+  opacity: 0.5;
+}
+
+.is-light .store-guarantee {
+  color: #f3f4f6;
 }
 
 .store-badge-link {
