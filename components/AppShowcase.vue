@@ -11,32 +11,32 @@ const tabs = computed(() => {
       key: 'casos' as TabKey,
       label: isEn ? 'Cases' : 'Expedientes',
       icon: 'scale',
-      imgEs: '/screenshots/casos.png?v=1.1.17',
-      imgEn: '/screenshots/cases-en.png?v=1.1.17',
+      imgEs: '/screenshots/casos.png?v=1.1.18',
+      imgEn: '/screenshots/cases-en.png?v=1.1.18',
       alt: isEn ? 'Lexbell Cases' : 'Expedientes en Lexbell'
     },
     {
       key: 'calendario' as TabKey,
       label: isEn ? 'Calendar & Deadlines' : 'Agenda y Plazos',
       icon: 'calendar',
-      imgEs: '/screenshots/calendario.png?v=1.1.17',
-      imgEn: '/screenshots/calendar-en.png?v=1.1.17',
+      imgEs: '/screenshots/calendario.png?v=1.1.18',
+      imgEn: '/screenshots/calendar-en.png?v=1.1.18',
       alt: isEn ? 'Lexbell Court Calendar' : 'Agenda Judicial en Lexbell'
     },
     {
       key: 'mapa' as TabKey,
       label: isEn ? 'Relationship Map' : 'Mapa de Vínculos',
       icon: 'network',
-      imgEs: '/screenshots/mapa.png?v=1.1.17',
-      imgEn: '/screenshots/map-en.png?v=1.1.17',
+      imgEs: '/screenshots/mapa.png?v=1.1.18',
+      imgEn: '/screenshots/map-en.png?v=1.1.18',
       alt: isEn ? 'Lexbell Relationship Map' : 'Mapa de Vínculos en Lexbell'
     },
     {
       key: 'documentos' as TabKey,
       label: isEn ? 'Documents & Notes' : 'Documentos y Notas',
       icon: 'folder',
-      imgEs: '/screenshots/documentos.png?v=1.1.17',
-      imgEn: '/screenshots/documents-en.png?v=1.1.17',
+      imgEs: '/screenshots/documentos.png?v=1.1.18',
+      imgEn: '/screenshots/documents-en.png?v=1.1.18',
       alt: isEn ? 'Lexbell Documents and Notes' : 'Documentos y Notas en Lexbell'
     }
   ]
