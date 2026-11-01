@@ -62,17 +62,6 @@ const sections = computed(() => [
 
       <div class="site-footer-base">
         <p>© {{ year }} Lexbell. {{ t('footer.rights') }}</p>
-        <div class="site-footer-base-legal">
-          <NuxtLink :to="localePath('terms')" class="site-footer-base-link">{{ t('nav.termsOfUse') }}</NuxtLink>
-          <span class="site-footer-sep">·</span>
-          <NuxtLink :to="localePath('privacy')" class="site-footer-base-link">{{ t('nav.privacyPolicy') }}</NuxtLink>
-          <span class="site-footer-sep">·</span>
-          <NuxtLink :to="localePath('cookies')" class="site-footer-base-link">{{ t('nav.cookiePolicy') }}</NuxtLink>
-          <span class="site-footer-sep">·</span>
-          <button type="button" @click="openModal" class="site-footer-base-link site-footer-btn">
-            {{ t('nav.manageCookies') }}
-          </button>
-        </div>
       </div>
     </div>
 
@@ -148,25 +137,6 @@ const sections = computed(() => [
   gap: 12px;
   font-size: 12.5px;
   color: #787774;
-}
-.site-footer-base-legal {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-.site-footer-base-link {
-  color: #787774;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-.site-footer-base-link:hover {
-  color: #111111;
-  text-decoration: underline;
-}
-.site-footer-sep {
-  color: #B5B5B3;
-  user-select: none;
 }
 
 /* Firma tipográfica gigante */
