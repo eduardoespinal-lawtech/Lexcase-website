@@ -56,8 +56,28 @@
     "faq": "FAQ",
     "privacy": "Privacy",
     "terms": "Terms",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "manageCookies": "Manage Cookies",
     "menu": "Open menu",
     "close": "Close menu"
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "intro": "Clear and transparent information regarding cookie usage and local storage at Lexbell.",
+    "updated": "Last updated: November 2026",
+    "modalTitle": "Cookie Preferences",
+    "modalDesc": "At Lexbell, we prioritize your data confidentiality. As an offline-first practice management app, we do not sell your personal data or use invasive third-party tracking cookies.",
+    "essentialTitle": "Essential & Technical Cookies",
+    "essentialDesc": "Strictly necessary for the website to function properly and securely (such as preserving your language choice and security headers). Cannot be disabled.",
+    "alwaysActive": "Always active",
+    "analyticsTitle": "Performance & Metrics",
+    "analyticsDesc": "Helps us anonymously measure page load speeds and resolve technical errors to deliver a better user experience.",
+    "acceptAll": "Accept All",
+    "savePrefs": "Save Preferences",
+    "rejectOptional": "Reject Optional",
+    "close": "Close"
   },
   "blog": {
     "title": "Insights, Guides & Legal Practice",

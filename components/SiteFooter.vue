@@ -3,6 +3,11 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 const year = new Date().getFullYear()
+const isCookieModalOpen = ref(false)
+
+const openCookieModal = () => {
+  isCookieModalOpen.value = true
+}
 
 const sections = computed(() => [
   {
@@ -25,8 +30,10 @@ const sections = computed(() => [
   {
     title: t('footer.legal'),
     links: [
-      { to: localePath('privacy'), label: t('nav.privacy') },
-      { to: localePath('terms'),   label: t('nav.terms') }
+      { to: localePath('terms'),   label: t('nav.termsOfUse') },
+      { to: localePath('privacy'), label: t('nav.privacyPolicy') },
+      { to: localePath('cookies'), label: t('nav.cookiePolicy') },
+      { isAction: true, label: t('nav.manageCookies'), action: openCookieModal }
     ]
   }
 ])
@@ -40,7 +47,15 @@ const sections = computed(() => [
           <h4 class="site-footer-h4">{{ s.title }}</h4>
           <ul class="site-footer-ul">
             <li v-for="l in s.links" :key="l.label">
-              <NuxtLink v-if="l.to" :to="l.to" class="site-footer-link">{{ l.label }}</NuxtLink>
+              <button
+                v-if="l.isAction"
+                type="button"
+                @click="l.action"
+                class="site-footer-link site-footer-btn"
+              >
+                {{ l.label }}
+              </button>
+              <NuxtLink v-else-if="l.to" :to="l.to" class="site-footer-link">{{ l.label }}</NuxtLink>
               <a v-else :href="l.href" class="site-footer-link">{{ l.label }}</a>
             </li>
           </ul>
@@ -51,8 +66,22 @@ const sections = computed(() => [
 
       <div class="site-footer-base">
         <p>© {{ year }} Lexbell. {{ t('footer.rights') }}</p>
+        <div class="site-footer-base-legal">
+          <NuxtLink :to="localePath('terms')" class="site-footer-base-link">{{ t('nav.termsOfUse') }}</NuxtLink>
+          <span class="site-footer-sep">·</span>
+          <NuxtLink :to="localePath('privacy')" class="site-footer-base-link">{{ t('nav.privacyPolicy') }}</NuxtLink>
+          <span class="site-footer-sep">·</span>
+          <NuxtLink :to="localePath('cookies')" class="site-footer-base-link">{{ t('nav.cookiePolicy') }}</NuxtLink>
+          <span class="site-footer-sep">·</span>
+          <button type="button" @click="openCookieModal" class="site-footer-base-link site-footer-btn">
+            {{ t('nav.manageCookies') }}
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- Modal de Gestión de Cookies -->
+    <CookieModal v-if="isCookieModalOpen" @close="isCookieModalOpen = false" />
   </footer>
 </template>
 
@@ -104,12 +133,41 @@ const sections = computed(() => [
   transition: color 0.15s ease;
 }
 .site-footer-link:hover { color: #000000; text-decoration: underline; }
+.site-footer-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+}
 .site-footer-base {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 12px;
   font-size: 12.5px;
   color: #787774;
+}
+.site-footer-base-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.site-footer-base-link {
+  color: #787774;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.site-footer-base-link:hover {
+  color: #111111;
+  text-decoration: underline;
+}
+.site-footer-sep {
+  color: #B5B5B3;
+  user-select: none;
 }
 </style>

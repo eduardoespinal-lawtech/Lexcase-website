@@ -56,8 +56,28 @@
     "faq": "Preguntas",
     "privacy": "Privacidad",
     "terms": "Términos",
+    "termsOfUse": "Condiciones de uso",
+    "privacyPolicy": "Política de privacidad",
+    "cookiePolicy": "Política de cookies",
+    "manageCookies": "Gestionar cookies",
     "menu": "Abrir menú",
     "close": "Cerrar menú"
+  },
+  "cookies": {
+    "title": "Política de Cookies",
+    "intro": "Información transparente sobre el uso de cookies y almacenamiento local en Lexbell.",
+    "updated": "Última actualización: Noviembre 2026",
+    "modalTitle": "Preferencias de Cookies",
+    "modalDesc": "En Lexbell respetamos tu privacidad de forma radical. Al ser una herramienta diseñada para trabajar de forma local, no vendemos datos ni empleamos cookies de rastreo invasivas de terceros.",
+    "essentialTitle": "Cookies Técnicas y Estrictamente Necesarias",
+    "essentialDesc": "Son imprescindibles para garantizar el funcionamiento seguro y básico del sitio web (como guardar tu selección de idioma y preferencias de seguridad). No pueden desactivarse.",
+    "alwaysActive": "Siempre activas",
+    "analyticsTitle": "Métricas y Rendimiento",
+    "analyticsDesc": "Nos ayudan a medir de forma anónima y agregada el rendimiento del sitio web para solucionar problemas técnicos y mejorar los tiempos de carga.",
+    "acceptAll": "Aceptar todas",
+    "savePrefs": "Guardar preferencias",
+    "rejectOptional": "Rechazar opcionales",
+    "close": "Cerrar"
   },
   "blog": {
     "title": "Guías, Análisis y Práctica Jurídica",
