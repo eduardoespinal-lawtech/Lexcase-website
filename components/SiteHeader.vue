@@ -85,10 +85,10 @@ const links = computed(() => [
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .site-header-inner {
-  max-width: 1240px;
+  max-width: 1440px;
   margin: 0 auto;
   height: 54px;
-  padding: 0 22px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;

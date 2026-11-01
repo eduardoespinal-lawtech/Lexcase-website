@@ -100,7 +100,7 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
 <style scoped>
 .lx-apple-showcase {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

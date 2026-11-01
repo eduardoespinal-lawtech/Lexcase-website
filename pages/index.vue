@@ -467,7 +467,7 @@ const faqs = computed(() => [
           <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Plan Gratuito -->
           <div class="pricing-card pricing-card-free">
             <span class="pricing-badge">{{ locale === 'en' ? 'Free Forever' : 'Gratis para empezar' }}</span>
@@ -571,18 +571,18 @@ const faqs = computed(() => [
 .notion-hero {
   position: relative;
   background: #ffffff;
-  padding: 44px 24px 36px;
+  padding: clamp(56px, 7vw, 84px) 24px clamp(48px, 6vw, 68px);
   text-align: center;
 }
 
 .notion-hero-inner {
-  max-width: 1040px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
 .hero-h1 {
-  font-size: clamp(28px, 3.6vw, 46px);
-  line-height: 1.18;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.15;
   letter-spacing: -0.025em;
   font-weight: 700;
   color: #111111;
@@ -605,23 +605,23 @@ const faqs = computed(() => [
 }
 
 .hero-p {
-  font-size: clamp(16px, 1.4vw, 18.5px);
-  line-height: 1.55;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.6;
   color: #5f5e5b;
-  margin: 16px auto 0;
-  max-width: 720px;
+  margin: 20px auto 0;
+  max-width: 780px;
   letter-spacing: -0.01em;
 }
 
 .hero-downloads {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   justify-content: center;
 }
 
 .hero-showcase-container {
-  max-width: 1140px;
-  margin: 28px auto 0;
+  max-width: 1400px;
+  margin: 36px auto 0;
 }
 
 /* === ESPECIALIDADES / AUDIENCE SELECTOR === */
@@ -735,11 +735,11 @@ const faqs = computed(() => [
 
 @media (min-width: 960px) {
   .module-row {
-    grid-template-columns: 1fr 1.3fr;
-    gap: 64px;
+    grid-template-columns: 1fr 1.55fr;
+    gap: 72px;
   }
   .module-row-reverse {
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.55fr 1fr;
   }
   .module-row-reverse .module-text {
     order: 2;

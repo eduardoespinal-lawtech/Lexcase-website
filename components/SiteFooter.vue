@@ -64,9 +64,9 @@ const sections = computed(() => [
   border-top: 1px solid #EBEBEA;
 }
 .site-footer-inner {
-  max-width: 1240px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 48px 22px 36px;
+  padding: 56px 24px 40px;
 }
 .site-footer-hr {
   border: 0;

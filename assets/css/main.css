@@ -47,7 +47,7 @@ body {
 
 /* === Typographic scale === */
 .h-display {
-  font-size: clamp(38px, 5.2vw, 64px);
+  font-size: clamp(40px, 5.2vw, 68px);
   line-height: 1.08;
   letter-spacing: -0.035em;
   font-weight: 700;
@@ -55,7 +55,7 @@ body {
 }
 
 .h-section {
-  font-size: clamp(28px, 3.6vw, 44px);
+  font-size: clamp(30px, 3.8vw, 48px);
   line-height: 1.15;
   letter-spacing: -0.025em;
   font-weight: 700;
@@ -71,8 +71,8 @@ body {
 }
 
 .subtitle {
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.55;
+  font-size: clamp(16.5px, 1.5vw, 20px);
+  line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--text-muted);
   font-weight: 400;
@@ -89,27 +89,27 @@ body {
   margin-bottom: 0.75rem;
 }
 
-/* === Container wrappers === */
+/* === Container wrappers (Modern Wide Layout) === */
 .apple-wrap {
-  max-width: 980px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(20px, 3vw, 40px);
+  padding-right: clamp(20px, 3vw, 40px);
 }
 
 .apple-wrap-wide {
-  max-width: 1180px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(20px, 3vw, 40px);
+  padding-right: clamp(20px, 3vw, 40px);
 }
 
 /* === Section Layouts === */
 .section {
-  padding-top: clamp(60px, 7vw, 96px);
-  padding-bottom: clamp(60px, 7vw, 96px);
+  padding-top: clamp(80px, 9vw, 130px);
+  padding-bottom: clamp(80px, 9vw, 130px);
 }
 
 .section-gray {
