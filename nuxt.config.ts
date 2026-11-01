@@ -82,7 +82,8 @@ export default defineNuxtConfig({
       faq: { es: '/faq', en: '/faq' },
       privacy: { es: '/privacidad', en: '/privacy' },
       terms: { es: '/terminos', en: '/terms' },
-      'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' }
+      'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' },
+      'calculadora-plazos': { es: '/calculadora-plazos', en: '/deadline-calculator' }
     }
   },
 
@@ -97,6 +98,8 @@ export default defineNuxtConfig({
         '/en/features',
         '/alternativa-clio',
         '/en/clio-alternative',
+        '/calculadora-plazos',
+        '/en/deadline-calculator',
         '/blog',
         '/en/blog',
         '/blog/computo-plazos-procesales-dias-habiles-rd',

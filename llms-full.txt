@@ -86,6 +86,7 @@ R: A través de los canales de distribución oficiales: la Mac App Store para us
 ## 7. Referencias Oficiales
 - Web: https://lex-bell.com
 - Características: https://lex-bell.com/caracteristicas
+- Calculadora de Plazos: https://lex-bell.com/calculadora-plazos
 - Comparativa vs Clio: https://lex-bell.com/alternativa-clio
 - Descarga: https://lex-bell.com/#descargar
 - Blog: https://lex-bell.com/blog

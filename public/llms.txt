@@ -14,6 +14,7 @@
 ## Enlaces Principales de Documentación y Acceso
 - [Página Principal](https://lex-bell.com/): Visión general, propuesta de valor y descarga oficial.
 - [Características del Sistema](https://lex-bell.com/caracteristicas): Detalle de funcionalidades (expedientes, cálculo de plazos, clientes, notas y documentos).
+- [Calculadora Gratuita de Plazos Procesales](https://lex-bell.com/calculadora-plazos): Herramienta web interactiva para cómputo de términos legales en días hábiles.
 - [Comparativa: Alternativa Privada a Clio](https://lex-bell.com/alternativa-clio): Análisis comparativo Lexbell vs Clio (privacidad local, offline y precios).
 - [Descarga Oficial para Mac y Windows](https://lex-bell.com/#descargar): Enlaces a la Mac App Store y Microsoft Store.
 - [Blog Jurídico y Guías Procesales](https://lex-bell.com/blog): Artículos sobre cómputo de plazos procesales en días hábiles, secreto profesional en la nube y comparativas de software para abogados 2026.

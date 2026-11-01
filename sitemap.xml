@@ -38,6 +38,24 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://lex-bell.com/caracteristicas"/>
       </url>
 <url>
+        <loc>https://lex-bell.com/calculadora-plazos</loc>
+        <lastmod>2026-11-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lex-bell.com/calculadora-plazos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lex-bell.com/en/deadline-calculator"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lex-bell.com/calculadora-plazos"/>
+      </url>
+<url>
+        <loc>https://lex-bell.com/en/deadline-calculator</loc>
+        <lastmod>2026-11-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lex-bell.com/calculadora-plazos"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lex-bell.com/en/deadline-calculator"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lex-bell.com/calculadora-plazos"/>
+      </url>
+<url>
         <loc>https://lex-bell.com/alternativa-clio</loc>
         <lastmod>2026-11-01</lastmod>
         <changefreq>monthly</changefreq>

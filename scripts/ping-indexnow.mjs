@@ -10,6 +10,8 @@ const URLS = [
   `https://${HOST}/en/features`,
   `https://${HOST}/alternativa-clio`,
   `https://${HOST}/en/clio-alternative`,
+  `https://${HOST}/calculadora-plazos`,
+  `https://${HOST}/en/deadline-calculator`,
   `https://${HOST}/blog`,
   `https://${HOST}/en/blog`,
   `https://${HOST}/blog/computo-plazos-procesales-dias-habiles-rd`,
