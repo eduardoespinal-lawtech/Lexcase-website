@@ -14,6 +14,10 @@ export default defineNuxtPlugin(() => {
               url: 'https://lex-bell.com',
               logo: 'https://lex-bell.com/icon.png',
               email: 'support@lex-bell.com',
+              sameAs: [
+                'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12',
+                'https://apps.microsoft.com/detail/9NLZXP46J9G2'
+              ],
               knowsAbout: [
                 'Legal Practice Management Software',
                 'Gestión de expedientes judiciales',
@@ -22,7 +26,8 @@ export default defineNuxtPlugin(() => {
                 'Control de visados y trámites de inmigración',
                 'Gestión de contratos de alquiler y compraventa inmobiliaria',
                 'Secreto profesional y privacidad de datos legales',
-                'Software local-first para abogados'
+                'Software local-first para abogados',
+                'Derecho Procesal Civil, Penal y Administrativo'
               ]
             },
             {
@@ -53,13 +58,39 @@ export default defineNuxtPlugin(() => {
               applicationSubCategory: 'Law Practice Management Software',
               operatingSystem: 'macOS 12+, Windows 10 and 11 (64-bit)',
               url: 'https://lex-bell.com',
+              sameAs: [
+                'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12',
+                'https://apps.microsoft.com/detail/9NLZXP46J9G2'
+              ],
+              isSimilarTo: [
+                {
+                  '@type': 'SoftwareApplication',
+                  name: 'Clio',
+                  applicationSubCategory: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'SoftwareApplication',
+                  name: 'MyCase',
+                  applicationSubCategory: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'SoftwareApplication',
+                  name: 'PracticePanther',
+                  applicationSubCategory: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'SoftwareApplication',
+                  name: 'Sudespacho',
+                  applicationSubCategory: 'Law Practice Management Software'
+                }
+              ],
               inLanguage: ['es', 'en'],
               softwareVersion: '1.0.0',
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
               },
               keywords:
-                'software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, calculo plazos procesales dias habiles, software consultores inmigracion, seguimiento visados residencia, gestion contratos alquiler compraventa inmobiliaria, alternativa privada clio sin nube, legal practice management software offline',
+                'software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, app para organizar expedientes en mac, programa para llevar casos de clientes en mi despacho, software para abogados gratis o barato, alternativa a clio que no sea cara, software legal sin internet, calculo plazos procesales dias habiles, calculadora plazos judiciales, programa tramites visas inmigracion, software contratos alquiler compraventa, gestor de causas judiciales, organizador de pleitos y juicios, legal practice management software offline, solo attorney case tracker',
               featureList: [
                 'Gestión integral de expedientes judiciales y extrajudiciales con clasificación por materia',
                 'Cálculo automático de plazos procesales y términos legales en días hábiles y naturales',
