@@ -87,7 +87,20 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/en', '/sitemap.xml', '/robots.txt']
+      routes: [
+        '/',
+        '/en',
+        '/blog',
+        '/en/blog',
+        '/blog/computo-plazos-procesales-dias-habiles-rd',
+        '/en/blog/computo-plazos-procesales-dias-habiles-rd',
+        '/blog/secreto-profesional-abogados-nube-seguridad',
+        '/en/blog/secreto-profesional-abogados-nube-seguridad',
+        '/blog/mejores-programas-gestion-expedientes-abogados-2026',
+        '/en/blog/mejores-programas-gestion-expedientes-abogados-2026',
+        '/sitemap.xml',
+        '/robots.txt'
+      ]
     },
     routeRules: {
       '/**': {

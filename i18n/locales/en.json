@@ -47,6 +47,7 @@
   "nav": {
     "home": "Home",
     "features": "Features",
+    "blog": "Blog",
     "support": "Support",
     "contact": "Contact",
     "faq": "FAQ",
@@ -54,6 +55,20 @@
     "terms": "Terms",
     "menu": "Open menu",
     "close": "Close menu"
+  },
+  "blog": {
+    "title": "LegalTech & Law Practice Blog",
+    "subtitle": "Procedural guides, security analysis, and legal technology for modern law firms.",
+    "allCategories": "All",
+    "readArticle": "Read article",
+    "readTime": "read",
+    "share": "Share",
+    "copied": "Link copied to clipboard!",
+    "backToBlog": "← Back to blog",
+    "ctaTitle": "Ready to streamline your legal practice?",
+    "ctaSubtitle": "Download Lexbell today on your Mac or Windows PC. 100% private, local-first, and free up to 50 cases.",
+    "ctaButtonMac": "Download for Mac",
+    "ctaButtonWin": "Download for Windows"
   },
   "seo": {
     "defaultDescription": "Lexbell is the desktop app for managing legal case records: cases, deadlines, documents and notes, all stored locally on your device. For Mac and Windows."

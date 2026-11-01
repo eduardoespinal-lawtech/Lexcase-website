@@ -10,6 +10,10 @@ type Entry = { es: string; en: string; priority: string }
 const entries: Entry[] = [
   { es: '/',                en: '/en',          priority: '1.0' },
   { es: '/caracteristicas', en: '/en/features', priority: '0.9' },
+  { es: '/blog',            en: '/en/blog',     priority: '0.85' },
+  { es: '/blog/computo-plazos-procesales-dias-habiles-rd',   en: '/en/blog/computo-plazos-procesales-dias-habiles-rd',   priority: '0.8' },
+  { es: '/blog/secreto-profesional-abogados-nube-seguridad', en: '/en/blog/secreto-profesional-abogados-nube-seguridad', priority: '0.8' },
+  { es: '/blog/mejores-programas-gestion-expedientes-abogados-2026', en: '/en/blog/mejores-programas-gestion-expedientes-abogados-2026', priority: '0.8' },
   { es: '/soporte',         en: '/en/support',  priority: '0.7' },
   { es: '/contacto',        en: '/en/contact',  priority: '0.7' },
   { es: '/faq',             en: '/en/faq',      priority: '0.7' },

@@ -1,0 +1,615 @@
+<script setup lang="ts">
+import { getBlogPostBySlug, blogPosts, type BlogPost } from '~/data/blogPosts'
+
+const route = useRoute()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
+const config = useRuntimeConfig()
+
+const slug = computed(() => {
+  const s = route.params.slug
+  return Array.isArray(s) ? s[0] : (s as string)
+})
+
+const post = computed<BlogPost | undefined>(() => {
+  return getBlogPostBySlug(slug.value)
+})
+
+// If post doesn't exist, throw 404
+if (!post.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Artículo no encontrado', fatal: true })
+}
+
+const currentUrl = computed(() => {
+  return `https://lex-bell.com${route.path}`
+})
+
+const formattedDate = computed(() => {
+  if (!post.value) return ''
+  try {
+    const d = new Date(post.value.date + 'T00:00:00')
+    return d.toLocaleDateString(locale.value === 'en' ? 'en-US' : 'es-DO', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  } catch {
+    return post.value.date
+  }
+})
+
+// Related posts
+const relatedPosts = computed(() => {
+  if (!post.value) return []
+  return blogPosts.filter((p) => p.slug !== post.value?.slug).slice(0, 2)
+})
+
+// Social share links
+const copied = ref(false)
+function copyLink() {
+  if (process.client) {
+    navigator.clipboard.writeText(window.location.href)
+    copied.value = true
+    setTimeout(() => { copied.value = false }, 3000)
+  }
+}
+
+const shareTwitterUrl = computed(() => {
+  if (!post.value) return ''
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.value.title)}&url=${encodeURIComponent(currentUrl.value)}`
+})
+
+const shareLinkedInUrl = computed(() => {
+  return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl.value)}`
+})
+
+const shareWhatsAppUrl = computed(() => {
+  if (!post.value) return ''
+  return `https://api.whatsapp.com/send?text=${encodeURIComponent(post.value.title + ' ' + currentUrl.value)}`
+})
+
+// Schema.org Structured Data
+useHead(() => {
+  if (!post.value) return {}
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.value.title,
+    description: post.value.description,
+    datePublished: post.value.date,
+    dateModified: post.value.date,
+    author: {
+      '@type': 'Organization',
+      name: post.value.author.name
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Lexbell',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://lex-bell.com/icon.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': currentUrl.value
+    },
+    keywords: post.value.keywords.join(', ')
+  }
+
+  return {
+    title: `${post.value.title} — Lexbell`,
+    meta: [
+      { name: 'description', content: post.value.description },
+      { property: 'og:title', content: `${post.value.title} — Lexbell` },
+      { property: 'og:description', content: post.value.description },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: currentUrl.value },
+      { property: 'article:published_time', content: post.value.date },
+      { name: 'twitter:title', content: post.value.title },
+      { name: 'twitter:description', content: post.value.description }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify(jsonLd)
+      }
+    ]
+  }
+})
+</script>
+
+<template>
+  <div v-if="post" class="article-page">
+    <article class="article-container">
+      <!-- Breadcrumb / Back Link -->
+      <nav class="back-nav mb-8">
+        <NuxtLink :to="localePath('blog')" class="back-link">
+          {{ t('blog.backToBlog') }}
+        </NuxtLink>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="header-meta">
+          <span class="post-cat-badge">{{ post.category }}</span>
+          <span class="meta-dot">·</span>
+          <span class="meta-item">{{ post.readTime }}</span>
+          <span class="meta-dot">·</span>
+          <time :datetime="post.date" class="meta-item">{{ formattedDate }}</time>
+        </div>
+
+        <h1 class="article-title">{{ post.title }}</h1>
+        <p class="article-lead">{{ post.description }}</p>
+
+        <!-- Author & Share bar -->
+        <div class="author-share-bar">
+          <div class="author-info">
+            <div class="author-icon">⚖️</div>
+            <div>
+              <span class="author-name">{{ post.author.name }}</span>
+              <span class="author-role">{{ post.author.role }}</span>
+            </div>
+          </div>
+
+          <!-- Share buttons -->
+          <div class="share-actions">
+            <button class="share-btn" :title="t('blog.share')" @click="copyLink">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span>{{ copied ? t('blog.copied') : t('blog.share') }}</span>
+            </button>
+            <a :href="shareLinkedInUrl" target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="LinkedIn">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a :href="shareTwitterUrl" target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="X / Twitter">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a :href="shareWhatsAppUrl" target="_blank" rel="noopener noreferrer" class="share-icon-btn" title="WhatsApp">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <hr class="header-divider" />
+
+      <!-- Article Body -->
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="prose-legal article-content" v-html="post.content" />
+
+      <!-- IN-ARTICLE CALL TO ACTION (LEXBELL DOWNLOAD) -->
+      <aside class="article-cta-box my-16">
+        <div class="article-cta-inner">
+          <div class="article-cta-badge">SOFTWARE JURÍDICO RECOMENDADO</div>
+          <h3 class="article-cta-title">{{ t('blog.ctaTitle') }}</h3>
+          <p class="article-cta-desc">
+            {{ t('blog.ctaSubtitle') }}
+          </p>
+
+          <div class="article-cta-actions">
+            <a
+              :href="config.public.appleStoreUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-store-btn"
+            >
+              <img src="/apple-touch-icon.png" alt="Apple" class="w-5 h-5 rounded inline-block mr-2" />
+              <span>{{ t('blog.ctaButtonMac') }}</span>
+            </a>
+            <a
+              :href="config.public.microsoftStoreUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cta-store-btn cta-store-secondary"
+            >
+              <svg class="w-4 h-4 mr-2 inline-block text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.901-1.799"/>
+              </svg>
+              <span>{{ t('blog.ctaButtonWin') }}</span>
+            </a>
+          </div>
+          <p class="cta-trust-note">
+            Verificado por Apple y Microsoft · Sin cuotas ocultas · Empieza gratis
+          </p>
+        </div>
+      </aside>
+
+      <!-- RELATED ARTICLES -->
+      <footer v-if="relatedPosts.length > 0" class="related-section pt-12 mt-12 border-t border-gray-200">
+        <h3 class="related-heading">Artículos recomendados</h3>
+        <div class="related-grid mt-6">
+          <NuxtLink
+            v-for="rel in relatedPosts"
+            :key="rel.slug"
+            :to="localePath('/blog/' + rel.slug)"
+            class="related-card group"
+          >
+            <span class="post-cat-badge text-xs">{{ rel.category }}</span>
+            <h4 class="related-card-title group-hover:text-blue-600 transition-colors">
+              {{ rel.title }}
+            </h4>
+            <span class="related-read-more">Leer artículo →</span>
+          </NuxtLink>
+        </div>
+      </footer>
+    </article>
+  </div>
+</template>
+
+<style scoped>
+.article-page {
+  background: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 96px;
+}
+
+.article-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #5f5e5b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: #0066cc;
+}
+
+.article-header {
+  margin-bottom: 32px;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b8a86;
+  margin-bottom: 16px;
+}
+
+.post-cat-badge {
+  background: #eef4ff;
+  color: #0066cc;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.meta-dot {
+  color: #d3d3d0;
+}
+
+.article-title {
+  font-size: clamp(30px, 4.2vw, 46px);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #191919;
+  margin-bottom: 18px;
+}
+
+.article-lead {
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin-bottom: 28px;
+}
+
+.author-share-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f4f4f2;
+  border: 1px solid #ebebea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.author-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #191919;
+}
+
+.author-role {
+  display: block;
+  font-size: 12px;
+  color: #8b8a86;
+}
+
+.share-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #f4f4f2;
+  color: #5f5e5b;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid #ebebea;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.share-btn:hover {
+  background: #e8e8e6;
+  color: #191919;
+}
+
+.share-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f4f4f2;
+  border: 1px solid #ebebea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f5e5b;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.share-icon-btn:hover {
+  background: #e8e8e6;
+  color: #0066cc;
+}
+
+.header-divider {
+  border: 0;
+  border-top: 1px solid #ebebea;
+  margin: 28px 0 36px;
+}
+
+/* Article Prose styling enhancements */
+:deep(.article-content) {
+  font-size: 17.5px;
+  line-height: 1.72;
+  color: #242424;
+}
+
+:deep(.article-content p) {
+  margin: 1.25rem 0;
+}
+
+:deep(.article-content p.lead) {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #191919;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+:deep(.article-content h2) {
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #191919;
+}
+
+:deep(.article-content h3) {
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #191919;
+}
+
+:deep(.article-content ul),
+:deep(.article-content ol) {
+  margin: 1.25rem 0;
+  padding-left: 1.6rem;
+}
+
+:deep(.article-content li) {
+  margin: 0.5rem 0;
+}
+
+:deep(.article-content blockquote) {
+  border-left: 3px solid #0066cc;
+  padding: 12px 20px;
+  margin: 1.8rem 0;
+  background: #f8fafc;
+  border-radius: 0 8px 8px 0;
+  font-size: 18.5px;
+  font-style: italic;
+  color: #1e293b;
+}
+
+:deep(.article-content .callout-box) {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-left: 4px solid #050505;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 2rem 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* CTA Box */
+.article-cta-box {
+  background: linear-gradient(180deg, #fbfbfa 0%, #f4f4f2 100%);
+  border: 1px solid #ebebea;
+  border-radius: 20px;
+  padding: clamp(32px, 4vw, 44px) 28px;
+}
+
+.article-cta-inner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.article-cta-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0066cc;
+  background: #eef4ff;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.article-cta-title {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #191919;
+  margin-bottom: 10px;
+}
+
+.article-cta-desc {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin-bottom: 24px;
+}
+
+.article-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cta-store-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  background: #050505;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.cta-store-btn:hover {
+  background: #262626;
+  transform: translateY(-1px);
+}
+
+.cta-store-secondary {
+  background: #ffffff;
+  color: #191919;
+  border: 1px solid #d3d3d0;
+}
+
+.cta-store-secondary:hover {
+  background: #f4f4f2;
+  color: #050505;
+}
+
+.cta-trust-note {
+  font-size: 12px;
+  color: #8b8a86;
+  margin: 0;
+}
+
+/* Related articles */
+.related-heading {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #191919;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.related-card {
+  display: block;
+  text-decoration: none;
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.related-card:hover {
+  border-color: #d3d3d0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.related-card-title {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #191919;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.related-read-more {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0066cc;
+}
+</style>

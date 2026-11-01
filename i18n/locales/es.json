@@ -47,6 +47,7 @@
   "nav": {
     "home": "Inicio",
     "features": "Características",
+    "blog": "Blog",
     "support": "Soporte",
     "contact": "Contacto",
     "faq": "Preguntas",
@@ -54,6 +55,20 @@
     "terms": "Términos",
     "menu": "Abrir menú",
     "close": "Cerrar menú"
+  },
+  "blog": {
+    "title": "Blog Jurídico & LegalTech",
+    "subtitle": "Guías prácticas procesales, análisis de privacidad y tecnología para despachos jurídicos modernos.",
+    "allCategories": "Todos",
+    "readArticle": "Leer artículo",
+    "readTime": "lectura",
+    "share": "Compartir",
+    "copied": "¡Enlace copiado al portapapeles!",
+    "backToBlog": "← Volver al blog",
+    "ctaTitle": "¿Listo para optimizar la gestión de tus expedientes?",
+    "ctaSubtitle": "Descarga Lexbell hoy mismo en tu Mac o Windows. 100% privado, local y gratis con hasta 50 casos.",
+    "ctaButtonMac": "Descargar para Mac",
+    "ctaButtonWin": "Descargar para Windows"
   },
   "seo": {
     "defaultDescription": "Lexbell es la app de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows."
