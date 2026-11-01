@@ -119,6 +119,7 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
   margin-bottom: 22px;
   max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 .showcase-nav::-webkit-scrollbar { display: none; }
@@ -184,9 +185,16 @@ const currentImage = computed(() => locale.value === 'en' ? currentTab.value.img
 }
 
 @media (max-width: 640px) {
+  .showcase-nav {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 4px;
+    border-radius: 12px;
+  }
   .showcase-tab-btn {
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+    min-height: 40px;
   }
 }
 </style>

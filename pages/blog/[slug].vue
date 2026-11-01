@@ -74,6 +74,53 @@ const shareWhatsAppUrl = computed(() => {
   return `https://api.whatsapp.com/send?text=${encodeURIComponent(postTitle.value + ' ' + currentUrl.value)}`
 })
 
+// Reading progress bar percentage
+const readingProgress = ref(0)
+const updateProgress = () => {
+  if (typeof window === 'undefined') return
+  const scrollTop = window.scrollY || document.documentElement.scrollTop
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight
+  if (docHeight <= 0) {
+    readingProgress.value = 0
+    return
+  }
+  const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100))
+  readingProgress.value = pct
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateProgress, { passive: true })
+  updateProgress()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateProgress)
+})
+
+// Table of Contents extraction & Heading IDs
+interface TocItem {
+  id: string
+  text: string
+}
+
+const toc = computed<TocItem[]>(() => {
+  if (!postContent.value) return []
+  const matches = [...postContent.value.matchAll(/<h2>(.*?)<\/h2>/g)]
+  return matches.map((m, idx) => {
+    const rawText = m[1].replace(/<[^>]*>/g, '').trim()
+    return { id: `sec-${idx + 1}`, text: rawText }
+  })
+})
+
+const postContentWithIds = computed(() => {
+  if (!postContent.value) return ''
+  let idx = 0
+  return postContent.value.replace(/<h2>(.*?)<\/h2>/g, (_, inner) => {
+    idx++
+    return `<h2 id="sec-${idx}">${inner}</h2>`
+  })
+})
+
 // Schema.org Structured Data
 useHead(() => {
   if (!post.value) return {}
@@ -104,6 +151,31 @@ useHead(() => {
     keywords: postKeywords.value.join(', ')
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: isEn.value ? 'Home' : 'Inicio',
+        item: isEn.value ? 'https://lex-bell.com/en' : 'https://lex-bell.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: isEn.value ? 'https://lex-bell.com/en/blog' : 'https://lex-bell.com/blog'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: postTitle.value,
+        item: currentUrl.value
+      }
+    ]
+  }
+
   return {
     title: `${postTitle.value} — Lexbell`,
     meta: [
@@ -119,7 +191,10 @@ useHead(() => {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify(jsonLd)
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [jsonLd, breadcrumbLd]
+        })
       }
     ]
   }
@@ -128,12 +203,25 @@ useHead(() => {
 
 <template>
   <div v-if="post" class="article-page">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-bar" :style="{ width: `${readingProgress}%` }" />
+    </div>
+
     <article class="article-container">
-      <!-- Breadcrumb / Back Link -->
-      <nav class="back-nav mb-8">
-        <NuxtLink :to="localePath('blog')" class="back-link">
-          {{ t('blog.backToBlog') }}
-        </NuxtLink>
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb-nav mb-8" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li>
+            <NuxtLink :to="localePath('index')" class="breadcrumb-link">{{ t('nav.home') }}</NuxtLink>
+            <span class="breadcrumb-sep">/</span>
+          </li>
+          <li>
+            <NuxtLink :to="localePath('blog')" class="breadcrumb-link">{{ t('nav.blog') }}</NuxtLink>
+            <span class="breadcrumb-sep">/</span>
+          </li>
+          <li class="breadcrumb-current" aria-current="page">{{ postCategory }}</li>
+        </ol>
       </nav>
 
       <!-- Article Header -->
@@ -189,9 +277,26 @@ useHead(() => {
 
       <hr class="header-divider" />
 
+      <!-- TABLE OF CONTENTS (NOTION STYLE) -->
+      <nav v-if="toc.length > 1" class="article-toc" aria-label="Tabla de contenidos">
+        <div class="toc-header">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <span class="toc-title">{{ isEn ? 'Table of Contents' : 'En este artículo' }}</span>
+        </div>
+        <ol class="toc-list">
+          <li v-for="item in toc" :key="item.id">
+            <a :href="'#' + item.id" class="toc-link">{{ item.text }}</a>
+          </li>
+        </ol>
+      </nav>
+
       <!-- Article Body -->
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="prose-legal article-content" v-html="postContent" />
+      <div class="prose-legal article-content" v-html="postContentWithIds" />
 
       <!-- IN-ARTICLE CALL TO ACTION (LEXBELL OFFICIAL STORE DOWNLOADS) -->
       <aside class="article-cta-box my-16">
@@ -247,6 +352,95 @@ useHead(() => {
   max-width: 860px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Reading Progress Bar */
+.reading-progress-track {
+  position: fixed;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: transparent;
+  z-index: 45;
+  pointer-events: none;
+}
+.reading-progress-bar {
+  height: 100%;
+  background: #0066cc;
+  transition: width 0.08s linear;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+}
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b8a86;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumb-link {
+  color: #5f5e5b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.breadcrumb-link:hover {
+  color: #0066cc;
+}
+.breadcrumb-sep {
+  color: #d3d3d0;
+  user-select: none;
+}
+.breadcrumb-current {
+  color: #191919;
+  font-weight: 500;
+}
+
+/* Table of Contents (Notion style) */
+.article-toc {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 36px;
+}
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #191919;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toc-link {
+  color: #5f5e5b;
+  text-decoration: none;
+  font-size: 14.5px;
+  line-height: 1.45;
+  transition: color 0.15s ease, transform 0.15s ease;
+  display: inline-block;
+}
+.toc-link:hover {
+  color: #0066cc;
+  transform: translateX(3px);
 }
 
 .back-link {
@@ -432,6 +626,7 @@ useHead(() => {
 }
 
 :deep(.article-content h2) {
+  scroll-margin-top: 80px;
   margin-top: 2.8rem;
   margin-bottom: 1rem;
   font-size: 26px;
