@@ -572,7 +572,7 @@ const toggleFaq = (idx: number) => {
 
           <!-- Plan Ilimitado -->
           <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Professional' : 'Recomendado para despachos' }}</span>
+            <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Solo Professional' : 'Para profesionales independientes' }}</span>
             <h3 class="pricing-name">{{ t('home.proPlanTitle') }}</h3>
             <div class="pricing-price">{{ t('home.proPlanPrice') }}</div>
             <p class="pricing-desc">{{ t('home.proPlanDesc') }}</p>
