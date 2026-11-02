@@ -139,8 +139,6 @@ const solutionsPreview = computed(() => {
       <div class="ms-hero-inner">
         <!-- Columna Izquierda: Mensaje Directo + CTAs -->
         <div class="ms-hero-content">
-          <span class="ms-hero-badge">{{ t('home.heroPill') }}</span>
-
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
@@ -148,15 +146,6 @@ const solutionsPreview = computed(() => {
           <p class="ms-hero-subtitle">
             {{ t('home.heroSubtitle') }}
           </p>
-
-          <!-- Micro-Garantías de Transparencia -->
-          <div class="ms-hero-guarantees">
-            <span class="guarantee-item">✓ {{ locale === 'en' ? '15-Day Free Pro Trial' : '15 Días de prueba Pro gratis' }}</span>
-            <span class="guarantee-dot">·</span>
-            <span class="guarantee-item">✓ {{ locale === 'en' ? 'Free up to 50 cases' : 'Gratis hasta 50 expedientes' }}</span>
-            <span class="guarantee-dot">·</span>
-            <span class="guarantee-item">✓ {{ locale === 'en' ? 'No credit card' : 'Sin tarjeta de crédito' }}</span>
-          </div>
 
           <!-- Official Store Download Badges -->
           <div class="ms-hero-downloads">
@@ -229,49 +218,7 @@ const solutionsPreview = computed(() => {
       </div>
     </section>
 
-    <!-- =================== 2. LOS 3 PILARES ESENCIALES =================== -->
-    <section class="section">
-      <div class="apple-wrap">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <span class="eyebrow">{{ t('home.pillarsEyebrow') }}</span>
-          <h2 class="h-section">{{ t('home.pillarsTitle') }}</h2>
-          <p class="subtitle mt-3">{{ t('home.pillarsSubtitle') }}</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="pillar-card">
-            <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="pillar-title">{{ t('home.pillar1Title') }}</h3>
-            <p class="pillar-desc">{{ t('home.pillar1Desc') }}</p>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-              </svg>
-            </div>
-            <h3 class="pillar-title">{{ t('home.pillar2Title') }}</h3>
-            <p class="pillar-desc">{{ t('home.pillar2Desc') }}</p>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-              </svg>
-            </div>
-            <h3 class="pillar-title">{{ t('home.pillar3Title') }}</h3>
-            <p class="pillar-desc">{{ t('home.pillar3Desc') }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 3. SOLUCIONES POR PÚBLICO OBJETIVO =================== -->
+    <!-- =================== 2. SOLUCIONES POR PÚBLICO OBJETIVO =================== -->
     <section class="section section-gray" id="soluciones">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-12">
@@ -432,44 +379,7 @@ const solutionsPreview = computed(() => {
       </div>
     </section>
 
-    <!-- =================== 6. PRECIOS TRANSPARENTES TEASER =================== -->
-    <section class="section" id="precios">
-      <div class="apple-wrap">
-        <div class="pricing-teaser-card max-w-4xl mx-auto">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <span class="eyebrow">{{ t('home.pricingEyebrow') }}</span>
-            <h2 class="h-section">{{ t('home.pricingTitle') }}</h2>
-            <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
-          </div>
-
-          <div class="pricing-teaser-grid">
-            <div class="teaser-plan-col">
-              <span class="teaser-plan-badge">{{ t('home.freePlanBadge') }}</span>
-              <h3 class="teaser-plan-title">{{ t('home.freePlanTitle') }}</h3>
-              <div class="teaser-plan-price">$0</div>
-              <p class="teaser-plan-period">{{ t('home.freePlanPeriod') }}</p>
-              <p class="teaser-plan-desc">{{ t('home.freePlanDesc') }}</p>
-            </div>
-
-            <div class="teaser-plan-col teaser-plan-highlight">
-              <span class="teaser-plan-badge teaser-badge-pro">{{ t('home.proAnnualBadge') }}</span>
-              <h3 class="teaser-plan-title">{{ t('home.proAnnualTitle') }}</h3>
-              <div class="teaser-plan-price">US$4.16 <span class="teaser-per-mo">/ mes</span></div>
-              <p class="teaser-plan-period">{{ t('home.proAnnualPeriod') }}</p>
-              <p class="teaser-plan-desc">{{ t('home.proAnnualDesc') }}</p>
-            </div>
-          </div>
-
-          <div class="pricing-teaser-footer text-center mt-10">
-            <NuxtLink :to="localePath('pricing')" class="pricing-explore-btn">
-              {{ locale === 'en' ? 'View all plans, features, and trial conditions' : 'Ver todos los planes, características y condiciones de prueba' }} →
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 7. PREGUNTAS FRECUENTES (Acordeón Notion) =================== -->
+    <!-- =================== 5. PREGUNTAS FRECUENTES (Acordeón Notion) =================== -->
     <section class="section section-gray" id="faq">
       <div class="apple-wrap max-w-3xl">
         <div class="text-center mb-12">
@@ -782,43 +692,6 @@ const solutionsPreview = computed(() => {
   margin: 0;
 }
 
-/* PILARES */
-.pillar-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
-  border-radius: 16px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pillar-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #f1f5f9;
-  color: #0066cc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
-.pillar-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #050505;
-  margin: 0 0 8px;
-  letter-spacing: -0.01em;
-}
-
-.pillar-desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: #5f5e5b;
-  margin: 0;
-}
-
 /* SOLUCIONES TEASER */
 .solution-teaser-card {
   background: #ffffff;
@@ -993,108 +866,6 @@ const solutionsPreview = computed(() => {
   font-size: 12px;
   color: #64748b;
   margin-top: 2px;
-}
-
-/* PRICING TEASER CARD */
-.pricing-teaser-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
-  border-radius: 20px;
-  padding: clamp(28px, 4vw, 44px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-}
-
-.pricing-teaser-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-@media (min-width: 640px) {
-  .pricing-teaser-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.teaser-plan-col {
-  border: 1px solid #ebebea;
-  border-radius: 14px;
-  padding: 24px;
-  background: #fbfbfa;
-}
-
-.teaser-plan-highlight {
-  border-color: #0066cc;
-  background: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
-}
-
-.teaser-plan-badge {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  background: #e2e8f0;
-  color: #334155;
-  margin-bottom: 12px;
-}
-
-.teaser-badge-pro {
-  background: #e6f0fa;
-  color: #0066cc;
-}
-
-.teaser-plan-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #050505;
-  margin: 0 0 6px;
-}
-
-.teaser-plan-price {
-  font-size: 28px;
-  font-weight: 800;
-  color: #050505;
-  margin-bottom: 6px;
-}
-
-.teaser-per-mo {
-  font-size: 14px;
-  font-weight: 500;
-  color: #64748b;
-}
-
-.teaser-plan-period {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #0066cc;
-  margin: 0 0 10px;
-}
-
-.teaser-plan-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #5f5e5b;
-  margin: 0;
-}
-
-.pricing-explore-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 24px;
-  border-radius: 10px;
-  background: #050505;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.pricing-explore-btn:hover {
-  background: #262626;
 }
 
 /* FAQ ACORDEÓN */

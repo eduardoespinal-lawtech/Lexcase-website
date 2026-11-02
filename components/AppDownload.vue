@@ -74,15 +74,6 @@ const msBadgeSrc = computed(() => {
         />
       </a>
     </div>
-
-    <!-- Micro-guarantees of trust and friction-free download -->
-    <div class="store-guarantee">
-      <span class="guarantee-item">✓ {{ t('common.guaranteeTrial') }}</span>
-      <span class="guarantee-sep">·</span>
-      <span class="guarantee-item">✓ {{ t('common.guaranteeCases') }}</span>
-      <span class="guarantee-sep">·</span>
-      <span class="guarantee-item">✓ {{ t('common.guaranteeCard') }}</span>
-    </div>
   </div>
 </template>
 
