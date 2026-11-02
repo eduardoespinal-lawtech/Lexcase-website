@@ -205,18 +205,25 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Laptop inclinada en el escritorio con la app real (como en Microsoft 365) -->
-        <div class="ms-hero-device-col">
-          <div class="ms-scene-wrapper">
-            <img
-              :src="locale === 'en' ? '/screenshots/ms-laptop-en.webp?v=1.1.19' : '/screenshots/ms-laptop-es.webp?v=1.1.19'"
-              :alt="locale === 'en' ? 'Lexbell Desktop App running on PC' : 'Aplicación de escritorio Lexbell ejecutándose en ordenador'"
-              class="ms-scene-img"
-              width="1408"
-              height="720"
-              loading="eager"
-              fetchpriority="high"
-            />
+        <!-- Columna Derecha: MacBook Pro frontal con la app Lexbell abierta -->
+        <div class="hero-macbook-col">
+          <div class="macbook-device">
+            <div class="macbook-lid">
+              <div class="macbook-camera"></div>
+              <img
+                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
+                :alt="locale === 'en' ? 'Lexbell Desktop App Interface on MacBook' : 'Interfaz de la aplicación Lexbell en MacBook'"
+                class="macbook-screen"
+                width="2730"
+                height="1600"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="macbook-base">
+              <div class="macbook-notch"></div>
+            </div>
+            <div class="macbook-shadow"></div>
           </div>
         </div>
       </div>
@@ -622,9 +629,10 @@ const toggleFaq = (idx: number) => {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Plan Gratuito -->
           <div class="pricing-card pricing-card-free">
-            <span class="pricing-badge">{{ locale === 'en' ? 'Free Forever' : 'Gratis para empezar' }}</span>
+            <span class="pricing-badge">{{ t('home.freePlanBadge') }}</span>
             <h3 class="pricing-name">{{ t('home.freePlanTitle') }}</h3>
             <div class="pricing-price">{{ t('home.freePlanPrice') }}</div>
+            <p class="pricing-period">{{ t('home.freePlanPeriod') }}</p>
             <p class="pricing-desc">{{ t('home.freePlanDesc') }}</p>
             <ul class="pricing-features">
               <li>✓ {{ t('home.freePlanFeature1') }}</li>
@@ -639,11 +647,12 @@ const toggleFaq = (idx: number) => {
             </a>
           </div>
 
-          <!-- Plan Ilimitado -->
+          <!-- Plan Ilimitado (Pro) -->
           <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ locale === 'en' ? 'Solo Professional' : 'Para profesionales independientes' }}</span>
+            <span class="pricing-badge pricing-badge-pro">{{ t('home.proPlanBadge') }}</span>
             <h3 class="pricing-name">{{ t('home.proPlanTitle') }}</h3>
             <div class="pricing-price">{{ t('home.proPlanPrice') }}</div>
+            <p class="pricing-period">{{ t('home.proPlanPeriod') }}</p>
             <p class="pricing-desc">{{ t('home.proPlanDesc') }}</p>
             <ul class="pricing-features">
               <li>✓ {{ t('home.proPlanFeature1') }}</li>
@@ -651,10 +660,26 @@ const toggleFaq = (idx: number) => {
               <li>✓ {{ t('home.proPlanFeature3') }}</li>
               <li>✓ {{ t('home.proPlanFeature4') }}</li>
               <li>✓ {{ t('home.proPlanFeature5') }}</li>
+              <li>✓ {{ t('home.proPlanFeature6') }}</li>
             </ul>
             <a href="#descargar" class="pricing-btn pricing-btn-pro">
               {{ t('home.proPlanCTA') }}
             </a>
+          </div>
+        </div>
+
+        <!-- Caja explicativa transparente sobre el período de prueba -->
+        <div class="trial-info-wrapper max-w-4xl mx-auto mt-10">
+          <div class="trial-info-box">
+            <div class="trial-info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </div>
+            <div class="trial-info-content">
+              <h4 class="trial-info-title">{{ t('home.pricingTrialNoteTitle') }}</h4>
+              <p class="trial-info-desc">{{ t('home.pricingTrialNote') }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -797,35 +822,81 @@ const toggleFaq = (idx: number) => {
   align-items: flex-start;
 }
 
-/* --- ESCENA DEL ESCRITORIO CON LAPTOP INCLINADA (ESTILO EXACTO MICROSOFT 365) --- */
-.ms-hero-device-col {
+/* --- MACBOOK PRO MOCKUP (FRONTAL, NÍTIDO, ESTILO APPLE) --- */
+.hero-macbook-col {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 100%;
 }
 
-.ms-scene-wrapper {
+.macbook-device {
   position: relative;
   width: 100%;
-  max-width: 680px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.12), 0 8px 20px -8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
 }
 
-.ms-scene-wrapper:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 56px -12px rgba(0, 0, 0, 0.16), 0 10px 24px -8px rgba(0, 0, 0, 0.08);
+.macbook-lid {
+  position: relative;
+  width: 100%;
+  background: #141416;
+  border: 4px solid #202023;
+  border-radius: 14px 14px 0 0;
+  padding: 8px 8px 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-.ms-scene-img {
+.macbook-camera {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+.macbook-screen {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.macbook-base {
+  width: 104%;
+  height: 12px;
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.macbook-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 4px;
+  background: #64748b;
+  border-radius: 0 0 6px 6px;
+}
+
+.macbook-shadow {
+  width: 88%;
+  height: 18px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
+  margin-top: 4px;
 }
 
 /* === HERO VALUE CARDS (Estilo Minimalista Muse / Linear) === */
@@ -1165,6 +1236,58 @@ const toggleFaq = (idx: number) => {
   line-height: 1.5;
   color: #5f5e5b;
   margin: 0 0 24px;
+}
+
+.pricing-period {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0066cc;
+  margin: -6px 0 12px;
+}
+
+.trial-info-wrapper {
+  margin-top: 36px;
+}
+
+.trial-info-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.trial-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trial-info-content {
+  flex: 1;
+}
+
+.trial-info-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.trial-info-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
 }
 
 .pricing-features {
