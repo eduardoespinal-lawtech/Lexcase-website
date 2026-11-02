@@ -59,26 +59,32 @@ useHead(() => {
   }
 })
 
-// Audiencias / Especialidades
-type AudienceKey = 'litigio' | 'migracion' | 'inmobiliario'
-const activeAudience = ref<AudienceKey>('litigio')
+// Audiencias / Especialidades (Los 6 módulos de Lexbell)
+type AudienceKey = 'judicial' | 'administrativo' | 'migracion' | 'empresa' | 'alquiler' | 'compraventa'
+const activeAudience = ref<AudienceKey>('judicial')
 const route = useRoute()
 
 onMounted(() => {
   const q = String(route.query.nicho || route.query.audience || route.query.sector || '').toLowerCase()
   const hash = (typeof window !== 'undefined' ? window.location.hash.toLowerCase() : '')
-  if (q.includes('migra') || q.includes('visa') || hash.includes('migra')) {
+  if (q.includes('admin') || hash.includes('admin')) {
+    activeAudience.value = 'administrativo'
+  } else if (q.includes('migra') || q.includes('visa') || hash.includes('migra')) {
     activeAudience.value = 'migracion'
-  } else if (q.includes('inmo') || q.includes('alqui') || q.includes('real') || hash.includes('inmo') || hash.includes('alqui')) {
-    activeAudience.value = 'inmobiliario'
-  } else if (q.includes('abog') || q.includes('liti') || q.includes('legal') || hash.includes('abog') || hash.includes('liti')) {
-    activeAudience.value = 'litigio'
+  } else if (q.includes('empre') || q.includes('corp') || hash.includes('empre')) {
+    activeAudience.value = 'empresa'
+  } else if (q.includes('alqui') || q.includes('arrend') || hash.includes('alqui')) {
+    activeAudience.value = 'alquiler'
+  } else if (q.includes('compra') || q.includes('venta') || hash.includes('compra')) {
+    activeAudience.value = 'compraventa'
+  } else if (q.includes('abog') || q.includes('liti') || q.includes('judic') || hash.includes('judic')) {
+    activeAudience.value = 'judicial'
   }
 })
 
 const audiences = computed(() => [
   {
-    key: 'litigio' as AudienceKey,
+    key: 'judicial' as AudienceKey,
     label: t('home.audTab1'),
     icon: 'scale',
     eyebrow: t('home.audTab1Eyebrow'),
@@ -92,9 +98,9 @@ const audiences = computed(() => [
     img: locale.value === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'
   },
   {
-    key: 'migracion' as AudienceKey,
+    key: 'administrativo' as AudienceKey,
     label: t('home.audTab2'),
-    icon: 'plane',
+    icon: 'landmark',
     eyebrow: t('home.audTab2Eyebrow'),
     title: t('home.audTab2Title'),
     desc: t('home.audTab2Desc'),
@@ -103,12 +109,12 @@ const audiences = computed(() => [
       t('home.audTab2Point2'),
       t('home.audTab2Point3')
     ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
+    img: locale.value === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'
   },
   {
-    key: 'inmobiliario' as AudienceKey,
+    key: 'migracion' as AudienceKey,
     label: t('home.audTab3'),
-    icon: 'building',
+    icon: 'plane',
     eyebrow: t('home.audTab3Eyebrow'),
     title: t('home.audTab3Title'),
     desc: t('home.audTab3Desc'),
@@ -116,6 +122,48 @@ const audiences = computed(() => [
       t('home.audTab3Point1'),
       t('home.audTab3Point2'),
       t('home.audTab3Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
+  },
+  {
+    key: 'empresa' as AudienceKey,
+    label: t('home.audTab4'),
+    icon: 'briefcase',
+    eyebrow: t('home.audTab4Eyebrow'),
+    title: t('home.audTab4Title'),
+    desc: t('home.audTab4Desc'),
+    points: [
+      t('home.audTab4Point1'),
+      t('home.audTab4Point2'),
+      t('home.audTab4Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/mapa.webp?v=1.1.18'
+  },
+  {
+    key: 'alquiler' as AudienceKey,
+    label: t('home.audTab5'),
+    icon: 'key',
+    eyebrow: t('home.audTab5Eyebrow'),
+    title: t('home.audTab5Title'),
+    desc: t('home.audTab5Desc'),
+    points: [
+      t('home.audTab5Point1'),
+      t('home.audTab5Point2'),
+      t('home.audTab5Point3')
+    ],
+    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
+  },
+  {
+    key: 'compraventa' as AudienceKey,
+    label: t('home.audTab6'),
+    icon: 'file-text',
+    eyebrow: t('home.audTab6Eyebrow'),
+    title: t('home.audTab6Title'),
+    desc: t('home.audTab6Desc'),
+    points: [
+      t('home.audTab6Point1'),
+      t('home.audTab6Point2'),
+      t('home.audTab6Point3')
     ],
     img: locale.value === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'
   }
@@ -223,8 +271,11 @@ const toggleFaq = (idx: number) => {
             >
               <!-- Icon -->
               <svg v-if="aud.icon === 'scale'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+              <svg v-else-if="aud.icon === 'landmark'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
               <svg v-else-if="aud.icon === 'plane'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <svg v-else-if="aud.icon === 'briefcase'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <svg v-else-if="aud.icon === 'key'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M21 2l-9.6 9.6M15.5 7.5l3 3M18.5 4.5l3 3"/></svg>
+              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
               <span>{{ aud.label }}</span>
             </button>
           </div>
