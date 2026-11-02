@@ -180,26 +180,51 @@ const toggleFaq = (idx: number) => {
 
 <template>
   <div class="notion-landing">
-    <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
-    <section class="notion-hero" id="descargar">
-      <div class="notion-hero-inner">
-        <h1 class="hero-h1">
-          <span class="hero-line">{{ t('home.heroTitle') }}</span>
-          <span class="hero-line hero-h1-accent">{{ t('home.heroTitle2') }}</span>
-        </h1>
+    <!-- =================== 1. HERO SECTION (Estilo Microsoft 365: Split 2-Column con Laptop) =================== -->
+    <section class="ms-hero-section" id="descargar">
+      <div class="ms-hero-container">
+        <!-- Columna Izquierda: Mensajes y Botones Oficiales de las Tiendas -->
+        <div class="ms-hero-text-col">
+          <h1 class="ms-hero-h1">
+            <span class="ms-hero-line">{{ t('home.heroTitle') }}</span>
+            <span class="ms-hero-line ms-hero-accent">{{ t('home.heroTitle2') }}</span>
+          </h1>
 
-        <div class="hero-desc-group">
-          <p class="hero-p">
-            {{ t('home.heroSubtitle') }}
-          </p>
-          <p class="hero-p-sub">
-            {{ t('home.heroSubtitle2') }}
-          </p>
+          <div class="ms-hero-desc-group">
+            <p class="ms-hero-p">
+              {{ t('home.heroSubtitle') }}
+            </p>
+            <p class="ms-hero-p-sub">
+              {{ t('home.heroSubtitle2') }}
+            </p>
+          </div>
+
+          <!-- Official Store Download Badges (Mac App Store y Microsoft Store) -->
+          <div class="ms-hero-downloads">
+            <AppDownload />
+          </div>
         </div>
 
-        <!-- Official Store Download Badges -->
-        <div class="hero-downloads">
-          <AppDownload center />
+        <!-- Columna Derecha: Laptop en perspectiva de escritorio mostrando la app real (como en Microsoft 365) -->
+        <div class="ms-hero-device-col">
+          <div class="ms-laptop-wrapper">
+            <div class="ms-laptop-screen-frame">
+              <div class="ms-laptop-notch-camera"></div>
+              <img
+                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
+                :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell en ordenador'"
+                class="ms-laptop-screen-img"
+                width="2730"
+                height="1600"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="ms-laptop-deck">
+              <div class="ms-laptop-deck-center"></div>
+            </div>
+            <div class="ms-laptop-desk-shadow"></div>
+          </div>
         </div>
       </div>
 
@@ -701,73 +726,153 @@ const toggleFaq = (idx: number) => {
   color: #191919;
 }
 
-/* === HERO SECTION === */
-.notion-hero {
+/* === HERO SECTION (ESTILO MICROSOFT 365: SPLIT 2 COLUMNAS CON LAPTOP) === */
+.ms-hero-section {
   position: relative;
-  background: #ffffff;
-  padding: clamp(56px, 7vw, 84px) 24px clamp(48px, 6vw, 68px);
-  text-align: center;
+  background: #fbfbfa;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%);
+  padding: clamp(48px, 6vw, 76px) 24px clamp(40px, 5vw, 64px);
+  overflow: hidden;
+  border-bottom: 1px solid #ebebea;
 }
 
-.notion-hero-inner {
-  max-width: 1120px;
+.ms-hero-container {
+  max-width: 1360px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
 }
 
-.hero-h1 {
-  font-size: clamp(32px, 4.2vw, 54px);
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-  color: #111111;
-  margin: 0 auto;
-  text-wrap: balance;
-}
-
-.hero-line {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .hero-line {
-    white-space: nowrap;
+@media (min-width: 992px) {
+  .ms-hero-container {
+    grid-template-columns: 1.12fr 1fr;
+    gap: 56px;
   }
 }
 
-.hero-h1-accent {
+.ms-hero-text-col {
+  text-align: left;
+}
+
+.ms-hero-h1 {
+  font-size: clamp(32px, 3.8vw, 48px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.ms-hero-line {
+  display: block;
+}
+
+.ms-hero-accent {
   color: #0066cc;
 }
 
-.hero-desc-group {
-  margin: 22px auto 0;
-  max-width: 840px;
+.ms-hero-desc-group {
+  margin: 0 0 32px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  max-width: 640px;
 }
 
-.hero-p {
-  font-size: clamp(17px, 1.45vw, 19.5px);
+.ms-hero-p {
+  font-size: clamp(16.5px, 1.35vw, 19px);
   line-height: 1.5;
   color: #27272a;
   margin: 0;
   letter-spacing: -0.01em;
-  text-wrap: balance;
 }
 
-.hero-p-sub {
-  font-size: clamp(15px, 1.3vw, 17px);
+.ms-hero-p-sub {
+  font-size: clamp(14.5px, 1.2vw, 16.5px);
   line-height: 1.55;
   color: #52525b;
   margin: 0;
   letter-spacing: -0.01em;
-  text-wrap: balance;
 }
 
-.hero-downloads {
-  margin-top: 28px;
+.ms-hero-downloads {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --- LAPTOP EN PERSPECTIVA DE ESCRITORIO (ESTILO FOTO MICROSOFT 365) --- */
+.ms-hero-device-col {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ms-laptop-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.12));
+}
+
+.ms-laptop-screen-frame {
+  background: #18181b;
+  border: 4px solid #27272a;
+  border-radius: 12px 12px 2px 2px;
+  padding: 6px 6px 8px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.ms-laptop-notch-camera {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 2;
+}
+
+.ms-laptop-screen-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.ms-laptop-deck {
+  height: 12px;
+  background: linear-gradient(180deg, #e4e4e7 0%, #cbd5e1 60%, #94a3b8 100%);
+  border-radius: 0 0 14px 14px;
+  margin: 0 -8px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.ms-laptop-deck-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #64748b;
+  border-radius: 0 0 4px 4px;
+}
+
+.ms-laptop-desk-shadow {
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
+  margin-top: 4px;
 }
 
 /* === HERO VALUE CARDS (Estilo Minimalista Muse / Linear) === */
@@ -1213,5 +1318,40 @@ const toggleFaq = (idx: number) => {
   background: #f7f7f5;
   border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
+}
+
+/* === MODO OSCURO (HERO ESTILO MICROSOFT) === */
+@media (prefers-color-scheme: dark) {
+  .notion-landing {
+    background: #0d0d0e;
+    color: #f4f4f5;
+  }
+  .ms-hero-section {
+    background: #0d0d0e;
+    background: linear-gradient(180deg, #141416 0%, #0a0a0b 100%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  .ms-hero-h1 {
+    color: #ffffff;
+  }
+  .ms-hero-p {
+    color: #e4e4e7;
+  }
+  .ms-hero-p-sub {
+    color: #a1a1aa;
+  }
+  .ms-laptop-wrapper {
+    filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.5));
+  }
+  .ms-laptop-screen-frame {
+    background: #111113;
+    border-color: #27272a;
+  }
+  .ms-laptop-deck {
+    background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
+  }
+  .ms-laptop-deck-center {
+    background: #18181b;
+  }
 }
 </style>

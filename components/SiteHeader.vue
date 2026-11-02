@@ -7,35 +7,44 @@ const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
 
 const links = computed(() => [
-  { to: localePath('index'), label: t('nav.home') },
+  { to: localePath('index') + '#especialidades', label: t('nav.specialties') },
   { to: localePath('features'), label: t('nav.features') },
-  { to: localePath('blog'), label: t('nav.blog') },
-  { to: localePath('support'), label: t('nav.support') },
+  { to: localePath('index') + '#precios', label: t('nav.pricing') },
   { to: localePath('faq'), label: t('nav.faq') },
-  { to: localePath('contact'), label: t('nav.contact') }
+  { to: localePath('support'), label: t('nav.support') },
+  { to: localePath('blog'), label: t('nav.blog') }
 ])
 </script>
 
 <template>
   <header class="site-header">
     <div class="site-header-inner">
-      <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
-        <LogoMark :size="20" />
-      </NuxtLink>
-
-      <nav class="site-header-nav" aria-label="Primary">
-        <NuxtLink
-          v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="site-header-link"
-        >
-          {{ link.label }}
+      <!-- Izquierda: Logo + Pipe + Tag de Producto + Enlaces (Estilo Microsoft 365) -->
+      <div class="site-header-left">
+        <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
+          <LogoMark :size="20" />
+          <span class="header-pipe">|</span>
+          <span class="header-product-tag">{{ t('nav.productTag') }}</span>
         </NuxtLink>
-      </nav>
 
+        <nav class="site-header-nav" aria-label="Primary">
+          <NuxtLink
+            v-for="link in links"
+            :key="link.to"
+            :to="link.to"
+            class="site-header-link"
+          >
+            {{ link.label }}
+          </NuxtLink>
+        </nav>
+      </div>
+
+      <!-- Derecha: Selector de Idioma + Botón Acción Estilo Microsoft + Móvil -->
       <div class="site-header-tail">
         <LangSwitcher />
+        <a :href="localePath('index') + '#descargar'" class="header-trial-btn">
+          {{ t('nav.tryFree') }}
+        </a>
         <button
           class="site-header-burger"
           :aria-label="open ? t('nav.close') : t('nav.menu')"
@@ -65,6 +74,9 @@ const links = computed(() => [
           >
             {{ link.label }}
           </NuxtLink>
+          <a :href="localePath('index') + '#descargar'" class="site-header-mobile-cta" @click="open = false">
+            {{ t('nav.tryFree') }}
+          </a>
           <div class="site-header-mobile-lang">
             <span class="mobile-lang-label">{{ locale === 'es' ? 'Idioma' : 'Language' }}</span>
             <LangSwitcher />
@@ -80,7 +92,7 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -88,12 +100,18 @@ const links = computed(() => [
 .site-header-inner {
   max-width: 1440px;
   margin: 0 auto;
-  height: 54px;
+  height: 56px;
   padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
+}
+.site-header-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
 }
 .site-header-brand {
   display: inline-flex;
@@ -101,14 +119,26 @@ const links = computed(() => [
   text-decoration: none;
   color: #050505;
 }
+.header-pipe {
+  color: #c7c7c5;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0 10px;
+  user-select: none;
+}
+.header-product-tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
 .site-header-nav {
   display: none;
   align-items: center;
-  gap: 24px;
-  flex: 1;
-  justify-content: center;
+  gap: 22px;
 }
-@media (min-width: 833px) {
+@media (min-width: 960px) {
   .site-header-nav { display: flex; }
 }
 .site-header-link {
@@ -119,6 +149,7 @@ const links = computed(() => [
   font-weight: 500;
   transition: opacity .15s ease, color .15s ease;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 .site-header-link:hover { opacity: 1; color: #000000; }
 .router-link-exact-active.site-header-link { opacity: 1; font-weight: 600; color: #000000; }
@@ -126,8 +157,33 @@ const links = computed(() => [
 .site-header-tail {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
+.header-trial-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 18px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+.header-trial-btn:hover {
+  background: #262626;
+  transform: translateY(-1px);
+}
+@media (min-width: 640px) {
+  .header-trial-btn {
+    display: inline-flex;
+  }
+}
+
 .site-header-burger {
   display: inline-flex;
   align-items: center;
@@ -138,7 +194,7 @@ const links = computed(() => [
   color: #050505;
 }
 .site-header-burger:hover { background: rgba(0, 0, 0, 0.05); }
-@media (min-width: 833px) {
+@media (min-width: 960px) {
   .site-header-burger { display: none; }
 }
 
@@ -149,18 +205,30 @@ const links = computed(() => [
 .site-header-mobile-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 6px 22px 14px;
+  padding: 8px 22px 18px;
   display: flex;
   flex-direction: column;
 }
 .site-header-mobile-link {
-  padding: 10px 0;
-  font-size: 16px;
+  padding: 12px 0;
+  font-size: 15.5px;
   color: #050505;
   text-decoration: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
-.site-header-mobile-link:last-child { border-bottom: 0; }
+.site-header-mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 11px 16px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
 
 .site-header-mobile-lang {
   display: flex;
@@ -177,4 +245,46 @@ const links = computed(() => [
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/* === MODO OSCURO (ALTO CONTRASTE, SIN ICONOS OPACOS) === */
+@media (prefers-color-scheme: dark) {
+  .site-header {
+    background: rgba(18, 18, 18, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+  .header-product-tag {
+    color: #ffffff;
+  }
+  .header-pipe {
+    color: #555555;
+  }
+  .site-header-link {
+    color: #d1d5db;
+  }
+  .site-header-link:hover, .router-link-exact-active.site-header-link {
+    color: #ffffff;
+  }
+  .header-trial-btn {
+    background: #ffffff;
+    color: #000000;
+  }
+  .header-trial-btn:hover {
+    background: #e5e5e5;
+  }
+  .site-header-burger {
+    color: #ffffff;
+  }
+  .site-header-mobile {
+    background: #141414;
+    border-top-color: #2a2a2a;
+  }
+  .site-header-mobile-link {
+    color: #ffffff;
+    border-bottom-color: #222222;
+  }
+  .site-header-mobile-cta {
+    background: #ffffff;
+    color: #000000;
+  }
+}
 </style>
