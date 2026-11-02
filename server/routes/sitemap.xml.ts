@@ -20,7 +20,8 @@ const entries: Entry[] = [
   { es: '/contacto',        en: '/en/contact',  priority: '0.7' },
   { es: '/faq',             en: '/en/faq',      priority: '0.7' },
   { es: '/privacidad',      en: '/en/privacy',  priority: '0.5' },
-  { es: '/terminos',        en: '/en/terms',    priority: '0.5' }
+  { es: '/terminos',        en: '/en/terms',    priority: '0.5' },
+  { es: '/politica-cookies', en: '/en/cookie-policy', priority: '0.5' }
 ]
 
 export default defineEventHandler((event) => {

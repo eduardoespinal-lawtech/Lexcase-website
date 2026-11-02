@@ -27,7 +27,9 @@ export default defineNuxtPlugin(() => {
                 'Gestión de contratos de alquiler y compraventa inmobiliaria',
                 'Secreto profesional y privacidad de datos legales',
                 'Software local-first para abogados',
-                'Derecho Procesal Civil, Penal y Administrativo'
+                'Derecho Procesal Civil, Penal y Administrativo',
+                'Alternativa a Clio para despachos de abogados',
+                'Clio alternative offline-first'
               ]
             },
             {
