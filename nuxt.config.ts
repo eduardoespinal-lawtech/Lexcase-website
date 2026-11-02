@@ -76,7 +76,9 @@ export default defineNuxtConfig({
       optimizeTranslationDirective: false
     },
     pages: {
+      solutions: { es: '/soluciones', en: '/solutions' },
       features: { es: '/caracteristicas', en: '/features' },
+      pricing: { es: '/precios', en: '/pricing' },
       support: { es: '/soporte', en: '/support' },
       contact: { es: '/contacto', en: '/contact' },
       faq: { es: '/faq', en: '/faq' },
@@ -95,6 +97,10 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/en',
+        '/soluciones',
+        '/en/solutions',
+        '/precios',
+        '/en/pricing',
         '/caracteristicas',
         '/en/features',
         '/alternativa-clio',

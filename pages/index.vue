@@ -6,9 +6,7 @@ const faqs = computed(() => [
   { q: t('faq.q1'), a: t('faq.a1') },
   { q: t('faq.q2'), a: t('faq.a2') },
   { q: t('faq.q3'), a: t('faq.a3') },
-  { q: t('faq.q4'), a: t('faq.a4') },
-  { q: t('faq.q5'), a: t('faq.a5') },
-  { q: t('faq.q6'), a: t('faq.a6') }
+  { q: t('faq.q4'), a: t('faq.a4') }
 ])
 
 useHead(() => {
@@ -59,147 +57,108 @@ useHead(() => {
   }
 })
 
-// Audiencias / Especialidades (Los 6 módulos de Lexbell)
-type AudienceKey = 'judicial' | 'administrativo' | 'migracion' | 'empresa' | 'alquiler' | 'compraventa'
-const activeAudience = ref<AudienceKey>('judicial')
-const route = useRoute()
-
-onMounted(() => {
-  const q = String(route.query.nicho || route.query.audience || route.query.sector || '').toLowerCase()
-  const hash = (typeof window !== 'undefined' ? window.location.hash.toLowerCase() : '')
-  if (q.includes('admin') || hash.includes('admin')) {
-    activeAudience.value = 'administrativo'
-  } else if (q.includes('migra') || q.includes('visa') || hash.includes('migra')) {
-    activeAudience.value = 'migracion'
-  } else if (q.includes('empre') || q.includes('corp') || hash.includes('empre')) {
-    activeAudience.value = 'empresa'
-  } else if (q.includes('alqui') || q.includes('arrend') || hash.includes('alqui')) {
-    activeAudience.value = 'alquiler'
-  } else if (q.includes('compra') || q.includes('venta') || hash.includes('compra')) {
-    activeAudience.value = 'compraventa'
-  } else if (q.includes('abog') || q.includes('liti') || q.includes('judic') || hash.includes('judic')) {
-    activeAudience.value = 'judicial'
-  }
-})
-
-const audiences = computed(() => [
-  {
-    key: 'judicial' as AudienceKey,
-    label: t('home.audTab1'),
-    icon: 'scale',
-    eyebrow: t('home.audTab1Eyebrow'),
-    title: t('home.audTab1Title'),
-    desc: t('home.audTab1Desc'),
-    points: [
-      t('home.audTab1Point1'),
-      t('home.audTab1Point2'),
-      t('home.audTab1Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'
-  },
-  {
-    key: 'administrativo' as AudienceKey,
-    label: t('home.audTab2'),
-    icon: 'landmark',
-    eyebrow: t('home.audTab2Eyebrow'),
-    title: t('home.audTab2Title'),
-    desc: t('home.audTab2Desc'),
-    points: [
-      t('home.audTab2Point1'),
-      t('home.audTab2Point2'),
-      t('home.audTab2Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'
-  },
-  {
-    key: 'migracion' as AudienceKey,
-    label: t('home.audTab3'),
-    icon: 'plane',
-    eyebrow: t('home.audTab3Eyebrow'),
-    title: t('home.audTab3Title'),
-    desc: t('home.audTab3Desc'),
-    points: [
-      t('home.audTab3Point1'),
-      t('home.audTab3Point2'),
-      t('home.audTab3Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
-  },
-  {
-    key: 'empresa' as AudienceKey,
-    label: t('home.audTab4'),
-    icon: 'briefcase',
-    eyebrow: t('home.audTab4Eyebrow'),
-    title: t('home.audTab4Title'),
-    desc: t('home.audTab4Desc'),
-    points: [
-      t('home.audTab4Point1'),
-      t('home.audTab4Point2'),
-      t('home.audTab4Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/mapa.webp?v=1.1.18'
-  },
-  {
-    key: 'alquiler' as AudienceKey,
-    label: t('home.audTab5'),
-    icon: 'key',
-    eyebrow: t('home.audTab5Eyebrow'),
-    title: t('home.audTab5Title'),
-    desc: t('home.audTab5Desc'),
-    points: [
-      t('home.audTab5Point1'),
-      t('home.audTab5Point2'),
-      t('home.audTab5Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'
-  },
-  {
-    key: 'compraventa' as AudienceKey,
-    label: t('home.audTab6'),
-    icon: 'file-text',
-    eyebrow: t('home.audTab6Eyebrow'),
-    title: t('home.audTab6Title'),
-    desc: t('home.audTab6Desc'),
-    points: [
-      t('home.audTab6Point1'),
-      t('home.audTab6Point2'),
-      t('home.audTab6Point3')
-    ],
-    img: locale.value === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'
-  }
-])
-
-const currentAudience = computed(() => audiences.value.find(a => a.key === activeAudience.value) || audiences.value[0])
-
-// FAQ Accordion state
 const openFaq = ref<number | null>(null)
 const toggleFaq = (idx: number) => {
   openFaq.value = openFaq.value === idx ? null : idx
 }
+
+const solutionsPreview = computed(() => {
+  if (locale.value === 'en') {
+    return [
+      {
+        icon: 'scale',
+        title: 'Litigation & Trial Advocacy',
+        desc: 'Civil, criminal, and labor litigation. Deadlines, court hearings, and offline docket access in courtrooms.',
+        tag: 'Courtroom'
+      },
+      {
+        icon: 'landmark',
+        title: 'Administrative & Tax Law',
+        desc: 'Government appeals, administrative silence countdowns, and formal filings before public agencies.',
+        tag: 'Regulatory'
+      },
+      {
+        icon: 'plane',
+        title: 'Immigration & Consular',
+        desc: 'Consular interviews, visas, residencies, and family petition tracking with passport expiration alerts.',
+        tag: 'Mobility'
+      },
+      {
+        icon: 'key',
+        title: 'Real Estate & Leases',
+        desc: 'Tenancy contracts, rent collection calendars, escrow deposits, and property titles.',
+        tag: 'Real Estate'
+      },
+      {
+        icon: 'briefcase',
+        title: 'Corporate & M&A',
+        desc: 'Shareholder minutes, mercantile registry renewals, and automated conflict-of-interest checks.',
+        tag: 'Corporate'
+      }
+    ]
+  }
+  return [
+    {
+      icon: 'scale',
+      title: 'Litigación y Juicios',
+      desc: 'Penal, civil y laboral. Cómputo de plazos procesales, audiencias y acceso 100% offline en juzgados.',
+      tag: 'Tribunales'
+    },
+    {
+      icon: 'landmark',
+      title: 'Administrativo y Tributario',
+      desc: 'Recursos de reconsideración, plazos de silencio administrativo y trámites ante instituciones públicas.',
+      tag: 'Regulatorio'
+    },
+    {
+      icon: 'plane',
+      title: 'Migración y Extranjería',
+      desc: 'Ficha consular, citas de visado, residencias y alertas de caducidad de pasaportes.',
+      tag: 'Consular'
+    },
+    {
+      icon: 'key',
+      title: 'Inmobiliario y Alquileres',
+      desc: 'Contratos de arrendamiento, depósitos en garantía, cobros mensuales y promesas de venta.',
+      tag: 'Inmobiliario'
+    },
+    {
+      icon: 'briefcase',
+      title: 'Corporativo y Empresas',
+      desc: 'Asambleas de socios, renovación de Registro Mercantil y prevención automática de conflictos.',
+      tag: 'Empresas'
+    }
+  ]
+})
 </script>
 
 <template>
   <div class="notion-landing">
-    <!-- =================== 1. HERO SECTION (Estilo Microsoft 365: Split 2-Column con Laptop) =================== -->
+    <!-- =================== 1. HERO SECTION (MICROSOFT 365 STYLE CON LAPTOP) =================== -->
     <section class="ms-hero-section" id="descargar">
-      <div class="ms-hero-container">
-        <!-- Columna Izquierda: Mensajes y Botones Oficiales de las Tiendas -->
-        <div class="ms-hero-text-col">
-          <h1 class="ms-hero-h1">
-            <span class="ms-hero-line">{{ t('home.heroTitle') }}</span>
-            <span class="ms-hero-line ms-hero-accent">{{ t('home.heroTitle2') }}</span>
+      <div class="ms-hero-inner">
+        <!-- Columna Izquierda: Mensaje Directo + CTAs -->
+        <div class="ms-hero-content">
+          <span class="ms-hero-badge">{{ t('home.heroPill') }}</span>
+
+          <h1 class="ms-hero-title">
+            {{ t('home.heroTitle') }}
           </h1>
 
-          <div class="ms-hero-desc-group">
-            <p class="ms-hero-p">
-              {{ t('home.heroSubtitle') }}
-            </p>
-            <p class="ms-hero-p-sub">
-              {{ t('home.heroSubtitle2') }}
-            </p>
+          <p class="ms-hero-subtitle">
+            {{ t('home.heroSubtitle') }}
+          </p>
+
+          <!-- Micro-Garantías de Transparencia -->
+          <div class="ms-hero-guarantees">
+            <span class="guarantee-item">✓ {{ locale === 'en' ? '15-Day Free Pro Trial' : '15 Días de prueba Pro gratis' }}</span>
+            <span class="guarantee-dot">·</span>
+            <span class="guarantee-item">✓ {{ locale === 'en' ? 'Free up to 50 cases' : 'Gratis hasta 50 expedientes' }}</span>
+            <span class="guarantee-dot">·</span>
+            <span class="guarantee-item">✓ {{ locale === 'en' ? 'No credit card' : 'Sin tarjeta de crédito' }}</span>
           </div>
 
-          <!-- Official Store Download Badges (Mac App Store y Microsoft Store) -->
+          <!-- Official Store Download Badges -->
           <div class="ms-hero-downloads">
             <AppDownload />
           </div>
@@ -228,13 +187,11 @@ const toggleFaq = (idx: number) => {
         </div>
       </div>
 
-      <!-- Hero Feature Pillars (Estilo Minimalista Muse / Linear) -->
+      <!-- Hero Feature Pillars -->
       <div class="hero-features-grid">
         <div class="hero-feat-card">
           <div class="hero-feat-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="hero-feat-title">{{ t('home.heroCard1Title') }}</h3>
           <p class="hero-feat-desc">{{ t('home.heroCard1Desc') }}</p>
@@ -242,7 +199,7 @@ const toggleFaq = (idx: number) => {
 
         <div class="hero-feat-card">
           <div class="hero-feat-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rotate-180">
               <circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/>
             </svg>
           </div>
@@ -252,7 +209,7 @@ const toggleFaq = (idx: number) => {
 
         <div class="hero-feat-card">
           <div class="hero-feat-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect width="18" height="18" x="3" y="4" rx="2" /><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
             </svg>
           </div>
@@ -262,7 +219,7 @@ const toggleFaq = (idx: number) => {
 
         <div class="hero-feat-card">
           <div class="hero-feat-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
             </svg>
           </div>
@@ -272,99 +229,27 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 2. ESPECIALIDADES (Audience Selector Estilo Notion) =================== -->
-    <section class="section" id="especialidades">
-      <div class="apple-wrap-wide">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="eyebrow">{{ t('home.audEyebrow') }}</span>
-          <h2 class="h-section">{{ t('home.audTitle') }}</h2>
-          <p class="subtitle mt-3">{{ t('home.audSubtitle') }}</p>
-        </div>
-
-        <!-- Notion Style Audience Tabs -->
-        <div class="audience-nav-wrap">
-          <div class="audience-nav" role="tablist">
-            <button
-              v-for="aud in audiences"
-              :key="aud.key"
-              type="button"
-              role="tab"
-              :aria-selected="activeAudience === aud.key"
-              class="audience-tab-btn"
-              :class="{ 'is-active': activeAudience === aud.key }"
-              @click="activeAudience = aud.key"
-            >
-              <!-- Icon -->
-              <svg v-if="aud.icon === 'scale'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
-              <svg v-else-if="aud.icon === 'landmark'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
-              <svg v-else-if="aud.icon === 'plane'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-              <svg v-else-if="aud.icon === 'briefcase'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              <svg v-else-if="aud.icon === 'key'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M21 2l-9.6 9.6M15.5 7.5l3 3M18.5 4.5l3 3"/></svg>
-              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <span>{{ aud.label }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Active Audience Content Showcase -->
-        <div class="audience-showcase-box">
-          <div class="module-row" style="margin-bottom: 0;">
-            <div class="module-text">
-              <span class="module-eyebrow">{{ currentAudience.eyebrow }}</span>
-              <h3 class="module-title">{{ currentAudience.title }}</h3>
-              <p class="module-desc">{{ currentAudience.desc }}</p>
-              <ul class="module-bullets">
-                <li v-for="(point, pIdx) in currentAudience.points" :key="pIdx">
-                  <span class="bullet-check">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                  </span>
-                  <span>{{ point }}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="module-visual">
-              <div class="apple-window-box">
-                <img
-                  :key="currentAudience.img"
-                  :src="currentAudience.img"
-                  :alt="currentAudience.title"
-                  class="apple-app-img"
-                  loading="lazy"
-                  width="2730"
-                  height="1600"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 3. TRES PILARES FUNDAMENTALES (Notion Cards) =================== -->
-    <section class="section section-gray">
+    <!-- =================== 2. LOS 3 PILARES ESENCIALES =================== -->
+    <section class="section">
       <div class="apple-wrap">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.pillarsEyebrow') }}</span>
           <h2 class="h-section">{{ t('home.pillarsTitle') }}</h2>
           <p class="subtitle mt-3">{{ t('home.pillarsSubtitle') }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Pilar 1 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3 class="pillar-title">{{ t('home.pillar1Title') }}</h3>
             <p class="pillar-desc">{{ t('home.pillar1Desc') }}</p>
           </div>
 
-          <!-- Pilar 2 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
               </svg>
@@ -373,10 +258,9 @@ const toggleFaq = (idx: number) => {
             <p class="pillar-desc">{{ t('home.pillar2Desc') }}</p>
           </div>
 
-          <!-- Pilar 3 -->
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
               </svg>
             </div>
@@ -387,183 +271,42 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 4. MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) =================== -->
-    <section class="section">
-      <div class="apple-wrap-wide">
-        <div class="text-center max-w-3xl mx-auto mb-20">
-          <span class="eyebrow">{{ t('home.modulesEyebrow') }}</span>
-          <h2 class="h-section">{{ t('home.modulesTitle') }}</h2>
-          <p class="subtitle mt-3">{{ t('home.modulesSubtitle') }}</p>
+    <!-- =================== 3. SOLUCIONES POR PÚBLICO OBJETIVO =================== -->
+    <section class="section section-gray" id="soluciones">
+      <div class="apple-wrap">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow">{{ locale === 'en' ? 'PRACTICE AREAS & AUDIENCES' : 'SOLUCIONES POR PÚBLICO' }}</span>
+          <h2 class="h-section">{{ locale === 'en' ? 'Specialized for Your Branch of Law' : 'Especializado para tu rama del derecho' }}</h2>
+          <p class="subtitle mt-3">
+            {{ locale === 'en'
+              ? 'Whether you are in courtroom litigation, corporate consulting, or administrative filings, Lexbell adapts to your daily workflow.'
+              : 'Ya sea que estés en litigación de juzgados, consultoría corporativa o trámites administrativos, Lexbell se adapta a tu práctica.'
+            }}
+          </p>
         </div>
 
-        <!-- Módulo 1: Expedientes (Texto Izq, Imagen Der) -->
-        <div class="module-row">
-          <div class="module-text">
-            <span class="module-eyebrow">{{ t('home.m1Eyebrow') }}</span>
-            <h3 class="module-title">{{ t('home.m1Title') }}</h3>
-            <p class="module-desc">{{ t('home.m1Desc') }}</p>
-            <ul class="module-bullets">
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m1Point1') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m1Point2') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m1Point3') }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="module-visual">
-            <div class="apple-window-box">
-              <img
-                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Case Management in Lexbell' : 'Gestión de Expedientes en Lexbell'"
-                class="apple-app-img"
-                loading="lazy"
-                width="2730"
-                height="1600"
-              />
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div
+            v-for="(sol, idx) in solutionsPreview"
+            :key="idx"
+            class="solution-teaser-card"
+          >
+            <span class="teaser-tag">{{ sol.tag }}</span>
+            <h3 class="teaser-title">{{ sol.title }}</h3>
+            <p class="teaser-desc">{{ sol.desc }}</p>
           </div>
         </div>
 
-        <!-- Módulo 2: Agenda Procesal (Imagen Izq, Texto Der) -->
-        <div class="module-row module-row-reverse">
-          <div class="module-text">
-            <span class="module-eyebrow">{{ t('home.m2Eyebrow') }}</span>
-            <h3 class="module-title">{{ t('home.m2Title') }}</h3>
-            <p class="module-desc">{{ t('home.m2Desc') }}</p>
-            <ul class="module-bullets">
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m2Point1') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m2Point2') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m2Point3') }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="module-visual">
-            <div class="apple-window-box">
-              <img
-                :src="locale === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Court Calendar and Statutory Deadlines in Lexbell' : 'Agenda Judicial y Vencimientos en Lexbell'"
-                class="apple-app-img"
-                loading="lazy"
-                width="2730"
-                height="1600"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Módulo 3: Mapa de Vínculos (Texto Izq, Imagen Der) -->
-        <div class="module-row">
-          <div class="module-text">
-            <span class="module-eyebrow">{{ t('home.m3Eyebrow') }}</span>
-            <h3 class="module-title">{{ t('home.m3Title') }}</h3>
-            <p class="module-desc">{{ t('home.m3Desc') }}</p>
-            <ul class="module-bullets">
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m3Point1') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m3Point2') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m3Point3') }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="module-visual">
-            <div class="apple-window-box">
-              <img
-                :src="locale === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/mapa.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Relationship Graph and Conflict Prevention in Lexbell' : 'Grafo de Relaciones y Prevención de Conflictos en Lexbell'"
-                class="apple-app-img"
-                loading="lazy"
-                width="2730"
-                height="1600"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Módulo 4: Bóveda de Documentos (Imagen Izq, Texto Der) -->
-        <div class="module-row module-row-reverse">
-          <div class="module-text">
-            <span class="module-eyebrow">{{ t('home.m4Eyebrow') }}</span>
-            <h3 class="module-title">{{ t('home.m4Title') }}</h3>
-            <p class="module-desc">{{ t('home.m4Desc') }}</p>
-            <ul class="module-bullets">
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m4Point1') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m4Point2') }}</span>
-              </li>
-              <li>
-                <span class="bullet-check">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                </span>
-                <span>{{ t('home.m4Point3') }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="module-visual">
-            <div class="apple-window-box">
-              <img
-                :src="locale === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Document Management and Secure Vault in Lexbell' : 'Gestión Documental y Bóveda Segura en Lexbell'"
-                class="apple-app-img"
-                loading="lazy"
-                width="2730"
-                height="1600"
-              />
-            </div>
-          </div>
+        <div class="text-center mt-10">
+          <NuxtLink :to="localePath('solutions')" class="solution-main-link">
+            {{ locale === 'en' ? 'Explore all 5 solutions and workflows in detail' : 'Explorar las 5 soluciones detalladas y cómo te sirven' }} →
+          </NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- =================== 5. TABLA COMPARATIVA NOTION =================== -->
-    <section class="section section-gray">
+    <!-- =================== 4. TABLA COMPARATIVA DE ARQUITECTURA =================== -->
+    <section class="section">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.compareEyebrow') }}</span>
@@ -630,8 +373,8 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 6. CONFIANZA Y TESTIMONIOS =================== -->
-    <section class="section">
+    <!-- =================== 5. CONFIANZA Y TESTIMONIOS =================== -->
+    <section class="section section-gray">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="eyebrow">{{ t('home.trustEyebrow') }}</span>
@@ -689,111 +432,38 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 7. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
-    <section class="section section-gray" id="precios">
+    <!-- =================== 6. PRECIOS TRANSPARENTES TEASER =================== -->
+    <section class="section" id="precios">
       <div class="apple-wrap">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <span class="eyebrow">{{ t('home.pricingEyebrow') }}</span>
-          <h2 class="h-section">{{ t('home.pricingTitle') }}</h2>
-          <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <!-- Plan Gratuito -->
-          <div class="pricing-card pricing-card-free">
-            <span class="pricing-badge">{{ t('home.freePlanBadge') }}</span>
-            <h3 class="pricing-name">{{ t('home.freePlanTitle') }}</h3>
-            <div class="pricing-price">{{ t('home.freePlanPrice') }}</div>
-            <p class="pricing-period">{{ t('home.freePlanPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.freePlanDesc') }}</p>
-            <ul class="pricing-features">
-              <li>✓ {{ t('home.freePlanFeature1') }}</li>
-              <li>✓ {{ t('home.freePlanFeature2') }}</li>
-              <li>✓ {{ t('home.freePlanFeature3') }}</li>
-              <li>✓ {{ t('home.freePlanFeature4') }}</li>
-              <li>✓ {{ t('home.freePlanFeature5') }}</li>
-              <li>✓ {{ t('home.freePlanFeature6') }}</li>
-            </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-dark">
-              {{ t('home.freePlanCTA') }}
-            </a>
+        <div class="pricing-teaser-card max-w-4xl mx-auto">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="eyebrow">{{ t('home.pricingEyebrow') }}</span>
+            <h2 class="h-section">{{ t('home.pricingTitle') }}</h2>
+            <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
           </div>
 
-          <!-- Plan Pro Anual (Recomendado / Destacado) -->
-          <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ t('home.proAnnualBadge') }}</span>
-            <h3 class="pricing-name">{{ t('home.proAnnualTitle') }}</h3>
-            <div class="pricing-price">{{ t('home.proAnnualPrice') }}</div>
-            <p class="pricing-period">{{ t('home.proAnnualPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.proAnnualDesc') }}</p>
-            <ul class="pricing-features">
-              <li>✓ {{ t('home.proAnnualFeature1') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature2') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature3') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature4') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature5') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature6') }}</li>
-            </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-pro">
-              {{ t('home.proAnnualCTA') }}
-            </a>
-          </div>
-
-          <!-- Plan Pro Mensual -->
-          <div class="pricing-card pricing-card-monthly">
-            <span class="pricing-badge">{{ t('home.proMonthlyBadge') }}</span>
-            <h3 class="pricing-name">{{ t('home.proMonthlyTitle') }}</h3>
-            <div class="pricing-price">{{ t('home.proMonthlyPrice') }}</div>
-            <p class="pricing-period">{{ t('home.proMonthlyPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.proMonthlyDesc') }}</p>
-            <ul class="pricing-features">
-              <li>✓ {{ t('home.proMonthlyFeature1') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature2') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature3') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature4') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature5') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature6') }}</li>
-            </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-dark">
-              {{ t('home.proMonthlyCTA') }}
-            </a>
-          </div>
-        </div>
-
-        <!-- Caja explicativa transparente sobre el período de prueba -->
-        <div class="trial-info-wrapper max-w-5xl mx-auto mt-12">
-          <div class="trial-info-box">
-            <div class="trial-info-header">
-              <div class="trial-info-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-                </svg>
-              </div>
-              <h4 class="trial-info-title">{{ t('home.pricingTrialNoteTitle') }}</h4>
+          <div class="pricing-teaser-grid">
+            <div class="teaser-plan-col">
+              <span class="teaser-plan-badge">{{ t('home.freePlanBadge') }}</span>
+              <h3 class="teaser-plan-title">{{ t('home.freePlanTitle') }}</h3>
+              <div class="teaser-plan-price">$0</div>
+              <p class="teaser-plan-period">{{ t('home.freePlanPeriod') }}</p>
+              <p class="teaser-plan-desc">{{ t('home.freePlanDesc') }}</p>
             </div>
-            <div class="trial-points-grid">
-              <div class="trial-point-item">
-                <span class="trial-point-num">1</span>
-                <div>
-                  <h5 class="trial-point-heading">{{ t('home.trialPoint1Title') }}</h5>
-                  <p class="trial-point-body">{{ t('home.trialPoint1Desc') }}</p>
-                </div>
-              </div>
-              <div class="trial-point-item">
-                <span class="trial-point-num">2</span>
-                <div>
-                  <h5 class="trial-point-heading">{{ t('home.trialPoint2Title') }}</h5>
-                  <p class="trial-point-body">{{ t('home.trialPoint2Desc') }}</p>
-                </div>
-              </div>
-              <div class="trial-point-item">
-                <span class="trial-point-num">3</span>
-                <div>
-                  <h5 class="trial-point-heading">{{ t('home.trialPoint3Title') }}</h5>
-                  <p class="trial-point-body">{{ t('home.trialPoint3Desc') }}</p>
-                </div>
-              </div>
+
+            <div class="teaser-plan-col teaser-plan-highlight">
+              <span class="teaser-plan-badge teaser-badge-pro">{{ t('home.proAnnualBadge') }}</span>
+              <h3 class="teaser-plan-title">{{ t('home.proAnnualTitle') }}</h3>
+              <div class="teaser-plan-price">US$4.16 <span class="teaser-per-mo">/ mes</span></div>
+              <p class="teaser-plan-period">{{ t('home.proAnnualPeriod') }}</p>
+              <p class="teaser-plan-desc">{{ t('home.proAnnualDesc') }}</p>
             </div>
+          </div>
+
+          <div class="pricing-teaser-footer text-center mt-10">
+            <NuxtLink :to="localePath('pricing')" class="pricing-explore-btn">
+              {{ locale === 'en' ? 'View all plans, features, and trial conditions' : 'Ver todos los planes, características y condiciones de prueba' }} →
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -858,587 +528,418 @@ const toggleFaq = (idx: number) => {
   color: #191919;
 }
 
-/* === HERO SECTION (ESTILO MICROSOFT 365: SPLIT 2 COLUMNAS CON LAPTOP) === */
+/* === HERO SECTION (MICROSOFT 365 STYLE: SPLIT 2 COLUMNAS CON LAPTOP) === */
 .ms-hero-section {
   position: relative;
   background: #fbfbfa;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%);
-  padding: clamp(48px, 6vw, 76px) 24px clamp(40px, 5vw, 64px);
-  overflow: hidden;
   border-bottom: 1px solid #ebebea;
+  overflow: hidden;
+  padding: clamp(48px, 6vw, 80px) 24px 40px;
 }
 
-.ms-hero-container {
-  max-width: 1360px;
+.ms-hero-inner {
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
   align-items: center;
+  gap: clamp(36px, 5vw, 64px);
 }
 
-@media (min-width: 992px) {
-  .ms-hero-container {
-    grid-template-columns: 1.12fr 1fr;
-    gap: 56px;
+@media (min-width: 960px) {
+  .ms-hero-inner {
+    grid-template-columns: 1.05fr 1.15fr;
   }
 }
 
-.ms-hero-text-col {
+.ms-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: left;
 }
 
-.ms-hero-h1 {
-  font-size: clamp(32px, 3.8vw, 48px);
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-  color: #111111;
-  margin: 0 0 20px;
-  text-wrap: balance;
-}
-
-.ms-hero-line {
-  display: block;
-}
-
-.ms-hero-accent {
+.ms-hero-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #e6f0fa;
   color: #0066cc;
+  margin-bottom: 16px;
 }
 
-.ms-hero-desc-group {
-  margin: 0 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 640px;
+.ms-hero-title {
+  font-size: clamp(36px, 5.2vw, 56px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #050505;
+  margin: 0 0 18px;
 }
 
-.ms-hero-p {
-  font-size: clamp(16.5px, 1.35vw, 19px);
-  line-height: 1.5;
-  color: #27272a;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.ms-hero-p-sub {
-  font-size: clamp(14.5px, 1.2vw, 16.5px);
+.ms-hero-subtitle {
+  font-size: clamp(16px, 2vw, 19px);
   line-height: 1.55;
-  color: #52525b;
-  margin: 0;
-  letter-spacing: -0.01em;
+  color: #5f5e5b;
+  margin: 0 0 20px;
+  max-width: 540px;
+}
+
+.ms-hero-guarantees {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0066cc;
+  margin-bottom: 28px;
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e1ecf7;
+  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.05);
+}
+
+.guarantee-dot {
+  color: #94a3b8;
+  font-weight: 400;
 }
 
 .ms-hero-downloads {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 12px;
+  width: 100%;
 }
 
-/* --- MACBOOK PRO MOCKUP (FRONTAL, NÍTIDO, ESTILO APPLE) --- */
+/* Columna Derecha: MacBook Pro frontal */
 .hero-macbook-col {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   width: 100%;
 }
 
 .macbook-device {
-  position: relative;
   width: 100%;
   max-width: 660px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
 }
 
 .macbook-lid {
-  position: relative;
-  width: 100%;
-  background: #141416;
-  border: 4px solid #202023;
+  width: 90%;
+  background: #0d0d0d;
   border-radius: 14px 14px 0 0;
-  padding: 8px 8px 10px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  padding: 10px 10px 0;
+  box-shadow:
+    inset 0 0 0 1.5px #2d2d2d,
+    0 16px 36px rgba(0, 0, 0, 0.22);
+  position: relative;
 }
 
 .macbook-camera {
+  width: 6px;
+  height: 6px;
+  background: #1f1f1f;
+  border-radius: 50%;
   position: absolute;
   top: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #09090b;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 2;
+  box-shadow: inset 0 0 1px #000;
 }
 
 .macbook-screen {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
   display: block;
-  border-radius: 6px;
-  background: #ffffff;
+  border-radius: 4px 4px 0 0;
+  background: #111;
 }
 
 .macbook-base {
-  width: 104%;
-  height: 12px;
-  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
-  border-radius: 0 0 16px 16px;
+  width: 100%;
+  height: 14px;
+  background: linear-gradient(180deg, #d4d4d8 0%, #a1a1aa 50%, #71717a 100%);
+  border-radius: 0 0 12px 12px;
   position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .macbook-notch {
+  width: 80px;
+  height: 4px;
+  background: #52525b;
+  border-radius: 0 0 4px 4px;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 72px;
-  height: 4px;
-  background: #64748b;
-  border-radius: 0 0 6px 6px;
 }
 
 .macbook-shadow {
-  width: 88%;
-  height: 18px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
-  margin-top: 4px;
+  width: 96%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+  margin-top: -6px;
 }
 
-/* === HERO VALUE CARDS (Estilo Minimalista Muse / Linear) === */
+/* Feature Grid Debajo de la Laptop */
 .hero-features-grid {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding-top: 36px;
+  border-top: 1px solid #ebebea;
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
-  max-width: 1120px;
-  margin: 44px auto 0;
-  text-align: left;
 }
 
 @media (min-width: 640px) {
   .hero-features-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
   .hero-features-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .hero-feat-card {
   background: #ffffff;
-  border: 1px solid #e5e5e3;
-  border-radius: 14px;
-  padding: 22px 20px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ebebea;
+  border-radius: 12px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-}
-
-.hero-feat-card:hover {
-  border-color: #d1d1cf;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
 }
 
 .hero-feat-icon-box {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: #f4f4f2;
+  background: #f1f5f9;
   color: #0066cc;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
-  border: 1px solid #e9e9e7;
+  margin-bottom: 12px;
 }
 
 .hero-feat-title {
-  font-size: 15.5px;
-  font-weight: 600;
-  color: #111111;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.015em;
-  line-height: 1.3;
+  font-size: 15px;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
 }
 
 .hero-feat-desc {
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.5;
   color: #5f5e5b;
   margin: 0;
 }
 
-/* === ESPECIALIDADES / AUDIENCE SELECTOR === */
-.audience-nav-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 36px;
+/* SECCIONES BASE */
+.section {
+  padding: clamp(60px, 8vw, 96px) 24px;
 }
-.audience-nav {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #f1f1ef;
-  padding: 5px;
-  border-radius: 999px;
-  border: 1px solid #e5e5e3;
-  max-width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.audience-nav::-webkit-scrollbar { display: none; }
-.audience-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: #5f5e5b;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
-}
-.audience-tab-btn:hover {
-  color: #050505;
-}
-.audience-tab-btn.is-active {
-  background: #ffffff;
-  color: #050505;
-  font-weight: 600;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
-}
-.audience-showcase-box {
+
+.section-gray {
   background: #fbfbfa;
-  border: 1px solid #ebebea;
-  border-radius: 20px;
-  padding: clamp(28px, 4vw, 56px);
+  border-top: 1px solid #ebebea;
+  border-bottom: 1px solid #ebebea;
 }
 
-/* === PILARES (Cards) === */
-.pillar-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
-  border-radius: 14px;
-  padding: 32px 26px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  display: flex;
-  flex-direction: column;
+.apple-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
-.pillar-card:hover {
-  transform: translateY(-2px);
-  border-color: #d3d3d0;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-}
-
-.pillar-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: #f1f1ef;
-  color: #050505;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.pillar-title {
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: #050505;
-  margin: 0 0 10px;
-}
-
-.pillar-desc {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #5f5e5b;
-  margin: 0;
-}
-
-/* === MÓDULOS DE PROFUNDIDAD (Ventana de app flotante estilo Apple) === */
-.module-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: clamp(70px, 9vw, 110px);
-}
-
-.module-row:last-child {
-  margin-bottom: 0;
-}
-
-@media (min-width: 960px) {
-  .module-row {
-    grid-template-columns: 1fr 1.55fr;
-    gap: 72px;
-  }
-  .module-row-reverse {
-    grid-template-columns: 1.55fr 1fr;
-  }
-  .module-row-reverse .module-text {
-    order: 2;
-  }
-  .module-row-reverse .module-visual {
-    order: 1;
-  }
-}
-
-.module-eyebrow {
+.eyebrow {
   display: inline-block;
-  font-size: 11.5px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #0066cc;
   margin-bottom: 8px;
 }
 
-.module-title {
-  font-size: clamp(24px, 2.6vw, 34px);
+.h-section {
+  font-size: clamp(28px, 4.2vw, 40px);
+  font-weight: 800;
   line-height: 1.18;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  letter-spacing: -0.03em;
   color: #050505;
-  margin: 0 0 16px;
-}
-
-.module-desc {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: #5f5e5b;
-  margin: 0 0 24px;
-}
-
-.module-bullets {
-  list-style: none;
-  padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
-.module-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 14.5px;
-  font-weight: 500;
-  color: #191919;
-  line-height: 1.45;
+.subtitle {
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin: 0;
 }
 
-.bullet-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #e6f0fa;
-  color: #0066cc;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.module-visual {
-  width: 100%;
-}
-
-.apple-window-box {
-  width: 100%;
-  border-radius: 12px;
-  line-height: 0;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.12),
-    0 12px 30px -4px rgba(0, 0, 0, 0.16),
-    0 32px 64px -14px rgba(0, 0, 0, 0.28);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-}
-
-.apple-window-box:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 16px 36px -4px rgba(0, 0, 0, 0.20),
-    0 40px 75px -14px rgba(0, 0, 0, 0.32);
-}
-
-.apple-app-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* === PRECIOS === */
-.pricing-card {
+/* PILARES */
+.pillar-card {
   background: #ffffff;
   border: 1px solid #ebebea;
   border-radius: 16px;
-  padding: 36px 30px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
 }
 
-.pricing-card-pro {
-  border-color: #0066cc;
-  box-shadow: 0 10px 32px rgba(0, 102, 204, 0.08);
+.pillar-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #0066cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
 }
 
-.pricing-badge {
+.pillar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.pillar-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin: 0;
+}
+
+/* SOLUCIONES TEASER */
+.solution-teaser-card {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solution-teaser-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.teaser-tag {
   display: inline-block;
   align-self: flex-start;
-  padding: 4px 10px;
-  border-radius: 999px;
   font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: #f1f1ef;
-  color: #37352f;
-  margin-bottom: 16px;
-}
-
-.pricing-badge-pro {
-  background: #e6f0fa;
-  color: #0066cc;
-}
-
-.pricing-name {
-  font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  color: #0066cc;
+  text-transform: uppercase;
+  background: #e6f0fa;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.teaser-title {
+  font-size: 17px;
+  font-weight: 700;
   color: #050505;
   margin: 0 0 8px;
 }
 
-.pricing-price {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #050505;
-  margin-bottom: 12px;
-}
-
-.pricing-desc {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #5f5e5b;
-  margin: 0 0 24px;
-}
-
-.pricing-period {
-  font-size: 13px;
-  font-weight: 600;
-  color: #0066cc;
-  margin: -6px 0 12px;
-}
-
-.trial-info-wrapper {
-  margin-top: 36px;
-}
-
-.trial-info-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 26px 28px;
-}
-
-.trial-info-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.trial-info-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: #e0f2fe;
-  color: #0284c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.trial-info-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.trial-points-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.trial-point-item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.trial-point-num {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #0066cc;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.trial-point-heading {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px;
-}
-
-.trial-point-body {
+.teaser-desc {
   font-size: 13.5px;
   line-height: 1.5;
-  color: #475569;
+  color: #5f5e5b;
   margin: 0;
 }
 
-/* === TRUST BADGES & TESTIMONIALS === */
+.solution-main-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: #0066cc;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.solution-main-link:hover {
+  background: #0052a3;
+}
+
+/* TABLA COMPARATIVA */
+.compare-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  border: 1px solid #ebebea;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.compare-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 13px;
+  background: #fbfbfa;
+  border-bottom: 1px solid #ebebea;
+  color: #050505;
+}
+
+.compare-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #ebebea;
+  color: #5f5e5b;
+  vertical-align: middle;
+}
+
+.compare-table tr:last-child td {
+  border-bottom: none;
+}
+
+.compare-table .lexbell-col {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #0066cc;
+}
+
+/* SELLOS Y TESTIMONIOS */
 .trust-badges-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1469,7 +970,7 @@ const toggleFaq = (idx: number) => {
   background: #ffffff;
   border: 1px solid #ebebea;
   border-radius: 16px;
-  padding: 28px 24px;
+  padding: 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1484,79 +985,138 @@ const toggleFaq = (idx: number) => {
 }
 
 .testimonial-quote {
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.55;
   color: #334155;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 
 .testimonial-author {
   display: flex;
   flex-direction: column;
   border-top: 1px solid #f1f5f9;
-  padding-top: 14px;
+  padding-top: 12px;
 }
 
 .testimonial-author strong {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #0f172a;
   font-weight: 700;
 }
 
 .testimonial-author span {
-  font-size: 12.5px;
+  font-size: 12px;
   color: #64748b;
   margin-top: 2px;
 }
 
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 14px;
-  color: #37352f;
-  flex: 1;
+/* PRICING TEASER CARD */
+.pricing-teaser-card {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
-.pricing-btn {
+.pricing-teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .pricing-teaser-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.teaser-plan-col {
+  border: 1px solid #ebebea;
+  border-radius: 14px;
+  padding: 24px;
+  background: #fbfbfa;
+}
+
+.teaser-plan-highlight {
+  border-color: #0066cc;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
+}
+
+.teaser-plan-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #e2e8f0;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.teaser-badge-pro {
+  background: #e6f0fa;
+  color: #0066cc;
+}
+
+.teaser-plan-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 6px;
+}
+
+.teaser-plan-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #050505;
+  margin-bottom: 6px;
+}
+
+.teaser-per-mo {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.teaser-plan-period {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0066cc;
+  margin: 0 0 10px;
+}
+
+.teaser-plan-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5f5e5b;
+  margin: 0;
+}
+
+.pricing-explore-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
+  padding: 12px 24px;
   border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.pricing-btn-dark {
   background: #050505;
   color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
 }
-.pricing-btn-dark:hover {
+
+.pricing-explore-btn:hover {
   background: #262626;
-  transform: translateY(-1px);
 }
 
-.pricing-btn-pro {
-  background: #0066cc;
-  color: #ffffff;
-}
-.pricing-btn-pro:hover {
-  background: #0052a3;
-  transform: translateY(-1px);
-}
-
-/* === FAQ ACORDEÓN === */
+/* FAQ ACORDEÓN */
 .faq-accordion {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .faq-item {
@@ -1564,11 +1124,11 @@ const toggleFaq = (idx: number) => {
   border: 1px solid #ebebea;
   border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.15s ease;
 }
 
 .faq-item.is-open {
-  border-color: #d3d3d0;
+  border-color: #c7c7c5;
 }
 
 .faq-question-btn {
@@ -1608,9 +1168,9 @@ const toggleFaq = (idx: number) => {
   margin: 0;
 }
 
-/* === CTA FINAL NOTION === */
+/* CTA FINAL NOTION */
 .notion-cta-section {
-  background: #f7f7f5;
+  background: #ffffff;
   border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
 }

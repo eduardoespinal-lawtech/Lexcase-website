@@ -51,9 +51,11 @@
   },
   "nav": {
     "home": "Inicio",
+    "solutions": "Soluciones",
     "specialties": "Especialidades",
     "features": "Características",
     "pricing": "Precios",
+    "calculator": "Calculadora",
     "blog": "Blog",
     "support": "Soporte",
     "contact": "Contacto",

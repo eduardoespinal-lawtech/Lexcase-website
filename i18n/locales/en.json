@@ -51,9 +51,11 @@
   },
   "nav": {
     "home": "Home",
+    "solutions": "Solutions",
     "specialties": "Specialties",
     "features": "Features",
     "pricing": "Pricing",
+    "calculator": "Calculators",
     "blog": "Blog",
     "support": "Support",
     "contact": "Contact",

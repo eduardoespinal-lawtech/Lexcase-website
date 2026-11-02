@@ -9,11 +9,12 @@ const sections = computed(() => [
   {
     title: t('footer.product'),
     links: [
-      { to: localePath('index'),    label: t('nav.home') },
-      { to: localePath('features'), label: t('nav.features') },
-      { to: localePath('blog'),     label: t('nav.blog') },
-      { to: localePath('support'),  label: t('nav.support') },
-      { to: localePath('faq'),      label: t('nav.faq') }
+      { to: localePath('index'),     label: t('nav.home') },
+      { to: localePath('solutions'), label: t('nav.solutions') },
+      { to: localePath('features'),  label: t('nav.features') },
+      { to: localePath('pricing'),   label: t('nav.pricing') },
+      { to: localePath('blog'),      label: t('nav.blog') },
+      { to: localePath('faq'),       label: t('nav.faq') }
     ]
   },
   {

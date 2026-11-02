@@ -7,11 +7,10 @@ const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
 
 const links = computed(() => [
-  { to: localePath('index') + '#especialidades', label: t('nav.specialties') },
+  { to: localePath('solutions'), label: t('nav.solutions') },
   { to: localePath('features'), label: t('nav.features') },
-  { to: localePath('index') + '#precios', label: t('nav.pricing') },
-  { to: localePath('faq'), label: t('nav.faq') },
-  { to: localePath('support'), label: t('nav.support') },
+  { to: localePath('pricing'), label: t('nav.pricing') },
+  { to: localePath('calculadora-plazos'), label: t('nav.calculator') },
   { to: localePath('blog'), label: t('nav.blog') }
 ])
 </script>
