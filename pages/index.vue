@@ -128,6 +128,19 @@ const openFaq = ref<number | null>(null)
 const toggleFaq = (idx: number) => {
   openFaq.value = openFaq.value === idx ? null : idx
 }
+
+// Store download analytics & URLs
+const config = useRuntimeConfig()
+const { trackDownload } = useAnalytics()
+
+const appleUrl = computed(() => config.public.appleStoreUrl || 'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12')
+const microsoftUrl = computed(() => config.public.microsoftStoreUrl || 'https://apps.microsoft.com/detail/9NLZXP46J9G2')
+const appleBadgeSrc = computed(() => locale.value === 'en' ? '/mac-app-store-badge-en.svg' : '/mac-app-store-badge-es.svg')
+const msBadgeSrc = computed(() => locale.value === 'en' ? '/microsoft-store-badge.svg' : '/microsoft-store-badge-es.svg')
+
+const onStoreClick = (platform: 'apple' | 'microsoft') => {
+  trackDownload(platform)
+}
 </script>
 
 <template>
@@ -190,6 +203,36 @@ const toggleFaq = (idx: number) => {
           </div>
           <h3 class="hero-feat-title">{{ t('home.heroCard4Title') }}</h3>
           <p class="hero-feat-desc">{{ t('home.heroCard4Desc') }}</p>
+        </div>
+      </div>
+
+      <!-- Trust & Verification Directory Bar -->
+      <div class="trust-directory-bar">
+        <span class="trust-bar-label">{{ t('downloadHub.trustTitle') }}</span>
+        <div class="trust-badges-list">
+          <div class="trust-badge-item">
+            <svg class="trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="trust-badge-strong">{{ t('downloadHub.g2Title') }}</span>
+            <span class="trust-badge-sub">({{ t('downloadHub.g2Subtitle') }})</span>
+          </div>
+          <div class="trust-badge-sep">·</div>
+          <div class="trust-badge-item">
+            <svg class="trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="trust-badge-strong">{{ t('downloadHub.capterraTitle') }}</span>
+            <span class="trust-badge-sub">({{ t('downloadHub.capterraSubtitle') }})</span>
+          </div>
+          <div class="trust-badge-sep">·</div>
+          <div class="trust-badge-item">
+            <svg class="trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="trust-badge-strong">{{ t('downloadHub.appleTitle') }}</span>
+            <span class="trust-badge-sub">({{ t('downloadHub.appleSubtitle') }})</span>
+          </div>
+          <div class="trust-badge-sep">·</div>
+          <div class="trust-badge-item">
+            <svg class="trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="trust-badge-strong">{{ t('downloadHub.microsoftTitle') }}</span>
+            <span class="trust-badge-sub">({{ t('downloadHub.microsoftSubtitle') }})</span>
+          </div>
         </div>
       </div>
     </section>
@@ -481,6 +524,64 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
+    <!-- =================== SECRETO PROFESIONAL Y SEGURIDAD JURÍDICA =================== -->
+    <section class="section section-dark-trust">
+      <div class="apple-wrap">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="eyebrow eyebrow-trust">{{ t('whyTrust.eyebrow') }}</span>
+          <h2 class="h-section text-white">{{ t('whyTrust.title') }}</h2>
+          <p class="subtitle trust-lead mt-4">{{ t('whyTrust.subtitle') }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Card 1 -->
+          <div class="trust-card-box">
+            <div class="trust-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="trust-card-title">{{ t('whyTrust.card1Title') }}</h3>
+            <p class="trust-card-desc">{{ t('whyTrust.card1Desc') }}</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="trust-card-box">
+            <div class="trust-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <h3 class="trust-card-title">{{ t('whyTrust.card2Title') }}</h3>
+            <p class="trust-card-desc">{{ t('whyTrust.card2Desc') }}</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="trust-card-box">
+            <div class="trust-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="trust-card-title">{{ t('whyTrust.card3Title') }}</h3>
+            <p class="trust-card-desc">{{ t('whyTrust.card3Desc') }}</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="trust-card-box">
+            <div class="trust-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="trust-card-title">{{ t('whyTrust.card4Title') }}</h3>
+            <p class="trust-card-desc">{{ t('whyTrust.card4Desc') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- =================== 5. TABLA COMPARATIVA NOTION =================== -->
     <section class="section section-gray">
       <div class="apple-wrap">
@@ -532,6 +633,138 @@ const toggleFaq = (idx: number) => {
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CENTRO OFICIAL DE DESCARGAS Y SEGURIDAD =================== -->
+    <section class="section section-download-hub" id="descargar-hub">
+      <div class="apple-wrap">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="eyebrow">{{ t('downloadHub.hubEyebrow') }}</span>
+          <h2 class="h-section">{{ t('downloadHub.hubTitle') }}</h2>
+          <p class="subtitle mt-3">{{ t('downloadHub.hubSubtitle') }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Tarjeta macOS -->
+          <div class="hub-platform-card">
+            <div class="hub-platform-header">
+              <div class="hub-platform-icon-wrap hub-mac-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.4c.64-.78 1.08-1.86.96-2.95-1 .04-2.16.66-2.85 1.45-.6.69-1.12 1.79-.98 2.87 1.11.09 2.22-.58 2.87-1.37z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="hub-platform-title">{{ t('downloadHub.macCardTitle') }}</h3>
+                <p class="hub-platform-sub">{{ t('downloadHub.macCardDesc') }}</p>
+              </div>
+            </div>
+
+            <ul class="hub-check-list">
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>{{ t('downloadHub.macBadge1') }}</strong></span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.macBadge2') }}</span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.macBadge3') }}</span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.macBadge4') }}</span>
+              </li>
+            </ul>
+
+            <div class="hub-action-box">
+              <a
+                :href="appleUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hub-store-btn"
+                @click="onStoreClick('apple')"
+              >
+                <img
+                  :src="appleBadgeSrc"
+                  :alt="locale === 'en' ? 'Download on the Mac App Store' : 'Consíguelo en el Mac App Store'"
+                  class="hub-store-img"
+                  width="216"
+                  height="57"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Tarjeta Windows -->
+          <div class="hub-platform-card">
+            <div class="hub-platform-header">
+              <div class="hub-platform-icon-wrap hub-win-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="hub-platform-title">{{ t('downloadHub.winCardTitle') }}</h3>
+                <p class="hub-platform-sub">{{ t('downloadHub.winCardDesc') }}</p>
+              </div>
+            </div>
+
+            <ul class="hub-check-list">
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>{{ t('downloadHub.winBadge1') }}</strong></span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.winBadge2') }}</span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.winBadge3') }}</span>
+              </li>
+              <li>
+                <svg class="hub-check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ t('downloadHub.winBadge4') }}</span>
+              </li>
+            </ul>
+
+            <div class="hub-action-box">
+              <a
+                :href="microsoftUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hub-store-btn"
+                @click="onStoreClick('microsoft')"
+              >
+                <img
+                  :src="msBadgeSrc"
+                  :alt="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
+                  class="hub-store-img"
+                  width="216"
+                  height="57"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deontological Guarantee Banner -->
+        <div class="hub-deontological-banner">
+          <div class="hub-deontological-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="hub-deontological-title">{{ t('downloadHub.guaranteeTitle') }}</h4>
+            <p class="hub-deontological-desc">{{ t('downloadHub.guaranteeDesc') }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1140,5 +1373,248 @@ const toggleFaq = (idx: number) => {
   background: #f7f7f5;
   border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
+}
+
+/* === TRUST DIRECTORY BAR (Hero) === */
+.trust-directory-bar {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.trust-bar-label {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #787774;
+}
+.trust-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 18px;
+}
+.trust-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #37352f;
+}
+.trust-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+}
+.trust-badge-strong {
+  font-weight: 600;
+  color: #111827;
+}
+.trust-badge-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+.trust-badge-sep {
+  color: #d1d5db;
+  font-weight: bold;
+}
+
+/* === SECRETO PROFESIONAL Y SEGURIDAD (Dark Trust Section) === */
+.section-dark-trust {
+  background: #090d16;
+  color: #f8fafc;
+  padding: clamp(70px, 9vh, 100px) 24px;
+}
+.eyebrow-trust {
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.trust-lead {
+  color: #94a3b8;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.trust-card-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+.trust-card-box:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+.trust-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.trust-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+.trust-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* === CENTRO DE DESCARGAS Y SEGURIDAD (Download Hub) === */
+.section-download-hub {
+  background: #ffffff;
+  padding: clamp(70px, 9vh, 100px) 24px;
+}
+.hub-platform-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+.hub-platform-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.hub-platform-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.hub-platform-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.hub-win-icon {
+  background: #0078d4;
+  color: #ffffff;
+}
+.hub-platform-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+.hub-platform-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 2px;
+}
+.hub-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.hub-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #334155;
+}
+.hub-check-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.hub-action-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+.hub-store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+.hub-store-img {
+  height: 57px;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+}
+.hub-deontological-banner {
+  margin-top: 40px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 896px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hub-deontological-icon {
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.hub-deontological-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+.hub-deontological-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .hub-platform-card {
+    padding: 24px 20px;
+  }
+  .hub-deontological-banner {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 </style>
