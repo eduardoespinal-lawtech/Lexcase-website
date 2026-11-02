@@ -135,19 +135,19 @@ const toggleFaq = (idx: number) => {
     <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
     <section class="notion-hero" id="descargar">
       <div class="notion-hero-inner">
-        <div class="hero-pill-badge">
-          <span class="hero-pill-dot"></span>
-          <span>{{ t('home.heroEyebrow') }}</span>
-        </div>
-
         <h1 class="hero-h1">
           <span class="hero-line">{{ t('home.heroTitle') }}</span>
           <span class="hero-line hero-h1-accent">{{ t('home.heroTitle2') }}</span>
         </h1>
 
-        <p class="hero-p">
-          {{ t('home.heroSubtitle') }}
-        </p>
+        <div class="hero-desc-group">
+          <p class="hero-p">
+            {{ t('home.heroSubtitle') }}
+          </p>
+          <p class="hero-p-sub">
+            {{ t('home.heroSubtitle2') }}
+          </p>
+        </div>
 
         <!-- Official Store Download Badges -->
         <div class="hero-downloads">
@@ -663,31 +663,6 @@ const toggleFaq = (idx: number) => {
   margin: 0 auto;
 }
 
-.hero-pill-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #f4f4f5;
-  border: 1px solid #e4e4e7;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #27272a;
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.hero-pill-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #16a34a;
-  display: inline-block;
-  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
-}
-
 .hero-h1 {
   font-size: clamp(32px, 4.2vw, 54px);
   line-height: 1.15;
@@ -712,13 +687,30 @@ const toggleFaq = (idx: number) => {
   color: #0066cc;
 }
 
+.hero-desc-group {
+  margin: 22px auto 0;
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .hero-p {
-  font-size: clamp(17px, 1.5vw, 20px);
-  line-height: 1.6;
-  color: #5f5e5b;
-  margin: 20px auto 0;
-  max-width: 780px;
+  font-size: clamp(17px, 1.45vw, 19.5px);
+  line-height: 1.5;
+  color: #27272a;
+  margin: 0;
   letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.hero-p-sub {
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.55;
+  color: #52525b;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .hero-downloads {

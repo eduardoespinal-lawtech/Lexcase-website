@@ -109,7 +109,7 @@
   "home": {
     "heroTitle": "El control de tu práctica jurídica.",
     "heroTitle2": "Sin depender de la nube.",
-    "heroSubtitle": "Gestiona expedientes, audiencias, vencimientos, documentos y clientes desde una sola aplicación. Tus datos permanecen cifrados en tu ordenador. Trabaja sin conexión y sin crear una cuenta.",
+    "heroSubtitle": "Gestiona expedientes, audiencias, vencimientos, documentos y clientes desde una sola aplicación.",
     "trust1": "100% Local y cifrado",
     "trust2": "Prevención de conflictos",
     "trust3": "Funciona sin conexión",
@@ -231,7 +231,7 @@
     "ctaSectionEyebrow": "DESCARGA OFICIAL",
     "ctaSectionTitle": "Toma el control de tus expedientes con total privacidad.",
     "ctaSectionBody": "Disponible de forma oficial en la Mac App Store y Microsoft Store. Instala en segundos y comienza gratis.",
-    "heroEyebrow": "Gratis hasta 50 expedientes · Mac y Windows"
+    "heroSubtitle2": "Tus datos permanecen cifrados en tu ordenador. Trabaja sin conexión y sin crear una cuenta."
   },
   "features": {
     "title": "Todo lo que tu práctica necesita.",

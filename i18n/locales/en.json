@@ -109,7 +109,7 @@
   "home": {
     "heroTitle": "Total control of your legal practice.",
     "heroTitle2": "Without relying on the cloud.",
-    "heroSubtitle": "Manage cases, court hearings, statutory deadlines, documents, and clients from a single desktop app. Your data remains encrypted on your machine. Work offline without creating an account.",
+    "heroSubtitle": "Manage cases, court hearings, statutory deadlines, documents, and clients from a single desktop app.",
     "trust1": "100% Local & Encrypted",
     "trust2": "Conflict of Interest Checks",
     "trust3": "Works 100% Offline",
@@ -231,7 +231,7 @@
     "ctaSectionEyebrow": "OFFICIAL DOWNLOAD",
     "ctaSectionTitle": "Take full control of your legal practice with absolute privacy.",
     "ctaSectionBody": "Officially verified on the Mac App Store and Microsoft Store. Install in seconds and get started for free.",
-    "heroEyebrow": "Free up to 50 active cases · Mac & Windows"
+    "heroSubtitle2": "Your data remains encrypted on your machine. Work offline without creating an account."
   },
   "features": {
     "title": "Everything your practice needs.",
