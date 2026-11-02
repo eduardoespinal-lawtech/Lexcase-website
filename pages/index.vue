@@ -572,12 +572,13 @@ const toggleFaq = (idx: number) => {
         </div>
 
         <div class="compare-table-wrap">
-          <table class="compare-table" :aria-label="locale === 'en' ? 'Comparison of Lexbell versus cloud software' : 'Comparativa de Lexbell frente a la nube'">
+          <table class="compare-table" :aria-label="locale === 'en' ? 'Comparison of Lexbell versus cloud software and spreadsheets' : 'Comparativa de Lexbell frente a la nube y hojas de cálculo'">
             <thead>
               <tr>
-                <th style="width: 38%;">{{ t('home.compareColFeature') }}</th>
-                <th class="lexbell-col" style="width: 32%;">{{ t('home.compareColLexbell') }}</th>
-                <th style="width: 30%;">{{ t('home.compareColCloud') }}</th>
+                <th style="width: 31%;">{{ t('home.compareColFeature') }}</th>
+                <th class="lexbell-col" style="width: 27%;">{{ t('home.compareColLexbell') }}</th>
+                <th style="width: 21%;">{{ t('home.compareColCloud') }}</th>
+                <th style="width: 21%;">{{ t('home.compareColManual') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -585,31 +586,43 @@ const toggleFaq = (idx: number) => {
                 <td><strong>{{ t('home.cRow1Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow1Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow1Cloud') }}</td>
+                <td>✗ {{ t('home.cRow1Manual') }}</td>
               </tr>
               <tr>
                 <td><strong>{{ t('home.cRow2Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow2Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow2Cloud') }}</td>
+                <td>~ {{ t('home.cRow2Manual') }}</td>
               </tr>
               <tr>
                 <td><strong>{{ t('home.cRow3Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow3Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow3Cloud') }}</td>
+                <td>✗ {{ t('home.cRow3Manual') }}</td>
               </tr>
               <tr>
                 <td><strong>{{ t('home.cRow4Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow4Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow4Cloud') }}</td>
+                <td>✗ {{ t('home.cRow4Manual') }}</td>
               </tr>
               <tr>
                 <td><strong>{{ t('home.cRow5Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow5Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow5Cloud') }}</td>
+                <td>~ {{ t('home.cRow5Manual') }}</td>
               </tr>
               <tr>
                 <td><strong>{{ t('home.cRow6Title') }}</strong></td>
                 <td class="lexbell-col">✓ {{ t('home.cRow6Lexbell') }}</td>
                 <td>✗ {{ t('home.cRow6Cloud') }}</td>
+                <td>~ {{ t('home.cRow6Manual') }}</td>
+              </tr>
+              <tr>
+                <td><strong>{{ t('home.cRow7Title') }}</strong></td>
+                <td class="lexbell-col">✓ {{ t('home.cRow7Lexbell') }}</td>
+                <td>✗ {{ t('home.cRow7Cloud') }}</td>
+                <td>~ {{ t('home.cRow7Manual') }}</td>
               </tr>
             </tbody>
           </table>
@@ -617,8 +630,67 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 6. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
-    <section class="section" id="precios">
+    <!-- =================== 6. CONFIANZA Y TESTIMONIOS =================== -->
+    <section class="section">
+      <div class="apple-wrap">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow">{{ t('home.trustEyebrow') }}</span>
+          <h2 class="h-section">{{ t('home.trustTitle') }}</h2>
+          <p class="subtitle mt-3">{{ t('home.trustSubtitle') }}</p>
+        </div>
+
+        <!-- Sellos de confianza -->
+        <div class="trust-badges-grid max-w-4xl mx-auto mb-12">
+          <div class="trust-badge-pill">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>{{ t('home.trustBadge1') }}</span>
+          </div>
+          <div class="trust-badge-pill">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>{{ t('home.trustBadge2') }}</span>
+          </div>
+          <div class="trust-badge-pill">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>{{ t('home.trustBadge3') }}</span>
+          </div>
+          <div class="trust-badge-pill">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+            <span>{{ t('home.trustBadge4') }}</span>
+          </div>
+        </div>
+
+        <!-- Testimonios de profesionales reales -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonial-quote">“{{ t('home.testimonial1Quote') }}”</p>
+            <div class="testimonial-author">
+              <strong>{{ t('home.testimonial1Author') }}</strong>
+              <span>{{ t('home.testimonial1Role') }}</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonial-quote">“{{ t('home.testimonial2Quote') }}”</p>
+            <div class="testimonial-author">
+              <strong>{{ t('home.testimonial2Author') }}</strong>
+              <span>{{ t('home.testimonial2Role') }}</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonial-quote">“{{ t('home.testimonial3Quote') }}”</p>
+            <div class="testimonial-author">
+              <strong>{{ t('home.testimonial3Author') }}</strong>
+              <span>{{ t('home.testimonial3Role') }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 7. PRECIOS TRANSPARENTES (Notion Cards) =================== -->
+    <section class="section section-gray" id="precios">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.pricingEyebrow') }}</span>
@@ -626,7 +698,7 @@ const toggleFaq = (idx: number) => {
           <p class="subtitle mt-3">{{ t('home.pricingSubtitle') }}</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <!-- Plan Gratuito -->
           <div class="pricing-card pricing-card-free">
             <span class="pricing-badge">{{ t('home.freePlanBadge') }}</span>
@@ -647,38 +719,80 @@ const toggleFaq = (idx: number) => {
             </a>
           </div>
 
-          <!-- Plan Ilimitado (Pro) -->
+          <!-- Plan Pro Anual (Recomendado / Destacado) -->
           <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ t('home.proPlanBadge') }}</span>
-            <h3 class="pricing-name">{{ t('home.proPlanTitle') }}</h3>
-            <div class="pricing-price">{{ t('home.proPlanPrice') }}</div>
-            <p class="pricing-period">{{ t('home.proPlanPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.proPlanDesc') }}</p>
+            <span class="pricing-badge pricing-badge-pro">{{ t('home.proAnnualBadge') }}</span>
+            <h3 class="pricing-name">{{ t('home.proAnnualTitle') }}</h3>
+            <div class="pricing-price">{{ t('home.proAnnualPrice') }}</div>
+            <p class="pricing-period">{{ t('home.proAnnualPeriod') }}</p>
+            <p class="pricing-desc">{{ t('home.proAnnualDesc') }}</p>
             <ul class="pricing-features">
-              <li>✓ {{ t('home.proPlanFeature1') }}</li>
-              <li>✓ {{ t('home.proPlanFeature2') }}</li>
-              <li>✓ {{ t('home.proPlanFeature3') }}</li>
-              <li>✓ {{ t('home.proPlanFeature4') }}</li>
-              <li>✓ {{ t('home.proPlanFeature5') }}</li>
-              <li>✓ {{ t('home.proPlanFeature6') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature1') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature2') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature3') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature4') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature5') }}</li>
+              <li>✓ {{ t('home.proAnnualFeature6') }}</li>
             </ul>
             <a href="#descargar" class="pricing-btn pricing-btn-pro">
-              {{ t('home.proPlanCTA') }}
+              {{ t('home.proAnnualCTA') }}
+            </a>
+          </div>
+
+          <!-- Plan Pro Mensual -->
+          <div class="pricing-card pricing-card-monthly">
+            <span class="pricing-badge">{{ t('home.proMonthlyBadge') }}</span>
+            <h3 class="pricing-name">{{ t('home.proMonthlyTitle') }}</h3>
+            <div class="pricing-price">{{ t('home.proMonthlyPrice') }}</div>
+            <p class="pricing-period">{{ t('home.proMonthlyPeriod') }}</p>
+            <p class="pricing-desc">{{ t('home.proMonthlyDesc') }}</p>
+            <ul class="pricing-features">
+              <li>✓ {{ t('home.proMonthlyFeature1') }}</li>
+              <li>✓ {{ t('home.proMonthlyFeature2') }}</li>
+              <li>✓ {{ t('home.proMonthlyFeature3') }}</li>
+              <li>✓ {{ t('home.proMonthlyFeature4') }}</li>
+              <li>✓ {{ t('home.proMonthlyFeature5') }}</li>
+              <li>✓ {{ t('home.proMonthlyFeature6') }}</li>
+            </ul>
+            <a href="#descargar" class="pricing-btn pricing-btn-dark">
+              {{ t('home.proMonthlyCTA') }}
             </a>
           </div>
         </div>
 
         <!-- Caja explicativa transparente sobre el período de prueba -->
-        <div class="trial-info-wrapper max-w-4xl mx-auto mt-10">
+        <div class="trial-info-wrapper max-w-5xl mx-auto mt-12">
           <div class="trial-info-box">
-            <div class="trial-info-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-              </svg>
-            </div>
-            <div class="trial-info-content">
+            <div class="trial-info-header">
+              <div class="trial-info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+              </div>
               <h4 class="trial-info-title">{{ t('home.pricingTrialNoteTitle') }}</h4>
-              <p class="trial-info-desc">{{ t('home.pricingTrialNote') }}</p>
+            </div>
+            <div class="trial-points-grid">
+              <div class="trial-point-item">
+                <span class="trial-point-num">1</span>
+                <div>
+                  <h5 class="trial-point-heading">{{ t('home.trialPoint1Title') }}</h5>
+                  <p class="trial-point-body">{{ t('home.trialPoint1Desc') }}</p>
+                </div>
+              </div>
+              <div class="trial-point-item">
+                <span class="trial-point-num">2</span>
+                <div>
+                  <h5 class="trial-point-heading">{{ t('home.trialPoint2Title') }}</h5>
+                  <p class="trial-point-body">{{ t('home.trialPoint2Desc') }}</p>
+                </div>
+              </div>
+              <div class="trial-point-item">
+                <span class="trial-point-num">3</span>
+                <div>
+                  <h5 class="trial-point-heading">{{ t('home.trialPoint3Title') }}</h5>
+                  <p class="trial-point-body">{{ t('home.trialPoint3Desc') }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1253,10 +1367,14 @@ const toggleFaq = (idx: number) => {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
-  padding: 22px 26px;
+  padding: 26px 28px;
+}
+
+.trial-info-header {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .trial-info-icon {
@@ -1271,23 +1389,124 @@ const toggleFaq = (idx: number) => {
   flex-shrink: 0;
 }
 
-.trial-info-content {
-  flex: 1;
-}
-
 .trial-info-title {
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 4px;
+  margin: 0;
   letter-spacing: -0.01em;
 }
 
-.trial-info-desc {
-  font-size: 14px;
-  line-height: 1.55;
+.trial-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.trial-point-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.trial-point-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0066cc;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trial-point-heading {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.trial-point-body {
+  font-size: 13.5px;
+  line-height: 1.5;
   color: #475569;
   margin: 0;
+}
+
+/* === TRUST BADGES & TESTIMONIALS === */
+.trust-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.trust-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.trust-badge-pill svg {
+  color: #0066cc;
+  flex-shrink: 0;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid #ebebea;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.testimonial-quote {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0 0 20px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+.testimonial-author strong {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.testimonial-author span {
+  font-size: 12.5px;
+  color: #64748b;
+  margin-top: 2px;
 }
 
 .pricing-features {
