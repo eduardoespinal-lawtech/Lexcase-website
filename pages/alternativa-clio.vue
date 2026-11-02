@@ -90,7 +90,7 @@ const matrix = computed(() => [
   },
   {
     feature: isEn.value ? 'Search Speed & Latency' : 'Velocidad de Búsqueda y Respuesta',
-    lexbell: isEn.value ? 'Instant (0 ms network lag, local SQLite engine)' : 'Instantánea (0 ms lag de red, motor SQLite local)',
+    lexbell: isEn.value ? 'Instant (zero loading screens, 100% offline speed)' : 'Instantánea (sin esperas de conexión ni caídas de internet)',
     clio: isEn.value ? 'Dependent on internet bandwidth and server response' : 'Dependiente del ancho de banda y servidores remotos',
     lexbellWin: true
   },

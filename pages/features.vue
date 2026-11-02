@@ -158,8 +158,8 @@ const tiles = computed(() => [
             <div class="privacy-stat-label">{{ locale === 'es' ? 'Telemetría' : 'Telemetry' }}</div>
           </div>
           <div class="privacy-stat">
-            <div class="privacy-stat-num">AES-256</div>
-            <div class="privacy-stat-label">{{ locale === 'es' ? 'Cifrado Local' : 'Local Encryption' }}</div>
+            <div class="privacy-stat-num">100%</div>
+            <div class="privacy-stat-label">{{ locale === 'es' ? 'Privado y Local' : 'Private & Local' }}</div>
           </div>
         </div>
       </div>

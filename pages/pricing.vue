@@ -44,7 +44,7 @@ const pricingFaqs = computed(() => {
       },
       {
         q: 'Can I keep my data if I cancel my Pro subscription?',
-        a: 'Yes, absolutely. Because Lexbell is local-first, your SQLite database and all attached documents are stored directly on your computer. You never lose access to your records.'
+        a: 'Yes, absolutely. Because Lexbell is local-first, all your case files and documents are stored directly on your computer. You never lose access to your records.'
       }
     ]
   }
@@ -63,7 +63,7 @@ const pricingFaqs = computed(() => {
     },
     {
       q: '¿Puedo conservar mis expedientes si decido cancelar Pro?',
-      a: 'Sí, totalmente. Al ser una aplicación local, tu base de datos SQLite y todos tus documentos se guardan directamente en tu disco duro. Nunca pierdes el acceso a tu información.'
+      a: 'Sí, totalmente. Al ser una aplicación local, todos tus expedientes y documentos se guardan directamente en tu propio ordenador. Nunca pierdes el acceso a tu información.'
     }
   ]
 })
