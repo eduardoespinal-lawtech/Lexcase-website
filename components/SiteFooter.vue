@@ -1,14 +1,26 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { openModal } = useCookieConsent()
+const config = useRuntimeConfig()
+const { trackDownload } = useAnalytics()
 
 const year = new Date().getFullYear()
+
+const appleUrl = computed(() => config.public.appleStoreUrl || 'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12')
+const microsoftUrl = computed(() => config.public.microsoftStoreUrl || 'https://apps.microsoft.com/detail/9NLZXP46J9G2')
+
+const appleBadgeSrc = computed(() => {
+  return locale.value === 'en' ? '/mac-app-store-badge-en.svg' : '/mac-app-store-badge-es.svg'
+})
+
+const msBadgeSrc = computed(() => {
+  return locale.value === 'en' ? '/microsoft-store-badge.svg' : '/microsoft-store-badge-es.svg'
+})
 
 const productLinks = computed(() => [
   { to: localePath('features'), label: t('nav.features') },
   { to: localePath('pricing'), label: t('nav.pricing') },
-  { to: localePath('index') + '#descargar', label: t('footer.downloads') },
   { to: localePath('alternativa-clio'), label: t('footer.clioAlt') }
 ])
 
@@ -38,11 +50,11 @@ const legalLinks = computed(() => [
 </script>
 
 <template>
-  <footer class="site-footer">
+  <footer class="site-footer" id="descargar">
     <div class="site-footer-inner">
-      <!-- Grid Principal: Identidad de Marca + 4 Columnas de Enlaces -->
+      <!-- Grid Principal: Identidad de Marca + Descargas + 4 Columnas de Enlaces -->
       <div class="site-footer-top">
-        <!-- Columna de Marca -->
+        <!-- Columna de Marca y Descargas Oficiales -->
         <div class="footer-brand-col">
           <NuxtLink :to="localePath('index')" class="footer-brand-link" :aria-label="t('common.brand')">
             <LogoMark :size="20" />
@@ -56,6 +68,59 @@ const legalLinks = computed(() => [
           <div class="footer-status-pill">
             <span class="status-dot"></span>
             <span class="status-text">{{ t('footer.status') }}</span>
+          </div>
+
+          <!-- Botones Oficiales de Descarga Integrados -->
+          <div class="footer-download-box">
+            <span class="footer-download-label">
+              {{ locale === 'en' ? 'Official Store Downloads' : 'Descargas Oficiales para tu Equipo' }}
+            </span>
+
+            <div class="footer-download-btns">
+              <a
+                :href="appleUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-store-badge-link"
+                :title="locale === 'en' ? 'Download on Mac App Store' : 'Consíguelo en el Mac App Store'"
+                @click="trackDownload('apple')"
+              >
+                <img
+                  :src="appleBadgeSrc"
+                  :alt="locale === 'en' ? 'Download on Mac App Store' : 'Consíguelo en el Mac App Store'"
+                  class="footer-store-badge-img"
+                  width="180"
+                  height="46"
+                  loading="lazy"
+                />
+              </a>
+
+              <a
+                :href="microsoftUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-store-badge-link"
+                :title="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
+                @click="trackDownload('microsoft')"
+              >
+                <img
+                  :src="msBadgeSrc"
+                  :alt="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
+                  class="footer-store-badge-img"
+                  width="180"
+                  height="46"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            <div class="footer-guarantees-micro">
+              <span>✓ {{ locale === 'en' ? '15-Day Free Trial' : '15 Días de prueba gratis' }}</span>
+              <span class="guarantee-sep">·</span>
+              <span>✓ {{ locale === 'en' ? 'No card required' : 'Sin tarjeta de crédito' }}</span>
+              <span class="guarantee-sep">·</span>
+              <span>✓ {{ locale === 'en' ? 'Free up to 50 cases' : 'Gratis hasta 50 casos' }}</span>
+            </div>
           </div>
         </div>
 
@@ -170,12 +235,12 @@ const legalLinks = computed(() => [
 
 @media (min-width: 960px) {
   .site-footer-top {
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: 360px 1fr;
     gap: 60px;
   }
 }
 
-/* Columna de Marca */
+/* Columna de Marca y Descargas */
 .footer-brand-col {
   display: flex;
   flex-direction: column;
@@ -192,8 +257,8 @@ const legalLinks = computed(() => [
   font-size: 13.5px;
   line-height: 1.55;
   color: #5f5e5b;
-  margin: 0 0 18px;
-  max-width: 320px;
+  margin: 0 0 16px;
+  max-width: 330px;
 }
 
 .footer-status-pill {
@@ -219,6 +284,65 @@ const legalLinks = computed(() => [
   font-size: 12px;
   font-weight: 600;
   color: #1e293b;
+}
+
+/* Enlaces de Descarga en el Footer */
+.footer-download-box {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.footer-download-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #050505;
+}
+
+.footer-download-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-store-badge-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+  border-radius: 8px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.footer-store-badge-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.footer-store-badge-img {
+  height: 44px;
+  width: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.footer-guarantees-micro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0066cc;
+  margin-top: 2px;
+}
+
+.guarantee-sep {
+  color: #94a3b8;
 }
 
 /* Grid de Enlaces */

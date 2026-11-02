@@ -503,21 +503,6 @@ const solutionsPreview = computed(() => {
         </div>
       </div>
     </section>
-
-    <!-- =================== 8. CTA FINAL (Notion Clean Banner) =================== -->
-    <section class="notion-cta-section">
-      <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
-        <h2 class="h-section max-w-2xl mx-auto">{{ t('home.ctaSectionTitle') }}</h2>
-        <p class="subtitle max-w-xl mx-auto mt-4 mb-8">
-          {{ t('home.ctaSectionBody') }}
-        </p>
-
-        <div class="flex justify-center">
-          <AppDownload center />
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -1166,12 +1151,5 @@ const solutionsPreview = computed(() => {
 
 .faq-answer p {
   margin: 0;
-}
-
-/* CTA FINAL NOTION */
-.notion-cta-section {
-  background: #ffffff;
-  border-top: 1px solid #ebebea;
-  padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>
