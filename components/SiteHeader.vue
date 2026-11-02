@@ -245,46 +245,4 @@ const links = computed(() => [
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
-
-/* === MODO OSCURO (ALTO CONTRASTE, SIN ICONOS OPACOS) === */
-@media (prefers-color-scheme: dark) {
-  .site-header {
-    background: rgba(18, 18, 18, 0.95);
-    border-bottom-color: rgba(255, 255, 255, 0.12);
-  }
-  .header-product-tag {
-    color: #ffffff;
-  }
-  .header-pipe {
-    color: #555555;
-  }
-  .site-header-link {
-    color: #d1d5db;
-  }
-  .site-header-link:hover, .router-link-exact-active.site-header-link {
-    color: #ffffff;
-  }
-  .header-trial-btn {
-    background: #ffffff;
-    color: #000000;
-  }
-  .header-trial-btn:hover {
-    background: #e5e5e5;
-  }
-  .site-header-burger {
-    color: #ffffff;
-  }
-  .site-header-mobile {
-    background: #141414;
-    border-top-color: #2a2a2a;
-  }
-  .site-header-mobile-link {
-    color: #ffffff;
-    border-bottom-color: #222222;
-  }
-  .site-header-mobile-cta {
-    background: #ffffff;
-    color: #000000;
-  }
-}
 </style>

@@ -205,25 +205,18 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Laptop en perspectiva de escritorio mostrando la app real (como en Microsoft 365) -->
+        <!-- Columna Derecha: Laptop inclinada en el escritorio con la app real (como en Microsoft 365) -->
         <div class="ms-hero-device-col">
-          <div class="ms-laptop-wrapper">
-            <div class="ms-laptop-screen-frame">
-              <div class="ms-laptop-notch-camera"></div>
-              <img
-                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell en ordenador'"
-                class="ms-laptop-screen-img"
-                width="2730"
-                height="1600"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </div>
-            <div class="ms-laptop-deck">
-              <div class="ms-laptop-deck-center"></div>
-            </div>
-            <div class="ms-laptop-desk-shadow"></div>
+          <div class="ms-scene-wrapper">
+            <img
+              :src="locale === 'en' ? '/screenshots/ms-laptop-en.webp?v=1.1.19' : '/screenshots/ms-laptop-es.webp?v=1.1.19'"
+              :alt="locale === 'en' ? 'Lexbell Desktop App running on PC' : 'Aplicación de escritorio Lexbell ejecutándose en ordenador'"
+              class="ms-scene-img"
+              width="1408"
+              height="720"
+              loading="eager"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </div>
@@ -804,7 +797,7 @@ const toggleFaq = (idx: number) => {
   align-items: flex-start;
 }
 
-/* --- LAPTOP EN PERSPECTIVA DE ESCRITORIO (ESTILO FOTO MICROSOFT 365) --- */
+/* --- ESCENA DEL ESCRITORIO CON LAPTOP INCLINADA (ESTILO EXACTO MICROSOFT 365) --- */
 .ms-hero-device-col {
   display: flex;
   justify-content: center;
@@ -812,67 +805,27 @@ const toggleFaq = (idx: number) => {
   position: relative;
 }
 
-.ms-laptop-wrapper {
+.ms-scene-wrapper {
   position: relative;
   width: 100%;
-  max-width: 620px;
-  filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.12));
+  max-width: 680px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.12), 0 8px 20px -8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.ms-laptop-screen-frame {
-  background: #18181b;
-  border: 4px solid #27272a;
-  border-radius: 12px 12px 2px 2px;
-  padding: 6px 6px 8px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  position: relative;
+.ms-scene-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 56px -12px rgba(0, 0, 0, 0.16), 0 10px 24px -8px rgba(0, 0, 0, 0.08);
 }
 
-.ms-laptop-notch-camera {
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #09090b;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 2;
-}
-
-.ms-laptop-screen-img {
+.ms-scene-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 6px;
-  background: #ffffff;
-}
-
-.ms-laptop-deck {
-  height: 12px;
-  background: linear-gradient(180deg, #e4e4e7 0%, #cbd5e1 60%, #94a3b8 100%);
-  border-radius: 0 0 14px 14px;
-  margin: 0 -8px;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.ms-laptop-deck-center {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: #64748b;
-  border-radius: 0 0 4px 4px;
-}
-
-.ms-laptop-desk-shadow {
-  height: 16px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
-  margin-top: 4px;
 }
 
 /* === HERO VALUE CARDS (Estilo Minimalista Muse / Linear) === */
@@ -1318,40 +1271,5 @@ const toggleFaq = (idx: number) => {
   background: #f7f7f5;
   border-top: 1px solid #ebebea;
   padding: clamp(60px, 8vh, 90px) 24px;
-}
-
-/* === MODO OSCURO (HERO ESTILO MICROSOFT) === */
-@media (prefers-color-scheme: dark) {
-  .notion-landing {
-    background: #0d0d0e;
-    color: #f4f4f5;
-  }
-  .ms-hero-section {
-    background: #0d0d0e;
-    background: linear-gradient(180deg, #141416 0%, #0a0a0b 100%);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-  }
-  .ms-hero-h1 {
-    color: #ffffff;
-  }
-  .ms-hero-p {
-    color: #e4e4e7;
-  }
-  .ms-hero-p-sub {
-    color: #a1a1aa;
-  }
-  .ms-laptop-wrapper {
-    filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.5));
-  }
-  .ms-laptop-screen-frame {
-    background: #111113;
-    border-color: #27272a;
-  }
-  .ms-laptop-deck {
-    background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
-  }
-  .ms-laptop-deck-center {
-    background: #18181b;
-  }
 }
 </style>
