@@ -344,27 +344,6 @@ useHead(() => {
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="prose-legal article-content" v-html="postContentWithIds" />
 
-      <!-- IN-ARTICLE CALL TO ACTION (LEXBELL OFFICIAL STORE DOWNLOADS) -->
-      <aside class="article-cta-box my-16">
-        <div class="article-cta-inner">
-          <div class="article-cta-badge">
-            {{ isEn ? 'RECOMMENDED LEGAL SOFTWARE' : 'SOFTWARE JURÍDICO RECOMENDADO' }}
-          </div>
-          <h3 class="article-cta-title">{{ t('blog.ctaTitle') }}</h3>
-          <p class="article-cta-desc">
-            {{ t('blog.ctaSubtitle') }}
-          </p>
-
-          <div class="article-cta-actions flex justify-center">
-            <AppDownload center />
-          </div>
-
-          <p class="cta-trust-note mt-3">
-            {{ t('common.availabilityNote') }}
-          </p>
-        </div>
-      </aside>
-
       <!-- RELATED ARTICLES -->
       <footer v-if="relatedPosts.length > 0" class="related-section pt-12 mt-12 border-t border-gray-200">
         <h3 class="related-heading">{{ isEn ? 'Recommended Articles' : 'Artículos recomendados' }}</h3>
@@ -722,61 +701,6 @@ useHead(() => {
   margin: 2rem 0;
   font-size: 16px;
   line-height: 1.6;
-}
-
-/* CTA Box */
-.article-cta-box {
-  background: linear-gradient(180deg, #fbfbfa 0%, #f4f4f2 100%);
-  border: 1px solid #ebebea;
-  border-radius: 20px;
-  padding: clamp(32px, 4vw, 44px) 28px;
-}
-
-.article-cta-inner {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.article-cta-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0066cc;
-  background: #eef4ff;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  margin-bottom: 12px;
-}
-
-.article-cta-title {
-  font-size: clamp(22px, 2.5vw, 28px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #191919;
-  margin-bottom: 10px;
-}
-
-.article-cta-desc {
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: #5f5e5b;
-  margin-bottom: 24px;
-}
-
-.article-cta-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.cta-trust-note {
-  font-size: 12px;
-  color: #8b8a86;
-  margin: 0;
 }
 
 /* Related articles */

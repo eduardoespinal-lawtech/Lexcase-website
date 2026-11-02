@@ -456,22 +456,6 @@ useHead(() => ({
         </div>
       </div>
     </section>
-
-    <!-- CONVERSION CTA -->
-    <section class="section section-gray">
-      <div class="apple-wrap text-center">
-        <h2 class="h-section" style="text-wrap: balance;">
-          {{ isEn ? 'Never miss a court deadline again.' : 'No vuelvas a perder un plazo procesal.' }}
-        </h2>
-        <p class="subtitle mt-3 mb-8 mx-auto" style="max-width: 640px; text-wrap: pretty;">
-          {{ isEn
-            ? 'Lexbell organizes your court cases, computes procedural deadlines, and safeguards your legal files 100% locally on your Mac and Windows. Free up to 50 active matters.'
-            : 'Lexbell organiza tus expedientes, calcula tus plazos y protege tus documentos legales 100% en tu propio ordenador. Gratis hasta 50 expedientes activos.'
-          }}
-        </p>
-        <AppDownload center />
-      </div>
-    </section>
   </div>
 </template>
 

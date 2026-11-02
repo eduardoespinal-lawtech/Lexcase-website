@@ -320,33 +320,12 @@ const solutionsPreview = computed(() => {
       </div>
     </section>
 
-    <!-- =================== 5. CONFIANZA Y TESTIMONIOS =================== -->
+    <!-- =================== 5. TESTIMONIOS =================== -->
     <section class="section section-gray">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="eyebrow">{{ t('home.trustEyebrow') }}</span>
-          <h2 class="h-section">{{ t('home.trustTitle') }}</h2>
-          <p class="subtitle mt-3">{{ t('home.trustSubtitle') }}</p>
-        </div>
-
-        <!-- Sellos de confianza -->
-        <div class="trust-badges-grid max-w-4xl mx-auto mb-12">
-          <div class="trust-badge-pill">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>{{ t('home.trustBadge1') }}</span>
-          </div>
-          <div class="trust-badge-pill">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>{{ t('home.trustBadge2') }}</span>
-          </div>
-          <div class="trust-badge-pill">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>{{ t('home.trustBadge3') }}</span>
-          </div>
-          <div class="trust-badge-pill">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
-            <span>{{ t('home.trustBadge4') }}</span>
-          </div>
+          <span class="eyebrow">{{ locale === 'en' ? 'TESTIMONIALS' : 'OPINIONES REALES' }}</span>
+          <h2 class="h-section">{{ locale === 'en' ? 'Trusted by independent legal professionals' : 'Lo que dicen profesionales que usan Lexbell' }}</h2>
         </div>
 
         <!-- Testimonios de profesionales reales -->
@@ -797,33 +776,7 @@ const solutionsPreview = computed(() => {
   color: #0066cc;
 }
 
-/* SELLOS Y TESTIMONIOS */
-.trust-badges-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.trust-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1e293b;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.trust-badge-pill svg {
-  color: #0066cc;
-  flex-shrink: 0;
-}
-
+/* TESTIMONIOS */
 .testimonial-card {
   background: #ffffff;
   border: 1px solid #ebebea;

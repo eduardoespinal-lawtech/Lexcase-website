@@ -147,42 +147,6 @@ const pricingFaqs = computed(() => {
           </div>
         </div>
 
-        <!-- Caja explicativa transparente sobre el período de prueba -->
-        <div class="trial-info-wrapper max-w-5xl mx-auto mt-14">
-          <div class="trial-info-box">
-            <div class="trial-info-header">
-              <div class="trial-info-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-                </svg>
-              </div>
-              <h3 class="trial-info-title">{{ t('home.pricingTrialNoteTitle') }}</h3>
-            </div>
-            <div class="trial-points-grid">
-              <div class="trial-point-item">
-                <span class="trial-point-num">1</span>
-                <div>
-                  <h4 class="trial-point-heading">{{ t('home.trialPoint1Title') }}</h4>
-                  <p class="trial-point-body">{{ t('home.trialPoint1Desc') }}</p>
-                </div>
-              </div>
-              <div class="trial-point-item">
-                <span class="trial-point-num">2</span>
-                <div>
-                  <h4 class="trial-point-heading">{{ t('home.trialPoint2Title') }}</h4>
-                  <p class="trial-point-body">{{ t('home.trialPoint2Desc') }}</p>
-                </div>
-              </div>
-              <div class="trial-point-item">
-                <span class="trial-point-num">3</span>
-                <div>
-                  <h4 class="trial-point-heading">{{ t('home.trialPoint3Title') }}</h4>
-                  <p class="trial-point-body">{{ t('home.trialPoint3Desc') }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -369,85 +333,6 @@ const pricingFaqs = computed(() => {
 
 .pricing-btn-pro:hover {
   background: #0052a3;
-}
-
-.trial-info-wrapper {
-  margin-top: 36px;
-}
-
-.trial-info-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 26px 28px;
-}
-
-.trial-info-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.trial-info-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: #e0f2fe;
-  color: #0284c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.trial-info-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.trial-points-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.trial-point-item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.trial-point-num {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #0066cc;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.trial-point-heading {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 4px;
-}
-
-.trial-point-body {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #475569;
-  margin: 0;
 }
 
 .pricing-faq-section {

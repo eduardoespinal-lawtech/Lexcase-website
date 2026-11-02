@@ -67,20 +67,6 @@ useHead(() => {
         </div>
       </div>
     </section>
-
-    <!-- CTA FINAL NOTION -->
-    <section class="notion-cta-section" id="descargar">
-      <div class="apple-wrap text-center">
-        <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
-        <h2 class="h-section max-w-2xl mx-auto">{{ t('home.ctaSectionTitle') }}</h2>
-        <p class="subtitle max-w-xl mx-auto mt-4 mb-8">
-          {{ t('home.ctaSectionBody') }}
-        </p>
-        <div class="flex justify-center">
-          <AppDownload center />
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -151,12 +137,5 @@ useHead(() => {
   line-height: 1.6;
   color: #191919;
   margin: 0;
-}
-
-/* === CTA Final === */
-.notion-cta-section {
-  background: #f7f7f5;
-  border-top: 1px solid #ebebea;
-  padding: clamp(60px, 8vh, 90px) 24px;
 }
 </style>

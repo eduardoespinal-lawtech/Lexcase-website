@@ -187,18 +187,6 @@ function formatDate(iso: string) {
             </NuxtLink>
           </article>
         </div>
-
-        <!-- BOTTOM CALL TO ACTION (STANDARDIZED WITH APPDOWNLOAD) -->
-        <div class="blog-cta-banner mt-20">
-          <div class="blog-cta-content text-center">
-            <span class="eyebrow">{{ t('home.ctaSectionEyebrow') }}</span>
-            <h3 class="blog-cta-title">{{ t('blog.ctaTitle') }}</h3>
-            <p class="blog-cta-subtitle">{{ t('blog.ctaSubtitle') }}</p>
-            <div class="flex justify-center">
-              <AppDownload center />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </div>
@@ -417,28 +405,5 @@ function formatDate(iso: string) {
   font-size: 13px;
   font-weight: 600;
   color: #0066cc;
-}
-
-/* CTA Banner */
-.blog-cta-banner {
-  background: #fbfbfa;
-  border: 1px solid #ebebea;
-  border-radius: 20px;
-  padding: clamp(36px, 5vw, 56px) 24px;
-}
-
-.blog-cta-title {
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #191919;
-  margin-bottom: 10px;
-}
-
-.blog-cta-subtitle {
-  font-size: 16px;
-  color: #5f5e5b;
-  max-width: 600px;
-  margin: 0 auto 28px;
 }
 </style>

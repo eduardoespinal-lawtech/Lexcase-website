@@ -245,22 +245,6 @@ const faqs = computed(() => [
         </div>
       </div>
     </section>
-
-    <!-- CTA DOWNLOAD -->
-    <section class="section">
-      <div class="apple-wrap text-center">
-        <h2 class="h-section" style="text-wrap: balance;">
-          {{ isEn ? 'Experience the speed of local case management.' : 'Prueba la velocidad de la gestión local de expedientes.' }}
-        </h2>
-        <p class="subtitle mt-3 mb-8 mx-auto" style="max-width: 600px; text-wrap: pretty;">
-          {{ isEn
-            ? 'Download Lexbell today for Mac and Windows. Free tier up to 50 cases without credit card.'
-            : 'Descarga Lexbell hoy para Mac y Windows. Gratis hasta 50 expedientes sin tarjeta de crédito.'
-          }}
-        </p>
-        <AppDownload center />
-      </div>
-    </section>
   </div>
 </template>
 
