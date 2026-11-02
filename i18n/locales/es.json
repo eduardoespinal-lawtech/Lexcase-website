@@ -109,9 +109,22 @@
   },
   "footer": {
     "product": "Producto",
-    "contact": "Contacto",
-    "legal": "Legal",
-    "rights": "Todos los derechos reservados."
+    "solutions": "Soluciones",
+    "resources": "Recursos",
+    "contact": "Contacto & Soporte",
+    "legal": "Legal y Privacidad",
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Software privado de gestión de expedientes para abogados. Diseñado para Mac y Windows con arquitectura 100% local y SQLite cifrado.",
+    "status": "Operación 100% Local · Cero Nube",
+    "downloads": "Descargas Oficiales",
+    "clioAlt": "Alternativa a la Nube",
+    "calculator": "Calculadora de Plazos",
+    "guide": "Secreto Profesional",
+    "litigation": "Litigación y Juicios",
+    "administrative": "Administrativo y Tributario",
+    "immigration": "Migración y Consular",
+    "realEstate": "Inmobiliario y Alquileres",
+    "corporate": "Corporativo y Sociedades"
   },
   "home": {
     "heroTitle": "El control de tu práctica jurídica.",

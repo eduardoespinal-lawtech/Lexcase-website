@@ -109,9 +109,22 @@
   },
   "footer": {
     "product": "Product",
-    "contact": "Contact",
-    "legal": "Legal",
-    "rights": "All rights reserved."
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "contact": "Contact & Support",
+    "legal": "Legal & Privacy",
+    "rights": "All rights reserved.",
+    "tagline": "Private desktop case management software for attorneys. Designed for Mac and Windows with local-first architecture and encrypted SQLite.",
+    "status": "100% Local Operation · Zero Cloud",
+    "downloads": "Official Downloads",
+    "clioAlt": "Cloud Alternative",
+    "calculator": "Deadline Calculator",
+    "guide": "Privilege & Ethics",
+    "litigation": "Litigation & Trials",
+    "administrative": "Administrative & Tax",
+    "immigration": "Immigration & Consular",
+    "realEstate": "Real Estate & Leases",
+    "corporate": "Corporate & Business"
   },
   "home": {
     "heroTitle": "Total control of your legal practice.",
