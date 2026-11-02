@@ -61,75 +61,6 @@ const openFaq = ref<number | null>(null)
 const toggleFaq = (idx: number) => {
   openFaq.value = openFaq.value === idx ? null : idx
 }
-
-const solutionsPreview = computed(() => {
-  if (locale.value === 'en') {
-    return [
-      {
-        icon: 'scale',
-        title: 'Litigation & Trial Advocacy',
-        desc: 'Civil, criminal, and labor litigation. Deadlines, court hearings, and offline docket access in courtrooms.',
-        tag: 'Courtroom'
-      },
-      {
-        icon: 'landmark',
-        title: 'Administrative & Tax Law',
-        desc: 'Government appeals, administrative silence countdowns, and formal filings before public agencies.',
-        tag: 'Regulatory'
-      },
-      {
-        icon: 'plane',
-        title: 'Immigration & Consular',
-        desc: 'Consular interviews, visas, residencies, and family petition tracking with passport expiration alerts.',
-        tag: 'Mobility'
-      },
-      {
-        icon: 'key',
-        title: 'Real Estate & Leases',
-        desc: 'Tenancy contracts, rent collection calendars, escrow deposits, and property titles.',
-        tag: 'Real Estate'
-      },
-      {
-        icon: 'briefcase',
-        title: 'Corporate & M&A',
-        desc: 'Shareholder minutes, mercantile registry renewals, and automated conflict-of-interest checks.',
-        tag: 'Corporate'
-      }
-    ]
-  }
-  return [
-    {
-      icon: 'scale',
-      title: 'Litigación y Juicios',
-      desc: 'Penal, civil y laboral. Cómputo de plazos procesales, audiencias y acceso 100% offline en juzgados.',
-      tag: 'Tribunales'
-    },
-    {
-      icon: 'landmark',
-      title: 'Administrativo y Tributario',
-      desc: 'Recursos de reconsideración, plazos de silencio administrativo y trámites ante instituciones públicas.',
-      tag: 'Regulatorio'
-    },
-    {
-      icon: 'plane',
-      title: 'Migración y Extranjería',
-      desc: 'Ficha consular, citas de visado, residencias y alertas de caducidad de pasaportes.',
-      tag: 'Consular'
-    },
-    {
-      icon: 'key',
-      title: 'Inmobiliario y Alquileres',
-      desc: 'Contratos de arrendamiento, depósitos en garantía, cobros mensuales y promesas de venta.',
-      tag: 'Inmobiliario'
-    },
-    {
-      icon: 'briefcase',
-      title: 'Corporativo y Empresas',
-      desc: 'Asambleas de socios, renovación de Registro Mercantil y prevención automática de conflictos.',
-      tag: 'Empresas'
-    }
-  ]
-})
 </script>
 
 <template>
@@ -218,41 +149,7 @@ const solutionsPreview = computed(() => {
       </div>
     </section>
 
-    <!-- =================== 2. SOLUCIONES POR PÚBLICO OBJETIVO =================== -->
-    <section class="section section-gray" id="soluciones">
-      <div class="apple-wrap">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="eyebrow">{{ locale === 'en' ? 'PRACTICE AREAS & AUDIENCES' : 'SOLUCIONES POR PÚBLICO' }}</span>
-          <h2 class="h-section">{{ locale === 'en' ? 'Specialized for Your Branch of Law' : 'Especializado para tu rama del derecho' }}</h2>
-          <p class="subtitle mt-3">
-            {{ locale === 'en'
-              ? 'Whether you are in courtroom litigation, corporate consulting, or administrative filings, Lexbell adapts to your daily workflow.'
-              : 'Ya sea que estés en litigación de juzgados, consultoría corporativa o trámites administrativos, Lexbell se adapta a tu práctica.'
-            }}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div
-            v-for="(sol, idx) in solutionsPreview"
-            :key="idx"
-            class="solution-teaser-card"
-          >
-            <span class="teaser-tag">{{ sol.tag }}</span>
-            <h3 class="teaser-title">{{ sol.title }}</h3>
-            <p class="teaser-desc">{{ sol.desc }}</p>
-          </div>
-        </div>
-
-        <div class="text-center mt-10">
-          <NuxtLink :to="localePath('solutions')" class="solution-main-link">
-            {{ locale === 'en' ? 'Explore all 5 solutions and workflows in detail' : 'Explorar las 5 soluciones detalladas y cómo te sirven' }} →
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 4. TABLA COMPARATIVA DE ARQUITECTURA =================== -->
+    <!-- =================== 2. TABLA COMPARATIVA DE ARQUITECTURA =================== -->
     <section class="section">
       <div class="apple-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -669,66 +566,6 @@ const solutionsPreview = computed(() => {
   line-height: 1.55;
   color: #5f5e5b;
   margin: 0;
-}
-
-/* SOLUCIONES TEASER */
-.solution-teaser-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
-  border-radius: 14px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.solution-teaser-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-}
-
-.teaser-tag {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  color: #0066cc;
-  text-transform: uppercase;
-  background: #e6f0fa;
-  padding: 3px 8px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-}
-
-.teaser-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: #050505;
-  margin: 0 0 8px;
-}
-
-.teaser-desc {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #5f5e5b;
-  margin: 0;
-}
-
-.solution-main-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 24px;
-  background: #0066cc;
-  color: #ffffff;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.solution-main-link:hover {
-  background: #0052a3;
 }
 
 /* TABLA COMPARATIVA */
