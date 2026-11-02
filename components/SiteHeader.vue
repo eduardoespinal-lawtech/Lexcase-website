@@ -36,17 +36,6 @@ const links = computed(() => [
 
       <div class="site-header-tail">
         <LangSwitcher />
-        <a
-          :href="localePath('index') + '#descargar'"
-          class="site-header-cta"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          <span>{{ t('nav.downloadCTA') }}</span>
-        </a>
         <button
           class="site-header-burger"
           :aria-label="open ? t('nav.close') : t('nav.menu')"
@@ -80,18 +69,6 @@ const links = computed(() => [
             <span class="mobile-lang-label">{{ locale === 'es' ? 'Idioma' : 'Language' }}</span>
             <LangSwitcher />
           </div>
-          <a
-            :href="localePath('index') + '#descargar'"
-            class="site-header-mobile-cta"
-            @click="open = false"
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>{{ t('nav.downloadCTA') }}</span>
-          </a>
         </div>
       </nav>
     </Transition>
@@ -196,52 +173,6 @@ const links = computed(() => [
   font-size: 14px;
   font-weight: 500;
   color: #787774;
-}
-
-.site-header-cta {
-  display: none;
-  align-items: center;
-  gap: 7px;
-  background: #111827;
-  color: #ffffff;
-  padding: 7px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  letter-spacing: -0.01em;
-}
-.site-header-cta:hover {
-  background: #000000;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-@media (min-width: 640px) {
-  .site-header-cta {
-    display: inline-flex;
-  }
-}
-
-.site-header-mobile-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #111827;
-  color: #ffffff;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 14.5px;
-  font-weight: 600;
-  text-decoration: none;
-  margin-top: 14px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.site-header-mobile-cta:active {
-  background: #000000;
 }
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }
