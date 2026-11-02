@@ -12,7 +12,8 @@
     "availabilityNote": "macOS 12 o superior · Windows 10 y 11 · 100% Sin conexión",
     "guaranteeCases": "Gratis hasta 50 expedientes",
     "guaranteeCard": "Sin tarjeta de crédito",
-    "guaranteeLocal": "100% Cifrado local"
+    "guaranteeLocal": "100% Cifrado local",
+    "guaranteeRegister": "Sin registro"
   },
   "showcase": {
     "tabCases": "Expedientes",
@@ -106,9 +107,9 @@
     "rights": "Todos los derechos reservados."
   },
   "home": {
-    "heroTitle": "Tus casos, organizados.",
-    "heroTitle2": "Tus datos, siempre privados.",
-    "heroSubtitle": "El software de escritorio para abogados, consultores de migración y asesores inmobiliarios. Gestiona litigios, residencias y contratos en tu Mac o Windows con velocidad instantánea. Tus archivos nunca salen de tu equipo ni dependen de internet.",
+    "heroTitle": "El control de tu práctica jurídica.",
+    "heroTitle2": "Sin depender de la nube.",
+    "heroSubtitle": "Gestiona expedientes, audiencias, vencimientos, documentos y clientes desde una sola aplicación. Tus datos permanecen cifrados en tu ordenador. Trabaja sin conexión y sin crear una cuenta.",
     "trust1": "100% Local y cifrado",
     "trust2": "Prevención de conflictos",
     "trust3": "Funciona sin conexión",
@@ -121,7 +122,6 @@
     "heroCard3Desc": "Control riguroso de términos procesales y audiencias con alertas nativas sin depender de internet.",
     "heroCard4Title": "Sin Suscripciones Forzosas",
     "heroCard4Desc": "Comienza gratis hasta 50 expedientes sin tarjeta de crédito y sin alquiler mensual obligatorio.",
-
     "audEyebrow": "UNA SOLUCIÓN PARA CADA ESPECIALIDAD",
     "audTitle": "Diseñado a la medida exacta de tu profesión.",
     "audSubtitle": "Ya sea que litiges en tribunales, tramites residencias y visados o administres alquileres y propiedades, Lexbell incorpora los campos específicos de tu sector sin formularios genéricos.",
@@ -132,7 +132,6 @@
     "audTab1Point1": "Agenda de audiencias vinculada a cada expediente judicial.",
     "audTab1Point2": "Prevención automática de conflictos de interés con el mapa de vínculos.",
     "audTab1Point3": "Secreto profesional inviolable con cifrado local en tu propio equipo.",
-
     "audTab2": "Gestores de Migración",
     "audTab2Eyebrow": "PROCESOS MIGRATORIOS Y VISAS",
     "audTab2Title": "Tus trámites de visado y residencia organizados sin perder una fecha.",
@@ -140,7 +139,6 @@
     "audTab2Point1": "Campos dedicados a procesos consulares (USCIS, NVC, citas consulares y VAC).",
     "audTab2Point2": "Historial ordenado de peticionarios, beneficiarios y requisitos adjuntos.",
     "audTab2Point3": "Acceso instantáneo sin depender de internet en salas de espera o consulados.",
-
     "audTab3": "Inmobiliarias y Alquileres",
     "audTab3Eyebrow": "ARRENDAMIENTOS Y BIENES RAÍCES",
     "audTab3Title": "Contratos de alquiler, depósitos de garantía y compraventas.",
@@ -148,7 +146,6 @@
     "audTab3Point1": "Alertas automáticas de vencimiento de contrato y aumento anual de renta.",
     "audTab3Point2": "Expedientes de compraventa con verificación de títulos y gravámenes.",
     "audTab3Point3": "Bóveda de contratos firmados, inventarios y comprobantes adjuntos al inmueble.",
-
     "pillarsEyebrow": "ARQUITECTURA DE PRIVACIDAD",
     "pillarsTitle": "Tus clientes confían en tu discreción. Sus casos no pertenecen a la nube.",
     "pillarsSubtitle": "Las plataformas web almacenan expedientes confidenciales en servidores ajenos expuestos a hackeos, filtraciones y caídas de servicio. Lexbell se construyó bajo un principio deontológico absoluto: tus datos viven cifrados únicamente en tu equipo.",
@@ -158,39 +155,33 @@
     "pillar2Desc": "El innovador mapa de vínculos analiza automáticamente si un nuevo cliente, socio, empresa o contraparte se cruza con antecedentes de tu despacho antes de aceptar el caso.",
     "pillar3Title": "Rendimiento Nativo y 100% Offline",
     "pillar3Desc": "Prepara vistas en la sala de juicio sin wifi, redacta en un avión o consulta notas en segundos. Sin tiempos de carga de páginas web y con copias de seguridad diarias.",
-
     "modulesEyebrow": "POTENCIA Y CONTROL",
     "modulesTitle": "Una herramienta integral pensada por y para litigantes.",
     "modulesSubtitle": "Cada pantalla de Lexbell fue diseñada para eliminar la fricción administrativa y maximizar la precisión procesal.",
-
     "m1Eyebrow": "GESTIÓN PROCESAL",
     "m1Title": "Expedientes ordenados por materia jurídica con búsqueda instantánea.",
     "m1Desc": "Organiza tus casos según su naturaleza: Judicial, Administrativo, Migración, Corporativo, Inmobiliario y Contratos. Registra números de rol, juzgados, apoderados y partes contrarias con filtros instantáneos y búsqueda global ultrarrápida (⌘E / Ctrl+E).",
     "m1Point1": "Filtros por estado procesal, materia y tribunal asignado.",
     "m1Point2": "Cédulas, partes demandantes, demandadas y contrapartes.",
     "m1Point3": "Historial cronológico de actuaciones y notas privadas.",
-
     "m2Eyebrow": "AGENDA Y VENCIMIENTOS",
     "m2Title": "Nunca más un plazo perentorio vencido ni una audiencia olvidada.",
     "m2Desc": "Agenda procesal conectada directamente a tus expedientes. Visualiza comparecencias por mes o semana, con alertas y notificaciones nativas de escritorio para que ningún término fatal expire.",
     "m2Point1": "Alertas automáticas de plazos fatales y perentorios.",
     "m2Point2": "Sincronización de audiencias con vista mensual y semanal.",
     "m2Point3": "Notificaciones nativas del sistema operativo sin depender de internet.",
-
     "m3Eyebrow": "AUDITORÍA ÉTICA",
     "m3Title": "Detecta conflictos de interés al instante con el Mapa de Vínculos.",
     "m3Desc": "El grafo interactivo de Lexbell descubre relaciones cruzadas entre personas físicas, sociedades y casos anteriores. Identifica incompatibilidades éticas antes de firmar cualquier mandato judicial.",
     "m3Point1": "Grafo interactivo y visual de conexiones entre partes.",
     "m3Point2": "Detección instantánea de contrapartes cruzadas en casos del bufete.",
     "m3Point3": "Protección de la responsabilidad civil y deber deontológico.",
-
     "m4Eyebrow": "SEGURIDAD DE ARCHIVOS",
     "m4Title": "Bóveda documental y copias de seguridad en un solo clic.",
     "m4Desc": "Adjunta resoluciones, contratos, audios y pruebas directamente a cada expediente. Los archivos quedan en tu disco local y Lexbell puede generar respaldos automáticos diarios para que tu base de datos esté siempre a salvo.",
     "m4Point1": "Archivos adjuntos vinculados a cada expediente sin límite de tamaño de nube.",
     "m4Point2": "Respaldos automáticos diarios a la carpeta o disco externo que elijas.",
     "m4Point3": "Exportación e importación completa en formato estándar abierto (JSON).",
-
     "compareEyebrow": "COMPARATIVA DE ARQUITECTURA",
     "compareTitle": "¿Por qué elegir Lexbell frente al software tradicional?",
     "compareSubtitle": "Compara la seguridad, el rendimiento y la transparencia de una app nativa frente a los servicios web en la nube.",
@@ -215,7 +206,6 @@
     "cRow6Title": "Costo para comenzar",
     "cRow6Lexbell": "Gratis hasta 50 expedientes sin tarjeta",
     "cRow6Cloud": "Tarjeta requerida desde el primer día",
-
     "pricingEyebrow": "MODELO TRANSPARENTE",
     "pricingTitle": "Comienza gratis. Sin sorpresas.",
     "pricingSubtitle": "Descarga Lexbell directamente de las tiendas de Apple o Microsoft. Empieza con tu despacho hoy mismo.",
@@ -229,7 +219,6 @@
     "freePlanFeature5": "Bóveda de documentos y respaldos",
     "freePlanFeature6": "Sin tarjeta de crédito requerida",
     "freePlanCTA": "Descargar gratis en la tienda",
-
     "proPlanTitle": "Licencia Ilimitada",
     "proPlanPrice": "Suscripción accesible",
     "proPlanDesc": "Para profesionales y firmas que manejan alto volumen de expedientes.",
@@ -239,15 +228,14 @@
     "proPlanFeature4": "Respaldos automáticos programados",
     "proPlanFeature5": "Soporte técnico prioritario",
     "proPlanCTA": "Ver en las tiendas oficiales",
-
     "ctaSectionEyebrow": "DESCARGA OFICIAL",
     "ctaSectionTitle": "Toma el control de tus expedientes con total privacidad.",
-    "ctaSectionBody": "Disponible de forma oficial en la Mac App Store y Microsoft Store. Instala en segundos y comienza gratis."
+    "ctaSectionBody": "Disponible de forma oficial en la Mac App Store y Microsoft Store. Instala en segundos y comienza gratis.",
+    "heroEyebrow": "Gratis hasta 50 expedientes · Mac y Windows"
   },
   "features": {
     "title": "Todo lo que tu práctica necesita.",
     "subtitle": "Del expediente a los documentos, con la privacidad como base. En Mac y Windows.",
-
     "sp1Eyebrow": "Expedientes",
     "sp1Title": "Seis tipos. Una sola app.",
     "sp1Body": "Cada expediente trae los campos correctos para su naturaleza. Sin formularios genéricos, sin perder tiempo.",
@@ -257,26 +245,20 @@
     "sp1TypeEmp": "Empresa",
     "sp1TypeAlq": "Alquiler",
     "sp1TypeCv": "Compraventa",
-
     "sp2Eyebrow": "Plazos y audiencias",
     "sp2Title": "Lo que vence, no se te va.",
     "sp2Body": "Calendario integrado con sincronización opcional al calendario del sistema y los feriados oficiales siempre a la vista.",
-
     "sp3Eyebrow": "Documentos y respaldos",
     "sp3Title": "Tus documentos, siempre a salvo.",
     "sp3Body": "Adjunta documentos a cada expediente —se copian a tu equipo— y ten un respaldo automático diario. Nada se pierde.",
-
     "sp5Eyebrow": "Mapa de vínculos",
     "sp5Title": "Ve cómo se conecta todo.",
     "sp5Body": "Un grafo interactivo revela las relaciones entre expedientes, clientes y contrapartes. Detecta conexiones y posibles conflictos de interés de un vistazo.",
-
     "sp4Eyebrow": "Privacidad por diseño",
     "sp4Title": "Tus datos viven en tu equipo.",
     "sp4Body": "Sin Google Analytics, Mixpanel, Sentry ni Firebase. Lexbell no necesita internet para trabajar: solo se conecta para la suscripción. La sincronización con el iPhone llegará como opción que tú activas.",
-
     "moreEyebrow": "Y todo lo demás",
     "moreTitle": "Detalles que cambian el flujo.",
-
     "tile1Title": "Búsqueda global",
     "tile1Body": "Expedientes, clientes y notas con un atajo (⌘/Ctrl + E). Tolera errores de tipeo.",
     "tile2Title": "Atajos de teclado",

@@ -135,6 +135,11 @@ const toggleFaq = (idx: number) => {
     <!-- =================== 1. HERO SECTION (Estilo Apple / Notion) =================== -->
     <section class="notion-hero" id="descargar">
       <div class="notion-hero-inner">
+        <div class="hero-pill-badge">
+          <span class="hero-pill-dot"></span>
+          <span>{{ t('home.heroEyebrow') }}</span>
+        </div>
+
         <h1 class="hero-h1">
           <span class="hero-line">{{ t('home.heroTitle') }}</span>
           <span class="hero-line hero-h1-accent">{{ t('home.heroTitle2') }}</span>
@@ -656,6 +661,31 @@ const toggleFaq = (idx: number) => {
 .notion-hero-inner {
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #27272a;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.hero-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
 }
 
 .hero-h1 {

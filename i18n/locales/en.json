@@ -12,7 +12,8 @@
     "availabilityNote": "macOS 12 or later · Windows 10 and 11 · 100% Offline",
     "guaranteeCases": "Free up to 50 active cases",
     "guaranteeCard": "No credit card required",
-    "guaranteeLocal": "100% Local encryption"
+    "guaranteeLocal": "100% Local encryption",
+    "guaranteeRegister": "No registration required"
   },
   "showcase": {
     "tabCases": "Cases",
@@ -106,9 +107,9 @@
     "rights": "All rights reserved."
   },
   "home": {
-    "heroTitle": "Your cases, organized.",
-    "heroTitle2": "Your data, strictly confidential.",
-    "heroSubtitle": "The desktop software built for attorneys, immigration consultants, and real estate advisers. Manage court litigation, visas, and contracts on Mac and Windows with instant speed. Your files never leave your computer and work 100% offline.",
+    "heroTitle": "Total control of your legal practice.",
+    "heroTitle2": "Without relying on the cloud.",
+    "heroSubtitle": "Manage cases, court hearings, statutory deadlines, documents, and clients from a single desktop app. Your data remains encrypted on your machine. Work offline without creating an account.",
     "trust1": "100% Local & Encrypted",
     "trust2": "Conflict of Interest Checks",
     "trust3": "Works 100% Offline",
@@ -121,7 +122,6 @@
     "heroCard3Desc": "Strict tracking of statutory deadlines and hearings with native alerts that work completely offline.",
     "heroCard4Title": "Zero Forced Subscriptions",
     "heroCard4Desc": "Start free up to 50 matters without entering a credit card. No recurring monthly SaaS fees.",
-
     "audEyebrow": "TAILORED TO YOUR PRACTICE",
     "audTitle": "Designed specifically for your industry workflows.",
     "audSubtitle": "Whether litigating in courts, filing residency and visas, or managing rental leases and real estate, Lexbell adapts with custom fields tailored to your profession.",
@@ -132,7 +132,6 @@
     "audTab1Point1": "Court calendar linked directly to each case and statutory cutoff.",
     "audTab1Point2": "Automated conflict of interest detection with relationship graphs.",
     "audTab1Point3": "Inviolable confidentiality with local AES-256 SQLite encryption.",
-
     "audTab2": "Immigration Consultants",
     "audTab2Eyebrow": "CONSULAR PROCESSES & VISAS",
     "audTab2Title": "Track visa and residency filings without missing a deadline.",
@@ -140,7 +139,6 @@
     "audTab2Point1": "Dedicated consular filing fields (USCIS, NVC, consular and VAC appointments).",
     "audTab2Point2": "Structured petitioner, beneficiary records, and required document vault.",
     "audTab2Point3": "100% Offline access in consular waiting rooms or during client intake.",
-
     "audTab3": "Real Estate & Rentals",
     "audTab3Eyebrow": "LEASES & REAL ESTATE MATTERS",
     "audTab3Title": "Lease contracts, security deposits, and property sales.",
@@ -148,7 +146,6 @@
     "audTab3Point1": "Automated alerts for lease expirations and statutory annual rent increases.",
     "audTab3Point2": "Real estate transactions with title registry and lien verification.",
     "audTab3Point3": "Secure vault for signed lease agreements, inventories, and payment receipts.",
-
     "pillarsEyebrow": "PRIVACY ARCHITECTURE",
     "pillarsTitle": "Your clients trust your discretion. Their files do not belong in the cloud.",
     "pillarsSubtitle": "Web platforms store confidential legal matters on third-party servers exposed to data breaches, outages, and compliance violations. Lexbell is built on an absolute principle: your data remains encrypted strictly on your machine.",
@@ -158,39 +155,33 @@
     "pillar2Desc": "The groundbreaking relationship graph automatically reveals cross-connections between prospective clients, counterparties, companies, and firm history before taking a case.",
     "pillar3Title": "Native Performance & 100% Offline",
     "pillar3Desc": "Prepare trial notes in courtrooms without Wi-Fi, draft filings on flights, or query files in milliseconds. Zero web browser lag and automatic daily backups.",
-
     "modulesEyebrow": "POWER & CONTROL",
     "modulesTitle": "A comprehensive workspace designed by and for litigators.",
     "modulesSubtitle": "Every screen in Lexbell was engineered to eliminate administrative friction and ensure absolute procedural precision.",
-
     "m1Eyebrow": "CASE MANAGEMENT",
     "m1Title": "Matters organized by legal practice area with instant search.",
     "m1Desc": "Structure your practice across Civil, Criminal, Labor, Corporate, Real Estate, and Administrative matters. Record docket numbers, assigned courts, opposing counsels, and parties with instant filters and lightning-fast global search (⌘E / Ctrl+E).",
     "m1Point1": "Filter by procedural stage, matter type, and court.",
     "m1Point2": "Claimants, defendants, counterparties, and representation tracking.",
     "m1Point3": "Chronological hearing history and confidential internal notes.",
-
     "m2Eyebrow": "CALENDAR & DEADLINES",
     "m2Title": "Never miss a statutory deadline or court hearing again.",
     "m2Desc": "Integrated legal calendar connected directly to every case. View scheduled appearances by month or week, paired with native desktop notifications so no critical deadline ever lapses.",
     "m2Point1": "Automated statutory deadline and court cutoff alerts.",
     "m2Point2": "Integrated hearing schedule with monthly and weekly overviews.",
     "m2Point3": "Native desktop notifications with zero internet requirement.",
-
     "m3Eyebrow": "ETHICS AUDIT",
     "m3Title": "Detect conflicts of interest instantly with the Relationship Map.",
     "m3Desc": "Lexbell's interactive network graph reveals overlapping connections between individuals, corporations, and previous cases. Identify ethical incompatibilities before signing representation agreements.",
     "m3Point1": "Visual interactive network graph of all entity connections.",
     "m3Point2": "Instant alerts for counterparties overlapping across firm cases.",
     "m3Point3": "Proactive protection against malpractice and ethical conflicts.",
-
     "m4Eyebrow": "DOCUMENT SECURITY",
     "m4Title": "Document vault and automatic backups in a single click.",
     "m4Desc": "Attach filings, rulings, contracts, audio, and exhibits directly to each matter. Files remain on your local disk, and Lexbell creates daily automatic backups to ensure your database is always protected.",
     "m4Point1": "Attached files organized per case without cloud storage limits.",
     "m4Point2": "Automatic daily backups to your selected local or external drive.",
     "m4Point3": "Full database export and import in open standard JSON format.",
-
     "compareEyebrow": "ARCHITECTURE COMPARISON",
     "compareTitle": "Why attorneys choose Lexbell over traditional cloud software",
     "compareSubtitle": "Compare the security, speed, and transparency of a native desktop application against web-based SaaS platforms.",
@@ -215,7 +206,6 @@
     "cRow6Title": "Cost to get started",
     "cRow6Lexbell": "Free up to 50 matters with no credit card",
     "cRow6Cloud": "Credit card required from day one",
-
     "pricingEyebrow": "TRANSPARENT PRICING",
     "pricingTitle": "Start free. No surprises.",
     "pricingSubtitle": "Download Lexbell directly from Apple's or Microsoft's official store. Start organizing your firm today.",
@@ -229,7 +219,6 @@
     "freePlanFeature5": "Document vault and daily backups",
     "freePlanFeature6": "No credit card required",
     "freePlanCTA": "Download free from store",
-
     "proPlanTitle": "Unlimited License",
     "proPlanPrice": "Affordable subscription",
     "proPlanDesc": "For busy law firms and litigators managing high caseloads.",
@@ -239,15 +228,14 @@
     "proPlanFeature4": "Scheduled automated backup routines",
     "proPlanFeature5": "Priority customer support",
     "proPlanCTA": "View on official stores",
-
     "ctaSectionEyebrow": "OFFICIAL DOWNLOAD",
     "ctaSectionTitle": "Take full control of your legal practice with absolute privacy.",
-    "ctaSectionBody": "Officially verified on the Mac App Store and Microsoft Store. Install in seconds and get started for free."
+    "ctaSectionBody": "Officially verified on the Mac App Store and Microsoft Store. Install in seconds and get started for free.",
+    "heroEyebrow": "Free up to 50 active cases · Mac & Windows"
   },
   "features": {
     "title": "Everything your practice needs.",
     "subtitle": "From the case record to its documents, with privacy as the foundation. On Mac and Windows.",
-
     "sp1Eyebrow": "Cases",
     "sp1Title": "Six types. One app.",
     "sp1Body": "Every case carries the right fields for its nature. No generic forms, no time wasted.",
@@ -257,26 +245,20 @@
     "sp1TypeEmp": "Business",
     "sp1TypeAlq": "Rental",
     "sp1TypeCv": "Real estate",
-
     "sp2Eyebrow": "Deadlines & hearings",
     "sp2Title": "What's due never slips by.",
     "sp2Body": "Built-in calendar with optional sync to the system calendar and official holidays always in view.",
-
     "sp3Eyebrow": "Documents & backups",
     "sp3Title": "Your documents, always safe.",
     "sp3Body": "Attach documents to each case —they are copied to your device— and keep an automatic daily backup. Nothing gets lost.",
-
     "sp5Eyebrow": "Relationship map",
     "sp5Title": "See how everything connects.",
     "sp5Body": "An interactive graph reveals the relationships between cases, clients and opposing parties. Spot connections and potential conflicts of interest at a glance.",
-
     "sp4Eyebrow": "Privacy by design",
     "sp4Title": "Your data lives on your device.",
     "sp4Body": "No Google Analytics, Mixpanel, Sentry or Firebase. Lexbell needs no internet to work: it only connects for the subscription. iPhone sync will arrive as an option you turn on.",
-
     "moreEyebrow": "And everything else",
     "moreTitle": "Small things that change your flow.",
-
     "tile1Title": "Global search",
     "tile1Body": "Cases, contacts and notes via one shortcut (⌘/Ctrl + E). Tolerates typos.",
     "tile2Title": "Keyboard shortcuts",
