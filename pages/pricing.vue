@@ -22,6 +22,35 @@ useHead(() => {
   }
 })
 
+const proFeatures = ['home.proFeature1', 'home.proFeature2', 'home.proFeature3']
+
+const plans = [
+  {
+    id: 'free',
+    key: 'freePlan',
+    intro: null,
+    features: ['home.freePlanFeature1', 'home.freePlanFeature2', 'home.freePlanFeature3', 'home.freePlanFeature4'],
+    cta: 'home.freePlanCTA',
+    featured: false
+  },
+  {
+    id: 'annual',
+    key: 'proAnnual',
+    intro: 'home.proFeaturesIntro',
+    features: [...proFeatures, 'home.proAnnualExtra'],
+    cta: 'home.proCTA',
+    featured: true
+  },
+  {
+    id: 'monthly',
+    key: 'proMonthly',
+    intro: 'home.proFeaturesIntro',
+    features: [...proFeatures, 'home.proMonthlyExtra'],
+    cta: 'home.proCTA',
+    featured: false
+  }
+]
+
 const openFaq = ref<number | null>(null)
 const toggleFaq = (idx: number) => {
   openFaq.value = openFaq.value === idx ? null : idx
@@ -85,65 +114,41 @@ const pricingFaqs = computed(() => {
     <!-- Cards de Precios -->
     <section class="pricing-cards-section">
       <div class="pricing-wrap">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <!-- Plan Gratuito -->
-          <div class="pricing-card pricing-card-free">
-            <span class="pricing-badge">{{ t('home.freePlanBadge') }}</span>
-            <h2 class="pricing-name">{{ t('home.freePlanTitle') }}</h2>
-            <div class="pricing-price">{{ t('home.freePlanPrice') }}</div>
-            <p class="pricing-period">{{ t('home.freePlanPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.freePlanDesc') }}</p>
-            <ul class="pricing-features">
-              <li>✓ {{ t('home.freePlanFeature1') }}</li>
-              <li>✓ {{ t('home.freePlanFeature2') }}</li>
-              <li>✓ {{ t('home.freePlanFeature3') }}</li>
-              <li>✓ {{ t('home.freePlanFeature4') }}</li>
-              <li>✓ {{ t('home.freePlanFeature5') }}</li>
-              <li>✓ {{ t('home.freePlanFeature6') }}</li>
-            </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-dark">
-              {{ t('home.freePlanCTA') }}
-            </a>
-          </div>
+        <div class="pricing-grid">
+          <div
+            v-for="plan in plans"
+            :key="plan.id"
+            class="pricing-card"
+            :class="{ 'is-featured': plan.featured }"
+          >
+            <span v-if="plan.featured" class="pricing-badge">{{ t('home.proBadge') }}</span>
+            <h2 class="pricing-name">{{ t(`home.${plan.key}Title`) }}</h2>
+            <p class="pricing-desc">{{ t(`home.${plan.key}Desc`) }}</p>
+            <div class="pricing-price">{{ t(`home.${plan.key}Price`) }}</div>
+            <p class="pricing-period">{{ t(`home.${plan.key}Period`) }}</p>
 
-          <!-- Plan Pro Anual (Recomendado) -->
-          <div class="pricing-card pricing-card-pro">
-            <span class="pricing-badge pricing-badge-pro">{{ t('home.proAnnualBadge') }}</span>
-            <h2 class="pricing-name">{{ t('home.proAnnualTitle') }}</h2>
-            <div class="pricing-price">{{ t('home.proAnnualPrice') }}</div>
-            <p class="pricing-period">{{ t('home.proAnnualPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.proAnnualDesc') }}</p>
-            <ul class="pricing-features">
-              <li>✓ {{ t('home.proAnnualFeature1') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature2') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature3') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature4') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature5') }}</li>
-              <li>✓ {{ t('home.proAnnualFeature6') }}</li>
-            </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-pro">
-              {{ t('home.proAnnualCTA') }}
+            <a
+              href="#descargar"
+              class="pricing-btn"
+              :class="plan.featured ? 'pricing-btn-primary' : 'pricing-btn-outline'"
+            >
+              {{ t(plan.cta) }}
             </a>
-          </div>
+            <p class="pricing-note">
+              <template v-if="plan.intro">{{ t('home.proTrialNote') }}</template>
+            </p>
 
-          <!-- Plan Pro Mensual -->
-          <div class="pricing-card pricing-card-monthly">
-            <span class="pricing-badge">{{ t('home.proMonthlyBadge') }}</span>
-            <h2 class="pricing-name">{{ t('home.proMonthlyTitle') }}</h2>
-            <div class="pricing-price">{{ t('home.proMonthlyPrice') }}</div>
-            <p class="pricing-period">{{ t('home.proMonthlyPeriod') }}</p>
-            <p class="pricing-desc">{{ t('home.proMonthlyDesc') }}</p>
+            <div class="pricing-divider"></div>
+
+            <p v-if="plan.intro" class="pricing-intro">{{ t(plan.intro) }}</p>
             <ul class="pricing-features">
-              <li>✓ {{ t('home.proMonthlyFeature1') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature2') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature3') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature4') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature5') }}</li>
-              <li>✓ {{ t('home.proMonthlyFeature6') }}</li>
+              <li v-for="feature in plan.features" :key="feature">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>{{ t(feature) }}</span>
+              </li>
             </ul>
-            <a href="#descargar" class="pricing-btn pricing-btn-dark">
-              {{ t('home.proMonthlyCTA') }}
-            </a>
           </div>
         </div>
 
@@ -205,7 +210,7 @@ const pricingFaqs = computed(() => {
 }
 
 .pricing-hero-title {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(30px, 3.6vw, 42px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -223,89 +228,78 @@ const pricingFaqs = computed(() => {
   padding: clamp(60px, 8vw, 84px) 0;
 }
 
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .pricing-card {
+  position: relative;
   background: #ffffff;
-  border: 1px solid #ebebea;
+  border: 1px solid #e6e6e4;
   border-radius: 16px;
-  padding: 36px 30px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.pricing-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-}
-
-.pricing-card-pro {
-  border-color: #0066cc;
-  box-shadow: 0 10px 32px rgba(0, 102, 204, 0.08);
+.pricing-card.is-featured {
+  border: 1.5px solid #0066cc;
+  box-shadow: 0 12px 32px rgba(0, 102, 204, 0.08);
 }
 
 .pricing-badge {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 4px 10px;
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  padding: 4px 12px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: #f1f1ef;
-  color: #37352f;
-  margin-bottom: 16px;
-}
-
-.pricing-badge-pro {
-  background: #e6f0fa;
-  color: #0066cc;
+  background: #0066cc;
+  color: #ffffff;
 }
 
 .pricing-name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #050505;
-  margin: 0 0 8px;
-}
-
-.pricing-price {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #050505;
-  margin-bottom: 12px;
-}
-
-.pricing-period {
-  font-size: 13px;
-  font-weight: 600;
-  color: #0066cc;
-  margin: -6px 0 12px;
+  margin: 0 0 6px;
 }
 
 .pricing-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #5f5e5b;
+  color: #6b6b68;
   margin: 0 0 24px;
 }
 
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 14px;
-  color: #37352f;
-  flex: 1;
+.pricing-price {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #050505;
+}
+
+.pricing-period {
+  font-size: 13px;
+  color: #6b6b68;
+  margin: 8px 0 24px;
 }
 
 .pricing-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 20px;
@@ -313,26 +307,73 @@ const pricingFaqs = computed(() => {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
-  text-align: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.pricing-btn-dark {
-  background: #050505;
-  color: #ffffff;
-}
-
-.pricing-btn-dark:hover {
-  background: #2b2b2b;
-}
-
-.pricing-btn-pro {
+.pricing-btn-primary {
   background: #0066cc;
   color: #ffffff;
+  border: 1px solid #0066cc;
 }
 
-.pricing-btn-pro:hover {
+.pricing-btn-primary:hover {
   background: #0052a3;
+  border-color: #0052a3;
+}
+
+.pricing-btn-outline {
+  background: #ffffff;
+  color: #050505;
+  border: 1px solid #d4d4d2;
+}
+
+.pricing-btn-outline:hover {
+  border-color: #050505;
+}
+
+.pricing-note {
+  min-height: 18px;
+  font-size: 12.5px;
+  color: #6b6b68;
+  text-align: center;
+  margin: 10px 0 0;
+}
+
+.pricing-divider {
+  height: 1px;
+  background: #ebebea;
+  margin: 24px 0;
+}
+
+.pricing-intro {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #050505;
+  margin: 0 0 14px;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #37352f;
+}
+
+.feature-check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #8a8a87;
 }
 
 .pricing-faq-section {
