@@ -344,12 +344,13 @@ const toggleFaq = (idx: number) => {
 }
 
 .ms-hero-title {
-  font-size: clamp(36px, 5.2vw, 56px);
+  font-size: clamp(32px, 3.8vw, 46px);
   font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
   color: #050505;
   margin: 0 0 18px;
+  text-wrap: balance;
 }
 
 .ms-hero-subtitle {
