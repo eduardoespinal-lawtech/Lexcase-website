@@ -124,7 +124,40 @@ export default defineNuxtPlugin(() => {
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',
                 url: 'https://lex-bell.com/#descargar',
-                description: 'Free tier up to 50 active cases'
+                description: 'Free tier up to 50 active cases',
+                shippingDetails: {
+                  '@type': 'OfferShippingDetails',
+                  shippingRate: {
+                    '@type': 'MonetaryAmount',
+                    value: '0',
+                    currency: 'USD'
+                  },
+                  shippingDestination: {
+                    '@type': 'DefinedRegion',
+                    addressCountry: ['DO', 'US', 'ES']
+                  },
+                  deliveryTime: {
+                    '@type': 'ShippingDeliveryTime',
+                    handlingTime: {
+                      '@type': 'QuantitativeValue',
+                      minValue: 0,
+                      maxValue: 0,
+                      unitCode: 'DAY'
+                    },
+                    transitTime: {
+                      '@type': 'QuantitativeValue',
+                      minValue: 0,
+                      maxValue: 0,
+                      unitCode: 'DAY'
+                    }
+                  }
+                },
+                hasMerchantReturnPolicy: {
+                  '@type': 'MerchantReturnPolicy',
+                  applicableCountry: ['DO', 'US', 'ES'],
+                  returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+                  merchantReturnLink: 'https://lex-bell.com/terminos'
+                }
               },
               aggregateRating: {
                 '@type': 'AggregateRating',
