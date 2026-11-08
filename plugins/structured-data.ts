@@ -64,6 +64,8 @@ export default defineNuxtPlugin(() => {
                 '@type': 'Brand',
                 name: 'Lexbell'
               },
+              sku: 'LEXBELL-DESKTOP',
+              mpn: 'LEXBELL-1.0',
               description:
                 'Software de escritorio privado para abogados, consultores de inmigración y gestores inmobiliarios en Mac y Windows. Organiza expedientes, clientes, plazos judiciales y documentos 100% locales sin nube.',
               applicationCategory: 'BusinessApplication',
@@ -122,6 +124,8 @@ export default defineNuxtPlugin(() => {
                 '@type': 'Offer',
                 price: '0',
                 priceCurrency: 'USD',
+                priceValidUntil: '2028-12-31',
+                itemCondition: 'https://schema.org/NewCondition',
                 availability: 'https://schema.org/InStock',
                 url: 'https://lex-bell.com/#descargar',
                 description: 'Free tier up to 50 active cases',
