@@ -37,6 +37,7 @@ export default defineNuxtPlugin(() => {
               '@id': 'https://lex-bell.com/#website',
               url: 'https://lex-bell.com',
               name: 'Lexbell',
+              alternateName: ['LexBell', 'Lexbell Legal', 'Lexbell Technologies'],
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
               },
@@ -179,44 +180,44 @@ export default defineNuxtPlugin(() => {
                 {
                   '@type': 'SiteNavigationElement',
                   position: 1,
-                  name: 'Características',
-                  description: 'Gestión integral de expedientes, cálculo de plazos, clientes y documentos locales.',
-                  url: 'https://lex-bell.com/caracteristicas/'
+                  name: 'Planes y precios',
+                  description: 'Compara planes y precios de Lexbell. Nivel gratuito de hasta 50 casos y licencias de por vida sin cuotas mensuales.',
+                  url: 'https://lex-bell.com/precios/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 2,
-                  name: 'Descargar',
-                  description: 'Instalador oficial para Mac y Windows con versión gratuita de hasta 50 casos.',
-                  url: 'https://lex-bell.com/#descargar'
+                  name: 'Características del software',
+                  description: 'Gestión de expedientes, cálculo de plazos judiciales, directorio de clientes y documentos 100% locales sin nube.',
+                  url: 'https://lex-bell.com/caracteristicas/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 3,
-                  name: 'Blog Jurídico',
-                  description: 'Artículos y guías sobre plazos procesales, secreto profesional y legaltech.',
-                  url: 'https://lex-bell.com/blog/'
+                  name: 'Alternativa a Clio',
+                  description: 'Descubre por qué Lexbell es la mejor alternativa offline y sin suscripción mensual a Clio, MyCase y PracticePanther.',
+                  url: 'https://lex-bell.com/alternativa-clio/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 4,
-                  name: 'Preguntas Frecuentes',
-                  description: 'Respuestas sobre privacidad local, licencias, compatibilidad y seguridad.',
-                  url: 'https://lex-bell.com/faq/'
+                  name: 'Calculadora de plazos procesales',
+                  description: 'Herramienta procesal para calcular términos y vencimientos judiciales en días hábiles y naturales sin errores.',
+                  url: 'https://lex-bell.com/calculadora-plazos/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 5,
-                  name: 'Soporte',
-                  description: 'Centro de ayuda y asistencia técnica directa para usuarios y despachos.',
-                  url: 'https://lex-bell.com/soporte/'
+                  name: 'Soluciones por especialidad',
+                  description: 'Software adaptado para despachos civiles, penalistas, consultores de inmigración y gestores inmobiliarios.',
+                  url: 'https://lex-bell.com/soluciones/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 6,
-                  name: 'Contacto',
-                  description: 'Canal directo para consultas comerciales, técnicas y sugerencias.',
-                  url: 'https://lex-bell.com/contacto/'
+                  name: 'Preguntas frecuentes',
+                  description: 'Respuestas sobre privacidad local, funcionamiento sin internet, copias de seguridad y compatibilidad Mac y Windows.',
+                  url: 'https://lex-bell.com/faq/'
                 }
               ]
             },
@@ -228,44 +229,44 @@ export default defineNuxtPlugin(() => {
                 {
                   '@type': 'SiteNavigationElement',
                   position: 1,
-                  name: 'Features',
-                  description: 'Complete case management, court deadlines, client records, and offline documents.',
-                  url: 'https://lex-bell.com/en/features/'
+                  name: 'Pricing & Plans',
+                  description: 'Compare Lexbell plans. Free tier up to 50 active cases and lifetime licenses without monthly fees.',
+                  url: 'https://lex-bell.com/en/pricing/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 2,
-                  name: 'Download',
-                  description: 'Official desktop installer for Mac & Windows with free tier up to 50 active cases.',
-                  url: 'https://lex-bell.com/en/#download'
+                  name: 'Software Features',
+                  description: 'Case management, court deadline calculator, client directory, and 100% local offline document storage.',
+                  url: 'https://lex-bell.com/en/features/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 3,
-                  name: 'Legal Tech Blog',
-                  description: 'Guides and insights on court deadlines, privacy standards, and law firm tech.',
-                  url: 'https://lex-bell.com/en/blog/'
+                  name: 'Clio Alternative',
+                  description: 'See why Lexbell is the top offline-first, subscription-free alternative to Clio, MyCase, and PracticePanther.',
+                  url: 'https://lex-bell.com/en/clio-alternative/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 4,
-                  name: 'FAQ',
-                  description: 'Answers about local offline storage, licenses, compatibility, and backups.',
-                  url: 'https://lex-bell.com/en/faq/'
+                  name: 'Court Deadline Calculator',
+                  description: 'Legal deadline calculator for court terms, business days, and judicial statutory limits without errors.',
+                  url: 'https://lex-bell.com/en/deadline-calculator/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 5,
-                  name: 'Support',
-                  description: 'Help center and direct assistance for law firms and legal professionals.',
-                  url: 'https://lex-bell.com/en/support/'
+                  name: 'Practice Solutions',
+                  description: 'Tailored workflows for litigation attorneys, immigration consultants, and real estate legal managers.',
+                  url: 'https://lex-bell.com/en/solutions/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 6,
-                  name: 'Contact',
-                  description: 'Direct communication channel for licensing inquiries, technical questions, and support.',
-                  url: 'https://lex-bell.com/en/contact/'
+                  name: 'Frequently Asked Questions',
+                  description: 'Answers about offline privacy, zero cloud exposure, local backups, and Mac/Windows compatibility.',
+                  url: 'https://lex-bell.com/en/faq/'
                 }
               ]
             }
