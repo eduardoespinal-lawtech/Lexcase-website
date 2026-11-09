@@ -18,6 +18,12 @@ const currentUrl = computed(() => normalizeUrl(route.path))
 const esUrl = computed(() => normalizeUrl(switchLocalePath('es') || '/'))
 const enUrl = computed(() => normalizeUrl(switchLocalePath('en') || '/en/'))
 
+const defaultTitle = computed(() =>
+  locale.value === 'en'
+    ? 'Lexbell — Legal Practice Management Software for Mac & Windows'
+    : 'Lexbell — Gestor de expedientes legales para Mac y Windows'
+)
+
 useHead(() => ({
   htmlAttrs: { lang: locale.value },
   meta: [
@@ -31,6 +37,8 @@ useHead(() => ({
     { property: 'og:image:height', content: '630' },
     { property: 'og:image:type', content: 'image/png' },
     { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: defaultTitle.value },
+    { name: 'twitter:description', content: t('seo.defaultDescription') },
     { name: 'twitter:image', content: 'https://lex-bell.com/og-image.png' }
   ],
   link: [
