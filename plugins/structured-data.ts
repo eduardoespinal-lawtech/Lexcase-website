@@ -42,7 +42,13 @@ export default defineNuxtPlugin(() => {
                 'Software local-first para abogados',
                 'Derecho Procesal Civil, Penal y Administrativo',
                 'Alternativa a Clio para despachos de abogados',
-                'Clio alternative offline-first'
+                'Clio alternative offline-first',
+                'Productividad y eficiencia para abogados',
+                'Organización de oficinas de abogados y bufetes',
+                'Digitalización y modernización de despachos jurídicos',
+                'Control de causas, audiencias y juicios',
+                'Herramientas de software para abogados independientes',
+                'Sustituto de hojas de cálculo y Excel para bufetes'
               ]
             },
             {
@@ -131,7 +137,37 @@ export default defineNuxtPlugin(() => {
                 },
                 {
                   '@type': 'Product',
+                  name: 'Smokeball',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
+                  name: 'Filevine',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
                   name: 'Sudespacho',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
+                  name: 'Quolaw',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
+                  name: 'MN Program',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
+                  name: 'BaseNet',
+                  category: 'Law Practice Management Software'
+                },
+                {
+                  '@type': 'Product',
+                  name: 'TimeSolv',
                   category: 'Law Practice Management Software'
                 }
               ],
@@ -141,7 +177,7 @@ export default defineNuxtPlugin(() => {
                 '@id': 'https://lex-bell.com/#organization'
               },
               keywords:
-                'lexbell, lexbel, lex bel, lex bell, lex-bell, lexb, lex- bell, lex bell legal, software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, app para organizar expedientes en mac, programa para llevar casos de clientes en mi despacho, software para abogados gratis o barato, alternativa a clio que no sea cara, software legal sin internet, calculo plazos procesales dias habiles, calculadora plazos judiciales, programa tramites visas inmigracion, software contratos alquiler compraventa, gestor de causas judiciales, organizador de pleitos y juicios, legal practice management software offline, solo attorney case tracker',
+                'abogado, abogados, oficina de abogado, oficina de abogados, bufete de abogados, despacho juridico, firma legal, abogado independiente, abogado litigante, app para abogado, app para abogados, programa para abogado, programa para abogados, software abogado, software para abogados, como ser mas eficiente siendo abogado, como organizar una oficina de abogados, como gestionar casos, como organizar expedientes, como llevar casos de clientes, sistema para llevar casos legales, productividad para abogados, control de expedientes judiciales, organizador de pleitos y juicios, sustituto de excel para abogados, calculadora plazos judiciales, calculo plazos procesales dias habiles, programa tramites visas inmigracion, software contratos alquiler compraventa, alternativa a clio, alternativa a mycase, alternativa a practicepanther, alternativa a smokeball, alternativa a filevine, alternativa a sudespacho, alternativa a quolaw, lexbell, lexbel, lex bel, lex bell, lex-bell, lexb, legal practice management software offline, solo attorney productivity',
               featureList: [
                 'Gestión integral de expedientes judiciales y extrajudiciales con clasificación por materia',
                 'Cálculo automático de plazos procesales y términos legales en días hábiles y naturales',

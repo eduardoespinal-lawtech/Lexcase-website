@@ -28,7 +28,7 @@ useHead(() => ({
   htmlAttrs: { lang: locale.value },
   meta: [
     { name: 'description', content: t('seo.defaultDescription') },
-    { name: 'keywords', content: 'Lexbell, LexBell, Lexbel, Lex Bel, Lex Bell, Lex-bell, Lex-Bell, Lexb, software para abogados, legal practice management' },
+    { name: 'keywords', content: 'abogado, abogados, oficina de abogado, oficina de abogados, bufete, bufete de abogados, despacho juridico, app para abogado, app para abogados, programa para abogado, programa para abogados, software abogado, software para abogados, como ser mas eficiente siendo abogado, como organizar una oficina de abogados, como gestionar casos, como organizar expedientes, productividad para abogados, alternativa a clio, alternativa a mycase, alternativa a practicepanther, alternativa a smokeball, alternativa a sudespacho, Lexbell, LexBell, Lexbel, Lex Bel, Lex Bell, Lex-bell, lexb, legal practice management' },
     { property: 'og:url', content: currentUrl.value },
     { property: 'og:site_name', content: 'Lexbell' },
     { property: 'og:locale', content: locale.value === 'es' ? 'es_DO' : 'en_US' },
