@@ -150,6 +150,10 @@ useHead(() => {
       '@type': 'WebPage',
       '@id': currentUrl.value
     },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.article-title', '.article-lead']
+    },
     keywords: postKeywords.value.join(', ')
   }
 

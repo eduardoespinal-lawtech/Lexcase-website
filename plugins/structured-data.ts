@@ -65,6 +65,10 @@ export default defineNuxtPlugin(() => {
                 '@id': 'https://lex-bell.com/#organization'
               },
               inLanguage: ['es', 'en'],
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', '.ms-hero-subtitle']
+              },
               potentialAction: {
                 '@type': 'SearchAction',
                 target: {
