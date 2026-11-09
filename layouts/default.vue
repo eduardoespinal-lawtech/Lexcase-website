@@ -8,20 +8,15 @@ onMounted(() => {
   init()
 })
 
-const currentUrl = computed(() => {
-  const p = route.path === '/' ? '' : route.path.replace(/\/$/, '')
-  return `https://lex-bell.com${p}`
-})
+const normalizeUrl = (path: string) => {
+  if (!path || path === '/') return 'https://lex-bell.com/'
+  const clean = path.replace(/\/+$/, '')
+  return `https://lex-bell.com${clean}/`
+}
 
-const esUrl = computed(() => {
-  const p = switchLocalePath('es') || '/'
-  return `https://lex-bell.com${p === '/' ? '' : p}`
-})
-
-const enUrl = computed(() => {
-  const p = switchLocalePath('en') || '/en'
-  return `https://lex-bell.com${p === '/' ? '' : p}`
-})
+const currentUrl = computed(() => normalizeUrl(route.path))
+const esUrl = computed(() => normalizeUrl(switchLocalePath('es') || '/'))
+const enUrl = computed(() => normalizeUrl(switchLocalePath('en') || '/en/'))
 
 useHead(() => ({
   htmlAttrs: { lang: locale.value },

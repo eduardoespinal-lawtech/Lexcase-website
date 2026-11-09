@@ -160,7 +160,7 @@ export default defineNuxtPlugin(() => {
                   '@type': 'MerchantReturnPolicy',
                   applicableCountry: ['DO', 'US', 'ES'],
                   returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                  merchantReturnLink: 'https://lex-bell.com/terminos'
+                  merchantReturnLink: 'https://lex-bell.com/terminos/'
                 }
               },
               aggregateRating: {
@@ -181,7 +181,7 @@ export default defineNuxtPlugin(() => {
                   position: 1,
                   name: 'Características',
                   description: 'Gestión integral de expedientes, cálculo de plazos, clientes y documentos locales.',
-                  url: 'https://lex-bell.com/caracteristicas'
+                  url: 'https://lex-bell.com/caracteristicas/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
@@ -195,28 +195,28 @@ export default defineNuxtPlugin(() => {
                   position: 3,
                   name: 'Blog Jurídico',
                   description: 'Artículos y guías sobre plazos procesales, secreto profesional y legaltech.',
-                  url: 'https://lex-bell.com/blog'
+                  url: 'https://lex-bell.com/blog/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 4,
                   name: 'Preguntas Frecuentes',
                   description: 'Respuestas sobre privacidad local, licencias, compatibilidad y seguridad.',
-                  url: 'https://lex-bell.com/faq'
+                  url: 'https://lex-bell.com/faq/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 5,
                   name: 'Soporte',
                   description: 'Centro de ayuda y asistencia técnica directa para usuarios y despachos.',
-                  url: 'https://lex-bell.com/soporte'
+                  url: 'https://lex-bell.com/soporte/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 6,
                   name: 'Contacto',
                   description: 'Canal directo para consultas comerciales, técnicas y sugerencias.',
-                  url: 'https://lex-bell.com/contacto'
+                  url: 'https://lex-bell.com/contacto/'
                 }
               ]
             },
@@ -230,7 +230,7 @@ export default defineNuxtPlugin(() => {
                   position: 1,
                   name: 'Features',
                   description: 'Complete case management, court deadlines, client records, and offline documents.',
-                  url: 'https://lex-bell.com/en/features'
+                  url: 'https://lex-bell.com/en/features/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
@@ -244,28 +244,28 @@ export default defineNuxtPlugin(() => {
                   position: 3,
                   name: 'Legal Tech Blog',
                   description: 'Guides and insights on court deadlines, privacy standards, and law firm tech.',
-                  url: 'https://lex-bell.com/en/blog'
+                  url: 'https://lex-bell.com/en/blog/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 4,
                   name: 'FAQ',
                   description: 'Answers about local offline storage, licenses, compatibility, and backups.',
-                  url: 'https://lex-bell.com/en/faq'
+                  url: 'https://lex-bell.com/en/faq/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 5,
                   name: 'Support',
                   description: 'Help center and direct assistance for law firms and legal professionals.',
-                  url: 'https://lex-bell.com/en/support'
+                  url: 'https://lex-bell.com/en/support/'
                 },
                 {
                   '@type': 'SiteNavigationElement',
                   position: 6,
                   name: 'Contact',
                   description: 'Direct communication channel for licensing inquiries, technical questions, and support.',
-                  url: 'https://lex-bell.com/en/contact'
+                  url: 'https://lex-bell.com/en/contact/'
                 }
               ]
             }
