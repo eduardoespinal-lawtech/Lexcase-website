@@ -36,7 +36,7 @@ const resourceLinks = computed(() => [
   { to: localePath('calculadora-plazos'), label: t('footer.calculator') },
   { to: localePath('blog'), label: t('nav.blog') },
   { to: localePath('faq'), label: t('nav.faq') },
-  { to: localePath('/blog/secreto-profesional-abogados-nube-seguridad'), label: t('footer.guide') }
+  { to: localePath('/blog/secreto-profesional-abogados-nube-seguridad/'), label: t('footer.guide') }
 ])
 
 const legalLinks = computed(() => [

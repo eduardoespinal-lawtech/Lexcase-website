@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const props = defineProps<{ error: { statusCode: number; message: string } }>()
 const handleError = () => clearError({ redirect: '/' })
+
+useHead(() => ({
+  meta: [
+    { name: 'robots', content: 'noindex, nofollow' }
+  ]
+}))
 </script>
 
 <template>

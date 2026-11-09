@@ -29,7 +29,8 @@ const postKeywords = computed(() => (isEn.value ? post.value?.keywords.en : post
 const postContent = computed(() => (isEn.value ? post.value?.content.en : post.value?.content.es) || '')
 
 const currentUrl = computed(() => {
-  return `https://lex-bell.com${route.path}`
+  const p = route.path.replace(/\/+$/, '')
+  return `https://lex-bell.com${p}/`
 })
 
 const formattedDate = computed(() => {
@@ -130,6 +131,7 @@ useHead(() => {
     '@type': 'BlogPosting',
     headline: postTitle.value,
     description: postDescription.value,
+    image: ['https://lex-bell.com/og-image.png'],
     datePublished: post.value.date,
     dateModified: post.value.date,
     author: {
@@ -159,13 +161,13 @@ useHead(() => {
         '@type': 'ListItem',
         position: 1,
         name: isEn.value ? 'Home' : 'Inicio',
-        item: isEn.value ? 'https://lex-bell.com/en' : 'https://lex-bell.com'
+        item: isEn.value ? 'https://lex-bell.com/en/' : 'https://lex-bell.com/'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: isEn.value ? 'https://lex-bell.com/en/blog' : 'https://lex-bell.com/blog'
+        item: isEn.value ? 'https://lex-bell.com/en/blog/' : 'https://lex-bell.com/blog/'
       },
       {
         '@type': 'ListItem',
@@ -351,7 +353,7 @@ useHead(() => {
           <NuxtLink
             v-for="rel in relatedPosts"
             :key="rel.slug"
-            :to="localePath('/blog/' + rel.slug)"
+            :to="localePath('/blog/' + rel.slug + '/')"
             class="related-card group"
           >
             <span class="post-cat-badge text-xs">{{ isEn ? rel.category.en : rel.category.es }}</span>

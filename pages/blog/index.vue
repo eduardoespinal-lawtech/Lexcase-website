@@ -103,7 +103,7 @@ function formatDate(iso: string) {
         <!-- FEATURED POST CARD -->
         <div v-if="featuredPost" class="featured-card-wrapper mb-12">
           <NuxtLink
-            :to="localePath('/blog/' + featuredPost.slug)"
+            :to="localePath('/blog/' + featuredPost.slug + '/')"
             class="featured-card group"
           >
             <div class="featured-card-body">
@@ -157,7 +157,7 @@ function formatDate(iso: string) {
             class="post-card group"
           >
             <NuxtLink
-              :to="localePath('/blog/' + post.slug)"
+              :to="localePath('/blog/' + post.slug + '/')"
               class="post-card-inner"
             >
               <div class="post-meta-row mb-3">
