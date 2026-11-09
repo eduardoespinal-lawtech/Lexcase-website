@@ -28,6 +28,7 @@ useHead(() => ({
   htmlAttrs: { lang: locale.value },
   meta: [
     { name: 'description', content: t('seo.defaultDescription') },
+    { name: 'keywords', content: 'Lexbell, LexBell, Lexbel, Lex Bel, Lex Bell, Lex-bell, Lex-Bell, Lexb, software para abogados, legal practice management' },
     { property: 'og:url', content: currentUrl.value },
     { property: 'og:site_name', content: 'Lexbell' },
     { property: 'og:locale', content: locale.value === 'es' ? 'es_DO' : 'en_US' },

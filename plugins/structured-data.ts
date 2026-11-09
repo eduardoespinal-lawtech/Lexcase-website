@@ -11,6 +11,19 @@ export default defineNuxtPlugin(() => {
               '@type': 'Organization',
               '@id': 'https://lex-bell.com/#organization',
               name: 'Lexbell',
+              alternateName: [
+                'LexBell',
+                'Lexbel',
+                'Lex Bel',
+                'Lex Bell',
+                'Lex-bell',
+                'Lex-Bell',
+                'Lexb',
+                'Lexbell Legal',
+                'Lexbell Technologies'
+              ],
+              disambiguatingDescription:
+                'Lexbell (también conocido o buscado como Lexbel, Lex Bel, Lex Bell, Lex-Bell o Lexb) es la empresa y plataforma de software privado para abogados y despachos jurídicos en Mac y Windows.',
               url: 'https://lex-bell.com',
               logo: 'https://lex-bell.com/icon.png',
               email: 'support@lex-bell.com',
@@ -37,7 +50,17 @@ export default defineNuxtPlugin(() => {
               '@id': 'https://lex-bell.com/#website',
               url: 'https://lex-bell.com',
               name: 'Lexbell',
-              alternateName: ['LexBell', 'Lexbell Legal', 'Lexbell Technologies'],
+              alternateName: [
+                'LexBell',
+                'Lexbel',
+                'Lex Bel',
+                'Lex Bell',
+                'Lex-bell',
+                'Lex-Bell',
+                'Lexb',
+                'Lexbell Legal',
+                'Lexbell Technologies'
+              ],
               publisher: {
                 '@id': 'https://lex-bell.com/#organization'
               },
@@ -55,6 +78,15 @@ export default defineNuxtPlugin(() => {
               '@type': ['SoftwareApplication', 'Product'],
               '@id': 'https://lex-bell.com/#software',
               name: 'Lexbell',
+              alternateName: [
+                'LexBell',
+                'Lexbel',
+                'Lex Bel',
+                'Lex Bell',
+                'Lex-bell',
+                'Lex-Bell',
+                'Lexb'
+              ],
               image: [
                 'https://lex-bell.com/og-image.png',
                 'https://lex-bell.com/icon.png',
@@ -105,7 +137,7 @@ export default defineNuxtPlugin(() => {
                 '@id': 'https://lex-bell.com/#organization'
               },
               keywords:
-                'software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, app para organizar expedientes en mac, programa para llevar casos de clientes en mi despacho, software para abogados gratis o barato, alternativa a clio que no sea cara, software legal sin internet, calculo plazos procesales dias habiles, calculadora plazos judiciales, programa tramites visas inmigracion, software contratos alquiler compraventa, gestor de causas judiciales, organizador de pleitos y juicios, legal practice management software offline, solo attorney case tracker',
+                'lexbell, lexbel, lex bel, lex bell, lex-bell, lexb, lex- bell, lex bell legal, software para abogados, programa gestion expedientes, software juridico mac windows, gestion casos legales, app para organizar expedientes en mac, programa para llevar casos de clientes en mi despacho, software para abogados gratis o barato, alternativa a clio que no sea cara, software legal sin internet, calculo plazos procesales dias habiles, calculadora plazos judiciales, programa tramites visas inmigracion, software contratos alquiler compraventa, gestor de causas judiciales, organizador de pleitos y juicios, legal practice management software offline, solo attorney case tracker',
               featureList: [
                 'Gestión integral de expedientes judiciales y extrajudiciales con clasificación por materia',
                 'Cálculo automático de plazos procesales y términos legales en días hábiles y naturales',
