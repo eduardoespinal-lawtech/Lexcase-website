@@ -109,7 +109,7 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(251, 251, 250, 0.94);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
@@ -221,7 +221,7 @@ const links = computed(() => [
 
 .site-header-mobile {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(251, 251, 250, 0.98);
 }
 .site-header-mobile-inner {
   max-width: 1240px;
