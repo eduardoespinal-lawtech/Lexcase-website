@@ -6,6 +6,24 @@ const open = ref(false)
 const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
 
+const isScrolled = ref(false)
+const onScroll = () => {
+  if (typeof window !== 'undefined') {
+    isScrolled.value = window.scrollY > 0
+  }
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('scroll', onScroll)
+  }
+})
+
 const links = computed(() => [
   { to: localePath('solutions'), label: t('nav.solutions') },
   { to: localePath('features'), label: t('nav.features') },
@@ -16,7 +34,7 @@ const links = computed(() => [
 </script>
 
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ 'is-scrolled': isScrolled }">
     <div class="site-header-inner">
       <!-- Izquierda: Logo + Pipe + Tag de Producto + Enlaces (Estilo Microsoft 365) -->
       <div class="site-header-left">
@@ -94,7 +112,11 @@ const links = computed(() => [
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+.site-header.is-scrolled {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 .site-header-inner {
   max-width: 1440px;

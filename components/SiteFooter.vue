@@ -241,12 +241,6 @@ const legalLinks = computed(() => [
   text-decoration: none;
   line-height: 0;
   border-radius: 8px;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-.footer-store-badge-link:hover {
-  transform: translateY(-2px);
-  opacity: 0.92;
 }
 
 .footer-store-badge-img {
