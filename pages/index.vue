@@ -65,44 +65,54 @@ const toggleFaq = (idx: number) => {
 
 <template>
   <div class="notion-landing">
-    <!-- =================== 1. HERO SECTION (MICROSOFT 365 STYLE CON LAPTOP) =================== -->
-    <section class="ms-hero-section" id="descargar">
-      <div class="ms-hero-inner">
-        <!-- Columna Izquierda: Mensaje Directo + CTAs -->
-        <div class="ms-hero-content">
-          <h1 class="ms-hero-title">
+    <!-- =================== 1. HERO SECTION (CURSOR STYLE CON VENTANA DESKTOP) =================== -->
+    <section class="cursor-hero-section" id="descargar">
+      <div class="cursor-hero-inner">
+        <!-- Encabezado: Título + Subtítulo + CTAs Oficiales -->
+        <div class="cursor-hero-header">
+          <h1 class="cursor-hero-title ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
 
-          <p class="ms-hero-subtitle">
+          <p class="cursor-hero-subtitle ms-hero-subtitle">
             {{ t('home.heroSubtitle') }}
           </p>
 
           <!-- Official Store Download Badges -->
-          <div class="ms-hero-downloads">
+          <div class="cursor-hero-downloads">
             <AppDownload />
           </div>
         </div>
 
-        <!-- Columna Derecha: MacBook Pro frontal con la app Lexbell abierta -->
-        <div class="hero-macbook-col">
-          <div class="macbook-device">
-            <div class="macbook-lid">
-              <div class="macbook-camera"></div>
+        <!-- Marco Exterior y Ventana Desktop Flotante (Inspirado en Cursor con paleta Lexbell) -->
+        <div class="cursor-hero-preview-frame">
+          <div class="cursor-desktop-window">
+            <!-- Barra de título de la ventana nativa de macOS -->
+            <div class="window-titlebar">
+              <div class="window-controls">
+                <span class="window-dot window-dot-close"></span>
+                <span class="window-dot window-dot-min"></span>
+                <span class="window-dot window-dot-max"></span>
+              </div>
+              <div class="window-title">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="window-title-icon"><path d="M6 8a6 6 0 0 1 12 0C18 15 18.92 15.61 20 16.33Q21 17 19.8 17H4.2Q3 17 4 16.33C5.08 15.61 6 15 6 8"></path><path d="M10.3 19a1.94 1.94 0 0 0 3.4 0"></path></svg>
+                <span>Lexbell Desktop — {{ locale === 'en' ? 'Cases & Court Deadlines' : 'Expedientes y Plazos Procesales' }}</span>
+              </div>
+              <div class="window-spacer"></div>
+            </div>
+
+            <!-- Captura de la aplicación nativa en gran formato -->
+            <div class="window-body">
               <img
                 :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
-                :alt="locale === 'en' ? 'Lexbell Desktop App Interface on MacBook' : 'Interfaz de la aplicación Lexbell en MacBook'"
-                class="macbook-screen"
+                :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell en escritorio'"
+                class="window-screenshot"
                 width="2730"
                 height="1600"
                 loading="eager"
                 fetchpriority="high"
               />
             </div>
-            <div class="macbook-base">
-              <div class="macbook-notch"></div>
-            </div>
-            <div class="macbook-shadow"></div>
           </div>
         </div>
       </div>
@@ -299,90 +309,51 @@ const toggleFaq = (idx: number) => {
   color: #191919;
 }
 
-/* === HERO SECTION (MICROSOFT 365 STYLE: SPLIT 2 COLUMNAS CON LAPTOP) === */
-.ms-hero-section {
+/* === HERO SECTION (CURSOR STYLE CON VENTANA DESKTOP FLOTANTE) === */
+.cursor-hero-section {
   position: relative;
   background: #fbfbfa;
   border-bottom: 1px solid #ebebea;
   overflow: hidden;
-  padding: clamp(48px, 6vw, 80px) 24px 40px;
+  padding: clamp(48px, 6vw, 80px) 24px clamp(44px, 5vw, 64px);
 }
 
-.ms-hero-inner {
-  max-width: 1280px;
+.cursor-hero-inner {
+  max-width: 1240px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: clamp(36px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-@media (min-width: 960px) {
-  .ms-hero-inner {
-    grid-template-columns: 1.05fr 1.15fr;
-  }
-}
-
-.ms-hero-content {
+.cursor-hero-header {
+  max-width: 820px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
 }
 
-.ms-hero-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  background: #e6f0fa;
-  color: #0066cc;
-  margin-bottom: 16px;
-}
-
-.ms-hero-title {
-  font-size: clamp(32px, 3.8vw, 46px);
+.cursor-hero-title {
+  font-size: clamp(34px, 4vw, 50px);
   font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
+  line-height: 1.13;
+  letter-spacing: -0.035em;
   color: #050505;
   margin: 0 0 18px;
   text-wrap: balance;
 }
 
-.ms-hero-subtitle {
-  font-size: clamp(16px, 2vw, 19px);
+.cursor-hero-subtitle {
+  font-size: clamp(16px, 1.9vw, 19px);
   line-height: 1.55;
   color: #5f5e5b;
-  margin: 0 0 20px;
-  max-width: 540px;
+  margin: 0 0 24px;
+  max-width: 640px;
 }
 
-.ms-hero-guarantees {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #0066cc;
-  margin-bottom: 28px;
-  background: #ffffff;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid #e1ecf7;
-  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.05);
-}
-
-.guarantee-dot {
-  color: #94a3b8;
-  font-weight: 400;
-}
-
-.ms-hero-downloads {
+.cursor-hero-downloads {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -390,82 +361,101 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: MacBook Pro frontal */
-.hero-macbook-col {
+/* Marco Exterior y Ventana Desktop Flotante (Inspirado en Cursor con paleta Lexbell) */
+.cursor-hero-preview-frame {
+  width: 100%;
+  background: linear-gradient(180deg, #f5f5f4 0%, #ebebea 100%);
+  border: 1px solid #e2e2e0;
+  border-radius: clamp(14px, 2vw, 22px);
+  padding: clamp(12px, 2.8vw, 36px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.95),
+    0 16px 36px -12px rgba(0, 0, 0, 0.06);
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
-.macbook-device {
+.cursor-desktop-window {
   width: 100%;
-  max-width: 660px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.macbook-lid {
-  width: 90%;
-  background: #0d0d0d;
-  border-radius: 14px 14px 0 0;
-  padding: 10px 10px 0;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
   box-shadow:
-    inset 0 0 0 1.5px #2d2d2d,
-    0 16px 36px rgba(0, 0, 0, 0.22);
-  position: relative;
+    0 24px 60px -12px rgba(0, 0, 0, 0.16),
+    0 8px 22px -6px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
-.macbook-camera {
-  width: 6px;
-  height: 6px;
-  background: #1f1f1f;
+.window-titlebar {
+  height: 38px;
+  background: #fbfbfa;
+  border-bottom: 1px solid #ebebea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  user-select: none;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 70px;
+}
+
+.window-dot {
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset 0 0 1px #000;
+  display: inline-block;
 }
 
-.macbook-screen {
+.window-dot-close {
+  background: #ff5f56;
+  border: 0.5px solid #e0443e;
+}
+
+.window-dot-min {
+  background: #ffbd2e;
+  border: 0.5px solid #dea123;
+}
+
+.window-dot-max {
+  background: #27c93f;
+  border: 0.5px solid #1aab29;
+}
+
+.window-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.window-title-icon {
+  color: #0066cc;
+}
+
+.window-spacer {
+  width: 70px;
+}
+
+.window-body {
+  position: relative;
+  background: #ffffff;
+  line-height: 0;
+}
+
+.window-screenshot {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top left;
   display: block;
-  border-radius: 4px 4px 0 0;
-  background: #111;
-}
-
-.macbook-base {
-  width: 100%;
-  height: 14px;
-  background: linear-gradient(180deg, #d4d4d8 0%, #a1a1aa 50%, #71717a 100%);
-  border-radius: 0 0 12px 12px;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.macbook-notch {
-  width: 80px;
-  height: 4px;
-  background: #52525b;
-  border-radius: 0 0 4px 4px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.macbook-shadow {
-  width: 96%;
-  height: 20px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
-  margin-top: -6px;
+  object-fit: cover;
 }
 
 /* Feature Grid Debajo de la Laptop */
