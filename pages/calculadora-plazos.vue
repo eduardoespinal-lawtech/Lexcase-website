@@ -12,11 +12,18 @@ const startDate = ref<string>(todayIso)
 const daysCount = ref<number>(15)
 const computationType = ref<'business' | 'francos' | 'calendar'>('business')
 const startNextDay = ref<boolean>(true)
+const selectedCountry = ref<string>('')
+const availableCountries = ref<Array<{ code: string; name: string }>>([])
+const countryHolidays = ref<Record<string, string>>({})
+const loadingHolidays = ref<boolean>(false)
+const holidayError = ref<boolean>(false)
 const customHolidays = ref<string[]>([])
 const newHolidayDate = ref<string>('')
 const showBreakdown = ref<boolean>(false)
 const copied = ref<boolean>(false)
 const openFaq = ref<number | null>(null)
+
+const holidayApiCache = new Map<string, Record<string, string>>()
 
 function toggleFaq(idx: number) {
   openFaq.value = openFaq.value === idx ? null : idx
@@ -61,6 +68,80 @@ function applyPreset(days: number) {
   daysCount.value = days
 }
 
+async function fetchCountries() {
+  try {
+    const res = await fetch('https://date.nager.at/api/v3/AvailableCountries')
+    if (!res.ok) return
+    const list: Array<{ countryCode: string; name: string }> = await res.json()
+    const displayNames =
+      typeof Intl !== 'undefined' && Intl.DisplayNames
+        ? new Intl.DisplayNames([isEn.value ? 'en' : 'es'], { type: 'region' })
+        : null
+    availableCountries.value = list
+      .map(item => ({
+        code: item.countryCode,
+        name: displayNames?.of(item.countryCode) || item.name
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, isEn.value ? 'en' : 'es'))
+  } catch {
+    // Graceful fallback: user can still use weekends + custom holidays
+  }
+}
+
+async function loadCountryHolidays(countryCode: string, year: number) {
+  if (!countryCode) {
+    countryHolidays.value = {}
+    holidayError.value = false
+    return
+  }
+
+  loadingHolidays.value = true
+  holidayError.value = false
+  const years = [year, year + 1]
+  const merged: Record<string, string> = {}
+
+  try {
+    await Promise.all(
+      years.map(async y => {
+        const cacheKey = `${countryCode}-${y}`
+        if (holidayApiCache.has(cacheKey)) {
+          Object.assign(merged, holidayApiCache.get(cacheKey))
+          return
+        }
+        const res = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${y}/${countryCode}`)
+        if (!res.ok) throw new Error('Failed to load holidays')
+        const items: Array<{ date: string; localName: string; name: string; global?: boolean }> =
+          await res.json()
+        const yearMap: Record<string, string> = {}
+        for (const h of items) {
+          if (h.global === false) continue
+          yearMap[h.date] = isEn.value ? h.name : (h.localName || h.name)
+        }
+        holidayApiCache.set(cacheKey, yearMap)
+        Object.assign(merged, yearMap)
+      })
+    )
+    countryHolidays.value = merged
+  } catch {
+    countryHolidays.value = {}
+    holidayError.value = true
+  } finally {
+    loadingHolidays.value = false
+  }
+}
+
+onMounted(() => {
+  fetchCountries()
+})
+
+watch(
+  [selectedCountry, () => startDate.value?.slice(0, 4)],
+  ([country, yearStr]) => {
+    const year = Number(yearStr) || new Date().getFullYear()
+    loadCountryHolidays(country, year)
+  }
+)
+
 interface DayStep {
   date: Date
   formatted: string
@@ -85,12 +166,14 @@ const calculation = computed(() => {
   const current = new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0)
   const steps: DayStep[] = []
   const customHolidaySet = new Set(customHolidays.value)
+  const apiHolidays = countryHolidays.value
 
   const getHolidayName = (dt: Date): string | undefined => {
-    if (customHolidaySet.size === 0) return undefined
     const pad = (n: number) => String(n).padStart(2, '0')
     const iso = `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
-    return customHolidaySet.has(iso) ? (isEn.value ? 'Holiday' : 'Feriado') : undefined
+    if (customHolidaySet.has(iso)) return isEn.value ? 'Holiday' : 'Feriado'
+    if (selectedCountry.value && apiHolidays[iso]) return apiHolidays[iso]
+    return undefined
   }
 
   const rawDays = Math.min(Math.max(1, daysCount.value), 365)
@@ -388,10 +471,32 @@ useHead(() => ({
               </span>
             </label>
 
+            <div v-if="computationType !== 'calendar'" class="country-holidays-row">
+              <label for="country-select" class="checkbox-text">
+                {{ isEn ? 'Country holidays (optional):' : 'Feriados oficiales por país (opcional):' }}
+              </label>
+              <div class="country-select-wrap">
+                <select id="country-select" v-model="selectedCountry" class="country-select">
+                  <option value="">
+                    {{ isEn ? 'None (weekends only)' : 'Ninguno (solo fines de semana)' }}
+                  </option>
+                  <option v-for="c in availableCountries" :key="c.code" :value="c.code">
+                    {{ c.name }}
+                  </option>
+                </select>
+                <span v-if="loadingHolidays" class="holiday-status-note">
+                  {{ isEn ? 'Loading…' : 'Cargando…' }}
+                </span>
+                <span v-else-if="holidayError" class="holiday-status-note is-error">
+                  {{ isEn ? 'Unavailable' : 'No disponible' }}
+                </span>
+              </div>
+            </div>
+
             <div v-if="computationType !== 'calendar'" class="custom-holidays-row">
               <div class="custom-holidays-controls">
                 <span class="checkbox-text">
-                  {{ isEn ? 'Holidays / non-working days (optional):' : 'Feriados o días inhábiles (opcional):' }}
+                  {{ isEn ? 'Additional non-working days (optional):' : 'Feriados o asuetos adicionales (opcional):' }}
                 </span>
                 <div class="holiday-picker-group">
                   <input v-model="newHolidayDate" type="date" class="holiday-date-input" />
@@ -744,6 +849,46 @@ useHead(() => ({
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.country-holidays-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.country-select-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.country-select {
+  height: 30px;
+  max-width: 240px;
+  padding: 0 8px;
+  font-size: 12.5px;
+  color: #111827;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+}
+
+.country-select:focus {
+  border-color: #0066cc;
+}
+
+.holiday-status-note {
+  font-size: 11.5px;
+  color: #6b7280;
+}
+
+.holiday-status-note.is-error {
+  color: #b45309;
 }
 
 .custom-holidays-controls {
