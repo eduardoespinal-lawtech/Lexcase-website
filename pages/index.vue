@@ -88,7 +88,7 @@ useHead(() => {
   const desc = isEn
     ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
     : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-  const heroImg = '/screenshots/hero-3d-app.webp?v=1.1.21'
+  const heroImg = '/screenshots/showcase-tribunal.webp?v=1.1.22'
 
   return {
     title,
@@ -158,18 +158,20 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Render 3D transparente de la aplicación Lexbell sobre cuadrícula -->
+        <!-- Columna Derecha: Captura real y recta de la aplicación Lexbell sobre cuadrícula -->
         <div class="hero-app-col">
           <div class="hero-app-grid" aria-hidden="true"></div>
-          <img
-            src="/screenshots/hero-3d-app.webp?v=1.1.21"
-            :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
-            class="hero-app-img"
-            width="983"
-            height="660"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <div class="hero-app-frame">
+            <img
+              src="/screenshots/showcase-tribunal.webp?v=1.1.22"
+              :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
+              class="hero-app-img"
+              width="2000"
+              height="1185"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
         </div>
       </div>
 
@@ -489,13 +491,12 @@ const toggleFaq = (idx: number) => {
   background: #fbfbfa;
   border-bottom: 1px solid #ebebea;
   overflow: hidden;
-  padding: 0 24px 40px;
+  padding: clamp(48px, 6vw, 80px) 24px 40px;
 }
 
 .ms-hero-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: clamp(48px, 6vw, 80px) 0 48px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -575,59 +576,54 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Render 3D grande llenando toda la portada derecha (bleed) */
+/* Columna Derecha: Ventana real recta (2D) sobre cuadrícula arquitectónica */
 .hero-app-col {
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 360px;
 }
 
 .hero-app-grid {
   position: absolute;
-  inset: -140px -260px -140px -60px;
+  inset: -44px -36px;
   background-image:
-    radial-gradient(ellipse at 55% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
+    radial-gradient(ellipse at 50% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
     linear-gradient(to right, rgba(15, 23, 42, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
-  background-size: 100% 100%, 38px 38px, 38px 38px;
-  mask-image: radial-gradient(ellipse at 58% 50%, #000 42%, transparent 82%);
-  -webkit-mask-image: radial-gradient(ellipse at 58% 50%, #000 42%, transparent 82%);
-  transform: rotate(-28deg);
+  background-size: 100% 100%, 34px 34px, 34px 34px;
+  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
   pointer-events: none;
 }
 
-.hero-app-img {
+.hero-app-frame {
   position: relative;
   z-index: 1;
-  display: block;
-  width: 170%;
-  max-width: none;
-  height: auto;
-  transform: translate(0%, -2%);
-  filter: drop-shadow(0 28px 44px rgba(15, 23, 42, 0.24));
+  width: 100%;
+  max-width: 660px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  box-shadow:
+    0 24px 60px -12px rgba(15, 23, 42, 0.16),
+    0 6px 20px -4px rgba(15, 23, 42, 0.06);
 }
 
-@media (max-width: 959px) {
-  .hero-app-col {
-    min-height: 240px;
-  }
-
-  .hero-app-img {
-    width: 135%;
-    transform: translate(-2%, 0%);
-  }
+.hero-app-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Feature Grid Debajo de la App */
 .hero-features-grid {
   position: relative;
-  z-index: 3;
-  background: #fbfbfa;
+  z-index: 2;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 48px auto 0;
   padding-top: 36px;
   border-top: 1px solid #ebebea;
   display: grid;
