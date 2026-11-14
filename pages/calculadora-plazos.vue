@@ -10,26 +10,80 @@ const todayIso = new Date().toISOString().slice(0, 10)
 // Reactive form state
 const startDate = ref<string>(todayIso)
 const daysCount = ref<number>(15)
-const computationType = ref<'business' | 'calendar'>('business')
+const computationType = ref<'business' | 'francos' | 'calendar'>('business')
 const startNextDay = ref<boolean>(true)
+const excludeHolidays = ref<boolean>(true)
 const showBreakdown = ref<boolean>(false)
+const copied = ref<boolean>(false)
 const openFaq = ref<number | null>(null)
 
 function toggleFaq(idx: number) {
   openFaq.value = openFaq.value === idx ? null : idx
 }
 
+function setToday() {
+  startDate.value = new Date().toISOString().slice(0, 10)
+}
+
 // Quick preset buttons
 const presets = [
-  { days: 5, labelEs: '5 días', labelEn: '5 days' },
-  { days: 10, labelEs: '10 días', labelEn: '10 days' },
-  { days: 15, labelEs: '15 días', labelEn: '15 days' },
-  { days: 20, labelEs: '20 días', labelEn: '20 days' },
-  { days: 30, labelEs: '30 días', labelEn: '30 days' }
+  { days: 5, labelEs: '5d', labelEn: '5d' },
+  { days: 10, labelEs: '10d', labelEn: '10d' },
+  { days: 15, labelEs: '15d', labelEn: '15d' },
+  { days: 20, labelEs: '20d', labelEn: '20d' },
+  { days: 30, labelEs: '30d', labelEn: '30d' }
 ]
 
 function applyPreset(days: number) {
   daysCount.value = days
+}
+
+// Official Dominican Republic holidays for a given year (including movable Easter dates)
+function getRdHolidays(year: number): Map<string, string> {
+  const pad = (n: number) => String(n).padStart(2, '0')
+  const key = (m: number, d: number) => `${year}-${pad(m)}-${pad(d)}`
+
+  const map = new Map<string, string>([
+    [key(1, 1), isEn.value ? 'New Year’s Day' : 'Año Nuevo'],
+    [key(1, 6), isEn.value ? 'Epiphany' : 'Día de Reyes'],
+    [key(1, 21), isEn.value ? 'Altagracia Day' : 'Día de la Altagracia'],
+    [key(1, 26), isEn.value ? 'Duarte Day' : 'Natalicio de Duarte'],
+    [key(2, 27), isEn.value ? 'Independence Day' : 'Independencia Nacional'],
+    [key(5, 1), isEn.value ? 'Labor Day' : 'Día del Trabajo'],
+    [key(8, 16), isEn.value ? 'Restoration Day' : 'Día de la Restauración'],
+    [key(9, 24), isEn.value ? 'Our Lady of Mercy' : 'Día de las Mercedes'],
+    [key(11, 6), isEn.value ? 'Constitution Day' : 'Día de la Constitución'],
+    [key(12, 25), isEn.value ? 'Christmas Day' : 'Navidad']
+  ])
+
+  // Meeus/Jones/Butcher Easter Sunday algorithm
+  const a = year % 19
+  const b = Math.floor(year / 100)
+  const c = year % 100
+  const d = Math.floor(b / 4)
+  const e = b % 4
+  const f = Math.floor((b + 8) / 25)
+  const g = Math.floor((b - f + 1) / 3)
+  const h = (19 * a + b - d - g + 15) % 30
+  const i = Math.floor(c / 4)
+  const k = c % 4
+  const l = (32 + 2 * e + 2 * i - h - k) % 7
+  const m = Math.floor((a + 11 * h + 22 * l) / 451)
+  const month = Math.floor((h + l - 7 * m + 114) / 31)
+  const day = ((h + l - 7 * m + 114) % 31) + 1
+
+  const easter = new Date(year, month - 1, day, 12, 0, 0)
+  const goodFriday = new Date(easter)
+  goodFriday.setDate(easter.getDate() - 2)
+  const corpusChristi = new Date(easter)
+  corpusChristi.setDate(easter.getDate() + 60)
+
+  const fmtIso = (dt: Date) =>
+    `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
+
+  map.set(fmtIso(goodFriday), isEn.value ? 'Good Friday' : 'Viernes Santo')
+  map.set(fmtIso(corpusChristi), 'Corpus Christi')
+  return map
 }
 
 interface DayStep {
@@ -37,6 +91,7 @@ interface DayStep {
   formatted: string
   dayName: string
   isWeekend: boolean
+  holidayName?: string
   isCounted: boolean
   businessDayNumber?: number
   isFinal: boolean
@@ -54,20 +109,35 @@ const calculation = computed(() => {
   // Create date at noon local time to avoid timezone drift
   const current = new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0)
   const steps: DayStep[] = []
+  const holidayCache = new Map<number, Map<string, string>>()
 
-  let countedDays = 0
-  const targetDays = Math.min(Math.max(1, daysCount.value), 365)
+  const getHolidayName = (dt: Date): string | undefined => {
+    if (!excludeHolidays.value) return undefined
+    const y = dt.getFullYear()
+    if (!holidayCache.has(y)) holidayCache.set(y, getRdHolidays(y))
+    const pad = (n: number) => String(n).padStart(2, '0')
+    const iso = `${y}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
+    return holidayCache.get(y)?.get(iso)
+  }
+
+  const rawDays = Math.min(Math.max(1, daysCount.value), 365)
+  const targetDays = computationType.value === 'francos' ? rawDays + 1 : rawDays
   const dayNameLocale = isEn.value ? 'en-US' : 'es-DO'
 
-  if (startNextDay.value) {
+  if (startNextDay.value || computationType.value === 'francos') {
     current.setDate(current.getDate() + 1)
   }
 
+  let countedDays = 0
+  let excludedDays = 0
   let safetyCounter = 0
-  while (countedDays < targetDays && safetyCounter < 600) {
+
+  while (countedDays < targetDays && safetyCounter < 700) {
     safetyCounter++
-    const dayOfWeek = current.getDay() // 0 = Sunday, 6 = Saturday
+    const dayOfWeek = current.getDay()
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6
+    const holidayName = getHolidayName(current)
+    const isNonWorking = isWeekend || Boolean(holidayName)
 
     const dayName = current.toLocaleDateString(dayNameLocale, { weekday: 'long' })
     const formatted = current.toLocaleDateString(dayNameLocale, {
@@ -77,7 +147,7 @@ const calculation = computed(() => {
     })
 
     if (computationType.value === 'business') {
-      if (!isWeekend) {
+      if (!isNonWorking) {
         countedDays++
         steps.push({
           date: new Date(current),
@@ -89,13 +159,42 @@ const calculation = computed(() => {
           isFinal: countedDays === targetDays
         })
       } else {
+        excludedDays++
         steps.push({
           date: new Date(current),
           formatted,
           dayName,
-          isWeekend: true,
+          isWeekend,
+          holidayName,
           isCounted: false,
           isFinal: false
+        })
+      }
+    } else if (computationType.value === 'francos') {
+      // Días francos: se cuentan días corridos (n + 1), pero si el último día cae inhábil se prorroga al siguiente hábil
+      const isTargetReached = countedDays + 1 >= targetDays
+      if (isTargetReached && isNonWorking) {
+        excludedDays++
+        steps.push({
+          date: new Date(current),
+          formatted,
+          dayName,
+          isWeekend,
+          holidayName,
+          isCounted: false,
+          isFinal: false
+        })
+      } else {
+        countedDays++
+        steps.push({
+          date: new Date(current),
+          formatted,
+          dayName,
+          isWeekend,
+          holidayName,
+          isCounted: true,
+          businessDayNumber: countedDays,
+          isFinal: countedDays === targetDays
         })
       }
     } else {
@@ -117,7 +216,7 @@ const calculation = computed(() => {
   }
 
   const lastStep = steps[steps.length - 1]
-  const expirationDateFormatted = lastStep
+  const rawExp = lastStep
     ? lastStep.date.toLocaleDateString(dayNameLocale, {
         weekday: 'long',
         year: 'numeric',
@@ -125,14 +224,30 @@ const calculation = computed(() => {
         day: 'numeric'
       })
     : ''
+  const expirationDateFormatted = rawExp ? rawExp.charAt(0).toUpperCase() + rawExp.slice(1) : ''
 
   return {
     expirationDateFormatted,
     totalCalendarDays: steps.length,
-    countedDays,
+    countedDays: rawDays,
+    excludedDays,
     steps
   }
 })
+
+async function copyResult() {
+  if (!calculation.value || typeof navigator === 'undefined') return
+  const summary = isEn.value
+    ? `Expiration date: ${calculation.value.expirationDateFormatted} (${calculation.value.countedDays} days · ${calculation.value.totalCalendarDays} calendar days elapsed)`
+    : `Vencimiento: ${calculation.value.expirationDateFormatted} (${calculation.value.countedDays} días · ${calculation.value.totalCalendarDays} días naturales)`
+  try {
+    await navigator.clipboard.writeText(summary)
+    copied.value = true
+    setTimeout(() => { copied.value = false }, 2000)
+  } catch {
+    copied.value = false
+  }
+}
 
 // FAQ Items
 const faqs = computed(() => [
@@ -207,29 +322,79 @@ useHead(() => ({
 
     <!-- CALCULATOR APP CARD -->
     <section class="calc-body-section">
-      <div class="apple-wrap max-w-3xl mx-auto">
+      <div class="calc-shell">
         <div class="calc-card">
+          <!-- SEGMENTED COMPUTATION TYPE -->
+          <div class="seg-control" role="tablist" :aria-label="isEn ? 'Computation mode' : 'Tipo de cómputo'">
+            <button
+              type="button"
+              role="tab"
+              :aria-selected="computationType === 'business'"
+              class="seg-btn"
+              :class="{ 'is-active': computationType === 'business' }"
+              @click="computationType = 'business'"
+            >
+              {{ isEn ? 'Business days' : 'Días hábiles' }}
+            </button>
+            <button
+              type="button"
+              role="tab"
+              :aria-selected="computationType === 'francos'"
+              class="seg-btn"
+              :class="{ 'is-active': computationType === 'francos' }"
+              @click="computationType = 'francos'"
+            >
+              {{ isEn ? 'Clear days' : 'Días francos' }}
+            </button>
+            <button
+              type="button"
+              role="tab"
+              :aria-selected="computationType === 'calendar'"
+              class="seg-btn"
+              :class="{ 'is-active': computationType === 'calendar' }"
+              @click="computationType = 'calendar'"
+            >
+              {{ isEn ? 'Calendar days' : 'Días naturales' }}
+            </button>
+          </div>
+
           <!-- FORM FIELDS -->
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="start-date">
-                {{ isEn ? 'Notification Date (Dies a quo)' : 'Fecha de Notificación (Dies a quo)' }}
-              </label>
+              <div class="label-row">
+                <label class="form-label" for="start-date">
+                  {{ isEn ? 'Notification date' : 'Fecha de notificación' }}
+                </label>
+                <button type="button" class="today-link" @click="setToday">
+                  {{ isEn ? 'Today' : 'Hoy' }}
+                </button>
+              </div>
               <input
                 id="start-date"
                 v-model="startDate"
                 type="date"
                 class="form-input"
               />
-              <span class="form-hint">
-                {{ isEn ? 'Date when the notice or court act was received.' : 'Fecha en que se recibió el acto procesal.' }}
-              </span>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="days-count">
-                {{ isEn ? 'Term (Number of Days)' : 'Término Procesal (Días)' }}
-              </label>
+              <div class="label-row">
+                <label class="form-label" for="days-count">
+                  {{ isEn ? 'Term (days)' : 'Plazo (días)' }}
+                </label>
+                <div class="presets-inline">
+                  <button
+                    v-for="p in presets"
+                    :key="p.days"
+                    type="button"
+                    class="preset-chip"
+                    :class="{ 'is-active': daysCount === p.days }"
+                    @click="applyPreset(p.days)"
+                  >
+                    {{ isEn ? p.labelEn : p.labelEs }}
+                  </button>
+                </div>
+              </div>
               <input
                 id="days-count"
                 v-model.number="daysCount"
@@ -238,99 +403,65 @@ useHead(() => ({
                 max="365"
                 class="form-input"
               />
-              <span class="form-hint">
-                {{ isEn ? 'Number of days to compute.' : 'Duración del plazo legal concedido.' }}
-              </span>
             </div>
           </div>
 
-          <!-- PRESETS -->
-          <div class="presets-row">
-            <span class="presets-caption">{{ isEn ? 'Quick presets:' : 'Plazos frecuentes:' }}</span>
-            <div class="presets-pills">
-              <button
-                v-for="p in presets"
-                :key="p.days"
-                type="button"
-                class="preset-pill"
-                :class="{ 'is-active': daysCount === p.days }"
-                @click="applyPreset(p.days)"
-              >
-                {{ isEn ? p.labelEn : p.labelEs }}
-              </button>
-            </div>
-          </div>
-
-          <!-- COMPUTATION TYPE SELECTOR -->
-          <div class="calc-options-box">
-            <div class="computation-selector">
-              <button
-                type="button"
-                class="comp-tab"
-                :class="{ 'is-active': computationType === 'business' }"
-                @click="computationType = 'business'"
-              >
-                <span class="comp-tab-title">{{ isEn ? 'Business Days' : 'Días Hábiles' }}</span>
-                <span class="comp-tab-sub">{{ isEn ? 'Excludes Saturdays and Sundays' : 'Excluye sábados y domingos' }}</span>
-              </button>
-
-              <button
-                type="button"
-                class="comp-tab"
-                :class="{ 'is-active': computationType === 'calendar' }"
-                @click="computationType = 'calendar'"
-              >
-                <span class="comp-tab-title">{{ isEn ? 'Calendar Days' : 'Días Naturales' }}</span>
-                <span class="comp-tab-sub">{{ isEn ? 'Consecutive calendar days' : 'Cuenta días corridos continuos' }}</span>
-              </button>
-            </div>
-
-            <label class="checkbox-row mt-4">
-              <input
-                v-model="startNextDay"
-                type="checkbox"
-                class="checkbox-input"
-              />
+          <!-- RULES -->
+          <div class="rules-stack">
+            <label v-if="computationType !== 'francos'" class="checkbox-row">
+              <input v-model="startNextDay" type="checkbox" class="checkbox-input" />
               <span class="checkbox-text">
-                {{ isEn
-                  ? 'Start computation on the next business day (standard procedural rule)'
-                  : 'El cómputo inicia el día hábil siguiente a la notificación (regla general procesal)'
-                }}
+                {{ isEn ? 'Exclude notification date (starts next day)' : 'No contar el día de la notificación (inicia al día siguiente)' }}
+              </span>
+            </label>
+            <label v-if="computationType !== 'calendar'" class="checkbox-row">
+              <input v-model="excludeHolidays" type="checkbox" class="checkbox-input" />
+              <span class="checkbox-text">
+                {{ isEn ? 'Exclude Dominican Republic official holidays' : 'Excluir días feriados oficiales (Rep. Dominicana)' }}
               </span>
             </label>
           </div>
 
-          <!-- RESULT CARD (PROFESSIONAL LEGAL DESIGN) -->
-          <div v-if="calculation" class="calc-result-panel">
-            <div class="result-top">
-              <span class="result-badge">{{ isEn ? 'EXPIRATION DATE (DIES AD QUEM)' : 'FECHA DE VENCIMIENTO JUDICIAL (DIES AD QUEM)' }}</span>
-              <div class="result-date">
-                {{ calculation.expirationDateFormatted }}
-              </div>
-              <div class="result-meta-row">
-                <span class="result-meta-item">
-                  <strong>{{ calculation.countedDays }}</strong> {{ isEn ? 'business days counted' : 'días computados' }}
+          <!-- RESULT -->
+          <div v-if="calculation" class="calc-result">
+            <div class="result-header">
+              <div>
+                <span class="result-label">
+                  {{ isEn ? 'Expiration date' : 'Fecha de vencimiento' }}
                 </span>
-                <span class="meta-dot">·</span>
-                <span class="result-meta-item">
-                  <strong>{{ calculation.totalCalendarDays }}</strong> {{ isEn ? 'calendar days elapsed' : 'días naturales transcurridos' }}
-                </span>
+                <div class="result-date">
+                  {{ calculation.expirationDateFormatted }}
+                </div>
               </div>
+              <button type="button" class="copy-btn" @click="copyResult">
+                <svg v-if="!copied" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{{ copied ? (isEn ? 'Copied' : 'Copiado') : (isEn ? 'Copy' : 'Copiar') }}</span>
+              </button>
             </div>
 
-            <!-- TOGGLE BREAKDOWN -->
+            <div class="result-meta-row">
+              <span><strong>{{ calculation.countedDays }}</strong> {{ isEn ? 'term days' : 'días de plazo' }}</span>
+              <span class="meta-dot">·</span>
+              <span><strong>{{ calculation.totalCalendarDays }}</strong> {{ isEn ? 'calendar days' : 'días naturales' }}</span>
+              <template v-if="calculation.excludedDays > 0">
+                <span class="meta-dot">·</span>
+                <span><strong>{{ calculation.excludedDays }}</strong> {{ isEn ? 'non-working skipped' : 'inhábiles excluidos' }}</span>
+              </template>
+            </div>
+
             <div class="breakdown-toggle-container">
               <button
                 type="button"
                 class="breakdown-btn"
                 @click="showBreakdown = !showBreakdown"
               >
-                <span>{{ showBreakdown ? (isEn ? 'Hide audit breakdown' : 'Ocultar desglose procesal') : (isEn ? 'View day-by-day audit breakdown' : 'Ver desglose procesal día a día') }}</span>
+                <span>{{ showBreakdown ? (isEn ? 'Hide day-by-day log' : 'Ocultar desglose día a día') : (isEn ? 'View day-by-day log' : 'Ver desglose día a día') }}</span>
                 <svg
                   class="chevron-icon"
                   :class="{ 'is-open': showBreakdown }"
-                  width="16"
-                  height="16"
+                  width="15"
+                  height="15"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -343,38 +474,41 @@ useHead(() => ({
               </button>
             </div>
 
-            <!-- AUDIT TABLE (CLEAN LIGHT DESIGN) -->
+            <!-- AUDIT TABLE -->
             <div v-if="showBreakdown" class="audit-table-wrapper">
               <table class="audit-table">
                 <thead>
                   <tr>
                     <th>{{ isEn ? 'Date' : 'Fecha' }}</th>
                     <th>{{ isEn ? 'Day' : 'Día' }}</th>
-                    <th>{{ isEn ? 'Classification' : 'Calificación Procesal' }}</th>
-                    <th class="text-right">{{ isEn ? 'Count' : 'Cómputo' }}</th>
+                    <th>{{ isEn ? 'Status' : 'Estado' }}</th>
+                    <th class="text-right">#</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr
                     v-for="(st, idx) in calculation.steps"
                     :key="idx"
-                    :class="{ 'row-weekend': st.isWeekend, 'row-final': st.isFinal }"
+                    :class="{ 'row-weekend': !st.isCounted, 'row-final': st.isFinal }"
                   >
-                    <td class="font-mono text-[13px]">{{ st.formatted }}</td>
+                    <td class="font-mono text-[12.5px]">{{ st.formatted }}</td>
                     <td class="capitalize">{{ st.dayName }}</td>
                     <td>
                       <span v-if="st.isFinal" class="status-chip chip-final">
-                        {{ isEn ? 'Expiration Date' : 'Día de Vencimiento' }}
+                        {{ isEn ? 'Deadline' : 'Vencimiento' }}
                       </span>
-                      <span v-else-if="st.isWeekend" class="status-chip chip-weekend">
-                        {{ isEn ? 'Non-working (Weekend)' : 'Inhábil (Fin de semana)' }}
+                      <span v-else-if="st.holidayName" class="status-chip chip-weekend">
+                        {{ st.holidayName }}
+                      </span>
+                      <span v-else-if="st.isWeekend && !st.isCounted" class="status-chip chip-weekend">
+                        {{ isEn ? 'Weekend' : 'Fin de semana' }}
                       </span>
                       <span v-else class="status-chip chip-business">
-                        {{ isEn ? 'Business day' : 'Día hábil procesal' }}
+                        {{ isEn ? 'Counted' : 'Hábil' }}
                       </span>
                     </td>
                     <td class="text-right font-mono font-semibold">
-                      {{ st.businessDayNumber ? `#${st.businessDayNumber}` : '—' }}
+                      {{ st.businessDayNumber ? st.businessDayNumber : '—' }}
                     </td>
                   </tr>
                 </tbody>
@@ -454,21 +588,54 @@ useHead(() => ({
   background: #ffffff;
 }
 
+.calc-shell {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 .calc-card {
   background: #ffffff;
-  border: 1px solid #ebebea;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: clamp(24px, 4vw, 36px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  padding: clamp(20px, 3.5vw, 28px);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+}
+
+/* SEGMENTED CONTROL */
+.seg-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f3f4f6;
+  padding: 3px;
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+.seg-btn {
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.seg-btn.is-active {
+  background: #ffffff;
+  color: #050505;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .form-grid {
   display: grid;
-  gap: 20px;
+  gap: 16px;
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 560px) {
   .form-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -479,19 +646,41 @@ useHead(() => ({
   flex-direction: column;
 }
 
-.form-label {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #1e293b;
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin-bottom: 6px;
+  min-height: 22px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.today-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0066cc;
+  cursor: pointer;
+}
+
+.today-link:hover {
+  text-decoration: underline;
 }
 
 .form-input {
   width: 100%;
-  padding: 11px 14px;
+  padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 9px;
-  font-size: 14.5px;
+  font-size: 14px;
   color: #0f172a;
   background: #ffffff;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -504,167 +693,108 @@ useHead(() => ({
   box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
-.form-hint {
-  font-size: 12px;
-  color: #64748b;
-  margin-top: 5px;
+.presets-inline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-/* PRESETS */
-.presets-row {
-  margin-top: 20px;
-  padding-top: 18px;
-  border-top: 1px solid #f1f5f9;
+.preset-chip {
+  padding: 2px 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  background: #f3f4f6;
+  border: 1px solid transparent;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-chip:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.preset-chip.is-active {
+  background: #e8f1ff;
+  border-color: #bfdbfe;
+  color: #0066cc;
+}
+
+.rules-stack {
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.presets-caption {
-  font-size: 12px;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.presets-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.preset-pill {
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 999px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #334155;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.preset-pill:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-}
-
-.preset-pill.is-active {
-  background: #0066cc;
-  border-color: #0066cc;
-  color: #ffffff;
-}
-
-/* OPTIONS BOX */
-.calc-options-box {
-  margin-top: 22px;
-  padding: 18px;
-  background: #f8fafc;
-  border: 1px solid #edf2f7;
-  border-radius: 12px;
-}
-
-.computation-selector {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 640px) {
-  .computation-selector {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.comp-tab {
-  padding: 12px 14px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.comp-tab:hover {
-  border-color: #cbd5e1;
-}
-
-.comp-tab.is-active {
-  border-color: #0066cc;
-  background: #f0f7ff;
-  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.08);
-}
-
-.comp-tab-title {
-  display: block;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.comp-tab.is-active .comp-tab-title {
-  color: #0066cc;
-}
-
-.comp-tab-sub {
-  display: block;
-  font-size: 11.5px;
-  color: #64748b;
-  margin-top: 2px;
-}
-
 .checkbox-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   cursor: pointer;
 }
 
 .checkbox-input {
-  margin-top: 2px;
   accent-color: #0066cc;
 }
 
 .checkbox-text {
   font-size: 13px;
-  color: #334155;
-  line-height: 1.45;
+  color: #4b5563;
 }
 
-/* RESULT PANEL (PROFESSIONAL LEGAL STYLE) */
-.calc-result-panel {
-  margin-top: 28px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid #0066cc;
-  border-radius: 12px;
-  padding: 24px 26px;
+/* RESULT */
+.calc-result {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #ebebea;
 }
 
-.result-top {
-  text-align: left;
+.result-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.result-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #0066cc;
-  margin-bottom: 6px;
+.result-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 4px;
 }
 
 .result-date {
-  font-size: clamp(22px, 3.2vw, 28px);
+  font-size: clamp(22px, 3vw, 27px);
   font-weight: 800;
-  color: #0f172a;
+  color: #050505;
   letter-spacing: -0.02em;
-  text-transform: capitalize;
-  line-height: 1.25;
+  line-height: 1.2;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #374151;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #050505;
 }
 
 .result-meta-row {
@@ -674,17 +804,15 @@ useHead(() => ({
   gap: 8px;
   margin-top: 8px;
   font-size: 13px;
-  color: #64748b;
+  color: #6b7280;
 }
 
 .meta-dot {
-  color: #cbd5e1;
+  color: #d1d5db;
 }
 
 .breakdown-toggle-container {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid #e2e8f0;
+  margin-top: 16px;
 }
 
 .breakdown-btn {
