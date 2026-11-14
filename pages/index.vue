@@ -323,7 +323,7 @@ const toggleFaq = (idx: number) => {
 
     <!-- =================== 2. TABLA COMPARATIVA DE ARQUITECTURA =================== -->
     <section class="section">
-      <div class="apple-wrap">
+      <div class="apple-wrap compare-wrap">
         <div class="text-center max-w-2xl mx-auto mb-14">
           <span class="eyebrow">{{ t('home.compareEyebrow') }}</span>
           <h2 class="h-section">{{ t('home.compareTitle') }}</h2>
@@ -334,15 +334,15 @@ const toggleFaq = (idx: number) => {
           <table class="compare-table" :aria-label="locale === 'en' ? 'Comparison of Lexbell versus cloud software and spreadsheets' : 'Comparativa de Lexbell frente a la nube y hojas de cálculo'">
             <thead>
               <tr>
-                <th style="width: 28%;">{{ t('home.compareColFeature') }}</th>
-                <th class="lexbell-col" style="width: 30%;">
+                <th style="width: 21%;">{{ t('home.compareColFeature') }}</th>
+                <th class="lexbell-col" style="width: 31%;">
                   <div class="lexbell-th-inner">
                     <span class="lexbell-pill">{{ locale === 'en' ? 'Recommended' : 'Recomendado' }}</span>
                     <span>{{ t('home.compareColLexbell') }}</span>
                   </div>
                 </th>
-                <th style="width: 21%;">{{ t('home.compareColCloud') }}</th>
-                <th style="width: 21%;">{{ t('home.compareColManual') }}</th>
+                <th style="width: 24%;">{{ t('home.compareColCloud') }}</th>
+                <th style="width: 24%;">{{ t('home.compareColManual') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -724,6 +724,10 @@ const toggleFaq = (idx: number) => {
 }
 
 /* TABLA COMPARATIVA */
+.compare-wrap {
+  max-width: 1340px;
+}
+
 .compare-table-wrap {
   width: 100%;
   overflow-x: auto;
@@ -736,15 +740,15 @@ const toggleFaq = (idx: number) => {
 
 .compare-table {
   width: 100%;
-  min-width: 780px;
+  min-width: 960px;
   border-collapse: separate;
   border-spacing: 0;
-  font-size: 14px;
+  font-size: 13.5px;
   background: #ffffff;
 }
 
 .compare-table th {
-  padding: 20px 20px 18px;
+  padding: 18px 16px 16px;
   text-align: left;
   font-weight: 700;
   font-size: 13.5px;
@@ -755,11 +759,11 @@ const toggleFaq = (idx: number) => {
 }
 
 .compare-table td {
-  padding: 16px 20px;
+  padding: 15px 16px;
   border-bottom: 1px solid #f1f5f9;
   color: #4b5563;
   vertical-align: middle;
-  line-height: 1.5;
+  line-height: 1.45;
   transition: background-color 0.15s ease;
 }
 
