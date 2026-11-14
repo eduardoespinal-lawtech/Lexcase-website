@@ -197,7 +197,9 @@ const faqs = computed(() => [
       <div class="apple-wrap">
         <div class="grid gap-8 md:grid-cols-3">
           <div class="benefit-card">
-            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
             <h3 class="benefit-title">{{ isEn ? 'True Confidentiality' : 'Secreto Profesional Real' }}</h3>
             <p class="benefit-desc">
               {{ isEn
@@ -207,7 +209,9 @@ const faqs = computed(() => [
             </p>
           </div>
           <div class="benefit-card">
-            <div class="benefit-icon">⚡</div>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
             <h3 class="benefit-title">{{ isEn ? 'Instant Offline Speed' : 'Velocidad Offline Inmediata' }}</h3>
             <p class="benefit-desc">
               {{ isEn
@@ -217,7 +221,9 @@ const faqs = computed(() => [
             </p>
           </div>
           <div class="benefit-card">
-            <div class="benefit-icon">💼</div>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
             <h3 class="benefit-title">{{ isEn ? 'Fair, Predictable Pricing' : 'Precios Justos y Transparentes' }}</h3>
             <p class="benefit-desc">
               {{ isEn
@@ -349,8 +355,16 @@ const faqs = computed(() => [
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 .benefit-icon {
-  font-size: 32px;
-  margin-bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #0066cc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
 }
 .benefit-title {
   font-size: 18px;
