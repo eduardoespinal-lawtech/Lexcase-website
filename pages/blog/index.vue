@@ -55,15 +55,6 @@ const otherPosts = computed<BlogPost[]>(() => {
   return filteredPosts.value.slice(1)
 })
 
-function getPostPreviewImg(slug: string): string {
-  const map: Record<string, string> = {
-    'computo-plazos-procesales-dias-habiles-rd': '/screenshots/showcase-calendar-list.webp',
-    'secreto-profesional-abogados-nube-seguridad': '/screenshots/showcase-docs.webp',
-    'mejores-programas-gestion-expedientes-abogados-2026': '/screenshots/showcase-cases.webp'
-  }
-  return map[slug] || '/screenshots/showcase-cases.webp'
-}
-
 function formatDate(iso: string) {
   try {
     const d = new Date(iso + 'T00:00:00')
@@ -86,8 +77,8 @@ function formatDate(iso: string) {
         <span class="eyebrow">
           {{ isEn ? 'LEGALTECH & PRACTICE' : 'RECURSOS LEGALTECH' }}
         </span>
-        <h1 class="h-display mt-2">{{ t('blog.title') }}</h1>
-        <p class="subtitle mt-4 mx-auto" style="max-width: 720px;">
+        <h1 class="blog-hero-title mt-2">{{ t('blog.title') }}</h1>
+        <p class="subtitle mt-3 mx-auto" style="max-width: 640px;">
           {{ t('blog.subtitle') }}
         </p>
 
@@ -109,14 +100,17 @@ function formatDate(iso: string) {
     <!-- MAIN CONTENT -->
     <section class="pb-24">
       <div class="apple-wrap-wide">
-        <!-- FEATURED POST CARD (SPLIT EDITORIAL + VISUAL) -->
-        <div v-if="featuredPost" class="featured-card-wrapper mb-12">
+        <!-- FEATURED POST CARD (CLEAN EDITORIAL TYPOGRAPHY) -->
+        <div v-if="featuredPost" class="featured-card-wrapper mb-10">
           <NuxtLink
             :to="localePath('/blog/' + featuredPost.slug + '/')"
             class="featured-card group"
           >
             <div class="featured-card-body">
               <div class="post-meta-row">
+                <span class="featured-pill">
+                  {{ isEn ? 'Featured' : 'Destacado' }}
+                </span>
                 <span class="post-cat-badge">
                   {{ isEn ? featuredPost.category.en : featuredPost.category.es }}
                 </span>
@@ -161,19 +155,6 @@ function formatDate(iso: string) {
                 </span>
               </div>
             </div>
-
-            <div class="featured-card-media">
-              <div class="featured-media-frame">
-                <img
-                  :src="getPostPreviewImg(featuredPost.slug)"
-                  :alt="isEn ? featuredPost.title.en : featuredPost.title.es"
-                  class="featured-media-img"
-                  width="2000"
-                  height="1185"
-                  loading="eager"
-                />
-              </div>
-            </div>
           </NuxtLink>
         </div>
 
@@ -188,17 +169,6 @@ function formatDate(iso: string) {
               :to="localePath('/blog/' + post.slug + '/')"
               class="post-card-inner"
             >
-              <div class="post-card-media">
-                <img
-                  :src="getPostPreviewImg(post.slug)"
-                  :alt="isEn ? post.title.en : post.title.es"
-                  class="post-card-img"
-                  width="2000"
-                  height="1185"
-                  loading="lazy"
-                />
-              </div>
-
               <div class="post-card-content">
                 <div class="post-meta-row mb-3">
                   <span class="post-cat-badge">
@@ -261,6 +231,15 @@ function formatDate(iso: string) {
   background: #ffffff;
 }
 
+.blog-hero-title {
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.16;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #050505;
+  text-wrap: balance;
+}
+
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -296,47 +275,32 @@ function formatDate(iso: string) {
 }
 
 .featured-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: center;
+  display: block;
   text-decoration: none;
-  background: #fbfbfa;
-  border: 1px solid #ebebea;
-  border-radius: 20px;
-  padding: clamp(24px, 3.5vw, 40px);
+  background: linear-gradient(135deg, #fbfbfa 0%, #f6f9ff 100%);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0066cc;
+  border-radius: 18px;
+  padding: clamp(26px, 3.5vw, 40px);
   transition: all 0.25s ease;
 }
 
-@media (min-width: 900px) {
-  .featured-card {
-    grid-template-columns: 1.15fr 1fr;
-    gap: 40px;
-  }
-}
-
-.featured-card-media {
-  width: 100%;
-}
-
-.featured-media-frame {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  background: #ffffff;
-}
-
-.featured-media-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .featured-card:hover {
-  border-color: #d3d3d0;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  border-color: #bfdbfe;
+  border-left-color: #0066cc;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
   transform: translateY(-2px);
+}
+
+.featured-pill {
+  background: #0066cc;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .post-meta-row {
@@ -468,27 +432,8 @@ function formatDate(iso: string) {
   height: 100%;
 }
 
-.post-card-media {
-  background: #fbfbfa;
-  border-bottom: 1px solid #ebebea;
-  padding: 16px 16px 0;
-  overflow: hidden;
-}
-
-.post-card-img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top left;
-  border-radius: 8px 8px 0 0;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-}
-
 .post-card-content {
-  padding: 24px 26px 26px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   flex: 1;
