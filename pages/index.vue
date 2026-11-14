@@ -578,56 +578,55 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real en 3D isométrico acostado */
+/* Columna Derecha: Ventana real en 3D isométrico acostado (estática y con bleed) */
 .hero-iso-col {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: 12px 0;
+  min-height: 360px;
 }
 
 .hero-iso-stage {
   position: relative;
   width: 100%;
-  max-width: 680px;
-  perspective: 1800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  perspective: 1500px;
 }
 
 .hero-iso-grid {
   position: absolute;
-  inset: -14% -8%;
+  inset: -40% -35% -45% -18%;
   background-image:
-    radial-gradient(ellipse at 55% 50%, rgba(0, 102, 204, 0.12) 0%, rgba(0, 102, 204, 0) 68%),
-    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
-  background-size: 100% 100%, 36px 36px, 36px 36px;
-  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
-  transform: rotateX(48deg) rotateZ(18deg);
+    radial-gradient(ellipse at 50% 45%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
+  background-size: 100% 100%, 42px 42px, 42px 42px;
+  mask-image: radial-gradient(ellipse at 55% 45%, #000 32%, transparent 74%);
+  -webkit-mask-image: radial-gradient(ellipse at 55% 45%, #000 32%, transparent 74%);
+  transform: rotateX(40deg) rotateY(8deg) rotateZ(-28deg);
   pointer-events: none;
 }
 
 .hero-iso-card {
   position: relative;
-  width: 100%;
+  width: 138%;
+  max-width: none;
   border-radius: 14px;
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  transform: rotateX(34deg) rotateY(-14deg) rotateZ(18deg) scale(0.95);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  transform-origin: 20% 24%;
+  transform: translate(4%, 8%) rotateX(40deg) rotateY(8deg) rotateZ(-28deg);
   transform-style: preserve-3d;
   box-shadow:
     -1px 1px 0 #cbd5e1,
     -2px 2px 0 #cbd5e1,
     -3px 4px 0 #94a3b8,
     -4px 6px 0 #94a3b8,
-    -18px 28px 48px -10px rgba(15, 23, 42, 0.26),
-    -8px 14px 24px -6px rgba(0, 102, 204, 0.12);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+    -5px 8px 0 #64748b,
+    -6px 10px 0 #64748b,
+    -26px 38px 64px -8px rgba(15, 23, 42, 0.34),
+    -12px 18px 28px -6px rgba(0, 102, 204, 0.14);
 }
 
 .hero-iso-card::after {
@@ -635,18 +634,8 @@ const toggleFaq = (idx: number) => {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 32%);
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.32) 0%, transparent 28%);
   pointer-events: none;
-}
-
-.hero-iso-stage:hover .hero-iso-card {
-  transform: rotateX(26deg) rotateY(-10deg) rotateZ(13deg) scale(0.98) translateY(-4px);
-  box-shadow:
-    -1px 1px 0 #cbd5e1,
-    -2px 2px 0 #cbd5e1,
-    -3px 4px 0 #94a3b8,
-    -22px 36px 56px -10px rgba(15, 23, 42, 0.28),
-    -10px 18px 28px -6px rgba(0, 102, 204, 0.16);
 }
 
 .hero-app-img {
@@ -655,13 +644,19 @@ const toggleFaq = (idx: number) => {
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 959px) {
+  .hero-iso-col {
+    min-height: 260px;
+  }
+
   .hero-iso-card {
-    transform: rotateX(14deg) rotateY(-6deg) rotateZ(4deg) scale(0.98);
+    width: 122%;
+    transform: translate(6%, 6%) rotateX(28deg) rotateY(6deg) rotateZ(-18deg);
     box-shadow:
       -1px 2px 0 #cbd5e1,
       -2px 4px 0 #94a3b8,
-      -10px 18px 34px -8px rgba(15, 23, 42, 0.24);
+      -3px 6px 0 #64748b,
+      -14px 24px 40px -8px rgba(15, 23, 42, 0.3);
   }
 }
 
