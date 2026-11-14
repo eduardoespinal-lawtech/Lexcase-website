@@ -12,7 +12,8 @@ const startDate = ref<string>(todayIso)
 const daysCount = ref<number>(15)
 const computationType = ref<'business' | 'francos' | 'calendar'>('business')
 const startNextDay = ref<boolean>(true)
-const excludeHolidays = ref<boolean>(true)
+const customHolidays = ref<string[]>([])
+const newHolidayDate = ref<string>('')
 const showBreakdown = ref<boolean>(false)
 const copied = ref<boolean>(false)
 const openFaq = ref<number | null>(null)
@@ -23,6 +24,28 @@ function toggleFaq(idx: number) {
 
 function setToday() {
   startDate.value = new Date().toISOString().slice(0, 10)
+}
+
+function addHoliday() {
+  const val = newHolidayDate.value
+  if (!val || customHolidays.value.includes(val)) return
+  customHolidays.value = [...customHolidays.value, val].sort()
+  newHolidayDate.value = ''
+}
+
+function removeHoliday(iso: string) {
+  customHolidays.value = customHolidays.value.filter(d => d !== iso)
+}
+
+function formatHolidayChip(iso: string): string {
+  const parts = iso.split('-').map(Number)
+  if (parts.length !== 3) return iso
+  const dt = new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0)
+  return dt.toLocaleDateString(isEn.value ? 'en-US' : 'es', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
 }
 
 // Quick preset buttons
@@ -36,54 +59,6 @@ const presets = [
 
 function applyPreset(days: number) {
   daysCount.value = days
-}
-
-// Official Dominican Republic holidays for a given year (including movable Easter dates)
-function getRdHolidays(year: number): Map<string, string> {
-  const pad = (n: number) => String(n).padStart(2, '0')
-  const key = (m: number, d: number) => `${year}-${pad(m)}-${pad(d)}`
-
-  const map = new Map<string, string>([
-    [key(1, 1), isEn.value ? 'New Year’s Day' : 'Año Nuevo'],
-    [key(1, 6), isEn.value ? 'Epiphany' : 'Día de Reyes'],
-    [key(1, 21), isEn.value ? 'Altagracia Day' : 'Día de la Altagracia'],
-    [key(1, 26), isEn.value ? 'Duarte Day' : 'Natalicio de Duarte'],
-    [key(2, 27), isEn.value ? 'Independence Day' : 'Independencia Nacional'],
-    [key(5, 1), isEn.value ? 'Labor Day' : 'Día del Trabajo'],
-    [key(8, 16), isEn.value ? 'Restoration Day' : 'Día de la Restauración'],
-    [key(9, 24), isEn.value ? 'Our Lady of Mercy' : 'Día de las Mercedes'],
-    [key(11, 6), isEn.value ? 'Constitution Day' : 'Día de la Constitución'],
-    [key(12, 25), isEn.value ? 'Christmas Day' : 'Navidad']
-  ])
-
-  // Meeus/Jones/Butcher Easter Sunday algorithm
-  const a = year % 19
-  const b = Math.floor(year / 100)
-  const c = year % 100
-  const d = Math.floor(b / 4)
-  const e = b % 4
-  const f = Math.floor((b + 8) / 25)
-  const g = Math.floor((b - f + 1) / 3)
-  const h = (19 * a + b - d - g + 15) % 30
-  const i = Math.floor(c / 4)
-  const k = c % 4
-  const l = (32 + 2 * e + 2 * i - h - k) % 7
-  const m = Math.floor((a + 11 * h + 22 * l) / 451)
-  const month = Math.floor((h + l - 7 * m + 114) / 31)
-  const day = ((h + l - 7 * m + 114) % 31) + 1
-
-  const easter = new Date(year, month - 1, day, 12, 0, 0)
-  const goodFriday = new Date(easter)
-  goodFriday.setDate(easter.getDate() - 2)
-  const corpusChristi = new Date(easter)
-  corpusChristi.setDate(easter.getDate() + 60)
-
-  const fmtIso = (dt: Date) =>
-    `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
-
-  map.set(fmtIso(goodFriday), isEn.value ? 'Good Friday' : 'Viernes Santo')
-  map.set(fmtIso(corpusChristi), 'Corpus Christi')
-  return map
 }
 
 interface DayStep {
@@ -109,20 +84,18 @@ const calculation = computed(() => {
   // Create date at noon local time to avoid timezone drift
   const current = new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0)
   const steps: DayStep[] = []
-  const holidayCache = new Map<number, Map<string, string>>()
+  const customHolidaySet = new Set(customHolidays.value)
 
   const getHolidayName = (dt: Date): string | undefined => {
-    if (!excludeHolidays.value) return undefined
-    const y = dt.getFullYear()
-    if (!holidayCache.has(y)) holidayCache.set(y, getRdHolidays(y))
+    if (customHolidaySet.size === 0) return undefined
     const pad = (n: number) => String(n).padStart(2, '0')
-    const iso = `${y}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
-    return holidayCache.get(y)?.get(iso)
+    const iso = `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}-${pad(dt.getDate())}`
+    return customHolidaySet.has(iso) ? (isEn.value ? 'Holiday' : 'Feriado') : undefined
   }
 
   const rawDays = Math.min(Math.max(1, daysCount.value), 365)
   const targetDays = computationType.value === 'francos' ? rawDays + 1 : rawDays
-  const dayNameLocale = isEn.value ? 'en-US' : 'es-DO'
+  const dayNameLocale = isEn.value ? 'en-US' : 'es'
 
   if (startNextDay.value || computationType.value === 'francos') {
     current.setDate(current.getDate() + 1)
@@ -414,12 +387,34 @@ useHead(() => ({
                 {{ isEn ? 'Exclude notification date (starts next day)' : 'No contar el día de la notificación (inicia al día siguiente)' }}
               </span>
             </label>
-            <label v-if="computationType !== 'calendar'" class="checkbox-row">
-              <input v-model="excludeHolidays" type="checkbox" class="checkbox-input" />
-              <span class="checkbox-text">
-                {{ isEn ? 'Exclude Dominican Republic official holidays' : 'Excluir días feriados oficiales (Rep. Dominicana)' }}
-              </span>
-            </label>
+
+            <div v-if="computationType !== 'calendar'" class="custom-holidays-row">
+              <div class="custom-holidays-controls">
+                <span class="checkbox-text">
+                  {{ isEn ? 'Holidays / non-working days (optional):' : 'Feriados o días inhábiles (opcional):' }}
+                </span>
+                <div class="holiday-picker-group">
+                  <input v-model="newHolidayDate" type="date" class="holiday-date-input" />
+                  <button type="button" class="holiday-add-btn" :disabled="!newHolidayDate" @click="addHoliday">
+                    + {{ isEn ? 'Add' : 'Agregar' }}
+                  </button>
+                </div>
+              </div>
+
+              <div v-if="customHolidays.length" class="holiday-chips">
+                <span v-for="iso in customHolidays" :key="iso" class="holiday-chip">
+                  <span>{{ formatHolidayChip(iso) }}</span>
+                  <button
+                    type="button"
+                    class="holiday-chip-remove"
+                    :aria-label="isEn ? 'Remove holiday' : 'Quitar feriado'"
+                    @click="removeHoliday(iso)"
+                  >
+                    ×
+                  </button>
+                </span>
+              </div>
+            </div>
           </div>
 
           <!-- RESULT -->
@@ -743,6 +738,95 @@ useHead(() => ({
 .checkbox-text {
   font-size: 13px;
   color: #4b5563;
+}
+
+.custom-holidays-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-holidays-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.holiday-picker-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.holiday-date-input {
+  height: 30px;
+  padding: 0 8px;
+  font-size: 12.5px;
+  color: #111827;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  outline: none;
+}
+
+.holiday-date-input:focus {
+  border-color: #0066cc;
+}
+
+.holiday-add-btn {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0066cc;
+  background: #f0f6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.holiday-add-btn:hover:not(:disabled) {
+  background: #e0edff;
+}
+
+.holiday-add-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.holiday-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.holiday-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  background: #f3f4f6;
+  border-radius: 999px;
+}
+
+.holiday-chip-remove {
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.holiday-chip-remove:hover {
+  color: #111827;
 }
 
 /* RESULT */
