@@ -143,15 +143,35 @@ const pricingFaqs = computed(() => {
             <p v-if="plan.intro" class="pricing-intro">{{ t(plan.intro) }}</p>
             <ul class="pricing-features">
               <li v-for="feature in plan.features" :key="feature">
-                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+                <span class="feature-check-badge" :class="{ 'is-featured': plan.featured }" aria-hidden="true">
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 8.5 6.5 11.5 12.5 4.5" />
+                  </svg>
+                </span>
                 <span>{{ t(feature) }}</span>
               </li>
             </ul>
           </div>
         </div>
 
+        <!-- CTA con botones oficiales de descarga -->
+        <div id="descargar" class="pricing-download-card">
+          <span class="eyebrow">{{ locale === 'en' ? 'START FREE TODAY' : 'EMPIEZA GRATIS HOY' }}</span>
+          <h2 class="pricing-download-title">
+            {{ locale === 'en' ? 'Bring order to your legal practice today' : 'Pon orden en tu oficina legal hoy mismo' }}
+          </h2>
+          <p class="pricing-download-sub">
+            {{ locale === 'en'
+              ? 'Download Lexbell for Mac or Windows. Free up to 50 active cases, 100% local and private.'
+              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis, 100% local y privado.' }}
+          </p>
+          <div class="pricing-download-actions">
+            <AppDownload center />
+          </div>
+          <p class="pricing-download-note">
+            {{ locale === 'en' ? 'Installs in under 1 minute · No credit card required' : 'Instalación en menos de 1 minuto · Sin tarjeta de crédito' }}
+          </p>
+        </div>
       </div>
     </section>
 
@@ -245,16 +265,28 @@ const pricingFaqs = computed(() => {
 .pricing-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid #e6e6e4;
-  border-radius: 16px;
-  padding: 32px 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 34px 28px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
 }
 
 .pricing-card.is-featured {
+  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 42%);
   border: 1.5px solid #0066cc;
-  box-shadow: 0 12px 32px rgba(0, 102, 204, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 102, 204, 0.12);
+}
+
+.pricing-card.is-featured:hover {
+  box-shadow: 0 20px 44px rgba(0, 102, 204, 0.16);
 }
 
 .pricing-badge {
@@ -370,10 +402,63 @@ const pricingFaqs = computed(() => {
   color: #37352f;
 }
 
-.feature-check {
+.feature-check-badge {
   flex-shrink: 0;
-  margin-top: 2px;
-  color: #8a8a87;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-check-badge.is-featured {
+  background: #dbeafe;
+  color: #0066cc;
+}
+
+.pricing-download-card {
+  max-width: 780px;
+  margin: 56px auto 0;
+  padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 40px);
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
+}
+
+.pricing-download-title {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  color: #050505;
+  margin: 10px 0 12px;
+  text-wrap: balance;
+}
+
+.pricing-download-sub {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  max-width: 520px;
+  margin: 0 auto 24px;
+  text-wrap: pretty;
+}
+
+.pricing-download-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-download-note {
+  font-size: 12.5px;
+  color: #8b8a86;
+  margin: 14px 0 0;
 }
 
 .pricing-faq-section {
