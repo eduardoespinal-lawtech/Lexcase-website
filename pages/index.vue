@@ -213,53 +213,58 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 1.5 PRODUCT SHOWCASE INTERACTIVO (BIG TECH STYLE) =================== -->
+    <!-- =================== 1.5 PRODUCT SHOWCASE INTERACTIVO (MICROSOFT 365 STYLE) =================== -->
     <section class="showcase-section" id="producto">
       <div class="apple-wrap">
-        <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="text-center max-w-2xl mx-auto mb-12">
           <span class="eyebrow">{{ locale === 'en' ? 'INSIDE LEXBELL' : 'EXPLORA LA APP POR DENTRO' }}</span>
           <h2 class="h-section">{{ locale === 'en' ? 'Built for clarity, speed, and zero clutter' : 'Diseñada para trabajar con claridad y rapidez' }}</h2>
           <p class="subtitle mt-3">
             {{ locale === 'en'
-              ? 'Switch between views to see how Lexbell organizes your entire legal practice locally.'
+              ? 'Select a module to see how Lexbell organizes your entire legal practice locally.'
               : 'Recorre cada módulo y descubre cómo Lexbell organiza tu oficina legal sin depender de la nube.' }}
           </p>
         </div>
 
-        <!-- Tabs Bar -->
-        <div class="showcase-tabs-wrap" role="tablist" aria-label="Vistas de Lexbell">
-          <button
-            v-for="(tab, idx) in showcaseTabs"
-            :key="tab.id"
-            type="button"
-            role="tab"
-            :aria-selected="activeTab === idx"
-            class="showcase-tab-btn"
-            :class="{ 'is-active': activeTab === idx }"
-            @click="activeTab = idx"
-          >
-            {{ tab.label }}
-          </button>
-        </div>
+        <!-- Microsoft 365 Split: Acordeón Izquierda + Escenario 3D Azul Derecha -->
+        <div class="ms-showcase-split">
+          <div class="ms-accordion" role="tablist" aria-label="Módulos de Lexbell">
+            <button
+              v-for="(tab, idx) in showcaseTabs"
+              :key="tab.id"
+              type="button"
+              role="tab"
+              :aria-selected="activeTab === idx"
+              class="ms-acc-item"
+              :class="{ 'is-active': activeTab === idx }"
+              @click="activeTab = idx"
+            >
+              <div class="ms-acc-header">
+                <span class="ms-acc-label">{{ tab.label }}</span>
+                <svg class="ms-acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div v-show="activeTab === idx" class="ms-acc-body">
+                <h3 class="ms-acc-title">{{ tab.title }}</h3>
+                <p class="ms-acc-desc">{{ tab.desc }}</p>
+              </div>
+            </button>
+          </div>
 
-        <!-- Active Tab Caption -->
-        <div class="showcase-caption">
-          <h3 class="showcase-caption-title">{{ showcaseTabs[activeTab].title }}</h3>
-          <p class="showcase-caption-desc">{{ showcaseTabs[activeTab].desc }}</p>
-        </div>
-
-        <!-- Clean Framed App Window (Zero background bleed) -->
-        <div class="showcase-stage">
-          <div class="showcase-frame">
-            <img
-              :key="showcaseTabs[activeTab].id"
-              :src="showcaseTabs[activeTab].img"
-              :alt="showcaseTabs[activeTab].title"
-              class="showcase-img"
-              width="2000"
-              height="1185"
-              loading="lazy"
-            />
+          <div class="ms-studio-stage">
+            <div class="ms-studio-glow" aria-hidden="true"></div>
+            <div class="ms-3d-frame">
+              <img
+                :key="showcaseTabs[activeTab].id"
+                :src="showcaseTabs[activeTab].img"
+                :alt="showcaseTabs[activeTab].title"
+                class="showcase-img"
+                width="2000"
+                height="1185"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
@@ -911,80 +916,138 @@ const toggleFaq = (idx: number) => {
   font-weight: 500;
 }
 
-/* PRODUCT SHOWCASE (BIG TECH STYLE) */
+/* PRODUCT SHOWCASE (MICROSOFT 365 SPLIT + 3D STUDIO) */
 .showcase-section {
-  padding: clamp(56px, 7vw, 88px) 24px;
+  padding: clamp(56px, 7vw, 92px) 24px;
   background: #ffffff;
   border-bottom: 1px solid #ebebea;
 }
 
-.showcase-tabs-wrap {
+.ms-showcase-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .ms-showcase-split {
+    grid-template-columns: 0.9fr 1.45fr;
+    gap: 44px;
+  }
+}
+
+.ms-accordion {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 24px;
+  flex-direction: column;
+  border-top: 1px solid #ebebea;
 }
 
-.showcase-tab-btn {
-  padding: 9px 18px;
-  border-radius: 999px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #52525b;
-  background: #f4f4f5;
-  border: 1px solid transparent;
+.ms-acc-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ebebea;
+  border-left: 3px solid transparent;
+  padding: 16px 18px;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s ease;
 }
 
-.showcase-tab-btn:hover {
-  color: #111827;
-  background: #e4e4e7;
+.ms-acc-item:hover {
+  background: #fbfbfa;
 }
 
-.showcase-tab-btn.is-active {
-  background: #111827;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.ms-acc-item.is-active {
+  border-left-color: #0066cc;
+  background: #f6f9ff;
 }
 
-.showcase-caption {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 28px;
+.ms-acc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.showcase-caption-title {
-  font-size: clamp(18px, 2vw, 22px);
+.ms-acc-label {
+  font-size: 16px;
   font-weight: 700;
-  color: #050505;
-  letter-spacing: -0.02em;
-  margin: 0 0 6px;
-  text-wrap: balance;
+  color: #191919;
+  letter-spacing: -0.015em;
 }
 
-.showcase-caption-desc {
+.ms-acc-item.is-active .ms-acc-label {
+  color: #0066cc;
+}
+
+.ms-acc-chevron {
+  color: #8b8a86;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ms-acc-item.is-active .ms-acc-chevron {
+  transform: rotate(180deg);
+  color: #0066cc;
+}
+
+.ms-acc-body {
+  margin-top: 10px;
+}
+
+.ms-acc-title {
   font-size: 14.5px;
+  font-weight: 600;
+  color: #050505;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.ms-acc-desc {
+  font-size: 13.5px;
   color: #5f5e5b;
   margin: 0;
   line-height: 1.5;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
-.showcase-stage {
-  max-width: 1060px;
-  margin: 0 auto;
-}
-
-.showcase-frame {
-  border-radius: 14px;
+.ms-studio-stage {
+  position: relative;
+  border-radius: 24px;
+  padding: clamp(24px, 3.5vw, 44px);
+  background: linear-gradient(145deg, #e7f0ff 0%, #f4f7ff 52%, #dce9ff 100%);
+  border: 1px solid rgba(0, 102, 204, 0.1);
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  box-shadow:
-    0 24px 60px -12px rgba(0, 0, 0, 0.14),
-    0 4px 16px -4px rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.ms-studio-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.85), transparent 55%);
+  pointer-events: none;
+}
+
+.ms-3d-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: #ffffff;
+  transform: perspective(1600px) rotateY(-4deg) rotateX(2deg);
+  box-shadow:
+    18px 26px 56px -12px rgba(15, 23, 42, 0.22),
+    0 6px 18px -4px rgba(15, 23, 42, 0.08);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.ms-studio-stage:hover .ms-3d-frame {
+  transform: perspective(1600px) rotateY(0deg) rotateX(0deg) translateY(-2px);
+  box-shadow:
+    0 28px 64px -12px rgba(15, 23, 42, 0.2),
+    0 8px 20px -4px rgba(15, 23, 42, 0.08);
 }
 
 .showcase-img {
@@ -1007,8 +1070,7 @@ const toggleFaq = (idx: number) => {
 
 /* BENTO GRID */
 .bento-grid {
-  max-width: 1060px;
-  margin: 40px auto 0;
+  margin: 48px auto 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -1069,18 +1131,22 @@ const toggleFaq = (idx: number) => {
 }
 
 .bento-media {
-  border-radius: 10px 10px 0 0;
+  border-radius: 14px 14px 0 0;
+  padding: 20px 20px 0;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 102, 204, 0.08);
   border-bottom: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  background: #ffffff;
+  background: linear-gradient(145deg, #e7f0ff 0%, #f4f7ff 60%, #dce9ff 100%);
 }
 
 .bento-img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
 }
 
 /* FINAL CTA SECTION */
