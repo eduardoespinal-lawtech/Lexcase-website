@@ -70,6 +70,16 @@ const faqs = computed(() => [
   { q: t('faq.q4'), a: t('faq.a4') }
 ])
 
+const comparisonRows = computed(() => [
+  { title: t('home.cRow1Title'), lexbell: t('home.cRow1Lexbell'), cloud: t('home.cRow1Cloud'), manual: t('home.cRow1Manual'), manualType: 'cross' },
+  { title: t('home.cRow2Title'), lexbell: t('home.cRow2Lexbell'), cloud: t('home.cRow2Cloud'), manual: t('home.cRow2Manual'), manualType: 'partial' },
+  { title: t('home.cRow3Title'), lexbell: t('home.cRow3Lexbell'), cloud: t('home.cRow3Cloud'), manual: t('home.cRow3Manual'), manualType: 'cross' },
+  { title: t('home.cRow4Title'), lexbell: t('home.cRow4Lexbell'), cloud: t('home.cRow4Cloud'), manual: t('home.cRow4Manual'), manualType: 'cross' },
+  { title: t('home.cRow5Title'), lexbell: t('home.cRow5Lexbell'), cloud: t('home.cRow5Cloud'), manual: t('home.cRow5Manual'), manualType: 'partial' },
+  { title: t('home.cRow6Title'), lexbell: t('home.cRow6Lexbell'), cloud: t('home.cRow6Cloud'), manual: t('home.cRow6Manual'), manualType: 'partial' },
+  { title: t('home.cRow7Title'), lexbell: t('home.cRow7Lexbell'), cloud: t('home.cRow7Cloud'), manual: t('home.cRow7Manual'), manualType: 'partial' }
+])
+
 useHead(() => {
   const isEn = locale.value === 'en'
   const title = isEn
@@ -326,54 +336,45 @@ const toggleFaq = (idx: number) => {
           <table class="compare-table" :aria-label="locale === 'en' ? 'Comparison of Lexbell versus cloud software and spreadsheets' : 'Comparativa de Lexbell frente a la nube y hojas de cálculo'">
             <thead>
               <tr>
-                <th style="width: 31%;">{{ t('home.compareColFeature') }}</th>
-                <th class="lexbell-col" style="width: 27%;">{{ t('home.compareColLexbell') }}</th>
+                <th style="width: 28%;">{{ t('home.compareColFeature') }}</th>
+                <th class="lexbell-col" style="width: 30%;">
+                  <div class="lexbell-th-inner">
+                    <span class="lexbell-pill">{{ locale === 'en' ? 'Recommended' : 'Recomendado' }}</span>
+                    <span>{{ t('home.compareColLexbell') }}</span>
+                  </div>
+                </th>
                 <th style="width: 21%;">{{ t('home.compareColCloud') }}</th>
                 <th style="width: 21%;">{{ t('home.compareColManual') }}</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>{{ t('home.cRow1Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow1Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow1Cloud') }}</td>
-                <td>✗ {{ t('home.cRow1Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow2Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow2Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow2Cloud') }}</td>
-                <td>~ {{ t('home.cRow2Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow3Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow3Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow3Cloud') }}</td>
-                <td>✗ {{ t('home.cRow3Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow4Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow4Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow4Cloud') }}</td>
-                <td>✗ {{ t('home.cRow4Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow5Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow5Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow5Cloud') }}</td>
-                <td>~ {{ t('home.cRow5Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow6Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow6Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow6Cloud') }}</td>
-                <td>~ {{ t('home.cRow6Manual') }}</td>
-              </tr>
-              <tr>
-                <td><strong>{{ t('home.cRow7Title') }}</strong></td>
-                <td class="lexbell-col">✓ {{ t('home.cRow7Lexbell') }}</td>
-                <td>✗ {{ t('home.cRow7Cloud') }}</td>
-                <td>~ {{ t('home.cRow7Manual') }}</td>
+              <tr v-for="(row, idx) in comparisonRows" :key="idx">
+                <td class="compare-feature-cell">{{ row.title }}</td>
+                <td class="lexbell-col">
+                  <div class="compare-cell">
+                    <span class="compare-badge is-check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg>
+                    </span>
+                    <span class="compare-lexbell-text">{{ row.lexbell }}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="compare-cell">
+                    <span class="compare-badge is-cross" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="m4.5 4.5 7 7M11.5 4.5l-7 7"/></svg>
+                    </span>
+                    <span>{{ row.cloud }}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="compare-cell">
+                    <span class="compare-badge" :class="row.manualType === 'partial' ? 'is-partial' : 'is-cross'" aria-hidden="true">
+                      <svg v-if="row.manualType === 'partial'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8h8"/></svg>
+                      <svg v-else viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="m4.5 4.5 7 7M11.5 4.5l-7 7"/></svg>
+                    </span>
+                    <span>{{ row.manual }}</span>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -704,44 +705,131 @@ const toggleFaq = (idx: number) => {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
 }
 
 .compare-table {
   width: 100%;
+  min-width: 780px;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 14px;
-  border: 1px solid #ebebea;
-  border-radius: 12px;
-  overflow: hidden;
   background: #ffffff;
 }
 
 .compare-table th {
-  padding: 14px 18px;
+  padding: 20px 20px 18px;
   text-align: left;
   font-weight: 700;
-  font-size: 13px;
-  background: #fbfbfa;
-  border-bottom: 1px solid #ebebea;
-  color: #050505;
+  font-size: 13.5px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+  vertical-align: bottom;
 }
 
 .compare-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid #ebebea;
-  color: #5f5e5b;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #4b5563;
   vertical-align: middle;
+  line-height: 1.5;
+  transition: background-color 0.15s ease;
+}
+
+.compare-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+.compare-table tbody tr:hover td.lexbell-col {
+  background: #ebf3ff;
 }
 
 .compare-table tr:last-child td {
   border-bottom: none;
 }
 
-.compare-table .lexbell-col {
-  background: #f8fafc;
+.compare-feature-cell {
   font-weight: 600;
+  color: #111827 !important;
+}
+
+.compare-table th.lexbell-col {
+  background: linear-gradient(180deg, #eef5ff 0%, #f5f9ff 100%);
+  color: #0052b4;
+  border-left: 1px solid #d7e6ff;
+  border-right: 1px solid #d7e6ff;
+  box-shadow: inset 0 3px 0 #0066cc;
+}
+
+.compare-table td.lexbell-col {
+  background: #f7faff;
+  border-left: 1px solid #e2ecff;
+  border-right: 1px solid #e2ecff;
+}
+
+.lexbell-th-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.lexbell-pill {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #0066cc;
+  color: #ffffff;
+}
+
+.compare-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.compare-lexbell-text {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.compare-badge {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.compare-badge.is-check {
+  background: #dbeafe;
   color: #0066cc;
+}
+
+.compare-badge.is-cross {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.compare-badge.is-partial {
+  background: #fef3c7;
+  color: #d97706;
 }
 
 /* TESTIMONIOS */
