@@ -172,6 +172,13 @@ const toggleFaq = (idx: number) => {
                 loading="eager"
                 fetchpriority="high"
               />
+              <!-- Botones macOS y botón activo con relieve 3D fieles a la app -->
+              <div class="iso-traffic-lights" aria-hidden="true">
+                <span class="iso-dot is-red"></span>
+                <span class="iso-dot is-yellow"></span>
+                <span class="iso-dot is-green"></span>
+              </div>
+              <div class="iso-active-nav-glow" aria-hidden="true"></div>
             </div>
           </div>
         </div>
@@ -590,33 +597,32 @@ const toggleFaq = (idx: number) => {
 .hero-iso-stage {
   position: relative;
   width: 100%;
-  perspective: 1500px;
+  perspective: 1350px;
 }
 
 .hero-iso-grid {
   position: absolute;
-  inset: -40% -35% -45% -18%;
+  inset: -48% -42% -52% -24%;
   background-image:
-    radial-gradient(ellipse at 50% 45%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
-    linear-gradient(to right, rgba(15, 23, 42, 0.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
-  background-size: 100% 100%, 42px 42px, 42px 42px;
-  mask-image: radial-gradient(ellipse at 55% 45%, #000 32%, transparent 74%);
-  -webkit-mask-image: radial-gradient(ellipse at 55% 45%, #000 32%, transparent 74%);
-  transform: rotateX(40deg) rotateY(8deg) rotateZ(-28deg);
+    radial-gradient(ellipse at 52% 46%, rgba(0, 102, 204, 0.14) 0%, rgba(0, 102, 204, 0) 68%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.13) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  mask-image: radial-gradient(ellipse at 54% 48%, #000 45%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse at 54% 48%, #000 45%, transparent 88%);
+  transform: rotateX(52deg) rotateY(10deg) rotateZ(-30deg);
   pointer-events: none;
 }
 
 .hero-iso-card {
   position: relative;
-  width: 138%;
+  width: 142%;
   max-width: none;
   border-radius: 14px;
-  overflow: hidden;
   background: #ffffff;
   border: 1px solid rgba(15, 23, 42, 0.14);
   transform-origin: 20% 24%;
-  transform: translate(4%, 8%) rotateX(40deg) rotateY(8deg) rotateZ(-28deg);
+  transform: translate(3%, 10%) rotateX(52deg) rotateY(10deg) rotateZ(-30deg);
   transform-style: preserve-3d;
   box-shadow:
     -1px 1px 0 #cbd5e1,
@@ -625,16 +631,17 @@ const toggleFaq = (idx: number) => {
     -4px 6px 0 #94a3b8,
     -5px 8px 0 #64748b,
     -6px 10px 0 #64748b,
-    -26px 38px 64px -8px rgba(15, 23, 42, 0.34),
-    -12px 18px 28px -6px rgba(0, 102, 204, 0.14);
+    -7px 12px 0 #475569,
+    -30px 46px 76px -10px rgba(15, 23, 42, 0.38),
+    -14px 22px 34px -6px rgba(0, 102, 204, 0.16);
 }
 
 .hero-iso-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0.32) 0%, transparent 28%);
+  border-radius: 14px;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.3) 0%, transparent 28%);
   pointer-events: none;
 }
 
@@ -642,6 +649,56 @@ const toggleFaq = (idx: number) => {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 14px;
+}
+
+/* Botones de ventana y botón activo con relieve 3D */
+.iso-traffic-lights {
+  position: absolute;
+  top: 1.3%;
+  left: 1.02%;
+  display: flex;
+  align-items: center;
+  gap: 0.42vw;
+  transform: translateZ(10px);
+  pointer-events: none;
+}
+
+.iso-dot {
+  width: clamp(6px, 0.62vw, 9px);
+  height: clamp(6px, 0.62vw, 9px);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.55),
+    -2px 3px 4px rgba(0, 0, 0, 0.42);
+}
+
+.iso-dot.is-red {
+  background: radial-gradient(circle at 35% 30%, #ff857f, #ff5f57 65%, #d93b34);
+}
+
+.iso-dot.is-yellow {
+  background: radial-gradient(circle at 35% 30%, #ffd966, #febc2e 65%, #d69610);
+}
+
+.iso-dot.is-green {
+  background: radial-gradient(circle at 35% 30%, #5ae36f, #28c840 65%, #169c2b);
+}
+
+.iso-active-nav-glow {
+  position: absolute;
+  top: 4.4%;
+  left: 0.48%;
+  width: 3.85%;
+  height: 5.5%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.01));
+  transform: translateZ(8px);
+  box-shadow:
+    -3px 5px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  pointer-events: none;
 }
 
 @media (max-width: 959px) {
@@ -650,13 +707,13 @@ const toggleFaq = (idx: number) => {
   }
 
   .hero-iso-card {
-    width: 122%;
-    transform: translate(6%, 6%) rotateX(28deg) rotateY(6deg) rotateZ(-18deg);
+    width: 124%;
+    transform: translate(5%, 6%) rotateX(36deg) rotateY(8deg) rotateZ(-22deg);
     box-shadow:
       -1px 2px 0 #cbd5e1,
       -2px 4px 0 #94a3b8,
       -3px 6px 0 #64748b,
-      -14px 24px 40px -8px rgba(15, 23, 42, 0.3);
+      -16px 26px 44px -8px rgba(15, 23, 42, 0.32);
   }
 }
 
