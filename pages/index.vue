@@ -711,6 +711,7 @@ const toggleFaq = (idx: number) => {
   line-height: 1.5;
   color: #5f5e5b;
   margin: 0;
+  text-wrap: pretty;
 }
 
 /* SECCIONES BASE */
@@ -753,6 +754,7 @@ const toggleFaq = (idx: number) => {
   line-height: 1.55;
   color: #5f5e5b;
   margin: 0;
+  text-wrap: balance;
 }
 
 /* TABLA COMPARATIVA */
@@ -959,6 +961,7 @@ const toggleFaq = (idx: number) => {
   color: #050505;
   letter-spacing: -0.02em;
   margin: 0 0 6px;
+  text-wrap: balance;
 }
 
 .showcase-caption-desc {
@@ -966,6 +969,7 @@ const toggleFaq = (idx: number) => {
   color: #5f5e5b;
   margin: 0;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 .showcase-stage {
@@ -1061,6 +1065,7 @@ const toggleFaq = (idx: number) => {
   line-height: 1.55;
   color: #5f5e5b;
   margin: 0;
+  text-wrap: pretty;
 }
 
 .bento-media {
@@ -1102,6 +1107,7 @@ const toggleFaq = (idx: number) => {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0 0 12px;
+  text-wrap: balance;
 }
 
 .final-cta-sub {
@@ -1110,6 +1116,7 @@ const toggleFaq = (idx: number) => {
   max-width: 540px;
   margin: 0 auto 28px;
   line-height: 1.55;
+  text-wrap: balance;
 }
 
 .final-cta-downloads {
