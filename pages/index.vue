@@ -88,7 +88,7 @@ useHead(() => {
   const desc = isEn
     ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
     : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-  const heroImg = '/screenshots/hero-case-docs.webp?v=1.1.20'
+  const heroImg = '/screenshots/hero-3d-app.webp?v=1.1.21'
 
   return {
     title,
@@ -158,20 +158,18 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Captura real y limpia de la aplicación Lexbell sobre cuadrícula -->
+        <!-- Columna Derecha: Render 3D transparente de la aplicación Lexbell sobre cuadrícula -->
         <div class="hero-app-col">
           <div class="hero-app-grid" aria-hidden="true"></div>
-          <div class="hero-app-frame">
-            <img
-              src="/screenshots/hero-case-docs.webp?v=1.1.20"
-              :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
-              class="hero-app-img"
-              width="2000"
-              height="1185"
-              loading="eager"
-              fetchpriority="high"
-            />
-          </div>
+          <img
+            src="/screenshots/hero-3d-app.webp?v=1.1.21"
+            :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
+            class="hero-app-img"
+            width="983"
+            height="660"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
 
@@ -598,24 +596,14 @@ const toggleFaq = (idx: number) => {
   pointer-events: none;
 }
 
-.hero-app-frame {
+.hero-app-img {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 660px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
-  box-shadow:
-    0 24px 60px -12px rgba(15, 23, 42, 0.16),
-    0 6px 20px -4px rgba(15, 23, 42, 0.06);
-}
-
-.hero-app-img {
   display: block;
   width: 100%;
+  max-width: 720px;
   height: auto;
+  filter: drop-shadow(0 26px 40px rgba(15, 23, 42, 0.22));
 }
 
 /* Feature Grid Debajo de la App */
