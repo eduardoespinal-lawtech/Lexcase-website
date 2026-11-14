@@ -148,25 +148,21 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: MacBook Pro frontal con la app Lexbell abierta -->
-        <div class="hero-macbook-col">
-          <div class="macbook-device">
-            <div class="macbook-lid">
-              <div class="macbook-camera"></div>
+        <!-- Columna Derecha: Ventana de la app Lexbell sobre escenario estilo estudio -->
+        <div class="hero-studio-col">
+          <div class="ms-studio-stage hero-studio-stage">
+            <div class="ms-studio-glow" aria-hidden="true"></div>
+            <div class="ms-3d-frame">
               <img
                 src="/screenshots/showcase-cases.webp?v=1.1.19"
-                :alt="locale === 'en' ? 'Lexbell Desktop App Interface on MacBook' : 'Interfaz de la aplicación Lexbell en MacBook'"
-                class="macbook-screen"
+                :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
+                class="hero-app-img"
                 width="2000"
                 height="1185"
                 loading="eager"
                 fetchpriority="high"
               />
             </div>
-            <div class="macbook-base">
-              <div class="macbook-notch"></div>
-            </div>
-            <div class="macbook-shadow"></div>
           </div>
         </div>
       </div>
@@ -581,82 +577,23 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: MacBook Pro frontal */
-.hero-macbook-col {
+/* Columna Derecha: Escenario estilo estudio Microsoft 365 */
+.hero-studio-col {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.macbook-device {
+.hero-studio-stage {
   width: 100%;
-  max-width: 660px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 680px;
 }
 
-.macbook-lid {
-  width: 90%;
-  background: #0d0d0d;
-  border-radius: 14px 14px 0 0;
-  padding: 10px 10px 0;
-  box-shadow:
-    inset 0 0 0 1.5px #2d2d2d,
-    0 16px 36px rgba(0, 0, 0, 0.22);
-  position: relative;
-}
-
-.macbook-camera {
-  width: 6px;
-  height: 6px;
-  background: #1f1f1f;
-  border-radius: 50%;
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset 0 0 1px #000;
-}
-
-.macbook-screen {
+.hero-app-img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top left;
-  display: block;
-  border-radius: 4px 4px 0 0;
-  background: #111;
-}
-
-.macbook-base {
-  width: 100%;
-  height: 14px;
-  background: linear-gradient(180deg, #d4d4d8 0%, #a1a1aa 50%, #71717a 100%);
-  border-radius: 0 0 12px 12px;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.macbook-notch {
-  width: 80px;
-  height: 4px;
-  background: #52525b;
-  border-radius: 0 0 4px 4px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.macbook-shadow {
-  width: 96%;
-  height: 20px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
-  margin-top: -6px;
 }
 
 /* Feature Grid Debajo de la Laptop */
