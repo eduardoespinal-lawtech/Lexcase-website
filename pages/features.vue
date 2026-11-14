@@ -67,12 +67,12 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
+            :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'"
             :alt="locale === 'en' ? 'Cases in Lexbell' : 'Expedientes en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2730"
-            height="1600"
+            width="2000"
+            height="1185"
           />
         </div>
       </div>
@@ -88,12 +88,12 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/calendario.webp?v=1.1.18'"
+            :src="locale === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/showcase-calendar-month.webp?v=1.1.19'"
             :alt="locale === 'en' ? 'Procedural Calendar in Lexbell' : 'Agenda Procesal en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2730"
-            height="1600"
+            width="2000"
+            height="1185"
           />
         </div>
       </div>
@@ -109,12 +109,12 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/documentos.webp?v=1.1.18'"
+            :src="locale === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/showcase-docs.webp?v=1.1.19'"
             :alt="locale === 'en' ? 'Document Vault in Lexbell' : 'Bóveda de Documentos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2730"
-            height="1600"
+            width="2000"
+            height="1185"
           />
         </div>
       </div>
@@ -130,19 +130,44 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/mapa.webp?v=1.1.18'"
+            :src="locale === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/showcase-connections.webp?v=1.1.19'"
             :alt="locale === 'en' ? 'Relationship and Conflict Map in Lexbell' : 'Mapa de Vínculos y Conflictos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
-            width="2730"
-            height="1600"
+            width="2000"
+            height="1185"
           />
         </div>
       </div>
     </section>
 
-    <!-- ========= SPOTLIGHT 5 · Privacidad por diseño ========= -->
+    <!-- ========= SPOTLIGHT 5 · Facturación y Honorarios ========= -->
     <section class="section section-gray">
+      <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
+        <div>
+          <span class="module-eyebrow">{{ locale === 'en' ? 'FEES & EXPENSES' : 'HONORARIOS Y GASTOS' }}</span>
+          <h2 class="h-section mt-2">{{ locale === 'en' ? 'Control fees, advances, and pending balances.' : 'Controla honorarios, gastos y saldos por cobrar.' }}</h2>
+          <p class="subtitle mt-4">
+            {{ locale === 'en'
+              ? 'Keep track of collected fees, client disbursements, and overdue balances per case in USD or DOP without complex accounting software.'
+              : 'Visualiza al instante cuánto has cobrado, los gastos reembolsables y el saldo pendiente de cada expediente en DOP o USD, sin programas contables complejos.' }}
+          </p>
+        </div>
+        <div class="apple-window-box">
+          <img
+            src="/screenshots/showcase-billing.webp?v=1.1.19"
+            :alt="locale === 'en' ? 'Billing and Fees Control in Lexbell' : 'Facturación y Control de Honorarios en Lexbell'"
+            class="apple-app-img"
+            loading="lazy"
+            width="2000"
+            height="1185"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= SPOTLIGHT 6 · Privacidad por diseño ========= -->
+    <section class="section">
       <div class="apple-wrap text-center">
         <span class="module-eyebrow">{{ t('features.sp4Eyebrow') }}</span>
         <h2 class="h-section mt-2">{{ t('features.sp4Title') }}</h2>
@@ -166,7 +191,7 @@ const tiles = computed(() => [
     </section>
 
     <!-- ========= TILES · Y todo lo demás ========= -->
-    <section class="section">
+    <section class="section section-gray">
       <div class="apple-wrap text-center">
         <span class="eyebrow">{{ t('features.moreEyebrow') }}</span>
         <h2 class="h-section mt-2">{{ t('features.moreTitle') }}</h2>
@@ -185,6 +210,25 @@ const tiles = computed(() => [
           <h3 class="ft-tile-title">{{ tile.title }}</h3>
           <p class="ft-tile-body">{{ tile.body }}</p>
         </article>
+      </div>
+    </section>
+
+    <!-- ========= CTA FINAL DE DESCARGA ========= -->
+    <section class="section">
+      <div class="apple-wrap text-center">
+        <span class="eyebrow">{{ locale === 'en' ? 'TRY IT TODAY' : 'PRUÉBALO HOY' }}</span>
+        <h2 class="h-section mt-2">{{ locale === 'en' ? 'Download Lexbell for free' : 'Descarga Lexbell gratis ahora' }}</h2>
+        <p class="subtitle mt-4 mx-auto" style="max-width: 560px;">
+          {{ locale === 'en'
+            ? 'Start with up to 50 active cases on Mac or Windows. 100% local, offline, and without subscriptions.'
+            : 'Comienza con hasta 50 expedientes activos en Mac o Windows. 100% local, sin internet y sin suscripciones obligatorias.' }}
+        </p>
+        <div class="mt-8 flex justify-center">
+          <AppDownload center />
+        </div>
+        <p class="mt-3 text-[13px] font-medium text-[#6b7280]">
+          {{ locale === 'en' ? 'Free up to 50 cases · No credit card required' : 'Gratis hasta 50 casos · Sin tarjeta de crédito' }}
+        </p>
       </div>
     </section>
   </div>
