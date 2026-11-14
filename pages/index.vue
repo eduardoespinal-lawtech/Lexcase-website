@@ -2,6 +2,67 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
+const activeTab = ref(0)
+const showcaseTabs = computed(() => {
+  const isEn = locale.value === 'en'
+  return [
+    {
+      id: 'cases',
+      label: isEn ? 'Case Files' : 'Expedientes',
+      title: isEn ? 'Every case detail in one structured view' : 'Todo tu expediente en una sola vista estructurada',
+      desc: isEn
+        ? 'Courts, procedural steps, opposing parties, and linked contacts organized locally.'
+        : 'Tribunales, trámites, partes procesales y contactos vinculados con claridad instantánea.',
+      img: '/screenshots/showcase-tribunal.webp'
+    },
+    {
+      id: 'calendar',
+      label: isEn ? 'Calendar' : 'Calendario',
+      title: isEn ? 'Never miss a hearing or statutory deadline' : 'Control visual de audiencias y plazos fatales',
+      desc: isEn
+        ? 'Monthly court calendar with native alerts that work even without internet.'
+        : 'Vista mensual de audiencias y términos procesales con alertas nativas sin conexión.',
+      img: '/screenshots/showcase-calendar-month.webp'
+    },
+    {
+      id: 'docs',
+      label: isEn ? 'Documents' : 'Documentos',
+      title: isEn ? 'Folders and instant PDF previews on your disk' : 'Carpetas y vista previa de PDFs directo en tu disco',
+      desc: isEn
+        ? 'Organize pleadings, deeds, and exhibits locally without uploading client files to the cloud.'
+        : 'Organiza escritos, certificaciones y anexos sin subir los documentos de tus clientes a la nube.',
+      img: '/screenshots/showcase-docs.webp'
+    },
+    {
+      id: 'billing',
+      label: isEn ? 'Billing' : 'Facturación',
+      title: isEn ? 'Track fees, expenses, and pending balances' : 'Control total de honorarios, gastos y saldos',
+      desc: isEn
+        ? 'Monitor collected fees, client advances, and pending balances in USD or DOP.'
+        : 'Visualiza honorarios cobrados, suplidos y cuentas por cobrar por expediente en DOP o USD.',
+      img: '/screenshots/showcase-billing.webp'
+    },
+    {
+      id: 'tasks',
+      label: isEn ? 'Tasks' : 'Tareas',
+      title: isEn ? 'Procedural checklists grouped by case' : 'Diligencias y tareas pendientes por caso',
+      desc: isEn
+        ? 'Keep every filing, notification, and court follow-up tracked to completion.'
+        : 'No dejes ninguna notificación, depósito o gestión procesal pendiente en el día a día.',
+      img: '/screenshots/showcase-tasks.webp'
+    },
+    {
+      id: 'connections',
+      label: isEn ? 'Conflict Map' : 'Conexiones',
+      title: isEn ? 'Visual network of cases, companies, and parties' : 'Mapa visual de relaciones y conflictos de interés',
+      desc: isEn
+        ? 'Spot connections between clients, counterparties, and related cases in seconds.'
+        : 'Detecta vínculos entre clientes, empresas y contrapartes antes de aceptar un nuevo caso.',
+      img: '/screenshots/showcase-connections.webp'
+    }
+  ]
+})
+
 const faqs = computed(() => [
   { q: t('faq.q1'), a: t('faq.a1') },
   { q: t('faq.q2'), a: t('faq.a2') },
@@ -17,7 +78,7 @@ useHead(() => {
   const desc = isEn
     ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
     : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-  const heroImg = isEn ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'
+  const heroImg = isEn ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'
 
   return {
     title,
@@ -81,6 +142,9 @@ const toggleFaq = (idx: number) => {
           <!-- Official Store Download Badges -->
           <div class="ms-hero-downloads">
             <AppDownload />
+            <p class="hero-trust-note">
+              {{ locale === 'en' ? 'Free up to 50 cases · No credit card · Works 100% offline' : 'Gratis hasta 50 casos · Sin tarjeta · Funciona 100% sin internet' }}
+            </p>
           </div>
         </div>
 
@@ -90,11 +154,11 @@ const toggleFaq = (idx: number) => {
             <div class="macbook-lid">
               <div class="macbook-camera"></div>
               <img
-                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/casos.webp?v=1.1.18'"
+                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'"
                 :alt="locale === 'en' ? 'Lexbell Desktop App Interface on MacBook' : 'Interfaz de la aplicación Lexbell en MacBook'"
                 class="macbook-screen"
-                width="2730"
-                height="1600"
+                width="2000"
+                height="1185"
                 loading="eager"
                 fetchpriority="high"
               />
@@ -145,6 +209,105 @@ const toggleFaq = (idx: number) => {
           </div>
           <h3 class="hero-feat-title">{{ t('home.heroCard4Title') }}</h3>
           <p class="hero-feat-desc">{{ t('home.heroCard4Desc') }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 1.5 PRODUCT SHOWCASE INTERACTIVO (BIG TECH STYLE) =================== -->
+    <section class="showcase-section" id="producto">
+      <div class="apple-wrap">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="eyebrow">{{ locale === 'en' ? 'INSIDE LEXBELL' : 'EXPLORA LA APP POR DENTRO' }}</span>
+          <h2 class="h-section">{{ locale === 'en' ? 'Built for clarity, speed, and zero clutter' : 'Diseñada para trabajar con claridad y rapidez' }}</h2>
+          <p class="subtitle mt-3">
+            {{ locale === 'en'
+              ? 'Switch between views to see how Lexbell organizes your entire legal practice locally.'
+              : 'Recorre cada módulo y descubre cómo Lexbell organiza tu oficina legal sin depender de la nube.' }}
+          </p>
+        </div>
+
+        <!-- Tabs Bar -->
+        <div class="showcase-tabs-wrap" role="tablist" aria-label="Vistas de Lexbell">
+          <button
+            v-for="(tab, idx) in showcaseTabs"
+            :key="tab.id"
+            type="button"
+            role="tab"
+            :aria-selected="activeTab === idx"
+            class="showcase-tab-btn"
+            :class="{ 'is-active': activeTab === idx }"
+            @click="activeTab = idx"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
+
+        <!-- Active Tab Caption -->
+        <div class="showcase-caption">
+          <h3 class="showcase-caption-title">{{ showcaseTabs[activeTab].title }}</h3>
+          <p class="showcase-caption-desc">{{ showcaseTabs[activeTab].desc }}</p>
+        </div>
+
+        <!-- Clean Framed App Window (Zero background bleed) -->
+        <div class="showcase-stage">
+          <div class="showcase-frame">
+            <img
+              :key="showcaseTabs[activeTab].id"
+              :src="showcaseTabs[activeTab].img"
+              :alt="showcaseTabs[activeTab].title"
+              class="showcase-img"
+              width="2000"
+              height="1185"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Bento Grid de 2 Columnas (Plazos y Contactos) -->
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-copy">
+              <span class="bento-tag">{{ locale === 'en' ? 'DEADLINE ALERTS' : 'PLAZOS FATALES' }}</span>
+              <h3 class="bento-title">{{ locale === 'en' ? 'See upcoming hearings at a glance' : 'Anticipa cada vencimiento en días exactos' }}</h3>
+              <p class="bento-desc">
+                {{ locale === 'en'
+                  ? 'Chronological list highlighting deadlines in 3, 4, or 5 days so nothing slips through.'
+                  : 'Vista cronológica con alertas visuales ("En 3 días", "En 4 días") para que ningún término te tome por sorpresa.' }}
+              </p>
+            </div>
+            <div class="bento-media">
+              <img
+                src="/screenshots/showcase-calendar-list.webp"
+                :alt="locale === 'en' ? 'Lexbell chronological deadline list' : 'Lista cronológica de audiencias y vencimientos en Lexbell'"
+                class="bento-img"
+                width="2000"
+                height="1185"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-copy">
+              <span class="bento-tag">{{ locale === 'en' ? 'CLIENT DIRECTORY' : 'DIRECTORIO LEGAL' }}</span>
+              <h3 class="bento-title">{{ locale === 'en' ? 'Every party linked to their cases' : 'Clientes y contrapartes vinculados a sus casos' }}</h3>
+              <p class="bento-desc">
+                {{ locale === 'en'
+                  ? 'Instant search across clients, opposing parties, and attorneys with full case history.'
+                  : 'Encuentra al instante clientes, contrapartes y abogados relacionados junto a todos sus expedientes.' }}
+              </p>
+            </div>
+            <div class="bento-media">
+              <img
+                src="/screenshots/showcase-contacts.webp"
+                :alt="locale === 'en' ? 'Lexbell contacts and parties directory' : 'Directorio de clientes y contrapartes en Lexbell'"
+                class="bento-img"
+                width="2000"
+                height="1185"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -286,6 +449,29 @@ const toggleFaq = (idx: number) => {
               <p>{{ item.a }}</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 6. CTA FINAL DE DESCARGA =================== -->
+    <section class="final-cta-section">
+      <div class="apple-wrap">
+        <div class="final-cta-box">
+          <span class="eyebrow">{{ locale === 'en' ? 'START FOR FREE' : 'EMPIEZA GRATIS HOY' }}</span>
+          <h2 class="final-cta-title">
+            {{ locale === 'en' ? 'Bring order to your legal practice today' : 'Pon orden en tu oficina legal hoy mismo' }}
+          </h2>
+          <p class="final-cta-sub">
+            {{ locale === 'en'
+              ? 'Download Lexbell for Mac or Windows. Up to 50 active cases free, 100% local and private.'
+              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis, 100% local y privado.' }}
+          </p>
+          <div class="final-cta-downloads">
+            <AppDownload center />
+          </div>
+          <p class="final-cta-note">
+            {{ locale === 'en' ? 'Installs in under 1 minute · No credit card required' : 'Instalación en menos de 1 minuto · Sin tarjeta de crédito' }}
+          </p>
         </div>
       </div>
     </section>
@@ -713,5 +899,228 @@ const toggleFaq = (idx: number) => {
 
 .faq-answer p {
   margin: 0;
+}
+
+/* HERO TRUST NOTE */
+.hero-trust-note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* PRODUCT SHOWCASE (BIG TECH STYLE) */
+.showcase-section {
+  padding: clamp(56px, 7vw, 88px) 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #ebebea;
+}
+
+.showcase-tabs-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.showcase-tab-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #52525b;
+  background: #f4f4f5;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.showcase-tab-btn:hover {
+  color: #111827;
+  background: #e4e4e7;
+}
+
+.showcase-tab-btn.is-active {
+  background: #111827;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.showcase-caption {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+
+.showcase-caption-title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: #050505;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.showcase-caption-desc {
+  font-size: 14.5px;
+  color: #5f5e5b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.showcase-stage {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.showcase-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, 0.14),
+    0 4px 16px -4px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+}
+
+.showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: showcaseFadeIn 0.25s ease-out;
+}
+
+@keyframes showcaseFadeIn {
+  from {
+    opacity: 0.45;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BENTO GRID */
+.bento-grid {
+  max-width: 1060px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 820px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.bento-card {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 18px;
+  padding: 28px 28px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.bento-copy {
+  margin-bottom: 22px;
+}
+
+.bento-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0066cc;
+  margin-bottom: 8px;
+}
+
+.bento-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #050505;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+.bento-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin: 0;
+}
+
+.bento-media {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.bento-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* FINAL CTA SECTION */
+.final-cta-section {
+  padding: clamp(56px, 7vw, 84px) 24px;
+  background: #ffffff;
+  border-top: 1px solid #ebebea;
+}
+
+.final-cta-box {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 22px;
+  padding: clamp(36px, 5vw, 56px) 24px;
+}
+
+.final-cta-title {
+  font-size: clamp(26px, 3.8vw, 38px);
+  font-weight: 800;
+  color: #050505;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.final-cta-sub {
+  font-size: 16px;
+  color: #5f5e5b;
+  max-width: 540px;
+  margin: 0 auto 28px;
+  line-height: 1.55;
+}
+
+.final-cta-downloads {
+  display: flex;
+  justify-content: center;
+}
+
+.final-cta-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
 }
 </style>
