@@ -158,28 +158,18 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Ventana real de Lexbell en perspectiva 3D acostada -->
-        <div class="hero-iso-col">
-          <div class="hero-iso-stage">
-            <div class="hero-iso-grid" aria-hidden="true"></div>
-            <div class="hero-iso-card">
-              <img
-                src="/screenshots/showcase-cases.webp?v=1.1.19"
-                :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
-                class="hero-app-img"
-                width="2000"
-                height="1185"
-                loading="eager"
-                fetchpriority="high"
-              />
-              <!-- Botones macOS y botón activo con relieve 3D fieles a la app -->
-              <div class="iso-traffic-lights" aria-hidden="true">
-                <span class="iso-dot is-red"></span>
-                <span class="iso-dot is-yellow"></span>
-                <span class="iso-dot is-green"></span>
-              </div>
-              <div class="iso-active-nav-glow" aria-hidden="true"></div>
-            </div>
+        <!-- Columna Derecha: Captura real y limpia de la aplicación Lexbell -->
+        <div class="hero-app-col">
+          <div class="hero-app-frame">
+            <img
+              src="/screenshots/showcase-cases.webp?v=1.1.19"
+              :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
+              class="hero-app-img"
+              width="2000"
+              height="1185"
+              loading="eager"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </div>
@@ -585,136 +575,30 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real en 3D isométrico acostado (estática y con bleed) */
-.hero-iso-col {
+/* Columna Derecha: Ventana real plana (2D) limpia y nítida */
+.hero-app-col {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 360px;
 }
 
-.hero-iso-stage {
-  position: relative;
+.hero-app-frame {
   width: 100%;
-  perspective: 1350px;
-}
-
-.hero-iso-grid {
-  position: absolute;
-  inset: -48% -42% -52% -24%;
-  background-image:
-    radial-gradient(ellipse at 52% 46%, rgba(0, 102, 204, 0.14) 0%, rgba(0, 102, 204, 0) 68%),
-    linear-gradient(to right, rgba(15, 23, 42, 0.13) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.13) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-  mask-image: radial-gradient(ellipse at 54% 48%, #000 45%, transparent 88%);
-  -webkit-mask-image: radial-gradient(ellipse at 54% 48%, #000 45%, transparent 88%);
-  transform: rotateX(52deg) rotateY(10deg) rotateZ(-30deg);
-  pointer-events: none;
-}
-
-.hero-iso-card {
-  position: relative;
-  width: 142%;
-  max-width: none;
+  max-width: 680px;
   border-radius: 14px;
+  overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  transform-origin: 20% 24%;
-  transform: translate(3%, 10%) rotateX(52deg) rotateY(10deg) rotateZ(-30deg);
-  transform-style: preserve-3d;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow:
-    -1px 1px 0 #cbd5e1,
-    -2px 2px 0 #cbd5e1,
-    -3px 4px 0 #94a3b8,
-    -4px 6px 0 #94a3b8,
-    -5px 8px 0 #64748b,
-    -6px 10px 0 #64748b,
-    -7px 12px 0 #475569,
-    -30px 46px 76px -10px rgba(15, 23, 42, 0.38),
-    -14px 22px 34px -6px rgba(0, 102, 204, 0.16);
-}
-
-.hero-iso-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0.3) 0%, transparent 28%);
-  pointer-events: none;
+    0 24px 60px -12px rgba(15, 23, 42, 0.16),
+    0 6px 20px -4px rgba(15, 23, 42, 0.06);
 }
 
 .hero-app-img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 14px;
-}
-
-/* Botones de ventana y botón activo con relieve 3D */
-.iso-traffic-lights {
-  position: absolute;
-  top: 1.3%;
-  left: 1.02%;
-  display: flex;
-  align-items: center;
-  gap: 0.42vw;
-  transform: translateZ(10px);
-  pointer-events: none;
-}
-
-.iso-dot {
-  width: clamp(6px, 0.62vw, 9px);
-  height: clamp(6px, 0.62vw, 9px);
-  border-radius: 999px;
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.55),
-    -2px 3px 4px rgba(0, 0, 0, 0.42);
-}
-
-.iso-dot.is-red {
-  background: radial-gradient(circle at 35% 30%, #ff857f, #ff5f57 65%, #d93b34);
-}
-
-.iso-dot.is-yellow {
-  background: radial-gradient(circle at 35% 30%, #ffd966, #febc2e 65%, #d69610);
-}
-
-.iso-dot.is-green {
-  background: radial-gradient(circle at 35% 30%, #5ae36f, #28c840 65%, #169c2b);
-}
-
-.iso-active-nav-glow {
-  position: absolute;
-  top: 4.4%;
-  left: 0.48%;
-  width: 3.85%;
-  height: 5.5%;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.01));
-  transform: translateZ(8px);
-  box-shadow:
-    -3px 5px 10px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  pointer-events: none;
-}
-
-@media (max-width: 959px) {
-  .hero-iso-col {
-    min-height: 260px;
-  }
-
-  .hero-iso-card {
-    width: 124%;
-    transform: translate(5%, 6%) rotateX(36deg) rotateY(8deg) rotateZ(-22deg);
-    box-shadow:
-      -1px 2px 0 #cbd5e1,
-      -2px 4px 0 #94a3b8,
-      -3px 6px 0 #64748b,
-      -16px 26px 44px -8px rgba(15, 23, 42, 0.32);
-  }
 }
 
 /* Feature Grid Debajo de la Laptop */
