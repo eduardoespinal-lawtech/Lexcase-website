@@ -197,6 +197,7 @@ export default defineNuxtPlugin(() => {
                 '@type': 'Offer',
                 price: '0',
                 priceCurrency: 'USD',
+                validFrom: '2024-01-01',
                 priceValidUntil: '2028-12-31',
                 itemCondition: 'https://schema.org/NewCondition',
                 availability: 'https://schema.org/InStock',
