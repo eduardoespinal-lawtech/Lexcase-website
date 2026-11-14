@@ -88,7 +88,7 @@ useHead(() => {
   const desc = isEn
     ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
     : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-  const heroImg = '/screenshots/showcase-cases.webp?v=1.1.19'
+  const heroImg = '/screenshots/hero-case-docs.webp?v=1.1.20'
 
   return {
     title,
@@ -158,11 +158,12 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Captura real y limpia de la aplicación Lexbell -->
+        <!-- Columna Derecha: Captura real y limpia de la aplicación Lexbell sobre cuadrícula -->
         <div class="hero-app-col">
+          <div class="hero-app-grid" aria-hidden="true"></div>
           <div class="hero-app-frame">
             <img
-              src="/screenshots/showcase-cases.webp?v=1.1.19"
+              src="/screenshots/hero-case-docs.webp?v=1.1.20"
               :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
               class="hero-app-img"
               width="2000"
@@ -575,21 +576,37 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real plana (2D) limpia y nítida */
+/* Columna Derecha: Ventana real plana (2D) sobre cuadrícula arquitectónica */
 .hero-app-col {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
+.hero-app-grid {
+  position: absolute;
+  inset: -44px -36px;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+  background-size: 100% 100%, 34px 34px, 34px 34px;
+  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 78%);
+  pointer-events: none;
+}
+
 .hero-app-frame {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 680px;
   border-radius: 14px;
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.09);
   box-shadow:
     0 24px 60px -12px rgba(15, 23, 42, 0.16),
     0 6px 20px -4px rgba(15, 23, 42, 0.06);
