@@ -510,6 +510,8 @@ const toggleFaq = (idx: number) => {
 }
 
 .ms-hero-content {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -576,40 +578,45 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real plana (2D) sobre cuadrícula arquitectónica */
+/* Columna Derecha: Ventana real inclinada en 2D sobre cuadrícula arquitectónica */
 .hero-app-col {
   position: relative;
+  z-index: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
+  min-height: 360px;
 }
 
 .hero-app-grid {
   position: absolute;
-  inset: -44px -36px;
+  inset: -45% -35% -35% -15%;
   background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
+    radial-gradient(ellipse at 50% 48%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
     linear-gradient(to right, rgba(15, 23, 42, 0.09) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.09) 1px, transparent 1px);
-  background-size: 100% 100%, 34px 34px, 34px 34px;
-  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 78%);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 78%);
+  transform: rotate(34deg);
   pointer-events: none;
 }
 
 .hero-app-frame {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 680px;
+  width: 132%;
+  max-width: none;
   border-radius: 14px;
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transform-origin: 18% 18%;
+  transform: translate(12%, 4%) rotate(34deg);
   box-shadow:
-    0 24px 60px -12px rgba(15, 23, 42, 0.16),
-    0 6px 20px -4px rgba(15, 23, 42, 0.06);
+    0 28px 64px -12px rgba(15, 23, 42, 0.2),
+    0 8px 24px -4px rgba(15, 23, 42, 0.08);
 }
 
 .hero-app-img {
@@ -618,8 +625,22 @@ const toggleFaq = (idx: number) => {
   height: auto;
 }
 
-/* Feature Grid Debajo de la Laptop */
+@media (max-width: 959px) {
+  .hero-app-col {
+    min-height: 280px;
+  }
+
+  .hero-app-frame {
+    width: 118%;
+    transform: translate(8%, 4%) rotate(22deg);
+  }
+}
+
+/* Feature Grid Debajo de la App */
 .hero-features-grid {
+  position: relative;
+  z-index: 3;
+  background: #fbfbfa;
   max-width: 1280px;
   margin: 48px auto 0;
   padding-top: 36px;
