@@ -158,11 +158,11 @@ const toggleFaq = (idx: number) => {
           </div>
         </div>
 
-        <!-- Columna Derecha: Ventana de la app Lexbell sobre escenario estilo estudio -->
-        <div class="hero-studio-col">
-          <div class="ms-studio-stage hero-studio-stage">
-            <div class="ms-studio-glow" aria-hidden="true"></div>
-            <div class="ms-3d-frame">
+        <!-- Columna Derecha: Ventana real de Lexbell en perspectiva 3D acostada -->
+        <div class="hero-iso-col">
+          <div class="hero-iso-stage">
+            <div class="hero-iso-grid" aria-hidden="true"></div>
+            <div class="hero-iso-card">
               <img
                 src="/screenshots/showcase-cases.webp?v=1.1.19"
                 :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
@@ -578,23 +578,91 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Escenario estilo estudio Microsoft 365 */
-.hero-studio-col {
+/* Columna Derecha: Ventana real en 3D isométrico acostado */
+.hero-iso-col {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 12px 0;
 }
 
-.hero-studio-stage {
+.hero-iso-stage {
+  position: relative;
   width: 100%;
   max-width: 680px;
+  perspective: 1800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-iso-grid {
+  position: absolute;
+  inset: -14% -8%;
+  background-image:
+    radial-gradient(ellipse at 55% 50%, rgba(0, 102, 204, 0.12) 0%, rgba(0, 102, 204, 0) 68%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
+  transform: rotateX(48deg) rotateZ(18deg);
+  pointer-events: none;
+}
+
+.hero-iso-card {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transform: rotateX(34deg) rotateY(-14deg) rotateZ(18deg) scale(0.95);
+  transform-style: preserve-3d;
+  box-shadow:
+    -1px 1px 0 #cbd5e1,
+    -2px 2px 0 #cbd5e1,
+    -3px 4px 0 #94a3b8,
+    -4px 6px 0 #94a3b8,
+    -18px 28px 48px -10px rgba(15, 23, 42, 0.26),
+    -8px 14px 24px -6px rgba(0, 102, 204, 0.12);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+.hero-iso-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 32%);
+  pointer-events: none;
+}
+
+.hero-iso-stage:hover .hero-iso-card {
+  transform: rotateX(26deg) rotateY(-10deg) rotateZ(13deg) scale(0.98) translateY(-4px);
+  box-shadow:
+    -1px 1px 0 #cbd5e1,
+    -2px 2px 0 #cbd5e1,
+    -3px 4px 0 #94a3b8,
+    -22px 36px 56px -10px rgba(15, 23, 42, 0.28),
+    -10px 18px 28px -6px rgba(0, 102, 204, 0.16);
 }
 
 .hero-app-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-iso-card {
+    transform: rotateX(14deg) rotateY(-6deg) rotateZ(4deg) scale(0.98);
+    box-shadow:
+      -1px 2px 0 #cbd5e1,
+      -2px 4px 0 #94a3b8,
+      -10px 18px 34px -8px rgba(15, 23, 42, 0.24);
+  }
 }
 
 /* Feature Grid Debajo de la Laptop */
