@@ -489,12 +489,13 @@ const toggleFaq = (idx: number) => {
   background: #fbfbfa;
   border-bottom: 1px solid #ebebea;
   overflow: hidden;
-  padding: clamp(48px, 6vw, 80px) 24px 40px;
+  padding: 0 24px 40px;
 }
 
 .ms-hero-inner {
   max-width: 1280px;
   margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) 0 48px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -574,25 +575,27 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real recta (2D) sobre cuadrícula arquitectónica */
+/* Columna Derecha: Render 3D grande llenando toda la portada derecha (bleed) */
 .hero-app-col {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
+  min-height: 360px;
 }
 
 .hero-app-grid {
   position: absolute;
-  inset: -44px -36px;
+  inset: -140px -260px -140px -60px;
   background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
+    radial-gradient(ellipse at 55% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
     linear-gradient(to right, rgba(15, 23, 42, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
-  background-size: 100% 100%, 34px 34px, 34px 34px;
-  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
+  background-size: 100% 100%, 38px 38px, 38px 38px;
+  mask-image: radial-gradient(ellipse at 58% 50%, #000 42%, transparent 82%);
+  -webkit-mask-image: radial-gradient(ellipse at 58% 50%, #000 42%, transparent 82%);
+  transform: rotate(-28deg);
   pointer-events: none;
 }
 
@@ -600,18 +603,31 @@ const toggleFaq = (idx: number) => {
   position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
-  max-width: 720px;
+  width: 170%;
+  max-width: none;
   height: auto;
-  filter: drop-shadow(0 26px 40px rgba(15, 23, 42, 0.22));
+  transform: translate(0%, -2%);
+  filter: drop-shadow(0 28px 44px rgba(15, 23, 42, 0.24));
+}
+
+@media (max-width: 959px) {
+  .hero-app-col {
+    min-height: 240px;
+  }
+
+  .hero-app-img {
+    width: 135%;
+    transform: translate(-2%, 0%);
+  }
 }
 
 /* Feature Grid Debajo de la App */
 .hero-features-grid {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  background: #fbfbfa;
   max-width: 1280px;
-  margin: 48px auto 0;
+  margin: 0 auto;
   padding-top: 36px;
   border-top: 1px solid #ebebea;
   display: grid;
