@@ -1,22 +1,9 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const localePath = useLocalePath()
 const { openModal } = useCookieConsent()
-const config = useRuntimeConfig()
-const { trackDownload } = useAnalytics()
 
 const year = new Date().getFullYear()
-
-const appleUrl = computed(() => config.public.appleStoreUrl || 'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12')
-const microsoftUrl = computed(() => config.public.microsoftStoreUrl || 'https://apps.microsoft.com/detail/9NLZXP46J9G2')
-
-const appleBadgeSrc = computed(() => {
-  return locale.value === 'en' ? '/mac-app-store-badge-en.svg' : '/mac-app-store-badge-es.svg'
-})
-
-const msBadgeSrc = computed(() => {
-  return locale.value === 'en' ? '/microsoft-store-badge.svg' : '/microsoft-store-badge-es.svg'
-})
 
 const productLinks = computed(() => [
   { to: localePath('features'), label: t('nav.features') },
@@ -50,11 +37,11 @@ const legalLinks = computed(() => [
 </script>
 
 <template>
-  <footer class="site-footer" id="descargar">
+  <footer class="site-footer">
     <div class="site-footer-inner">
-      <!-- Grid Principal: Identidad de Marca + Descargas + 4 Columnas de Enlaces -->
+      <!-- Grid Principal: Identidad de Marca + 4 Columnas de Enlaces -->
       <div class="site-footer-top">
-        <!-- Columna de Marca y Descargas Oficiales -->
+        <!-- Columna de Marca -->
         <div class="footer-brand-col">
           <NuxtLink :to="localePath('index')" class="footer-brand-link" :aria-label="t('common.brand')">
             <LogoMark :size="20" />
@@ -63,47 +50,6 @@ const legalLinks = computed(() => [
           <p class="footer-brand-tagline">
             {{ t('footer.tagline') }}
           </p>
-
-          <!-- Botones Oficiales de Descarga Integrados -->
-          <div class="footer-download-box">
-            <div class="footer-download-btns">
-              <a
-                :href="appleUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-store-badge-link"
-                :title="locale === 'en' ? 'Download on Mac App Store' : 'Consíguelo en el Mac App Store'"
-                @click="trackDownload('apple')"
-              >
-                <img
-                  :src="appleBadgeSrc"
-                  :alt="locale === 'en' ? 'Download on Mac App Store' : 'Consíguelo en el Mac App Store'"
-                  class="footer-store-badge-img"
-                  width="180"
-                  height="46"
-                  loading="lazy"
-                />
-              </a>
-
-              <a
-                :href="microsoftUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-store-badge-link"
-                :title="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
-                @click="trackDownload('microsoft')"
-              >
-                <img
-                  :src="msBadgeSrc"
-                  :alt="locale === 'en' ? 'Get it from Microsoft' : 'Obtener de Microsoft'"
-                  class="footer-store-badge-img"
-                  width="180"
-                  height="46"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- Columnas de Enlaces -->
@@ -215,39 +161,8 @@ const legalLinks = computed(() => [
   font-size: 13.5px;
   line-height: 1.55;
   color: #5f5e5b;
-  margin: 0 0 16px;
+  margin: 0;
   max-width: 330px;
-}
-
-/* Enlaces de Descarga en el Footer */
-.footer-download-box {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.footer-download-btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-
-.footer-store-badge-link {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  line-height: 0;
-  border-radius: 8px;
-}
-
-.footer-store-badge-img {
-  height: 44px;
-  width: auto;
-  border-radius: 8px;
-  display: block;
 }
 
 /* Grid de Enlaces */
