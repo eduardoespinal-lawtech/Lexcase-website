@@ -55,6 +55,15 @@ const otherPosts = computed<BlogPost[]>(() => {
   return filteredPosts.value.slice(1)
 })
 
+function getPostPreviewImg(slug: string): string {
+  const map: Record<string, string> = {
+    'computo-plazos-procesales-dias-habiles-rd': '/screenshots/showcase-calendar-list.webp',
+    'secreto-profesional-abogados-nube-seguridad': '/screenshots/showcase-docs.webp',
+    'mejores-programas-gestion-expedientes-abogados-2026': '/screenshots/showcase-cases.webp'
+  }
+  return map[slug] || '/screenshots/showcase-cases.webp'
+}
+
 function formatDate(iso: string) {
   try {
     const d = new Date(iso + 'T00:00:00')
@@ -100,7 +109,7 @@ function formatDate(iso: string) {
     <!-- MAIN CONTENT -->
     <section class="pb-24">
       <div class="apple-wrap-wide">
-        <!-- FEATURED POST CARD -->
+        <!-- FEATURED POST CARD (SPLIT EDITORIAL + VISUAL) -->
         <div v-if="featuredPost" class="featured-card-wrapper mb-12">
           <NuxtLink
             :to="localePath('/blog/' + featuredPost.slug + '/')"
@@ -129,7 +138,13 @@ function formatDate(iso: string) {
 
               <div class="featured-footer">
                 <div class="author-block">
-                  <div class="author-avatar-icon">⚖️</div>
+                  <div class="author-avatar-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                      <path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                    </svg>
+                  </div>
                   <div>
                     <span class="author-name">{{ featuredPost.author.name }}</span>
                     <span class="author-role">
@@ -146,6 +161,19 @@ function formatDate(iso: string) {
                 </span>
               </div>
             </div>
+
+            <div class="featured-card-media">
+              <div class="featured-media-frame">
+                <img
+                  :src="getPostPreviewImg(featuredPost.slug)"
+                  :alt="isEn ? featuredPost.title.en : featuredPost.title.es"
+                  class="featured-media-img"
+                  width="2000"
+                  height="1185"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </NuxtLink>
         </div>
 
@@ -160,32 +188,68 @@ function formatDate(iso: string) {
               :to="localePath('/blog/' + post.slug + '/')"
               class="post-card-inner"
             >
-              <div class="post-meta-row mb-3">
-                <span class="post-cat-badge">
-                  {{ isEn ? post.category.en : post.category.es }}
-                </span>
-                <span class="post-dot">·</span>
-                <span class="post-readtime">
-                  {{ isEn ? post.readTime.en : post.readTime.es }}
-                </span>
+              <div class="post-card-media">
+                <img
+                  :src="getPostPreviewImg(post.slug)"
+                  :alt="isEn ? post.title.en : post.title.es"
+                  class="post-card-img"
+                  width="2000"
+                  height="1185"
+                  loading="lazy"
+                />
               </div>
 
-              <h3 class="post-title group-hover:text-blue-600 transition-colors">
-                {{ isEn ? post.title.en : post.title.es }}
-              </h3>
+              <div class="post-card-content">
+                <div class="post-meta-row mb-3">
+                  <span class="post-cat-badge">
+                    {{ isEn ? post.category.en : post.category.es }}
+                  </span>
+                  <span class="post-dot">·</span>
+                  <span class="post-readtime">
+                    {{ isEn ? post.readTime.en : post.readTime.es }}
+                  </span>
+                </div>
 
-              <p class="post-desc">
-                {{ isEn ? post.description.en : post.description.es }}
-              </p>
+                <h3 class="post-title group-hover:text-blue-600 transition-colors">
+                  {{ isEn ? post.title.en : post.title.es }}
+                </h3>
 
-              <div class="post-footer-row mt-auto pt-4">
-                <span class="post-date text-xs text-gray-500">{{ formatDate(post.date) }}</span>
-                <span class="read-link-sm">
-                  {{ t('blog.readArticle') }} →
-                </span>
+                <p class="post-desc">
+                  {{ isEn ? post.description.en : post.description.es }}
+                </p>
+
+                <div class="post-footer-row mt-auto pt-4">
+                  <span class="post-date text-xs text-gray-500">{{ formatDate(post.date) }}</span>
+                  <span class="read-link-sm">
+                    {{ t('blog.readArticle') }} →
+                  </span>
+                </div>
               </div>
             </NuxtLink>
           </article>
+        </div>
+
+        <!-- BLOG CTA BLOCK -->
+        <div class="blog-cta-box mt-14">
+          <div class="blog-cta-copy">
+            <span class="eyebrow">{{ isEn ? 'FREE DESKTOP APP' : 'SOFTWARE GRATUITO' }}</span>
+            <h2 class="blog-cta-heading">
+              {{ isEn ? 'Organize your cases and court deadlines offline' : 'Lleva tus expedientes y plazos sin depender de la nube' }}
+            </h2>
+            <p class="blog-cta-text">
+              {{ isEn
+                ? 'Start free with up to 50 active cases on Mac or Windows, or try our free court deadline calculator.'
+                : 'Empieza gratis hasta 50 expedientes en Mac o Windows, o usa nuestra calculadora gratuita de plazos procesales.' }}
+            </p>
+            <div class="mt-4">
+              <NuxtLink :to="localePath('calculadora-plazos')" class="blog-tool-link">
+                {{ isEn ? 'Open Deadline Calculator →' : 'Abrir Calculadora de Plazos →' }}
+              </NuxtLink>
+            </div>
+          </div>
+          <div class="blog-cta-actions">
+            <AppDownload center />
+          </div>
         </div>
       </div>
     </section>
@@ -232,13 +296,41 @@ function formatDate(iso: string) {
 }
 
 .featured-card {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
   text-decoration: none;
-  background: #fafaf9;
+  background: #fbfbfa;
   border: 1px solid #ebebea;
   border-radius: 20px;
-  padding: clamp(28px, 4vw, 44px);
+  padding: clamp(24px, 3.5vw, 40px);
   transition: all 0.25s ease;
+}
+
+@media (min-width: 900px) {
+  .featured-card {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 40px;
+  }
+}
+
+.featured-card-media {
+  width: 100%;
+}
+
+.featured-media-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.featured-media-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .featured-card:hover {
@@ -357,7 +449,7 @@ function formatDate(iso: string) {
   background: #ffffff;
   border: 1px solid #ebebea;
   border-radius: 16px;
-  padding: 28px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: all 0.25s ease;
@@ -365,7 +457,7 @@ function formatDate(iso: string) {
 
 .post-card:hover {
   border-color: #d3d3d0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
@@ -374,6 +466,32 @@ function formatDate(iso: string) {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.post-card-media {
+  background: #fbfbfa;
+  border-bottom: 1px solid #ebebea;
+  padding: 16px 16px 0;
+  overflow: hidden;
+}
+
+.post-card-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.post-card-content {
+  padding: 24px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .post-title {
@@ -405,5 +523,60 @@ function formatDate(iso: string) {
   font-size: 13px;
   font-weight: 600;
   color: #0066cc;
+}
+
+/* Blog CTA Box */
+.blog-cta-box {
+  background: #fbfbfa;
+  border: 1px solid #ebebea;
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .blog-cta-box {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 36px;
+  }
+}
+
+.blog-cta-heading {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  color: #050505;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+
+.blog-cta-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #5f5e5b;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.blog-tool-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.blog-tool-link:hover {
+  text-decoration: underline;
+}
+
+.blog-cta-actions {
+  display: flex;
+  justify-content: center;
 }
 </style>
