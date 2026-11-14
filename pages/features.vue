@@ -67,7 +67,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'"
+            src="/screenshots/showcase-cases.webp?v=1.1.19"
             :alt="locale === 'en' ? 'Cases in Lexbell' : 'Expedientes en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -88,7 +88,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/calendar-en.webp?v=1.1.18' : '/screenshots/showcase-calendar-month.webp?v=1.1.19'"
+            src="/screenshots/showcase-calendar-month.webp?v=1.1.19"
             :alt="locale === 'en' ? 'Procedural Calendar in Lexbell' : 'Agenda Procesal en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -109,7 +109,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box">
           <img
-            :src="locale === 'en' ? '/screenshots/documents-en.webp?v=1.1.18' : '/screenshots/showcase-docs.webp?v=1.1.19'"
+            src="/screenshots/showcase-docs.webp?v=1.1.19"
             :alt="locale === 'en' ? 'Document Vault in Lexbell' : 'Bóveda de Documentos en Lexbell'"
             class="apple-app-img"
             loading="lazy"
@@ -130,7 +130,7 @@ const tiles = computed(() => [
         </div>
         <div class="apple-window-box lg:order-1">
           <img
-            :src="locale === 'en' ? '/screenshots/map-en.webp?v=1.1.18' : '/screenshots/showcase-connections.webp?v=1.1.19'"
+            src="/screenshots/showcase-connections.webp?v=1.1.19"
             :alt="locale === 'en' ? 'Relationship and Conflict Map in Lexbell' : 'Mapa de Vínculos y Conflictos en Lexbell'"
             class="apple-app-img"
             loading="lazy"

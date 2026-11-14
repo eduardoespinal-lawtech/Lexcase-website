@@ -78,7 +78,7 @@ useHead(() => {
   const desc = isEn
     ? 'Private desktop legal practice management software for Mac & Windows. Manage cases, court deadlines, clients, and documents 100% offline on your device.'
     : 'Software privado de gestión de expedientes para abogados en Mac y Windows. Organiza casos, clientes, plazos judiciales y documentos 100% locales en tu equipo.'
-  const heroImg = isEn ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'
+  const heroImg = '/screenshots/showcase-cases.webp?v=1.1.19'
 
   return {
     title,
@@ -154,7 +154,7 @@ const toggleFaq = (idx: number) => {
             <div class="macbook-lid">
               <div class="macbook-camera"></div>
               <img
-                :src="locale === 'en' ? '/screenshots/cases-en.webp?v=1.1.18' : '/screenshots/showcase-cases.webp?v=1.1.19'"
+                src="/screenshots/showcase-cases.webp?v=1.1.19"
                 :alt="locale === 'en' ? 'Lexbell Desktop App Interface on MacBook' : 'Interfaz de la aplicación Lexbell en MacBook'"
                 class="macbook-screen"
                 width="2000"

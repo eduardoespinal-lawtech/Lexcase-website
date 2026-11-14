@@ -100,9 +100,9 @@ export default defineNuxtPlugin(() => {
               image: [
                 'https://lex-bell.com/og-image.png',
                 'https://lex-bell.com/icon.png',
-                'https://lex-bell.com/screenshots/app-real.png'
+                'https://lex-bell.com/screenshots/showcase-cases.webp'
               ],
-              screenshot: 'https://lex-bell.com/screenshots/app-real.png',
+              screenshot: 'https://lex-bell.com/screenshots/showcase-cases.webp',
               brand: {
                 '@type': 'Brand',
                 name: 'Lexbell'
