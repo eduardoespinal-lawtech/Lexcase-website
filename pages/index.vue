@@ -389,29 +389,13 @@ const toggleFaq = (idx: number) => {
         </div>
 
         <!-- Testimonios de profesionales reales -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <div class="testimonial-card">
-            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial-quote">“{{ t('home.testimonial1Quote') }}”</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-for="idx in 6" :key="idx" class="testimonial-card">
+            <div class="testimonial-stars" :aria-label="locale === 'en' ? '5 stars' : '5 estrellas'">★★★★★</div>
+            <p class="testimonial-quote">“{{ t(`home.testimonial${idx}Quote`) }}”</p>
             <div class="testimonial-author">
-              <strong>{{ t('home.testimonial1Author') }}</strong>
-              <span>{{ t('home.testimonial1Role') }}</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial-quote">“{{ t('home.testimonial2Quote') }}”</p>
-            <div class="testimonial-author">
-              <strong>{{ t('home.testimonial2Author') }}</strong>
-              <span>{{ t('home.testimonial2Role') }}</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars" aria-label="5 estrellas">★★★★★</div>
-            <p class="testimonial-quote">“{{ t('home.testimonial3Quote') }}”</p>
-            <div class="testimonial-author">
-              <strong>{{ t('home.testimonial3Author') }}</strong>
-              <span>{{ t('home.testimonial3Role') }}</span>
+              <strong>{{ t(`home.testimonial${idx}Author`) }}</strong>
+              <span>{{ t(`home.testimonial${idx}Role`) }}</span>
             </div>
           </div>
         </div>

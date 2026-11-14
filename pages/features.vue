@@ -53,7 +53,7 @@ const tiles = computed(() => [
     </section>
 
     <!-- ========= SPOTLIGHT 1 · Expedientes ========= -->
-    <section class="section section-gray">
+    <section id="expedientes" class="section section-gray scroll-mt-16">
       <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
         <div>
           <span class="module-eyebrow">{{ t('features.sp1Eyebrow') }}</span>
@@ -79,7 +79,7 @@ const tiles = computed(() => [
     </section>
 
     <!-- ========= SPOTLIGHT 2 · Plazos y audiencias ========= -->
-    <section class="section">
+    <section id="agenda" class="section scroll-mt-16">
       <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
         <div class="lg:order-2">
           <span class="module-eyebrow">{{ t('features.sp2Eyebrow') }}</span>
@@ -100,7 +100,7 @@ const tiles = computed(() => [
     </section>
 
     <!-- ========= SPOTLIGHT 3 · Documentos y respaldos ========= -->
-    <section class="section section-gray">
+    <section id="documentos" class="section section-gray scroll-mt-16">
       <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
         <div>
           <span class="module-eyebrow">{{ t('features.sp3Eyebrow') }}</span>
@@ -121,7 +121,7 @@ const tiles = computed(() => [
     </section>
 
     <!-- ========= SPOTLIGHT 4 · Mapa de vínculos ========= -->
-    <section class="section">
+    <section id="conflictos" class="section scroll-mt-16">
       <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
         <div class="lg:order-2">
           <span class="module-eyebrow">{{ t('features.sp5Eyebrow') }}</span>
