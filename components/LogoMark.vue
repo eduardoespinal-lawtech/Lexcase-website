@@ -1,48 +1,25 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ size?: number; light?: boolean }>(), {
-  size: 22,
+withDefaults(defineProps<{ light?: boolean }>(), {
   light: false
 })
 </script>
 
 <template>
-  <span class="inline-flex items-center gap-2.5 select-none">
-    <!-- Badge azul con la campana de LÍNEA — mismo mark que el icono real de la app -->
-    <span
-      class="lexbell-badge"
-      :style="{ width: `${Math.round(size * 1.5)}px`, height: `${Math.round(size * 1.5)}px` }"
-    >
-      <svg
-        :width="size"
-        :height="size"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#ffffff"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M6 8a6 6 0 0 1 12 0C18 15 18.92 15.61 20 16.33Q21 17 19.8 17H4.2Q3 17 4 16.33C5.08 15.61 6 15 6 8" />
-        <path d="M10.3 19a1.94 1.94 0 0 0 3.4 0" />
-      </svg>
-    </span>
-    <span
-      class="font-semibold tracking-tight text-[17px] leading-none"
-      :class="light ? 'text-white' : 'text-ink'"
-    >Lexbell</span>
+  <span
+    class="lexbell-wordmark select-none"
+    :class="light ? 'text-white' : 'text-[var(--text)]'"
+  >
+    Lexbell
   </span>
 </template>
 
 <style scoped>
-.lexbell-badge {
+.lexbell-wordmark {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 27%;
-  background: linear-gradient(155deg, #3D9BFF 0%, #007AFF 50%, #0059CC 100%);
-  box-shadow:
-    0 1px 2px rgba(0, 62, 153, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 </style>

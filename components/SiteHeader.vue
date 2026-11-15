@@ -40,7 +40,7 @@ const links = computed(() => [
       <!-- Izquierda: Logo + Pipe + Tag de Producto + Enlaces (Estilo Microsoft 365) -->
       <div class="site-header-left">
         <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
-          <LogoMark :size="20" />
+          <LogoMark />
           <span class="header-pipe">|</span>
           <span class="header-product-tag">{{ t('nav.productTag') }}</span>
         </NuxtLink>
