@@ -27,10 +27,10 @@ useHead(() => ({
     <article class="apple-wrap prose-legal" style="max-width: 740px;">
       <p>{{ t('cookies.intro') }}</p>
 
-      <div class="my-6 p-4 rounded-xl bg-[#F7F7F5] border border-[#EBEBEA] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="my-6 p-4 rounded-xl bg-[var(--bg-section)] border border-[var(--border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <strong class="text-[#111111] text-[14px] block">{{ locale === 'es' ? 'Configuración de privacidad' : 'Privacy Preferences' }}</strong>
-          <span class="text-[#666664] text-[13px] block">{{ locale === 'es' ? 'Puedes revisar o modificar tus preferencias de cookies en cualquier momento.' : 'You can review or modify your cookie preferences at any time.' }}</span>
+          <strong class="text-[var(--text)] text-[14px] block">{{ locale === 'es' ? 'Configuración de privacidad' : 'Privacy Preferences' }}</strong>
+          <span class="text-[var(--text-muted)] text-[13px] block">{{ locale === 'es' ? 'Puedes revisar o modificar tus preferencias de cookies en cualquier momento.' : 'You can review or modify your cookie preferences at any time.' }}</span>
         </div>
         <button
           type="button"

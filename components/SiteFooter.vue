@@ -118,11 +118,11 @@ const legalLinks = computed(() => [
 
 <style scoped>
 .site-footer {
-  background: #fbfbfa;
-  color: #5f5e5b;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
   font-size: 13.5px;
   line-height: 1.5;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
 }
 
 .site-footer-inner {
@@ -160,7 +160,7 @@ const legalLinks = computed(() => [
 .footer-brand-tagline {
   font-size: 13.5px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   max-width: 330px;
 }
@@ -189,7 +189,7 @@ const legalLinks = computed(() => [
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 14px;
 }
 
@@ -203,14 +203,14 @@ const legalLinks = computed(() => [
 }
 
 .footer-link {
-  color: #5f5e5b;
+  color: var(--text-muted);
   font-size: 13.5px;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .footer-link:hover {
-  color: #0066cc;
+  color: var(--accent);
 }
 
 .footer-btn {
@@ -226,7 +226,7 @@ const legalLinks = computed(() => [
 /* Divisor */
 .footer-divider {
   border: 0;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
   margin: 44px 0 24px;
 }
 
@@ -238,6 +238,6 @@ const legalLinks = computed(() => [
   align-items: center;
   gap: 16px;
   font-size: 12.5px;
-  color: #787774;
+  color: var(--text-light);
 }
 </style>

@@ -213,8 +213,8 @@ const pricingFaqs = computed(() => {
 
 <style scoped>
 .pricing-page {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .pricing-wrap {
@@ -225,8 +225,8 @@ const pricingFaqs = computed(() => {
 
 .pricing-hero {
   padding: clamp(60px, 9vw, 96px) 0 40px;
-  background: #fbfbfa;
-  border-bottom: 1px solid #ebebea;
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border);
 }
 
 .pricing-hero-title {
@@ -234,14 +234,14 @@ const pricingFaqs = computed(() => {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: #050505;
+  color: var(--text);
   margin-top: 10px;
 }
 
 .pricing-hero-subtitle {
   font-size: clamp(16px, 2vw, 19px);
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .pricing-cards-section {
@@ -264,29 +264,29 @@ const pricingFaqs = computed(() => {
 
 .pricing-card {
   position: relative;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 34px 28px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  box-shadow: var(--shadow-card);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pricing-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
 .pricing-card.is-featured {
-  background: linear-gradient(180deg, #f5f9ff 0%, #ffffff 42%);
-  border: 1.5px solid #0066cc;
-  box-shadow: 0 16px 40px rgba(0, 102, 204, 0.12);
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--card-bg) 42%);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 16px 40px rgba(0, 102, 204, 0.16);
 }
 
 .pricing-card.is-featured:hover {
-  box-shadow: 0 20px 44px rgba(0, 102, 204, 0.16);
+  box-shadow: 0 20px 44px rgba(0, 102, 204, 0.22);
 }
 
 .pricing-badge {
@@ -297,7 +297,7 @@ const pricingFaqs = computed(() => {
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
-  background: #0066cc;
+  background: var(--accent);
   color: #ffffff;
 }
 
@@ -305,14 +305,14 @@ const pricingFaqs = computed(() => {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 6px;
 }
 
 .pricing-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #6b6b68;
+  color: var(--text-muted);
   margin: 0 0 24px;
 }
 
@@ -321,12 +321,12 @@ const pricingFaqs = computed(() => {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: #050505;
+  color: var(--text);
 }
 
 .pricing-period {
   font-size: 13px;
-  color: #6b6b68;
+  color: var(--text-muted);
   margin: 8px 0 24px;
 }
 
@@ -343,44 +343,44 @@ const pricingFaqs = computed(() => {
 }
 
 .pricing-btn-primary {
-  background: #0066cc;
+  background: var(--accent);
   color: #ffffff;
-  border: 1px solid #0066cc;
+  border: 1px solid var(--accent);
 }
 
 .pricing-btn-primary:hover {
-  background: #0052a3;
-  border-color: #0052a3;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .pricing-btn-outline {
-  background: #ffffff;
-  color: #050505;
-  border: 1px solid #d4d4d2;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border-dark);
 }
 
 .pricing-btn-outline:hover {
-  border-color: #050505;
+  border-color: var(--text);
 }
 
 .pricing-note {
   min-height: 18px;
   font-size: 12.5px;
-  color: #6b6b68;
+  color: var(--text-light);
   text-align: center;
   margin: 10px 0 0;
 }
 
 .pricing-divider {
   height: 1px;
-  background: #ebebea;
+  background: var(--border);
   margin: 24px 0;
 }
 
 .pricing-intro {
   font-size: 13.5px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 14px;
 }
 
@@ -399,7 +399,7 @@ const pricingFaqs = computed(() => {
   gap: 10px;
   font-size: 14px;
   line-height: 1.45;
-  color: #37352f;
+  color: var(--text-muted);
 }
 
 .feature-check-badge {
@@ -408,16 +408,16 @@ const pricingFaqs = computed(() => {
   height: 20px;
   margin-top: 1px;
   border-radius: 999px;
-  background: #f1f5f9;
-  color: #475569;
+  background: var(--bg-elevated);
+  color: var(--icon-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .feature-check-badge.is-featured {
-  background: #dbeafe;
-  color: #0066cc;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .pricing-download-card {
@@ -425,10 +425,10 @@ const pricingFaqs = computed(() => {
   margin: 56px auto 0;
   padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 40px);
   text-align: center;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid #e5e7eb;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--shadow-card);
 }
 
 .pricing-download-title {
@@ -436,7 +436,7 @@ const pricingFaqs = computed(() => {
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.18;
-  color: #050505;
+  color: var(--text);
   margin: 10px 0 12px;
   text-wrap: balance;
 }
@@ -444,7 +444,7 @@ const pricingFaqs = computed(() => {
 .pricing-download-sub {
   font-size: 15.5px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   max-width: 520px;
   margin: 0 auto 24px;
   text-wrap: pretty;
@@ -457,14 +457,14 @@ const pricingFaqs = computed(() => {
 
 .pricing-download-note {
   font-size: 12.5px;
-  color: #8b8a86;
+  color: var(--text-light);
   margin: 14px 0 0;
 }
 
 .pricing-faq-section {
   padding: clamp(60px, 7vw, 84px) 0;
-  background: #fbfbfa;
-  border-top: 1px solid #ebebea;
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
 }
 
 .faq-accordion {
@@ -474,15 +474,15 @@ const pricingFaqs = computed(() => {
 }
 
 .faq-item {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.15s ease;
 }
 
 .faq-item.is-open {
-  border-color: #c7c7c5;
+  border-color: var(--border-dark);
 }
 
 .faq-question-btn {
@@ -497,14 +497,14 @@ const pricingFaqs = computed(() => {
   text-align: left;
   font-size: 15.5px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
   gap: 16px;
 }
 
 .faq-chevron {
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  color: #5f5e5b;
+  color: var(--icon-color);
 }
 
 .faq-item.is-open .faq-chevron {
@@ -515,7 +515,7 @@ const pricingFaqs = computed(() => {
   padding: 0 22px 20px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .faq-answer p {

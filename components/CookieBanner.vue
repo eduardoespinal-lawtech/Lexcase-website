@@ -69,11 +69,11 @@ const { isBannerVisible, acceptAll, rejectOptional, openModal } = useCookieConse
 }
 
 .cookie-banner-inner {
-  background: #FFFFFF;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid #E5E5E3;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -87,26 +87,26 @@ const { isBannerVisible, acceptAll, rejectOptional, openModal } = useCookieConse
 }
 
 .cookie-banner-icon {
-  color: #0071E3;
+  color: var(--accent);
   display: inline-flex;
 }
 
 .cookie-banner-title {
   font-size: 14px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text);
   letter-spacing: -0.01em;
 }
 
 .cookie-banner-text {
   font-size: 13px;
   line-height: 1.5;
-  color: #555553;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .cookie-banner-link {
-  color: #0071E3;
+  color: var(--accent);
   text-decoration: underline;
   margin-left: 4px;
 }
@@ -131,23 +131,23 @@ const { isBannerVisible, acceptAll, rejectOptional, openModal } = useCookieConse
 
 .cookie-banner-btn-subtle {
   background: transparent;
-  color: #666664;
+  color: var(--text-muted);
 }
 
 .cookie-banner-btn-subtle:hover {
-  background: #F4F4F2;
-  color: #111111;
+  background: var(--bg-elevated);
+  color: var(--text);
 }
 
 .cookie-banner-btn-secondary {
-  background: #F4F4F2;
-  border-color: #E0E0DE;
-  color: #222221;
+  background: var(--bg-elevated);
+  border-color: var(--border);
+  color: var(--text);
 }
 
 .cookie-banner-btn-secondary:hover {
-  background: #EBEBE9;
-  border-color: #D0D0CE;
+  background: var(--bg-subtle);
+  border-color: var(--border-dark);
 }
 
 .cookie-banner-btn-primary {

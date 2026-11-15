@@ -130,12 +130,12 @@ const handleSavePreferences = () => {
 }
 
 .cookie-modal {
-  background: #FFFFFF;
+  background: var(--card-bg);
   border-radius: 16px;
   max-width: 540px;
   width: 100%;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 1px solid #EBEBEA;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -147,13 +147,13 @@ const handleSavePreferences = () => {
   justify-content: space-between;
   gap: 16px;
   padding: 24px 24px 16px;
-  border-bottom: 1px solid #F0F0EE;
+  border-bottom: 1px solid var(--border);
 }
 
 .cookie-title {
   font-size: 18px;
   font-weight: 700;
-  color: #111111;
+  color: var(--text);
   margin: 0 0 6px;
   letter-spacing: -0.01em;
 }
@@ -161,7 +161,7 @@ const handleSavePreferences = () => {
 .cookie-desc {
   font-size: 13px;
   line-height: 1.5;
-  color: #666664;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -169,7 +169,7 @@ const handleSavePreferences = () => {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #777775;
+  color: var(--icon-color);
   padding: 4px;
   border-radius: 8px;
   display: flex;
@@ -180,8 +180,8 @@ const handleSavePreferences = () => {
 }
 
 .cookie-close-btn:hover {
-  background: #F4F4F2;
-  color: #111111;
+  background: var(--bg-elevated);
+  color: var(--text);
 }
 
 .cookie-body {
@@ -197,9 +197,9 @@ const handleSavePreferences = () => {
   justify-content: space-between;
   gap: 16px;
   padding: 14px 16px;
-  background: #F9F9F8;
+  background: var(--bg-subtle);
   border-radius: 12px;
-  border: 1px solid #EDEDEC;
+  border: 1px solid var(--border);
 }
 
 .cookie-item-info {
@@ -216,7 +216,7 @@ const handleSavePreferences = () => {
 .cookie-item-title {
   font-size: 13.5px;
   font-weight: 600;
-  color: #111111;
+  color: var(--text);
 }
 
 .cookie-badge {
@@ -224,15 +224,15 @@ const handleSavePreferences = () => {
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 999px;
-  background: #E8F5E9;
-  color: #2E7D32;
+  background: rgba(34, 197, 94, 0.16);
+  color: #4ade80;
   letter-spacing: 0.02em;
 }
 
 .cookie-item-desc {
   font-size: 12.5px;
   line-height: 1.45;
-  color: #666664;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -257,8 +257,8 @@ const handleSavePreferences = () => {
 
 .cookie-footer {
   padding: 16px 24px 20px;
-  background: #FAFAFA;
-  border-top: 1px solid #F0F0EE;
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

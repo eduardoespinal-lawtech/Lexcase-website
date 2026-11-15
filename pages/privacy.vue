@@ -387,7 +387,8 @@ onMounted(() => {
 @media (max-width: 960px) {
   .privacy-toc {
     position: static;
-    background: #fff;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 20px 22px;
   }
@@ -397,14 +398,14 @@ onMounted(() => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #6e6e73;
+  color: var(--text-light);
   margin: 0 0 14px;
 }
 .privacy-toc-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid var(--border);
 }
 .privacy-toc-link {
   display: grid;
@@ -414,24 +415,24 @@ onMounted(() => {
   padding: 9px 0 9px 14px;
   font-size: 13px;
   line-height: 1.4;
-  color: #6e6e73;
+  color: var(--text-muted);
   text-decoration: none;
   border-left: 2px solid transparent;
   margin-left: -1px;
   transition: color .15s ease, border-color .15s ease;
 }
 .privacy-toc-link:hover {
-  color: #1d1d1f;
+  color: var(--text);
 }
 .privacy-toc-link.is-active {
-  color: #1d1d1f;
+  color: var(--text);
   border-left-color: var(--accent);
   font-weight: 500;
 }
 .privacy-toc-num {
   font-size: 11px;
   font-weight: 500;
-  color: #a1a1a6;
+  color: var(--text-light);
   font-variant-numeric: tabular-nums;
 }
 .privacy-toc-link.is-active .privacy-toc-num {
@@ -440,10 +441,11 @@ onMounted(() => {
 
 /* === Content card === */
 .privacy-content {
-  background: #fff;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 22px;
   padding: 48px 56px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-card);
 }
 @media (max-width: 600px) {
   .privacy-content { padding: 28px 22px; border-radius: 16px; }

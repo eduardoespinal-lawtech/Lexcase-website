@@ -657,14 +657,14 @@ useHead(() => ({
 
 <style scoped>
 .calculator-page {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* HERO SECTION */
 .calc-hero {
   padding: clamp(48px, 6vw, 68px) 24px 32px;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .calc-title {
@@ -672,20 +672,20 @@ useHead(() => ({
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.15;
-  color: #050505;
+  color: var(--text);
 }
 
 .calc-subtitle {
   font-size: 16px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   max-width: 580px;
 }
 
 /* BODY SECTION & CARD */
 .calc-body-section {
   padding: 0 24px clamp(50px, 6vw, 70px);
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .calc-shell {
@@ -694,18 +694,18 @@ useHead(() => ({
 }
 
 .calc-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: clamp(20px, 3.5vw, 28px);
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+  box-shadow: var(--shadow-card);
 }
 
 /* SEGMENTED CONTROL */
 .seg-control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: #f3f4f6;
+  background: var(--bg-elevated);
   padding: 3px;
   border-radius: 10px;
   margin-bottom: 22px;
@@ -715,7 +715,7 @@ useHead(() => ({
   padding: 8px 10px;
   font-size: 13px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-muted);
   background: transparent;
   border: none;
   border-radius: 8px;
@@ -724,9 +724,9 @@ useHead(() => ({
 }
 
 .seg-btn.is-active {
-  background: #ffffff;
-  color: #050505;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
 }
 
 .form-grid {
@@ -758,7 +758,7 @@ useHead(() => ({
 .form-label {
   font-size: 13px;
   font-weight: 600;
-  color: #374151;
+  color: var(--text);
 }
 
 .today-link {
@@ -767,7 +767,7 @@ useHead(() => ({
   padding: 0;
   font-size: 12px;
   font-weight: 600;
-  color: #0066cc;
+  color: var(--accent);
   cursor: pointer;
 }
 
@@ -778,19 +778,19 @@ useHead(() => ({
 .form-input {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-dark);
   border-radius: 9px;
   font-size: 14px;
-  color: #0f172a;
-  background: #ffffff;
+  color: var(--text);
+  background: var(--bg-subtle);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   font-family: inherit;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #0066cc;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .presets-inline {
@@ -804,22 +804,22 @@ useHead(() => ({
   font-size: 11.5px;
   font-weight: 600;
   border-radius: 6px;
-  background: #f3f4f6;
+  background: var(--bg-elevated);
   border: 1px solid transparent;
-  color: #4b5563;
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .preset-chip:hover {
-  background: #e5e7eb;
-  color: #111827;
+  border-color: var(--border-dark);
+  color: var(--text);
 }
 
 .preset-chip.is-active {
-  background: #e8f1ff;
-  border-color: #bfdbfe;
-  color: #0066cc;
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
 
 .rules-stack {
@@ -837,12 +837,12 @@ useHead(() => ({
 }
 
 .checkbox-input {
-  accent-color: #0066cc;
+  accent-color: var(--accent);
 }
 
 .checkbox-text {
   font-size: 13px;
-  color: #4b5563;
+  color: var(--text-muted);
 }
 
 .custom-holidays-row {
@@ -870,25 +870,25 @@ useHead(() => ({
   max-width: 240px;
   padding: 0 8px;
   font-size: 12.5px;
-  color: #111827;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-dark);
   border-radius: 7px;
   outline: none;
   cursor: pointer;
 }
 
 .country-select:focus {
-  border-color: #0066cc;
+  border-color: var(--accent);
 }
 
 .holiday-status-note {
   font-size: 11.5px;
-  color: #6b7280;
+  color: var(--text-light);
 }
 
 .holiday-status-note.is-error {
-  color: #b45309;
+  color: #f59e0b;
 }
 
 .custom-holidays-controls {
@@ -909,15 +909,15 @@ useHead(() => ({
   height: 30px;
   padding: 0 8px;
   font-size: 12.5px;
-  color: #111827;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-dark);
   border-radius: 7px;
   outline: none;
 }
 
 .holiday-date-input:focus {
-  border-color: #0066cc;
+  border-color: var(--accent);
 }
 
 .holiday-add-btn {
@@ -925,16 +925,16 @@ useHead(() => ({
   padding: 0 10px;
   font-size: 12px;
   font-weight: 600;
-  color: #0066cc;
-  background: #f0f6ff;
-  border: 1px solid #bfdbfe;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
   border-radius: 7px;
   cursor: pointer;
   transition: background 0.15s ease;
 }
 
 .holiday-add-btn:hover:not(:disabled) {
-  background: #e0edff;
+  filter: brightness(1.08);
 }
 
 .holiday-add-btn:disabled {
@@ -955,15 +955,16 @@ useHead(() => ({
   padding: 3px 8px;
   font-size: 12px;
   font-weight: 500;
-  color: #374151;
-  background: #f3f4f6;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 999px;
 }
 
 .holiday-chip-remove {
   border: none;
   background: transparent;
-  color: #6b7280;
+  color: var(--icon-color);
   font-size: 14px;
   line-height: 1;
   padding: 0;
@@ -971,14 +972,14 @@ useHead(() => ({
 }
 
 .holiday-chip-remove:hover {
-  color: #111827;
+  color: var(--accent);
 }
 
 /* RESULT */
 .calc-result {
   margin-top: 24px;
   padding-top: 22px;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
 }
 
 .result-header {
@@ -992,14 +993,14 @@ useHead(() => ({
   display: block;
   font-size: 12px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-light);
   margin-bottom: 4px;
 }
 
 .result-date {
   font-size: clamp(22px, 3vw, 27px);
   font-weight: 800;
-  color: #050505;
+  color: var(--text);
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -1011,9 +1012,9 @@ useHead(() => ({
   gap: 6px;
   padding: 7px 12px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  color: #374151;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--icon-color);
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
@@ -1021,9 +1022,7 @@ useHead(() => ({
 }
 
 .copy-btn:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-  color: #050505;
+  border-color: var(--border-dark);
 }
 
 .result-meta-row {
@@ -1033,11 +1032,11 @@ useHead(() => ({
   gap: 8px;
   margin-top: 8px;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .meta-dot {
-  color: #d1d5db;
+  color: var(--border-dark);
 }
 
 .breakdown-toggle-container {
@@ -1048,7 +1047,7 @@ useHead(() => ({
   background: transparent;
   border: none;
   padding: 0;
-  color: #0066cc;
+  color: var(--accent);
   font-size: 13.5px;
   font-weight: 600;
   display: inline-flex;
@@ -1059,7 +1058,7 @@ useHead(() => ({
 }
 
 .breakdown-btn:hover {
-  color: #0052a3;
+  color: var(--accent-hover);
 }
 
 .chevron-icon {
@@ -1073,8 +1072,8 @@ useHead(() => ({
 /* AUDIT TABLE */
 .audit-table-wrapper {
   margin-top: 16px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   border-radius: 10px;
   overflow-x: auto;
   max-height: 380px;
@@ -1090,13 +1089,13 @@ useHead(() => ({
 
 .audit-table th {
   padding: 10px 14px;
-  background: #f8fafc;
-  color: #475569;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
   font-weight: 600;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -1104,17 +1103,17 @@ useHead(() => ({
 
 .audit-table td {
   padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #1e293b;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
 }
 
 .row-weekend {
-  background: #fafafa;
-  color: #94a3b8;
+  background: var(--bg);
+  color: var(--text-light);
 }
 
 .row-final {
-  background: #eff6ff;
+  background: var(--accent-soft);
   font-weight: 700;
 }
 
@@ -1127,25 +1126,25 @@ useHead(() => ({
 }
 
 .chip-business {
-  background: #ecfdf5;
-  color: #059669;
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
 }
 
 .chip-weekend {
-  background: #f1f5f9;
-  color: #64748b;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
 }
 
 .chip-final {
-  background: #0066cc;
+  background: var(--accent);
   color: #ffffff;
 }
 
 /* FAQ SECTION */
 .calc-faq-section {
   padding: clamp(60px, 7vw, 84px) 24px;
-  background: #fbfbfa;
-  border-top: 1px solid #ebebea;
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
 }
 
 .faq-accordion {
@@ -1155,15 +1154,15 @@ useHead(() => ({
 }
 
 .faq-item {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.2s ease;
 }
 
 .faq-item.is-open {
-  border-color: #d3d3d0;
+  border-color: var(--border-dark);
 }
 
 .faq-question-btn {
@@ -1178,11 +1177,11 @@ useHead(() => ({
   text-align: left;
   font-size: 15.5px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
 }
 
 .faq-chevron {
-  color: #8b8a86;
+  color: var(--icon-color);
   transition: transform 0.2s ease;
   flex-shrink: 0;
   margin-left: 12px;
@@ -1190,14 +1189,14 @@ useHead(() => ({
 
 .faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
-  color: #0066cc;
+  color: var(--accent);
 }
 
 .faq-answer {
   padding: 0 22px 18px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .faq-answer p {

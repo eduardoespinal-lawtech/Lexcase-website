@@ -22,12 +22,18 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
-      htmlAttrs: { lang: 'es' },
+      htmlAttrs: { lang: 'es', class: 'dark' },
       title: 'Lexbell — Gestor de expedientes legales para Mac y Windows',
+      script: [
+        {
+          innerHTML:
+            "(function(){try{var t=localStorage.getItem('lexbell-theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){}})();"
+        }
+      ],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#007AFF' },
+        { name: 'theme-color', content: '#0b0d12' },
         { name: 'description', content: 'Lexbell es la app de escritorio para gestionar expedientes legales: casos, plazos, documentos y notas, todo local en tu equipo. Para Mac y Windows.' },
         // Security HTTP Equiv Headers (para hosts estáticos como GitHub Pages)
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },

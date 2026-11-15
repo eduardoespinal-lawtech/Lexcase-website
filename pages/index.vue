@@ -465,15 +465,15 @@ const toggleFaq = (idx: number) => {
 <style scoped>
 /* === NOTION LANDING WRAPPER === */
 .notion-landing {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* === HERO SECTION (MICROSOFT 365 STYLE: SPLIT 2 COLUMNAS CON LAPTOP) === */
 .ms-hero-section {
   position: relative;
-  background: #fbfbfa;
-  border-bottom: 1px solid #ebebea;
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border);
   overflow: hidden;
   padding: clamp(48px, 6vw, 80px) 24px 40px;
 }
@@ -508,8 +508,8 @@ const toggleFaq = (idx: number) => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: #e6f0fa;
-  color: #0066cc;
+  background: var(--accent-soft);
+  color: var(--accent);
   margin-bottom: 16px;
 }
 
@@ -518,7 +518,7 @@ const toggleFaq = (idx: number) => {
   font-weight: 800;
   line-height: 1.14;
   letter-spacing: -0.03em;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 18px;
   text-wrap: balance;
 }
@@ -526,7 +526,7 @@ const toggleFaq = (idx: number) => {
 .ms-hero-subtitle {
   font-size: clamp(16px, 2vw, 19px);
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0 0 20px;
   max-width: 540px;
 }
@@ -538,13 +538,13 @@ const toggleFaq = (idx: number) => {
   gap: 8px;
   font-size: 13.5px;
   font-weight: 600;
-  color: #0066cc;
+  color: var(--accent);
   margin-bottom: 28px;
-  background: #ffffff;
+  background: var(--card-bg);
   padding: 8px 16px;
   border-radius: 999px;
-  border: 1px solid #e1ecf7;
-  box-shadow: 0 1px 3px rgba(0, 102, 204, 0.05);
+  border: 1px solid var(--accent-border);
+  box-shadow: var(--shadow-card);
 }
 
 .guarantee-dot {
@@ -573,9 +573,9 @@ const toggleFaq = (idx: number) => {
   position: absolute;
   inset: -44px -36px;
   background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0) 68%),
-    linear-gradient(to right, rgba(15, 23, 42, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0) 68%),
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
   background-size: 100% 100%, 34px 34px, 34px 34px;
   mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
   -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
@@ -589,11 +589,11 @@ const toggleFaq = (idx: number) => {
   max-width: 660px;
   border-radius: 14px;
   overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   box-shadow:
-    0 24px 60px -12px rgba(15, 23, 42, 0.16),
-    0 6px 20px -4px rgba(15, 23, 42, 0.06);
+    0 24px 60px -12px rgba(0, 0, 0, 0.35),
+    0 6px 20px -4px rgba(0, 0, 0, 0.15);
 }
 
 .hero-app-img {
@@ -609,7 +609,7 @@ const toggleFaq = (idx: number) => {
   max-width: 1280px;
   margin: 48px auto 0;
   padding-top: 36px;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
@@ -628,8 +628,8 @@ const toggleFaq = (idx: number) => {
 }
 
 .hero-feat-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -640,8 +640,9 @@ const toggleFaq = (idx: number) => {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: #f1f5f9;
-  color: #0066cc;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--icon-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -651,7 +652,7 @@ const toggleFaq = (idx: number) => {
 .hero-feat-title {
   font-size: 15px;
   font-weight: 700;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 4px;
   letter-spacing: -0.01em;
 }
@@ -659,7 +660,7 @@ const toggleFaq = (idx: number) => {
 .hero-feat-desc {
   font-size: 13px;
   line-height: 1.5;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -670,9 +671,9 @@ const toggleFaq = (idx: number) => {
 }
 
 .section-gray {
-  background: #fbfbfa;
-  border-top: 1px solid #ebebea;
-  border-bottom: 1px solid #ebebea;
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .apple-wrap {
@@ -686,7 +687,7 @@ const toggleFaq = (idx: number) => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #0066cc;
+  color: var(--accent);
   margin-bottom: 8px;
 }
 
@@ -695,14 +696,14 @@ const toggleFaq = (idx: number) => {
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.03em;
-  color: #050505;
+  color: var(--text);
   margin: 0;
 }
 
 .subtitle {
   font-size: clamp(15px, 1.8vw, 17px);
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: balance;
 }
@@ -717,9 +718,9 @@ const toggleFaq = (idx: number) => {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 20px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card);
 }
 
 .compare-table {
@@ -728,7 +729,7 @@ const toggleFaq = (idx: number) => {
   border-collapse: separate;
   border-spacing: 0;
   font-size: 13.5px;
-  background: #ffffff;
+  background: var(--card-bg);
 }
 
 .compare-table th {
@@ -736,27 +737,27 @@ const toggleFaq = (idx: number) => {
   text-align: left;
   font-weight: 700;
   font-size: 13.5px;
-  background: #fafafa;
-  border-bottom: 1px solid #e5e7eb;
-  color: #111827;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
   vertical-align: bottom;
 }
 
 .compare-table td {
   padding: 15px 16px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #4b5563;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
   vertical-align: middle;
   line-height: 1.45;
   transition: background-color 0.15s ease;
 }
 
 .compare-table tbody tr:hover td {
-  background: #fafafa;
+  background: var(--bg-subtle);
 }
 
 .compare-table tbody tr:hover td.lexbell-col {
-  background: #ebf3ff;
+  background: var(--accent-soft);
 }
 
 .compare-table tr:last-child td {
@@ -765,21 +766,21 @@ const toggleFaq = (idx: number) => {
 
 .compare-feature-cell {
   font-weight: 600;
-  color: #111827 !important;
+  color: var(--text) !important;
 }
 
 .compare-table th.lexbell-col {
-  background: linear-gradient(180deg, #eef5ff 0%, #f5f9ff 100%);
-  color: #0052b4;
-  border-left: 1px solid #d7e6ff;
-  border-right: 1px solid #d7e6ff;
-  box-shadow: inset 0 3px 0 #0066cc;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-left: 1px solid var(--accent-border);
+  border-right: 1px solid var(--accent-border);
+  box-shadow: inset 0 3px 0 var(--accent);
 }
 
 .compare-table td.lexbell-col {
-  background: #f7faff;
-  border-left: 1px solid #e2ecff;
-  border-right: 1px solid #e2ecff;
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--accent-border);
+  border-right: 1px solid var(--accent-border);
 }
 
 .lexbell-th-inner {
@@ -809,7 +810,7 @@ const toggleFaq = (idx: number) => {
 
 .compare-lexbell-text {
   font-weight: 600;
-  color: #0f172a;
+  color: var(--text);
 }
 
 .compare-badge {
@@ -829,30 +830,30 @@ const toggleFaq = (idx: number) => {
 }
 
 .compare-badge.is-check {
-  background: #dbeafe;
-  color: #0066cc;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .compare-badge.is-cross {
-  background: #fee2e2;
-  color: #dc2626;
+  background: rgba(239, 68, 68, 0.16);
+  color: #ef4444;
 }
 
 .compare-badge.is-partial {
-  background: #fef3c7;
-  color: #d97706;
+  background: rgba(245, 158, 11, 0.16);
+  color: #f59e0b;
 }
 
 /* TESTIMONIOS */
 .testimonial-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-card);
 }
 
 .testimonial-stars {
@@ -865,26 +866,26 @@ const toggleFaq = (idx: number) => {
 .testimonial-quote {
   font-size: 14px;
   line-height: 1.55;
-  color: #334155;
+  color: var(--text-muted);
   margin: 0 0 18px;
 }
 
 .testimonial-author {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--border);
   padding-top: 12px;
 }
 
 .testimonial-author strong {
   font-size: 13.5px;
-  color: #0f172a;
+  color: var(--text);
   font-weight: 700;
 }
 
 .testimonial-author span {
   font-size: 12px;
-  color: #64748b;
+  color: var(--text-light);
   margin-top: 2px;
 }
 
@@ -896,15 +897,15 @@ const toggleFaq = (idx: number) => {
 }
 
 .faq-item {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.15s ease;
 }
 
 .faq-item.is-open {
-  border-color: #c7c7c5;
+  border-color: var(--border-dark);
 }
 
 .faq-question-btn {
@@ -919,14 +920,14 @@ const toggleFaq = (idx: number) => {
   text-align: left;
   font-size: 15.5px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
   gap: 16px;
 }
 
 .faq-chevron {
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  color: #5f5e5b;
+  color: var(--icon-color);
 }
 
 .faq-item.is-open .faq-chevron {
@@ -937,7 +938,7 @@ const toggleFaq = (idx: number) => {
   padding: 0 22px 20px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .faq-answer p {
@@ -948,15 +949,15 @@ const toggleFaq = (idx: number) => {
 .hero-trust-note {
   margin: 10px 0 0;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-light);
   font-weight: 500;
 }
 
 /* PRODUCT SHOWCASE (MICROSOFT 365 SPLIT + 3D STUDIO) */
 .showcase-section {
   padding: clamp(56px, 7vw, 92px) 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #ebebea;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .ms-showcase-split {
@@ -976,7 +977,7 @@ const toggleFaq = (idx: number) => {
 .ms-accordion {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
 }
 
 .ms-acc-item {
@@ -984,7 +985,7 @@ const toggleFaq = (idx: number) => {
   text-align: left;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #ebebea;
+  border-bottom: 1px solid var(--border);
   border-left: 3px solid transparent;
   padding: 16px 18px;
   cursor: pointer;
@@ -992,12 +993,12 @@ const toggleFaq = (idx: number) => {
 }
 
 .ms-acc-item:hover {
-  background: #fbfbfa;
+  background: var(--bg-subtle);
 }
 
 .ms-acc-item.is-active {
-  border-left-color: #0066cc;
-  background: #f6f9ff;
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .ms-acc-header {
@@ -1010,23 +1011,23 @@ const toggleFaq = (idx: number) => {
 .ms-acc-label {
   font-size: 16px;
   font-weight: 700;
-  color: #191919;
+  color: var(--text);
   letter-spacing: -0.015em;
 }
 
 .ms-acc-item.is-active .ms-acc-label {
-  color: #0066cc;
+  color: var(--accent);
 }
 
 .ms-acc-chevron {
-  color: #8b8a86;
+  color: var(--icon-color);
   transition: transform 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
 }
 
 .ms-acc-item.is-active .ms-acc-chevron {
   transform: rotate(180deg);
-  color: #0066cc;
+  color: var(--accent);
 }
 
 .ms-acc-body {
@@ -1036,14 +1037,14 @@ const toggleFaq = (idx: number) => {
 .ms-acc-title {
   font-size: 14.5px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 4px;
   line-height: 1.35;
 }
 
 .ms-acc-desc {
   font-size: 13.5px;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   line-height: 1.5;
   text-wrap: pretty;
@@ -1053,16 +1054,15 @@ const toggleFaq = (idx: number) => {
   position: relative;
   border-radius: 24px;
   padding: clamp(24px, 3.5vw, 44px);
-  background: linear-gradient(145deg, #e7f0ff 0%, #f4f7ff 52%, #dce9ff 100%);
-  border: 1px solid rgba(0, 102, 204, 0.1);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .ms-studio-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.85), transparent 55%);
+  background: radial-gradient(circle at 75% 25%, rgba(59, 130, 246, 0.16), transparent 55%);
   pointer-events: none;
 }
 
@@ -1070,20 +1070,20 @@ const toggleFaq = (idx: number) => {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #ffffff;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
   transform: perspective(1600px) rotateY(-4deg) rotateX(2deg);
   box-shadow:
-    18px 26px 56px -12px rgba(15, 23, 42, 0.22),
-    0 6px 18px -4px rgba(15, 23, 42, 0.08);
+    18px 26px 56px -12px rgba(0, 0, 0, 0.35),
+    0 6px 18px -4px rgba(0, 0, 0, 0.18);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 
 .ms-studio-stage:hover .ms-3d-frame {
   transform: perspective(1600px) rotateY(0deg) rotateX(0deg) translateY(-2px);
   box-shadow:
-    0 28px 64px -12px rgba(15, 23, 42, 0.2),
-    0 8px 20px -4px rgba(15, 23, 42, 0.08);
+    0 28px 64px -12px rgba(0, 0, 0, 0.4),
+    0 8px 20px -4px rgba(0, 0, 0, 0.2);
 }
 
 .showcase-img {
@@ -1119,8 +1119,8 @@ const toggleFaq = (idx: number) => {
 }
 
 .bento-card {
-  background: #fbfbfa;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 28px 28px 0;
   display: flex;
@@ -1132,7 +1132,7 @@ const toggleFaq = (idx: number) => {
 
 .bento-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .bento-copy {
@@ -1145,14 +1145,14 @@ const toggleFaq = (idx: number) => {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0066cc;
+  color: var(--accent);
   margin-bottom: 8px;
 }
 
 .bento-title {
   font-size: 20px;
   font-weight: 700;
-  color: #050505;
+  color: var(--text);
   letter-spacing: -0.02em;
   margin: 0 0 8px;
   line-height: 1.25;
@@ -1161,7 +1161,7 @@ const toggleFaq = (idx: number) => {
 .bento-desc {
   font-size: 14px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -1170,9 +1170,9 @@ const toggleFaq = (idx: number) => {
   border-radius: 14px 14px 0 0;
   padding: 20px 20px 0;
   overflow: hidden;
-  border: 1px solid rgba(0, 102, 204, 0.08);
+  border: 1px solid var(--border);
   border-bottom: none;
-  background: linear-gradient(145deg, #e7f0ff 0%, #f4f7ff 60%, #dce9ff 100%);
+  background: var(--bg-elevated);
 }
 
 .bento-img {
@@ -1180,24 +1180,24 @@ const toggleFaq = (idx: number) => {
   width: 100%;
   height: auto;
   border-radius: 8px 8px 0 0;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
   border-bottom: none;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
 }
 
 /* FINAL CTA SECTION */
 .final-cta-section {
   padding: clamp(56px, 7vw, 84px) 24px;
-  background: #ffffff;
-  border-top: 1px solid #ebebea;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
 }
 
 .final-cta-box {
   max-width: 780px;
   margin: 0 auto;
   text-align: center;
-  background: #fbfbfa;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 22px;
   padding: clamp(36px, 5vw, 56px) 24px;
 }
@@ -1205,7 +1205,7 @@ const toggleFaq = (idx: number) => {
 .final-cta-title {
   font-size: clamp(26px, 3.8vw, 38px);
   font-weight: 800;
-  color: #050505;
+  color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0 0 12px;
@@ -1214,7 +1214,7 @@ const toggleFaq = (idx: number) => {
 
 .final-cta-sub {
   font-size: 16px;
-  color: #5f5e5b;
+  color: var(--text-muted);
   max-width: 540px;
   margin: 0 auto 28px;
   line-height: 1.55;
@@ -1229,7 +1229,7 @@ const toggleFaq = (idx: number) => {
 .final-cta-note {
   margin: 14px 0 0;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-light);
   font-weight: 500;
 }
 </style>

@@ -87,8 +87,8 @@ useHead(() => {
 
 <style scoped>
 .faq-page {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .faq-list {
@@ -98,15 +98,15 @@ useHead(() => {
 }
 
 .faq-item {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.2s ease;
 }
 
 .faq-item.is-open {
-  border-color: #d3d3d0;
+  border-color: var(--border-dark);
 }
 
 .faq-summary {
@@ -121,14 +121,14 @@ useHead(() => {
   text-align: left;
   font-size: 16px;
   font-weight: 600;
-  color: #050505;
+  color: var(--text);
   gap: 16px;
 }
 
 .faq-chevron {
   transition: transform 0.2s ease;
   flex-shrink: 0;
-  color: #5f5e5b;
+  color: var(--icon-color);
 }
 
 .faq-item.is-open .faq-chevron {
@@ -139,7 +139,7 @@ useHead(() => {
   padding: 0 24px 22px;
   font-size: 15px;
   line-height: 1.6;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .faq-answer p {

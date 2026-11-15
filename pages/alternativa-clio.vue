@@ -256,14 +256,16 @@ const faqs = computed(() => [
 
 <style scoped>
 .vs-page {
+  background: var(--bg);
+  color: var(--text);
   padding-bottom: 80px;
 }
 .table-container {
   overflow-x: auto;
   border-radius: 16px;
-  border: 1px solid var(--border-color, #e5e7eb);
-  background: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-card);
 }
 .vs-table {
   width: 100%;
@@ -274,7 +276,7 @@ const faqs = computed(() => [
 .vs-table th,
 .vs-table td {
   padding: 18px 24px;
-  border-bottom: 1px solid var(--border-color, #f3f4f6);
+  border-bottom: 1px solid var(--border);
 }
 .vs-table tr:last-child td {
   border-bottom: none;
@@ -285,21 +287,21 @@ const faqs = computed(() => [
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #6b7280;
-  background: #fafafa;
+  color: var(--text-light);
+  background: var(--bg-subtle);
 }
 .th-lexbell {
   width: 38%;
-  background: #f0f7ff;
-  border-left: 2px solid #007aff;
-  border-right: 2px solid #007aff;
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
 }
 .th-clio {
   width: 30%;
   font-size: 14px;
   font-weight: 600;
-  color: #6b7280;
-  background: #fafafa;
+  color: var(--text-light);
+  background: var(--bg-subtle);
 }
 .brand-header {
   display: flex;
@@ -309,32 +311,32 @@ const faqs = computed(() => [
 .brand-pill {
   font-size: 18px;
   font-weight: 700;
-  color: #007aff;
+  color: var(--accent);
 }
 .brand-badge {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  background: #007aff;
+  background: var(--accent);
   color: #ffffff;
   padding: 2px 8px;
   border-radius: 10px;
 }
 .td-feature {
   font-weight: 600;
-  color: #111827;
+  color: var(--text);
   font-size: 14.5px;
 }
 .td-lexbell {
-  background: #f8fbff;
-  border-left: 2px solid #007aff;
-  border-right: 2px solid #007aff;
+  background: var(--bg-elevated);
+  border-left: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
   font-weight: 500;
-  color: #0f172a;
+  color: var(--text);
   font-size: 14px;
 }
 .td-clio {
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 14px;
 }
 .cell-wrap {
@@ -343,24 +345,24 @@ const faqs = computed(() => [
   gap: 8px;
 }
 .check-icon {
-  color: #007aff;
+  color: var(--accent);
   font-weight: 800;
   flex-shrink: 0;
 }
 .benefit-card {
-  background: #ffffff;
-  border: 1px solid var(--border-color, #e5e7eb);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 32px 24px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--shadow-card);
 }
 .benefit-icon {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
-  color: #0066cc;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  color: var(--icon-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -370,12 +372,12 @@ const faqs = computed(() => [
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #111827;
+  color: var(--text);
 }
 .benefit-desc {
   font-size: 14px;
   line-height: 1.6;
-  color: #4b5563;
+  color: var(--text-muted);
 }
 .faq-list {
   display: flex;
@@ -383,21 +385,21 @@ const faqs = computed(() => [
   gap: 16px;
 }
 .faq-card {
-  background: #ffffff;
-  border: 1px solid var(--border-color, #e5e7eb);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 24px 28px;
 }
 .faq-q {
   font-size: 16px;
   font-weight: 700;
-  color: #111827;
+  color: var(--text);
   margin-bottom: 8px;
 }
 .faq-a {
   font-size: 14.5px;
   line-height: 1.6;
-  color: #4b5563;
+  color: var(--text-muted);
   margin: 0;
 }
 </style>

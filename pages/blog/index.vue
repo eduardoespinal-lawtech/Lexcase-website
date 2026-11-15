@@ -228,7 +228,7 @@ function formatDate(iso: string) {
 
 <style scoped>
 .blog-index-page {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .blog-hero-title {
@@ -236,7 +236,7 @@ function formatDate(iso: string) {
   line-height: 1.16;
   font-weight: 800;
   letter-spacing: -0.025em;
-  color: #050505;
+  color: var(--text);
   text-wrap: balance;
 }
 
@@ -252,48 +252,49 @@ function formatDate(iso: string) {
   font-size: 13.5px;
   font-weight: 500;
   border-radius: 9999px;
-  background: #f4f4f2;
-  color: #5f5e5b;
-  border: 1px solid transparent;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .cat-pill:hover {
-  background: #e8e8e6;
-  color: #191919;
+  border-color: var(--border-dark);
+  color: var(--text);
 }
 
 .cat-pill.active {
-  background: #050505;
-  color: #ffffff;
+  background: var(--brand-black);
+  color: var(--bg);
+  border-color: transparent;
 }
 
 /* Featured Card */
 .featured-card-wrapper {
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .featured-card {
   display: block;
   text-decoration: none;
-  background: linear-gradient(135deg, #fbfbfa 0%, #f6f9ff 100%);
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid #0066cc;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
   border-radius: 18px;
   padding: clamp(26px, 3.5vw, 40px);
   transition: all 0.25s ease;
 }
 
 .featured-card:hover {
-  border-color: #bfdbfe;
-  border-left-color: #0066cc;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+  border-color: var(--accent-border);
+  border-left-color: var(--accent);
+  box-shadow: var(--shadow-card);
   transform: translateY(-2px);
 }
 
 .featured-pill {
-  background: #0066cc;
+  background: var(--accent);
   color: #ffffff;
   padding: 3px 10px;
   border-radius: 6px;
@@ -309,12 +310,12 @@ function formatDate(iso: string) {
   flex-wrap: wrap;
   gap: 8px;
   font-size: 12.5px;
-  color: #8b8a86;
+  color: var(--text-light);
 }
 
 .post-cat-badge {
-  background: #eef4ff;
-  color: #0066cc;
+  background: var(--accent-soft);
+  color: var(--accent);
   padding: 3px 10px;
   border-radius: 6px;
   font-weight: 600;
@@ -324,7 +325,7 @@ function formatDate(iso: string) {
 }
 
 .post-dot {
-  color: #d3d3d0;
+  color: var(--border-dark);
 }
 
 .featured-title {
@@ -332,7 +333,7 @@ function formatDate(iso: string) {
   line-height: 1.22;
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: #191919;
+  color: var(--text);
   margin-top: 14px;
   margin-bottom: 14px;
   text-wrap: balance;
@@ -341,7 +342,7 @@ function formatDate(iso: string) {
 .featured-desc {
   font-size: clamp(15.5px, 1.4vw, 17px);
   line-height: 1.6;
-  color: #5f5e5b;
+  color: var(--text-muted);
   max-width: 880px;
   margin-bottom: 28px;
   text-wrap: pretty;
@@ -354,7 +355,7 @@ function formatDate(iso: string) {
   flex-wrap: wrap;
   gap: 16px;
   padding-top: 20px;
-  border-top: 1px solid #ebebea;
+  border-top: 1px solid var(--border);
 }
 
 .author-block {
@@ -367,8 +368,9 @@ function formatDate(iso: string) {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--icon-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,19 +381,19 @@ function formatDate(iso: string) {
   display: block;
   font-size: 13.5px;
   font-weight: 600;
-  color: #191919;
+  color: var(--text);
 }
 
 .author-role {
   display: block;
   font-size: 11.5px;
-  color: #8b8a86;
+  color: var(--text-light);
 }
 
 .read-link {
   font-size: 14px;
   font-weight: 600;
-  color: #0066cc;
+  color: var(--accent);
   display: inline-flex;
   align-items: center;
 }
@@ -410,8 +412,8 @@ function formatDate(iso: string) {
 }
 
 .post-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
@@ -420,8 +422,8 @@ function formatDate(iso: string) {
 }
 
 .post-card:hover {
-  border-color: #d3d3d0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-card);
   transform: translateY(-2px);
 }
 
@@ -444,7 +446,7 @@ function formatDate(iso: string) {
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #191919;
+  color: var(--text);
   margin-bottom: 10px;
   text-wrap: balance;
 }
@@ -452,7 +454,7 @@ function formatDate(iso: string) {
 .post-desc {
   font-size: 14.5px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin-bottom: 16px;
   text-wrap: pretty;
 }
@@ -461,19 +463,19 @@ function formatDate(iso: string) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #f4f4f2;
+  border-top: 1px solid var(--border);
 }
 
 .read-link-sm {
   font-size: 13px;
   font-weight: 600;
-  color: #0066cc;
+  color: var(--accent);
 }
 
 /* Blog CTA Box */
 .blog-cta-box {
-  background: #fbfbfa;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: clamp(28px, 4vw, 44px);
   display: grid;
@@ -492,7 +494,7 @@ function formatDate(iso: string) {
 .blog-cta-heading {
   font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 800;
-  color: #050505;
+  color: var(--text);
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -502,7 +504,7 @@ function formatDate(iso: string) {
 .blog-cta-text {
   font-size: 15px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
 }
@@ -512,7 +514,7 @@ function formatDate(iso: string) {
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-  color: #0066cc;
+  color: var(--accent);
   text-decoration: none;
 }
 

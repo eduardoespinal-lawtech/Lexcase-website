@@ -236,8 +236,8 @@ const tiles = computed(() => [
 
 <style scoped>
 .features-page {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .module-eyebrow {
@@ -246,7 +246,7 @@ const tiles = computed(() => [
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #0066cc;
+  color: var(--accent);
   margin-bottom: 8px;
 }
 
@@ -255,11 +255,11 @@ const tiles = computed(() => [
   align-items: center;
   padding: 6px 14px;
   border-radius: 999px;
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   font-size: 13px;
   font-weight: 500;
-  color: #191919;
+  color: var(--text);
 }
 
 .apple-window-box {
@@ -300,7 +300,7 @@ const tiles = computed(() => [
   font-size: clamp(40px, 4.5vw, 56px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #050505;
+  color: var(--text);
   line-height: 1;
 }
 .privacy-stat-label {
@@ -309,7 +309,7 @@ const tiles = computed(() => [
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 /* === Tiles minimalistas === */
@@ -318,8 +318,9 @@ const tiles = computed(() => [
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: #f1f1ef;
-  color: #050505;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--icon-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -329,13 +330,13 @@ const tiles = computed(() => [
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #050505;
+  color: var(--text);
   margin: 0 0 8px;
 }
 .ft-tile-body {
   font-size: 14.5px;
   line-height: 1.55;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0;
 }
 </style>

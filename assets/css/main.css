@@ -7,16 +7,47 @@
   --bg:          #ffffff;
   --bg-subtle:   #fafafa;
   --bg-section:  #f7f7f5;
+  --bg-elevated: #f3f4f6;
   --text:        #191919;
   --text-muted:  #5f5e5b;
-  --text-light:  #8b8a86;
+  --text-light:  #6b7280;
   --accent:      #0066cc;
   --accent-hover:#0052a3;
+  --accent-soft: #f0f6ff;
+  --accent-border:#bfdbfe;
   --border:      #ebebea;
   --border-dark: #d3d3d0;
   --card-bg:     #ffffff;
+  --header-bg:   rgba(251, 251, 250, 0.94);
+  --header-border: rgba(0, 0, 0, 0.08);
   --brand-black: #050505;
   --brand-black-hover: #262626;
+  --icon-color:  #191919;
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg:          #0b0d12;
+  --bg-subtle:   #12151e;
+  --bg-section:  #11141c;
+  --bg-elevated: #1c212e;
+  --text:        #f3f4f6;
+  --text-muted:  #cbd5e1;
+  --text-light:  #94a3b8;
+  --accent:      #3b82f6;
+  --accent-hover:#60a5fa;
+  --accent-soft: rgba(59, 130, 246, 0.14);
+  --accent-border: rgba(96, 165, 250, 0.35);
+  --border:      #242936;
+  --border-dark: #333a4d;
+  --card-bg:     #161a24;
+  --header-bg:   rgba(11, 13, 18, 0.9);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --brand-black: #ffffff;
+  --brand-black-hover: #e5e7eb;
+  --icon-color:  #ffffff;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 ::selection {
@@ -154,7 +185,7 @@ p, .hero-p, .article-lead,
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--card-bg);
 }
 
 .compare-table th {
@@ -162,7 +193,7 @@ p, .hero-p, .article-lead,
   text-align: left;
   font-weight: 600;
   font-size: 13.5px;
-  background: #fbfbfa;
+  background: var(--bg-subtle);
   border-bottom: 1px solid var(--border);
   color: var(--text);
   letter-spacing: -0.01em;
@@ -180,9 +211,9 @@ p, .hero-p, .article-lead,
 }
 
 .compare-table .lexbell-col {
-  background: #f8fafc;
+  background: var(--bg-elevated);
   font-weight: 500;
-  color: #0f172a;
+  color: var(--text);
 }
 
 /* === Links & Buttons === */
@@ -220,3 +251,27 @@ button:focus-visible {
 .prose-legal strong { color: var(--text); font-weight: 600; }
 .prose-legal a { color: var(--accent); text-decoration: none; }
 .prose-legal a:hover { text-decoration: underline; }
+
+/* === Global Dark Mode Utility Overrides === */
+html.dark .bg-white { background-color: var(--card-bg) !important; }
+html.dark .bg-gray-50,
+html.dark .bg-slate-50 { background-color: var(--bg-subtle) !important; }
+html.dark .bg-gray-100,
+html.dark .bg-slate-100 { background-color: var(--bg-elevated) !important; }
+html.dark .text-ink,
+html.dark .text-gray-900,
+html.dark .text-slate-900 { color: var(--text) !important; }
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-slate-700 { color: #e2e8f0 !important; }
+html.dark .text-gray-600,
+html.dark .text-gray-500,
+html.dark .text-slate-600 { color: var(--text-muted) !important; }
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-slate-200 { border-color: var(--border) !important; }
+
+/* Crisp high-contrast icons in dark mode (never muted gray) */
+html.dark svg:not([data-keep-color]) {
+  color: inherit;
+}

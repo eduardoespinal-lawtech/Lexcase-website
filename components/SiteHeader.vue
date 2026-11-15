@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const { isDark, toggleTheme } = useTheme()
 
 const open = ref(false)
 const route = useRoute()
@@ -56,8 +57,23 @@ const links = computed(() => [
         </nav>
       </div>
 
-      <!-- Derecha: Selector de Idioma + Botón Acción Estilo Microsoft + Móvil -->
+      <!-- Derecha: Selector de Idioma + Tema + Botón Acción + Móvil -->
       <div class="site-header-tail">
+        <button
+          type="button"
+          class="theme-toggle-btn"
+          :aria-label="isDark ? (locale === 'es' ? 'Cambiar a modo claro' : 'Switch to light mode') : (locale === 'es' ? 'Cambiar a modo oscuro' : 'Switch to dark mode')"
+          :title="isDark ? (locale === 'es' ? 'Modo claro' : 'Light mode') : (locale === 'es' ? 'Modo oscuro' : 'Dark mode')"
+          @click="toggleTheme"
+        >
+          <svg v-if="isDark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
         <LangSwitcher />
         <a :href="localePath('index') + '#descargar'" class="header-trial-btn">
           {{ t('nav.tryFree') }}
@@ -95,6 +111,23 @@ const links = computed(() => [
             {{ t('nav.tryFree') }}
           </a>
           <div class="site-header-mobile-lang">
+            <span class="mobile-lang-label">{{ locale === 'es' ? 'Tema' : 'Theme' }}</span>
+            <button
+              type="button"
+              class="theme-toggle-btn"
+              :aria-label="isDark ? (locale === 'es' ? 'Cambiar a modo claro' : 'Switch to light mode') : (locale === 'es' ? 'Cambiar a modo oscuro' : 'Switch to dark mode')"
+              @click="toggleTheme"
+            >
+              <svg v-if="isDark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </button>
+          </div>
+          <div class="site-header-mobile-lang">
             <span class="mobile-lang-label">{{ locale === 'es' ? 'Idioma' : 'Language' }}</span>
             <LangSwitcher />
           </div>
@@ -109,14 +142,14 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(251, 251, 250, 0.94);
+  background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
+  transition: border-bottom-color 0.2s ease, background-color 0.2s ease;
 }
 .site-header.is-scrolled {
-  border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-bottom-color: var(--header-border);
 }
 .site-header-inner {
   max-width: 1440px;
@@ -138,10 +171,10 @@ const links = computed(() => [
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #050505;
+  color: var(--text);
 }
 .header-pipe {
-  color: #c7c7c5;
+  color: var(--border-dark);
   font-weight: 300;
   font-size: 16px;
   margin: 0 10px;
@@ -150,7 +183,7 @@ const links = computed(() => [
 .header-product-tag {
   font-size: 14px;
   font-weight: 600;
-  color: #111111;
+  color: var(--text);
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
@@ -164,30 +197,46 @@ const links = computed(() => [
 }
 .site-header-link {
   font-size: 13.5px;
-  color: #37352F;
+  color: var(--text-muted);
   text-decoration: none;
-  opacity: 0.82;
   font-weight: 500;
   transition: opacity .15s ease, color .15s ease;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.site-header-link:hover { opacity: 1; color: #000000; }
-.router-link-exact-active.site-header-link { opacity: 1; font-weight: 600; color: #000000; }
+.site-header-link:hover { color: var(--text); }
+.router-link-exact-active.site-header-link { font-weight: 600; color: var(--text); }
 
 .site-header-tail {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+}
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--icon-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--border-dark);
+  transform: translateY(-1px);
 }
 .header-trial-btn {
   display: none;
   align-items: center;
   justify-content: center;
   padding: 7px 18px;
-  background: #000000;
-  color: #ffffff;
-  border-radius: 4px;
+  background: var(--brand-black);
+  color: var(--bg);
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -196,7 +245,7 @@ const links = computed(() => [
   white-space: nowrap;
 }
 .header-trial-btn:hover {
-  background: #262626;
+  background: var(--brand-black-hover);
   transform: translateY(-1px);
 }
 @media (min-width: 640px) {
@@ -212,16 +261,16 @@ const links = computed(() => [
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  color: #050505;
+  color: var(--icon-color);
 }
-.site-header-burger:hover { background: rgba(0, 0, 0, 0.05); }
+.site-header-burger:hover { background: var(--bg-elevated); }
 @media (min-width: 960px) {
   .site-header-burger { display: none; }
 }
 
 .site-header-mobile {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(251, 251, 250, 0.98);
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
 }
 .site-header-mobile-inner {
   max-width: 1240px;
@@ -233,9 +282,9 @@ const links = computed(() => [
 .site-header-mobile-link {
   padding: 12px 0;
   font-size: 15.5px;
-  color: #050505;
+  color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--border);
 }
 .site-header-mobile-cta {
   display: inline-flex;
@@ -243,8 +292,8 @@ const links = computed(() => [
   justify-content: center;
   margin-top: 14px;
   padding: 11px 16px;
-  background: #000000;
-  color: #ffffff;
+  background: var(--brand-black);
+  color: var(--bg);
   border-radius: 6px;
   font-size: 14px;
   font-weight: 600;
@@ -261,7 +310,7 @@ const links = computed(() => [
 .mobile-lang-label {
   font-size: 14px;
   font-weight: 500;
-  color: #787774;
+  color: var(--text-muted);
 }
 
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }

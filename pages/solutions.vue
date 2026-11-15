@@ -335,8 +335,8 @@ const solutions = computed<SolutionItem[]>(() => {
 
 <style scoped>
 .solutions-page {
-  background: #ffffff;
-  color: #1d1d1f;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .solutions-wrap {
@@ -348,7 +348,7 @@ const solutions = computed<SolutionItem[]>(() => {
 .solutions-hero {
   padding: clamp(56px, 7vw, 88px) 0 clamp(40px, 5vw, 56px);
   text-align: center;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .solutions-hero-title {
@@ -356,7 +356,7 @@ const solutions = computed<SolutionItem[]>(() => {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: #111827;
+  color: var(--text);
   max-width: 740px;
   margin: 10px auto 16px;
 }
@@ -364,7 +364,7 @@ const solutions = computed<SolutionItem[]>(() => {
 .solutions-hero-subtitle {
   font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.6;
-  color: #6b7280;
+  color: var(--text-muted);
   max-width: 620px;
   margin: 0 auto;
 }
@@ -383,28 +383,28 @@ const solutions = computed<SolutionItem[]>(() => {
   padding: 8px 16px;
   font-size: 13.5px;
   font-weight: 500;
-  color: #374151;
-  background: #f5f5f7;
-  border: 1px solid #e5e7eb;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 999px;
   text-decoration: none;
   transition: all 0.15s ease;
 }
 
 .anchor-pill:hover {
-  color: #0066cc;
-  background: #f0f6ff;
-  border-color: #bfdbfe;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
 }
 
 .solution-row {
   padding: clamp(44px, 6vw, 76px) 0;
   scroll-margin-top: 64px;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .solution-row.is-alt {
-  background: #f5f5f7;
+  background: var(--bg-section);
 }
 
 .solution-grid {
@@ -430,7 +430,7 @@ const solutions = computed<SolutionItem[]>(() => {
   object-fit: cover;
   border-radius: 20px;
   display: block;
-  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+  box-shadow: var(--shadow-card);
 }
 
 .solution-text {
@@ -443,7 +443,7 @@ const solutions = computed<SolutionItem[]>(() => {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #0066cc;
+  color: var(--accent);
   margin-bottom: 10px;
 }
 
@@ -452,14 +452,14 @@ const solutions = computed<SolutionItem[]>(() => {
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.18;
-  color: #111827;
+  color: var(--text);
   margin: 0 0 16px;
 }
 
 .solution-para {
   font-size: 15.5px;
   line-height: 1.65;
-  color: #4b5563;
+  color: var(--text-muted);
   margin: 0 0 12px;
 }
 
@@ -478,13 +478,13 @@ const solutions = computed<SolutionItem[]>(() => {
   gap: 9px;
   font-size: 14px;
   line-height: 1.5;
-  color: #1f2937;
+  color: var(--text);
   font-weight: 500;
 }
 
 .check-icon {
   flex-shrink: 0;
-  color: #0066cc;
+  color: var(--accent);
   margin-top: 3px;
 }
 
@@ -504,14 +504,14 @@ const solutions = computed<SolutionItem[]>(() => {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  background: #0066cc;
+  background: var(--accent);
   border-radius: 10px;
   text-decoration: none;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .solution-btn:hover {
-  background: #0052a3;
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
@@ -521,22 +521,21 @@ const solutions = computed<SolutionItem[]>(() => {
   padding: 11px 16px;
   font-size: 14px;
   font-weight: 600;
-  color: #374151;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  color: var(--text);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 10px;
   text-decoration: none;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .solution-secondary-btn:hover {
-  color: #111827;
-  border-color: #9ca3af;
+  border-color: var(--border-dark);
 }
 
 .solutions-cta-section {
   padding: clamp(56px, 7vw, 88px) 0;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .cta-banner {
@@ -544,8 +543,8 @@ const solutions = computed<SolutionItem[]>(() => {
   margin: 0 auto;
   padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
   text-align: center;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 24px;
 }
 
@@ -554,14 +553,14 @@ const solutions = computed<SolutionItem[]>(() => {
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.15;
-  color: #111827;
+  color: var(--text);
   margin: 10px auto 12px;
 }
 
 .cta-subtitle {
   font-size: 16px;
   line-height: 1.6;
-  color: #6b7280;
+  color: var(--text-muted);
   max-width: 520px;
   margin: 0 auto;
 }
@@ -569,6 +568,6 @@ const solutions = computed<SolutionItem[]>(() => {
 .cta-note {
   margin-top: 16px;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--text-light);
 }
 </style>

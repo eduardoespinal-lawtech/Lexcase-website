@@ -72,13 +72,13 @@ useHead(() => {
 
 <style scoped>
 .contact-page {
-  background: #ffffff;
-  color: #191919;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .contact-card {
-  background: #ffffff;
-  border: 1px solid #ebebea;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 32px 28px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -91,16 +91,17 @@ useHead(() => {
 
 .contact-card-link:hover {
   transform: translateY(-2px);
-  border-color: #d3d3d0;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-card);
 }
 
 .contact-icon {
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: #f1f1ef;
-  color: #050505;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--icon-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +113,7 @@ useHead(() => {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #5f5e5b;
+  color: var(--text-muted);
   margin: 0 0 10px;
 }
 
@@ -120,7 +121,7 @@ useHead(() => {
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: #0066cc;
+  color: var(--accent);
   margin: 0;
   word-break: normal;
   overflow-wrap: anywhere;
@@ -129,13 +130,13 @@ useHead(() => {
 .contact-hint {
   margin-top: 8px;
   font-size: 14.5px;
-  color: #5f5e5b;
+  color: var(--text-muted);
 }
 
 .contact-body {
   font-size: 15px;
   line-height: 1.6;
-  color: #191919;
+  color: var(--text);
   margin: 0;
 }
 </style>
