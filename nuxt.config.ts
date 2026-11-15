@@ -22,12 +22,12 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
-      htmlAttrs: { lang: 'es', class: 'dark' },
+      htmlAttrs: { lang: 'es' },
       title: 'Lexbell — Gestor de expedientes legales para Mac y Windows',
       script: [
         {
           innerHTML:
-            "(function(){try{var t=localStorage.getItem('lexbell-theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){}})();"
+            "(function(){try{var t=localStorage.getItem('lexbell-theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();"
         }
       ],
       meta: [
