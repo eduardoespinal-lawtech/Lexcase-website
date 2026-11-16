@@ -166,6 +166,198 @@ const tiles = computed(() => [
       </div>
     </section>
 
+    <!-- ========= SPOTLIGHT · Conectores MCP (IA Local) ========= -->
+    <section id="ia-mcp" class="section scroll-mt-16">
+      <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
+        <div>
+          <span class="module-eyebrow">{{ t('features.mcpEyebrow') }}</span>
+          <h2 class="h-section mt-2">{{ t('features.mcpTitle') }}</h2>
+          <p class="subtitle mt-4">{{ t('features.mcpBody') }}</p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.mcpPoint1Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.mcpPoint1Desc') }}</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.mcpPoint2Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.mcpPoint2Desc') }}</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.mcpPoint3Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.mcpPoint3Desc') }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Visual MCP -->
+        <div class="mcp-visual-box">
+          <div class="mcp-visual-header">
+            <div class="flex items-center gap-2">
+              <span class="status-dot-green"></span>
+              <span class="text-xs font-semibold tracking-wide uppercase text-[var(--text-muted)]">Local MCP Server</span>
+            </div>
+            <span class="badge-read-only">{{ locale === 'en' ? 'Read-Only · 100% Local' : 'Solo Lectura · 100% Local' }}</span>
+          </div>
+
+          <div class="mcp-assistants-grid">
+            <div class="mcp-assistant-item">
+              <div class="mcp-icon-circle bg-blue-500/10 text-blue-500">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <div class="text-left">
+                <div class="font-semibold text-sm text-[var(--text)]">Google Antigravity</div>
+                <div class="text-xs text-[var(--text-muted)]">{{ locale === 'en' ? '1-Click connection' : 'Conexión directa en 1 clic' }}</div>
+              </div>
+            </div>
+
+            <div class="mcp-assistant-item">
+              <div class="mcp-icon-circle bg-amber-500/10 text-amber-500">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+              </div>
+              <div class="text-left">
+                <div class="font-semibold text-sm text-[var(--text)]">Claude Desktop</div>
+                <div class="text-xs text-[var(--text-muted)]">{{ locale === 'en' ? 'Native JSON config' : 'Configuración nativa JSON' }}</div>
+              </div>
+            </div>
+
+            <div class="mcp-assistant-item">
+              <div class="mcp-icon-circle bg-indigo-500/10 text-indigo-500">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div class="text-left">
+                <div class="font-semibold text-sm text-[var(--text)]">Cursor IDE</div>
+                <div class="text-xs text-[var(--text-muted)]">{{ locale === 'en' ? 'Active case context' : 'Contexto procesal activo' }}</div>
+              </div>
+            </div>
+
+            <div class="mcp-assistant-item">
+              <div class="mcp-icon-circle bg-emerald-500/10 text-emerald-500">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 8 6 4-6 4Z"/></svg>
+              </div>
+              <div class="text-left">
+                <div class="font-semibold text-sm text-[var(--text)]">OpenAI Codex</div>
+                <div class="text-xs text-[var(--text-muted)]">{{ locale === 'en' ? 'Standard MCP protocol' : 'Protocolo MCP estándar' }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mcp-visual-footer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>{{ locale === 'en' ? 'Client data never leaves your device or trains third-party models.' : 'Tus datos procesales nunca salen de tu ordenador ni entrenan modelos de terceros.' }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= SPOTLIGHT · Compartir en oficina (Red Local) ========= -->
+    <section id="oficina" class="section section-gray scroll-mt-16">
+      <div class="apple-wrap-wide grid gap-12 items-center lg:grid-cols-2">
+        <div class="lg:order-2">
+          <span class="module-eyebrow">{{ t('features.lanEyebrow') }}</span>
+          <h2 class="h-section mt-2">{{ t('features.lanTitle') }}</h2>
+          <p class="subtitle mt-4">{{ t('features.lanBody') }}</p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.lanPoint1Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.lanPoint1Desc') }}</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.lanPoint2Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.lanPoint2Desc') }}</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="feat-bullet-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg>
+              </span>
+              <div>
+                <strong class="text-sm font-semibold text-[var(--text)]">{{ t('features.lanPoint3Title') }}:</strong>
+                <span class="text-sm text-[var(--text-muted)] ml-1">{{ t('features.lanPoint3Desc') }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Visual LAN -->
+        <div class="lan-visual-box lg:order-1">
+          <div class="lan-visual-top">
+            <div class="lan-host-card">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="status-dot-green"></span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[var(--text)]">{{ locale === 'en' ? 'Local Host Workstation' : 'Servidor Anfitrión Local' }}</span>
+                </div>
+                <span class="text-xs font-mono bg-blue-500/10 text-blue-500 px-2 py-0.5 rounded">192.168.1.42</span>
+              </div>
+              <div class="mt-4 flex items-center justify-between bg-[var(--bg)] p-3 rounded-lg border border-[var(--border)]">
+                <div>
+                  <div class="text-[11px] font-semibold text-[var(--text-muted)] uppercase">{{ locale === 'en' ? 'Pairing Security PIN' : 'PIN de Emparejamiento' }}</div>
+                  <div class="text-xl font-mono font-bold tracking-widest text-[var(--text)] mt-0.5">849 201</div>
+                </div>
+                <span class="text-xs text-emerald-500 font-medium">{{ locale === 'en' ? 'Active · Office Wi-Fi' : 'Activo · Red Oficina' }}</span>
+              </div>
+            </div>
+
+            <div class="lan-connection-line">
+              <div class="lan-ping-line"></div>
+              <div class="lan-shield-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>{{ locale === 'en' ? 'Local P2P Encryption' : 'Cifrado P2P local' }}</span>
+              </div>
+            </div>
+
+            <div class="lan-peers-grid">
+              <div class="lan-peer-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                <div class="text-left">
+                  <div class="text-xs font-semibold text-[var(--text)]">MacBook Pro · Lic. Valenzuela</div>
+                  <div class="text-[11px] text-emerald-500 font-medium">{{ locale === 'en' ? 'Live sync' : 'Sincronizado al instante' }}</div>
+                </div>
+              </div>
+              <div class="lan-peer-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                <div class="text-left">
+                  <div class="text-xs font-semibold text-[var(--text)]">ThinkPad PC · Secretaría Legal</div>
+                  <div class="text-[11px] text-emerald-500 font-medium">{{ locale === 'en' ? 'Live sync' : 'Sincronizado al instante' }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lan-visual-footer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" x2="23" y1="1" y2="23"/><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            <span>{{ locale === 'en' ? 'Zero Cloud: Sync stays strictly inside your office perimeter.' : 'Cero Nube: La sincronización nunca sale a internet ni a servidores externos.' }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ========= SPOTLIGHT 6 · Privacidad por diseño ========= -->
     <section class="section">
       <div class="apple-wrap text-center">
@@ -338,5 +530,170 @@ const tiles = computed(() => [
   line-height: 1.55;
   color: var(--text-muted);
   margin: 0;
+}
+
+/* === Bullet icon check === */
+.feat-bullet-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: rgba(0, 122, 255, 0.12);
+  color: #007aff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* === Visual Box MCP === */
+.mcp-visual-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.12);
+}
+.mcp-visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.status-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+.badge-read-only {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+.mcp-assistants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+@media (max-width: 640px) {
+  .mcp-assistants-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.mcp-assistant-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.mcp-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mcp-visual-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* === Visual Box LAN === */
+.lan-visual-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.12);
+}
+.lan-visual-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.lan-host-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.lan-connection-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  padding: 8px 0;
+}
+.lan-connection-line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+}
+.lan-shield-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.lan-peers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .lan-peers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.lan-peer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-muted);
+}
+.lan-visual-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
 }
 </style>

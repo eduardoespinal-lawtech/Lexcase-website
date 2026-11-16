@@ -130,6 +130,10 @@
     "heroTitle": "Gestión de expedientes 100% local para el abogado independiente.",
     "heroTitle2": "Sin depender de la nube.",
     "heroSubtitle": "Controla casos, audiencias, plazos y documentos directamente en tu computadora. Todo vive en tu disco, funciona sin conexión y nada sale a internet.",
+    "newsBadge": "NUEVO EN LEXBELL",
+    "newsTitle": "Conecta tu despacho con la Inteligencia Artificial y colabora en red local",
+    "newsSubtitle": "Lexbell ahora integra conectores en un clic con los principales asistentes de IA (Claude Desktop, Cursor, Antigravity y Codex) mediante el protocolo MCP, y te permite compartir expedientes en tiempo real con tu equipo de oficina sin subir nada a la nube.",
+    "newsCta": "Descargar gratis · 15 días de prueba Pro",
     "trust1": "100% Local y cifrado",
     "trust2": "Prevención de conflictos",
     "trust3": "Funciona sin conexión",
@@ -279,6 +283,8 @@
     "proFeature1": "Expedientes y clientes ilimitados",
     "proFeature2": "Mapa de vínculos y detección de conflictos",
     "proFeature3": "Respaldos automáticos a disco externo",
+    "proFeature4": "Compartir en oficina: Sincronización en tiempo real en la red local del despacho",
+    "proFeature5": "Conectores MCP (IA): Integración nativa en 1 clic con Antigravity, Claude, Cursor y Codex",
     "proCTA": "Probar 15 días gratis",
     "proTrialNote": "Sin tarjeta de crédito",
     "proAnnualTitle": "Pro Anual",
@@ -354,7 +360,29 @@
     "tile5Title": "Notas con editor",
     "tile5Body": "Editor enriquecido en cada expediente. Vincula carpetas locales o de Google Drive.",
     "tile6Title": "Diseño nativo",
-    "tile6Body": "Se ve y se siente nativo en Mac y Windows. Modo claro y oscuro. Español e inglés."
+    "tile6Body": "Se ve y se siente nativo en Mac y Windows. Modo claro y oscuro. Español e inglés.",
+    "mcpEyebrow": "INTELIGENCIA ARTIFICIAL LOCAL",
+    "mcpTitle": "Conectores MCP: Tu práctica jurídica potenciada por IA",
+    "mcpBody": "Conecta Lexbell directamente con tus asistentes y agentes de inteligencia artificial en un solo clic: Google Antigravity, Claude Desktop, Cursor y OpenAI Codex.",
+    "mcpPoint1Title": "Acceso contextual seguro",
+    "mcpPoint1Desc": "Permite a tu asistente consultar expedientes, partes, plazos y notas para resumir autos o preparar escritos.",
+    "mcpPoint2Title": "100% Privado y Local",
+    "mcpPoint2Desc": "Funciona mediante un servidor MCP en tu propio ordenador en modo solo lectura. Ningún dato procesal ni confidencial se transfiere a nubes externas ni entrena modelos ajenos.",
+    "mcpPoint3Title": "Configuración sin código",
+    "mcpPoint3Desc": "Activa los conectores con un solo interruptor; Lexbell configura los archivos de tu asistente automáticamente.",
+    "lanEyebrow": "COLABORACIÓN SIN NUBE",
+    "lanTitle": "Compartir en oficina: Trabajo en equipo dentro de tu red local",
+    "lanBody": "Trabaja en tiempo real con los demás abogados y colaboradores de tu despacho a través de la red local de la oficina (Wi-Fi o cable).",
+    "lanPoint1Title": "Sincronización instantánea",
+    "lanPoint1Desc": "Crea o actualiza expedientes, eventos y notas desde un equipo y los demás lo verán de inmediato.",
+    "lanPoint2Title": "Protección con PIN",
+    "lanPoint2Desc": "Conexión protegida mediante código de seguridad de 6 dígitos generado por el equipo anfitrión.",
+    "lanPoint3Title": "Secreto profesional garantizado",
+    "lanPoint3Desc": "Toda la comunicación ocurre exclusivamente dentro de tu red física, sin intermediarios ni servidores en internet."
+  },
+  "pricing": {
+    "featLan": "Compartir en oficina en red local",
+    "featMcp": "Conectores MCP para asistentes de IA"
   },
   "support": {
     "title": "Estamos para ayudarte.",
@@ -403,7 +431,11 @@
     "q9": "¿En qué países y ramas jurídicas funciona?",
     "a9": "Lexbell está diseñado para profesionales independientes. Incluye seguimiento de litigios civiles, penales y laborales, trámites de migración (visas, residencias, citas consulares) y administración de contratos de alquiler e inmuebles.",
     "q10": "¿Dónde puedo descargar Lexbell de forma oficial?",
-    "a10": "Lexbell se descarga oficialmente desde la Mac App Store para macOS y desde la Microsoft Store para Windows, garantizando binarios certificados y actualizados por las tiendas oficiales de Apple y Microsoft."
+    "a10": "Lexbell se descarga oficialmente desde la Mac App Store para macOS y desde la Microsoft Store para Windows, garantizando binarios certificados y actualizados por las tiendas oficiales de Apple y Microsoft.",
+    "q11": "¿Qué son los Conectores MCP de Lexbell y cómo funcionan?",
+    "a11": "El Model Context Protocol (MCP) es un estándar abierto desarrollado para que los asistentes de inteligencia artificial (como Claude, Cursor, Antigravity o Codex) puedan comunicarse de forma estructurada con aplicaciones de escritorio. Lexbell incorpora un servidor MCP local de solo lectura en tu equipo, lo que permite a tu asistente de IA responder preguntas sobre tus casos, redactar resúmenes o verificar fechas límite sin que tus expedientes salgan a ningún servidor en la nube.",
+    "q12": "¿Cómo funciona «Compartir en oficina» sin internet ni servidores en la nube?",
+    "a12": "Un equipo de tu despacho actúa como anfitrión local en tu red de Wi-Fi o cable Ethernet y genera un PIN de seguridad. Los demás ordenadores de la oficina se conectan directamente a través de la red local. Toda la sincronización viaja de máquina a máquina dentro de tu oficina sin pasar jamás por internet."
   },
   "privacy": {
     "title": "Política de Privacidad",

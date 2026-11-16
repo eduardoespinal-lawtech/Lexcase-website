@@ -22,7 +22,13 @@ useHead(() => {
   }
 })
 
-const proFeatures = ['home.proFeature1', 'home.proFeature2', 'home.proFeature3']
+const proFeatures = [
+  'home.proFeature1',
+  'home.proFeature2',
+  'home.proFeature3',
+  'home.proFeature4',
+  'home.proFeature5'
+]
 
 const plans = [
   {
