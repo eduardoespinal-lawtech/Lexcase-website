@@ -61,8 +61,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'mask-icon', href: '/favicon.svg', color: '#007AFF' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'canonical', href: 'https://lex-bell.com/' }
+        { rel: 'manifest', href: '/site.webmanifest' }
       ]
     }
   },
