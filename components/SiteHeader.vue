@@ -35,29 +35,31 @@ const links = computed(() => [
 </script>
 
 <template>
-  <header class="site-header" :class="{ 'is-scrolled': isScrolled }">
+  <header
+    class="site-header"
+    :class="{ 'is-scrolled': isScrolled }"
+  >
     <div class="site-header-inner">
-      <!-- Izquierda: Logo + Pipe + Tag de Producto + Enlaces (Estilo Microsoft 365) -->
+      <!-- Columna 1: Logo limpio -->
       <div class="site-header-left">
         <NuxtLink :to="localePath('index')" class="site-header-brand" :aria-label="t('common.brand')">
           <LogoMark />
-          <span class="header-pipe">|</span>
-          <span class="header-product-tag">{{ t('nav.productTag') }}</span>
         </NuxtLink>
-
-        <nav class="site-header-nav" aria-label="Primary">
-          <NuxtLink
-            v-for="link in links"
-            :key="link.to"
-            :to="link.to"
-            class="site-header-link"
-          >
-            {{ link.label }}
-          </NuxtLink>
-        </nav>
       </div>
 
-      <!-- Derecha: Selector de Idioma + Tema + Botón Acción + Móvil -->
+      <!-- Columna 2: Menú Central estilo Manus (14px font-medium) -->
+      <nav class="site-header-nav" aria-label="Primary">
+        <NuxtLink
+          v-for="link in links"
+          :key="link.to"
+          :to="link.to"
+          class="site-header-link"
+        >
+          {{ link.label }}
+        </NuxtLink>
+      </nav>
+
+      <!-- Columna 3: Controles y CTA Píldora -->
       <div class="site-header-tail">
         <button
           type="button"
@@ -71,13 +73,17 @@ const links = computed(() => [
             <path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
           </svg>
           <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z" />
           </svg>
         </button>
+
         <LangSwitcher />
-        <a :href="localePath('index') + '#descargar'" class="header-trial-btn">
+
+        <a :href="localePath('index') + '#descargar'" class="manus-header-cta">
           {{ t('nav.tryFree') }}
         </a>
+
+        <!-- Botón Móvil -->
         <button
           class="site-header-burger"
           :aria-label="open ? t('nav.close') : t('nav.menu')"
@@ -96,6 +102,7 @@ const links = computed(() => [
       </div>
     </div>
 
+    <!-- Menú Desplegable Móvil -->
     <Transition name="fade">
       <nav v-if="open" class="site-header-mobile" aria-label="Mobile">
         <div class="site-header-mobile-inner">
@@ -123,7 +130,7 @@ const links = computed(() => [
                 <path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
               </svg>
               <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z" />
               </svg>
             </button>
           </div>
@@ -138,80 +145,99 @@ const links = computed(() => [
 </template>
 
 <style scoped>
+/* === HEADER EXACTO ESTILO MANUS (h-[56px], max-w-[1080px]) === */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 40;
+  width: 100%;
+  height: 56px;
   background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
   transition: border-bottom-color 0.2s ease, background-color 0.2s ease;
 }
+
 .site-header.is-scrolled {
   border-bottom-color: var(--header-border);
 }
+
 .site-header-inner {
-  max-width: 1440px;
+  max-width: 1080px;
   margin: 0 auto;
-  height: 56px;
+  height: 100%;
   padding: 0 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
 }
+
+@media (min-width: 1024px) {
+  .site-header-inner {
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
 .site-header-left {
   display: flex;
   align-items: center;
-  gap: 28px;
-  flex: 1;
 }
+
 .site-header-brand {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   color: var(--text);
 }
-.header-pipe {
-  color: var(--border-dark);
-  font-weight: 300;
-  font-size: 16px;
-  margin: 0 10px;
-  user-select: none;
-}
-.header-product-tag {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
+
+/* Enlaces Centrados estilo Manus */
 .site-header-nav {
   display: none;
   align-items: center;
-  gap: 22px;
+  justify-content: center;
+  gap: 4px;
 }
-@media (min-width: 960px) {
-  .site-header-nav { display: flex; }
+
+@media (min-width: 1024px) {
+  .site-header-nav {
+    display: flex;
+  }
 }
+
 .site-header-link {
-  font-size: 13.5px;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
-  transition: opacity .15s ease, color .15s ease;
-  letter-spacing: -0.01em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
   white-space: nowrap;
 }
-.site-header-link:hover { color: var(--text); }
-.router-link-exact-active.site-header-link { font-weight: 600; color: var(--text); }
 
+.site-header-link:hover {
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.dark .site-header-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.router-link-exact-active.site-header-link {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Controles Derecha */
 .site-header-tail {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
+
 .theme-toggle-btn {
   display: inline-flex;
   align-items: center;
@@ -225,31 +251,48 @@ const links = computed(() => [
   cursor: pointer;
   transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
+
 .theme-toggle-btn:hover {
   border-color: var(--border-dark);
   transform: translateY(-1px);
 }
-.header-trial-btn {
+
+/* Botón CTA exacto de Manus: Píldora h-[32px] rounded-full */
+.manus-header-cta {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 7px 18px;
-  background: var(--brand-black);
-  color: var(--bg);
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
+  height: 32px;
+  min-width: 64px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  background: #141414;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
   text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: background 0.15s ease, transform 0.1s ease;
   white-space: nowrap;
+  transition: opacity 0.15s ease, transform 0.1s ease;
 }
-.header-trial-btn:hover {
-  background: var(--brand-black-hover);
-  transform: translateY(-1px);
+
+.dark .manus-header-cta {
+  background: #ffffff;
+  color: #000000;
 }
+
+.manus-header-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-0.5px);
+}
+
+.manus-header-cta:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
 @media (min-width: 640px) {
-  .header-trial-btn {
+  .manus-header-cta {
     display: inline-flex;
   }
 }
@@ -263,41 +306,57 @@ const links = computed(() => [
   border-radius: 6px;
   color: var(--icon-color);
 }
-.site-header-burger:hover { background: var(--bg-elevated); }
-@media (min-width: 960px) {
-  .site-header-burger { display: none; }
+
+.site-header-burger:hover {
+  background: var(--bg-elevated);
 }
 
+@media (min-width: 1024px) {
+  .site-header-burger {
+    display: none;
+  }
+}
+
+/* Móvil */
 .site-header-mobile {
   border-top: 1px solid var(--border);
   background: var(--bg-subtle);
 }
+
 .site-header-mobile-inner {
-  max-width: 1240px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 8px 22px 18px;
+  padding: 12px 24px 20px;
   display: flex;
   flex-direction: column;
 }
+
 .site-header-mobile-link {
   padding: 12px 0;
-  font-size: 15.5px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--text);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
 }
+
 .site-header-mobile-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 14px;
-  padding: 11px 16px;
-  background: var(--brand-black);
-  color: var(--bg);
-  border-radius: 6px;
+  height: 40px;
+  background: #141414;
+  color: #ffffff;
+  border-radius: 9999px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
+}
+
+.dark .site-header-mobile-cta {
+  background: #ffffff;
+  color: #000000;
 }
 
 .site-header-mobile-lang {
@@ -307,6 +366,7 @@ const links = computed(() => [
   padding: 14px 0 6px;
   margin-top: 4px;
 }
+
 .mobile-lang-label {
   font-size: 14px;
   font-weight: 500;

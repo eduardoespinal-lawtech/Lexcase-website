@@ -673,7 +673,7 @@ useHead(() => {
 }
 
 .manus-container {
-  max-width: 1032px;
+  max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
@@ -689,8 +689,9 @@ useHead(() => {
 .manus-eyebrow {
   display: inline-block;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 12px;
@@ -703,13 +704,15 @@ useHead(() => {
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin: 0 0 14px;
+  max-width: 680px;
+  margin: 0 auto 14px;
   text-wrap: balance;
 }
 
 .manus-section-subtitle {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 24px;
+  font-weight: 400;
   color: var(--text-muted);
   max-width: 680px;
   margin-left: auto;
@@ -733,8 +736,9 @@ useHead(() => {
   border-radius: 9999px;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
+  line-height: 20px;
   color: var(--text);
   text-decoration: none;
   margin-bottom: 24px;
@@ -760,16 +764,17 @@ useHead(() => {
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--text);
-  max-width: 780px;
+  max-width: 680px;
   margin: 0 auto 20px;
   text-wrap: balance;
 }
 
 .manus-hero-subtitle {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 24px;
+  font-weight: 400;
   color: var(--text-muted);
-  max-width: 620px;
+  max-width: 680px;
   margin: 0 auto 28px;
   text-wrap: balance;
 }
@@ -918,7 +923,7 @@ useHead(() => {
 
 .manus-card-desc {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 24px;
   color: var(--text-muted);
   margin: 0;
 }
@@ -1104,9 +1109,9 @@ useHead(() => {
 
 .manus-final-sub {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 24px;
   color: #94a3b8;
-  max-width: 580px;
+  max-width: 680px;
   margin: 0 auto 32px;
   text-wrap: balance;
   position: relative;
