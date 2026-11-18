@@ -294,7 +294,9 @@ useHead(() => {
               :aria-label="locale === 'en' ? 'Previous tab' : 'Pestaña anterior'"
               @click="prevTab"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </button>
             <span class="text-xs text-[var(--text-muted)] font-medium font-mono">
               0{{ activeTab + 1 }} / 0{{ showcaseTabs.length }}
@@ -305,7 +307,9 @@ useHead(() => {
               :aria-label="locale === 'en' ? 'Next tab' : 'Pestaña siguiente'"
               @click="nextTab"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6 6-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
           </div>
         </div>
