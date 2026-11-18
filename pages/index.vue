@@ -243,24 +243,55 @@ const toggleFaq = (idx: number) => {
             </p>
           </div>
 
-          <div class="home-news-grid">
-            <div class="home-news-feat-item">
-              <div class="home-news-feat-icon bg-blue-500/10 text-blue-500">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <!-- Fila de Conectores estilo Manus -->
+          <div class="home-connectors-bar">
+            <div class="home-connector-pill">
+              <div class="home-connector-icon text-blue-500 bg-blue-500/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
               </div>
-              <div class="text-left">
-                <h3 class="font-bold text-sm text-[var(--text)]">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores MCP de IA Local' }}</h3>
-                <p class="text-xs text-[var(--text-muted)] mt-1">Google Antigravity, Claude Desktop, Cursor & OpenAI Codex.</p>
+              <div class="home-connector-info">
+                <span class="home-connector-name">Google Antigravity</span>
+                <span class="home-connector-hint">{{ locale === 'en' ? '1-Click Connect' : 'Conexión 1 Clic' }}</span>
               </div>
             </div>
 
-            <div class="home-news-feat-item">
-              <div class="home-news-feat-icon bg-emerald-500/10 text-emerald-500">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            <div class="home-connector-pill">
+              <div class="home-connector-icon text-amber-500 bg-amber-500/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
               </div>
-              <div class="text-left">
-                <h3 class="font-bold text-sm text-[var(--text)]">{{ locale === 'en' ? 'Share in Office (Local Network)' : 'Compartir en oficina (Red local)' }}</h3>
-                <p class="text-xs text-[var(--text-muted)] mt-1">{{ locale === 'en' ? 'Real-time synchronization across your office Wi-Fi with PIN security.' : 'Sincronización en tiempo real en la red local de la oficina protegida por PIN.' }}</p>
+              <div class="home-connector-info">
+                <span class="home-connector-name">Claude Desktop</span>
+                <span class="home-connector-hint">Local MCP JSON</span>
+              </div>
+            </div>
+
+            <div class="home-connector-pill">
+              <div class="home-connector-icon text-indigo-500 bg-indigo-500/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div class="home-connector-info">
+                <span class="home-connector-name">Cursor IDE</span>
+                <span class="home-connector-hint">{{ locale === 'en' ? 'Active Context' : 'Contexto Activo' }}</span>
+              </div>
+            </div>
+
+            <div class="home-connector-pill">
+              <div class="home-connector-icon text-emerald-500 bg-emerald-500/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 8 6 4-6 4Z"/></svg>
+              </div>
+              <div class="home-connector-info">
+                <span class="home-connector-name">OpenAI Codex</span>
+                <span class="home-connector-hint">{{ locale === 'en' ? 'Read-only Protocol' : 'Protocolo Solo Lectura' }}</span>
+              </div>
+            </div>
+
+            <div class="home-connector-pill is-lan">
+              <div class="home-connector-icon text-emerald-500 bg-emerald-500/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+              </div>
+              <div class="home-connector-info">
+                <span class="home-connector-name">{{ locale === 'en' ? 'Office LAN' : 'Red de Oficina' }}</span>
+                <span class="home-connector-hint">{{ locale === 'en' ? 'PIN Pair · Zero Cloud' : 'PIN Seguro · Cero Nube' }}</span>
               </div>
             </div>
           </div>
@@ -272,6 +303,10 @@ const toggleFaq = (idx: number) => {
             <NuxtLink :to="localePath('features') + '#ia-mcp'" class="home-news-more-link">
               {{ locale === 'en' ? 'See all features and details' : 'Ver características completas' }} →
             </NuxtLink>
+            <span class="home-news-guarantee">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {{ locale === 'en' ? '100% Local & Encrypted · Zero Cloud' : '100% Cifrado Local · Cero Nube' }}
+            </span>
           </div>
         </div>
       </div>
@@ -497,11 +532,12 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 6. CTA FINAL DE DESCARGA =================== -->
+    <!-- =================== 6. CTA FINAL DE DESCARGA (ALTO CONTRASTE + GLOW) =================== -->
     <section class="final-cta-section">
       <div class="apple-wrap">
         <div class="final-cta-box">
-          <span class="eyebrow">{{ locale === 'en' ? 'START FOR FREE' : 'EMPIEZA GRATIS HOY' }}</span>
+          <div class="final-cta-ambient-glow" aria-hidden="true"></div>
+          <span class="final-cta-badge">{{ locale === 'en' ? 'START FOR FREE' : 'EMPIEZA GRATIS HOY' }}</span>
           <h2 class="final-cta-title">
             {{ locale === 'en' ? 'Bring order to your legal practice today' : 'Pon orden en tu oficina legal hoy mismo' }}
           </h2>
@@ -614,10 +650,11 @@ const toggleFaq = (idx: number) => {
 }
 
 .ms-hero-title {
-  font-size: clamp(32px, 3.8vw, 46px);
-  font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(34px, 4.3vw, 54px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--text);
   margin: 0 0 18px;
   text-wrap: balance;
@@ -817,47 +854,78 @@ const toggleFaq = (idx: number) => {
 }
 
 .home-news-title {
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--text);
   margin: 0 0 10px;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .home-news-sub {
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.6;
   color: var(--text-muted);
   max-width: 820px;
   margin: 0;
 }
 
-.home-news-grid {
+.home-connectors-bar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
   margin: 22px 0 24px;
 }
 
-.home-news-feat-item {
+.home-connector-pill {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 14px 16px;
+  transition: all 0.2s ease;
 }
 
-.home-news-feat-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+.home-connector-pill:hover {
+  border-color: var(--border-dark);
+  transform: translateY(-1px);
+}
+
+.home-connector-pill.is-lan {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.home-connector-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.home-connector-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.home-connector-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.home-connector-hint {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 1px;
 }
 
 .home-news-footer {
@@ -865,6 +933,15 @@ const toggleFaq = (idx: number) => {
   align-items: center;
   gap: 18px;
   flex-wrap: wrap;
+}
+
+.home-news-guarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 .home-news-cta-btn {
@@ -1418,51 +1495,93 @@ const toggleFaq = (idx: number) => {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
 }
 
-/* FINAL CTA SECTION */
+/* FINAL CTA SECTION - MANUS STYLE AMBIENT GLOW */
 .final-cta-section {
-  padding: clamp(56px, 7vw, 84px) 24px;
+  padding: clamp(56px, 7vw, 92px) 24px;
   background: var(--bg);
   border-top: 1px solid var(--border);
 }
 
 .final-cta-box {
-  max-width: 780px;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: clamp(36px, 5vw, 56px) 24px;
+  position: relative;
+  overflow: hidden;
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: clamp(48px, 6vw, 76px) clamp(24px, 5vw, 48px);
+  box-shadow:
+    0 24px 60px -15px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.final-cta-ambient-glow {
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 360px;
+  height: 360px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(59, 130, 246, 0.14) 45%, transparent 70%);
+  filter: blur(44px);
+  pointer-events: none;
+}
+
+.final-cta-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta-title {
-  font-size: clamp(26px, 3.8vw, 38px);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.03em;
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.025em;
   line-height: 1.15;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   text-wrap: balance;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta-sub {
-  font-size: 16px;
-  color: var(--text-muted);
-  max-width: 540px;
-  margin: 0 auto 28px;
-  line-height: 1.55;
+  font-size: 16.5px;
+  color: #94a3b8;
+  max-width: 580px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
   text-wrap: balance;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta-downloads {
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta-note {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   font-size: 13px;
-  color: var(--text-light);
+  color: #64748b;
   font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 </style>

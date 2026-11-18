@@ -94,20 +94,27 @@ p, .hero-p, .article-lead,
   text-wrap: balance;
 }
 
+.editorial-serif,
+.h-display,
+.h-section {
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-feature-settings: 'cv11', 'ss01', 'liga';
+}
+
 .h-display {
   font-size: clamp(40px, 5.2vw, 68px);
   line-height: 1.08;
-  letter-spacing: -0.035em;
-  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-weight: 600;
   color: var(--text);
   text-wrap: balance;
 }
 
 .h-section {
-  font-size: clamp(30px, 3.8vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  font-weight: 600;
   color: var(--text);
   text-wrap: balance;
 }

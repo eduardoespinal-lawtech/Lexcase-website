@@ -37,6 +37,10 @@ export default {
           '"SF Pro Text"', '"SF Pro Display"',
           '"Segoe UI Variable"', '"Segoe UI"',
           'system-ui', 'sans-serif'
+        ],
+        serif: [
+          'Newsreader', 'Charter', '"Bitstream Charter"',
+          '"Sitka Text"', 'Cambria', 'Georgia', 'serif'
         ]
       }
     }
