@@ -55,13 +55,13 @@ const otherPosts = computed<BlogPost[]>(() => {
 })
 
 const postThumbnails: Record<string, string> = {
-  'secreto-profesional-abogados-nube-seguridad': '/screenshots/showcase-cases.webp',
-  'computo-plazos-procesales-dias-habiles-rd': '/screenshots/showcase-calendar-month.webp',
-  'mejores-programas-gestion-expedientes-abogados-2026': '/screenshots/showcase-tribunal.webp'
+  'secreto-profesional-abogados-nube-seguridad': '/images/blog/secreto-profesional.webp',
+  'computo-plazos-procesales-dias-habiles-rd': '/images/blog/plazos-procesales.webp',
+  'mejores-programas-gestion-expedientes-abogados-2026': '/images/blog/software-abogados.webp'
 }
 
 function getPostImage(slug: string) {
-  return postThumbnails[slug] || '/screenshots/showcase-cases.webp'
+  return postThumbnails[slug] || '/images/blog/software-abogados.webp'
 }
 
 function formatDate(iso: string) {
@@ -174,34 +174,6 @@ function formatDate(iso: string) {
               </div>
             </div>
           </NuxtLink>
-        </div>
-      </section>
-
-      <!-- Banner CTA Final estilo Manus Ambient Glow -->
-      <section id="descargar" class="w-full mt-6">
-        <div class="manus-final-cta-card">
-          <div class="manus-ambient-glow" aria-hidden="true"></div>
-
-          <span class="manus-final-badge">{{ isEn ? 'START FREE TODAY' : 'EMPIEZA GRATIS HOY' }}</span>
-
-          <h2 class="manus-final-title">
-            {{ isEn ? 'Organize your cases and court deadlines offline' : 'Lleva tus expedientes y plazos sin depender de la nube' }}
-          </h2>
-
-          <p class="manus-final-sub">
-            {{ isEn
-              ? 'Download Lexbell for Mac or Windows. Up to 50 active cases free forever, 100% local and private.'
-              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis para siempre, 100% local y privado.'
-            }}
-          </p>
-
-          <div class="manus-final-downloads">
-            <AppDownload center />
-          </div>
-
-          <p class="manus-final-note">
-            {{ isEn ? 'Installs in under 1 minute · No credit card required' : 'Instalación en menos de 1 minuto · Sin tarjeta de crédito' }}
-          </p>
         </div>
       </section>
     </div>
@@ -512,85 +484,5 @@ function formatDate(iso: string) {
 
 .group:hover .manus-post-title {
   opacity: 0.8;
-}
-
-/* Banner CTA Final estilo Manus Ambient Glow */
-.manus-final-cta-card {
-  position: relative;
-  overflow: hidden;
-  background: #11141c;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: clamp(48px, 6vw, 76px) clamp(24px, 5vw, 48px);
-  text-align: center;
-  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.45);
-}
-
-.manus-ambient-glow {
-  position: absolute;
-  bottom: -100px;
-  right: -60px;
-  width: 360px;
-  height: 360px;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(59, 130, 246, 0.14) 45%, transparent 70%);
-  filter: blur(48px);
-  pointer-events: none;
-}
-
-.manus-final-badge {
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(245, 158, 11, 0.14);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.manus-final-title {
-  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-  font-size: clamp(28px, 4.2vw, 40px);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin: 0 0 16px;
-  text-wrap: balance;
-  position: relative;
-  z-index: 1;
-}
-
-.manus-final-sub {
-  font-size: 16px;
-  line-height: 24px;
-  color: #94a3b8;
-  max-width: 680px;
-  margin: 0 auto 32px;
-  text-wrap: balance;
-  position: relative;
-  z-index: 1;
-}
-
-.manus-final-downloads {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.manus-final-note {
-  margin: 16px 0 0;
-  font-size: 13px;
-  color: #64748b;
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
 }
 </style>
