@@ -201,7 +201,7 @@ useHead(() => {
         <div class="manus-hero-canvas">
           <div class="manus-canvas-grid" aria-hidden="true"></div>
 
-          <!-- Ventana Central de la Aplicación -->
+          <!-- Ventana Central de la Aplicación (Limpia sin elementos superpuestos) -->
           <div class="manus-canvas-main-window">
             <img
               src="/screenshots/showcase-tribunal.webp?v=1.1.22"
@@ -212,26 +212,6 @@ useHead(() => {
               loading="eager"
               fetchpriority="high"
             />
-          </div>
-
-          <!-- Widget Flotante 1: Plazo Fatal (Rotado -4deg) -->
-          <div class="manus-floating-card card-deadline" aria-hidden="true">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Término Fatal</span>
-            </div>
-            <div class="text-[13px] font-semibold text-[var(--text)]">Recurso de Apelación</div>
-            <div class="text-[11px] text-[var(--text-muted)] mt-0.5">3 días francos restantes</div>
-          </div>
-
-          <!-- Widget Flotante 2: Conector MCP (Rotado +3deg) -->
-          <div class="manus-floating-card card-mcp" aria-hidden="true">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              <span class="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Servidor MCP Local</span>
-            </div>
-            <div class="text-[13px] font-semibold text-[var(--text)]">Google Antigravity & Claude</div>
-            <div class="text-[11px] text-[var(--text-muted)] mt-0.5">Solo Lectura · Puerto 3845</div>
           </div>
         </div>
       </div>
@@ -824,36 +804,6 @@ useHead(() => {
   box-shadow:
     0 20px 48px -12px rgba(0, 0, 0, 0.2),
     0 6px 16px -4px rgba(0, 0, 0, 0.08);
-}
-
-.manus-floating-card {
-  position: absolute;
-  z-index: 2;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 16px;
-  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.16);
-  text-align: left;
-  pointer-events: none;
-}
-
-.card-deadline {
-  top: 15%;
-  left: -20px;
-  transform: rotate(-4deg);
-}
-
-.card-mcp {
-  bottom: 12%;
-  right: -20px;
-  transform: rotate(3deg);
-}
-
-@media (max-width: 768px) {
-  .manus-floating-card {
-    display: none;
-  }
 }
 
 /* === 2. TABS & CARDS 50/50 === */
