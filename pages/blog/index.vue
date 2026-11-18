@@ -9,11 +9,11 @@ definePageMeta({ name: 'blog' })
 useHead(() => {
   const isEn = locale.value === 'en'
   const title = isEn
-    ? 'Legal Tech Blog: Privacy, Deadlines & Law Practice — Lexbell'
-    : 'Blog Jurídico: Legaltech, Privacidad y Práctica Procesal — Lexbell'
+    ? 'Lexbell Blog: Legaltech, Privacy & Procedural Practice'
+    : 'Blog de Lexbell: Legaltech, Privacidad y Práctica Procesal'
   const desc = isEn
-    ? 'Practical guides and insights on court deadlines, legal confidentiality, law firm management, and modern legal tech.'
-    : 'Artículos y guías prácticas sobre computo de plazos procesales, secreto profesional, gestión de despachos y legaltech.'
+    ? 'Practical guides and insights on court deadlines, legal confidentiality, law firm management, and modern local legal tech.'
+    : 'Artículos y guías prácticas sobre cómputo de plazos procesales, secreto profesional, gestión de despachos y legaltech local.'
 
   return {
     title,
@@ -29,7 +29,6 @@ useHead(() => {
 const isEn = computed(() => locale.value === 'en')
 const selectedCategory = ref<string>('all')
 
-// Reset category filter if language toggles
 watch(() => locale.value, () => {
   selectedCategory.value = 'all'
 })
@@ -55,6 +54,16 @@ const otherPosts = computed<BlogPost[]>(() => {
   return filteredPosts.value.slice(1)
 })
 
+const postThumbnails: Record<string, string> = {
+  'secreto-profesional-abogados-nube-seguridad': '/screenshots/showcase-cases.webp',
+  'computo-plazos-procesales-dias-habiles-rd': '/screenshots/showcase-calendar-month.webp',
+  'mejores-programas-gestion-expedientes-abogados-2026': '/screenshots/showcase-tribunal.webp'
+}
+
+function getPostImage(slug: string) {
+  return postThumbnails[slug] || '/screenshots/showcase-cases.webp'
+}
+
 function formatDate(iso: string) {
   try {
     const d = new Date(iso + 'T00:00:00')
@@ -70,460 +79,518 @@ function formatDate(iso: string) {
 </script>
 
 <template>
-  <div class="blog-index-page">
-    <!-- HERO HEADER -->
-    <section class="section pb-8">
-      <div class="apple-wrap text-center">
-        <span class="eyebrow">
-          {{ isEn ? 'LEGALTECH & PRACTICE' : 'RECURSOS LEGALTECH' }}
-        </span>
-        <h1 class="blog-hero-title mt-2">{{ t('blog.title') }}</h1>
-        <p class="subtitle mt-3 mx-auto" style="max-width: 640px;">
-          {{ t('blog.subtitle') }}
-        </p>
+  <main class="manus-blog-page">
+    <div class="manus-blog-wrapper">
+      <!-- Encabezado + Artículo Destacado estilo Manus -->
+      <section class="manus-blog-section">
+        <!-- Título H1 estilo Manus (28px a 40px, font-weight 600, tracking -0.8px) -->
+        <h1 class="manus-blog-title">
+          Blog
+        </h1>
 
-        <!-- Category Filter Tabs -->
-        <div class="category-tabs mt-8">
-          <button
-            v-for="cat in categories"
-            :key="cat"
-            class="cat-pill"
-            :class="{ active: selectedCategory === cat }"
-            @click="selectedCategory = cat"
-          >
-            {{ cat === 'all' ? t('blog.allCategories') : cat }}
-          </button>
+        <!-- Tarjeta de Artículo Destacado estilo Manus (Aspect ratio 16:9 con zoom suave al hover) -->
+        <NuxtLink
+          v-if="featuredPost"
+          :to="localePath('/blog/' + featuredPost.slug + '/')"
+          class="manus-featured-card group"
+        >
+          <div class="manus-featured-img-wrap">
+            <img
+              :src="getPostImage(featuredPost.slug)"
+              :alt="isEn ? featuredPost.title.en : featuredPost.title.es"
+              class="manus-blog-img"
+              loading="eager"
+            />
+          </div>
+
+          <div class="manus-featured-content">
+            <div class="manus-meta-row">
+              <span>{{ isEn ? featuredPost.category.en : featuredPost.category.es }}</span>
+              <span>·</span>
+              <span>{{ formatDate(featuredPost.date) }}</span>
+            </div>
+
+            <h2 class="manus-featured-title">
+              {{ isEn ? featuredPost.title.en : featuredPost.title.es }}
+            </h2>
+
+            <p class="manus-featured-excerpt">
+              {{ isEn ? featuredPost.description.en : featuredPost.description.es }}
+            </p>
+          </div>
+        </NuxtLink>
+      </section>
+
+      <!-- Publicaciones Recientes + Filtro por Categoría + Grid de 3 Columnas estilo Manus -->
+      <section class="manus-blog-section">
+        <div class="w-full flex flex-col gap-4">
+          <h2 class="manus-section-title">
+            {{ isEn ? 'Recent posts' : 'Publicaciones recientes' }}
+          </h2>
+
+          <!-- Pestañas de Filtro Horizontales estilo Manus -->
+          <div class="manus-filter-row" role="tablist">
+            <button
+              v-for="cat in categories"
+              :key="cat"
+              type="button"
+              role="tab"
+              :aria-selected="selectedCategory === cat"
+              class="manus-filter-tab"
+              :class="{ 'is-active': selectedCategory === cat }"
+              @click="selectedCategory = cat"
+            >
+              {{ cat === 'all' ? (isEn ? 'All' : 'Todo') : cat }}
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- MAIN CONTENT -->
-    <section class="pb-24">
-      <div class="apple-wrap-wide">
-        <!-- FEATURED POST CARD (CLEAN EDITORIAL TYPOGRAPHY) -->
-        <div v-if="featuredPost" class="featured-card-wrapper mb-10">
+        <!-- Grid de 3 Columnas estilo Manus -->
+        <div v-if="otherPosts.length > 0" class="manus-grid-3">
           <NuxtLink
-            :to="localePath('/blog/' + featuredPost.slug + '/')"
-            class="featured-card group"
+            v-for="post in otherPosts"
+            :key="post.slug"
+            :to="localePath('/blog/' + post.slug + '/')"
+            class="manus-card-post group"
           >
-            <div class="featured-card-body">
-              <div class="post-meta-row">
-                <span class="featured-pill">
-                  {{ isEn ? 'Featured' : 'Destacado' }}
-                </span>
-                <span class="post-cat-badge">
-                  {{ isEn ? featuredPost.category.en : featuredPost.category.es }}
-                </span>
-                <span class="post-dot">·</span>
-                <span class="post-date">{{ formatDate(featuredPost.date) }}</span>
-                <span class="post-dot">·</span>
-                <span class="post-readtime">
-                  {{ isEn ? featuredPost.readTime.en : featuredPost.readTime.es }}
-                </span>
-              </div>
+            <div class="manus-post-img-wrap">
+              <img
+                :src="getPostImage(post.slug)"
+                :alt="isEn ? post.title.en : post.title.es"
+                class="manus-blog-img"
+                loading="lazy"
+              />
+            </div>
 
-              <h2 class="featured-title group-hover:text-blue-600 transition-colors">
-                {{ isEn ? featuredPost.title.en : featuredPost.title.es }}
-              </h2>
+            <div class="manus-post-body">
+              <h3 class="manus-post-title">
+                {{ isEn ? post.title.en : post.title.es }}
+              </h3>
 
-              <p class="featured-desc">
-                {{ isEn ? featuredPost.description.en : featuredPost.description.es }}
-              </p>
-
-              <div class="featured-footer">
-                <div class="author-block">
-                  <div class="author-avatar-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                      <path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="author-name">{{ featuredPost.author.name }}</span>
-                    <span class="author-role">
-                      {{ isEn ? featuredPost.author.role.en : featuredPost.author.role.es }}
-                    </span>
-                  </div>
-                </div>
-
-                <span class="read-link">
-                  {{ t('blog.readArticle') }}
-                  <svg class="w-4 h-4 ml-1 inline-block transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
+              <div class="manus-meta-row">
+                <span>{{ isEn ? post.category.en : post.category.es }}</span>
+                <span>·</span>
+                <span>{{ formatDate(post.date) }}</span>
               </div>
             </div>
           </NuxtLink>
         </div>
+      </section>
 
-        <!-- POSTS GRID -->
-        <div v-if="otherPosts.length > 0" class="posts-grid">
-          <article
-            v-for="post in otherPosts"
-            :key="post.slug"
-            class="post-card group"
-          >
-            <NuxtLink
-              :to="localePath('/blog/' + post.slug + '/')"
-              class="post-card-inner"
-            >
-              <div class="post-card-content">
-                <div class="post-meta-row mb-3">
-                  <span class="post-cat-badge">
-                    {{ isEn ? post.category.en : post.category.es }}
-                  </span>
-                  <span class="post-dot">·</span>
-                  <span class="post-readtime">
-                    {{ isEn ? post.readTime.en : post.readTime.es }}
-                  </span>
-                </div>
+      <!-- Banner CTA Final estilo Manus Ambient Glow -->
+      <section id="descargar" class="w-full mt-6">
+        <div class="manus-final-cta-card">
+          <div class="manus-ambient-glow" aria-hidden="true"></div>
 
-                <h3 class="post-title group-hover:text-blue-600 transition-colors">
-                  {{ isEn ? post.title.en : post.title.es }}
-                </h3>
+          <span class="manus-final-badge">{{ isEn ? 'START FREE TODAY' : 'EMPIEZA GRATIS HOY' }}</span>
 
-                <p class="post-desc">
-                  {{ isEn ? post.description.en : post.description.es }}
-                </p>
+          <h2 class="manus-final-title">
+            {{ isEn ? 'Organize your cases and court deadlines offline' : 'Lleva tus expedientes y plazos sin depender de la nube' }}
+          </h2>
 
-                <div class="post-footer-row mt-auto pt-4">
-                  <span class="post-date text-xs text-gray-500">{{ formatDate(post.date) }}</span>
-                  <span class="read-link-sm">
-                    {{ t('blog.readArticle') }} →
-                  </span>
-                </div>
-              </div>
-            </NuxtLink>
-          </article>
-        </div>
+          <p class="manus-final-sub">
+            {{ isEn
+              ? 'Download Lexbell for Mac or Windows. Up to 50 active cases free forever, 100% local and private.'
+              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis para siempre, 100% local y privado.'
+            }}
+          </p>
 
-        <!-- BLOG CTA BLOCK -->
-        <div class="blog-cta-box mt-14">
-          <div class="blog-cta-copy">
-            <span class="eyebrow">{{ isEn ? 'FREE DESKTOP APP' : 'SOFTWARE GRATUITO' }}</span>
-            <h2 class="blog-cta-heading">
-              {{ isEn ? 'Organize your cases and court deadlines offline' : 'Lleva tus expedientes y plazos sin depender de la nube' }}
-            </h2>
-            <p class="blog-cta-text">
-              {{ isEn
-                ? 'Start free with up to 50 active cases on Mac or Windows, or try our free court deadline calculator.'
-                : 'Empieza gratis hasta 50 expedientes en Mac o Windows, o usa nuestra calculadora gratuita de plazos procesales.' }}
-            </p>
-            <div class="mt-4">
-              <NuxtLink :to="localePath('calculadora-plazos')" class="blog-tool-link">
-                {{ isEn ? 'Open Deadline Calculator →' : 'Abrir Calculadora de Plazos →' }}
-              </NuxtLink>
-            </div>
-          </div>
-          <div class="blog-cta-actions">
+          <div class="manus-final-downloads">
             <AppDownload center />
           </div>
+
+          <p class="manus-final-note">
+            {{ isEn ? 'Installs in under 1 minute · No credit card required' : 'Instalación en menos de 1 minuto · Sin tarjeta de crédito' }}
+          </p>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
+  </main>
 </template>
 
 <style scoped>
-.blog-index-page {
+/* =================== SISTEMA DE BLOG EXACTO ESTILO MANUS =================== */
+.manus-blog-page {
   background: var(--bg);
-}
-
-.blog-hero-title {
-  font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.16;
-  font-weight: 800;
-  letter-spacing: -0.025em;
   color: var(--text);
-  text-wrap: balance;
+  min-height: 100vh;
 }
 
-.category-tabs {
+.manus-blog-wrapper {
+  max-width: 1032px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 48px;
 }
 
-.cat-pill {
-  padding: 8px 18px;
-  font-size: 13.5px;
-  font-weight: 500;
-  border-radius: 9999px;
-  background: var(--bg-elevated);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
+@media (min-width: 1024px) {
+  .manus-blog-wrapper {
+    padding: 64px 24px 120px;
+    gap: 72px;
+  }
+}
+
+.manus-blog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .manus-blog-section {
+    gap: 32px;
+  }
+}
+
+/* Título H1 estilo Manus: 28px móvil / 40px desktop, weight 600, leading 1.2, tracking -0.8px */
+.manus-blog-title {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  color: var(--text);
+  margin: 0;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .manus-blog-title {
+    font-size: 40px;
+  }
+}
+
+/* Tarjeta de Artículo Destacado estilo Manus */
+.manus-featured-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  text-decoration: none;
+  width: 100%;
   cursor: pointer;
 }
 
-.cat-pill:hover {
-  border-color: var(--border-dark);
-  color: var(--text);
+@media (min-width: 1024px) {
+  .manus-featured-card {
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+  }
 }
 
-.cat-pill.active {
-  background: var(--brand-black);
-  color: var(--bg);
-  border-color: transparent;
-}
-
-/* Featured Card */
-.featured-card-wrapper {
-  background: var(--bg);
-}
-
-.featured-card {
-  display: block;
-  text-decoration: none;
-  background: var(--card-bg);
+.manus-featured-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 18px;
-  padding: clamp(26px, 3.5vw, 40px);
-  transition: all 0.25s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-section);
 }
 
-.featured-card:hover {
-  border-color: var(--accent-border);
-  border-left-color: var(--accent);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+@media (min-width: 1024px) {
+  .manus-featured-img-wrap {
+    flex: 1;
+    aspect-ratio: 160 / 90;
+  }
 }
 
-.featured-pill {
-  background: var(--accent);
-  color: #ffffff;
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.manus-blog-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.post-meta-row {
+.group:hover .manus-blog-img {
+  transform: scale(1.05);
+}
+
+.manus-featured-content {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
-  font-size: 12.5px;
-  color: var(--text-light);
+  align-items: flex-start;
+  width: 100%;
 }
 
-.post-cat-badge {
-  background: var(--accent-soft);
-  color: var(--accent);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+@media (min-width: 1024px) {
+  .manus-featured-content {
+    flex: 1;
+  }
 }
 
-.post-dot {
-  color: var(--border-dark);
-}
-
-.featured-title {
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.22;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin-top: 14px;
-  margin-bottom: 14px;
-  text-wrap: balance;
-}
-
-.featured-desc {
-  font-size: clamp(15.5px, 1.4vw, 17px);
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 880px;
-  margin-bottom: 28px;
-  text-wrap: pretty;
-}
-
-.featured-footer {
+/* Metadata: categoría · fecha */
+.manus-meta-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-
-.author-block {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.author-avatar-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  color: var(--icon-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-.author-name {
-  display: block;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.author-role {
-  display: block;
-  font-size: 11.5px;
-  color: var(--text-light);
-}
-
-.read-link {
+  gap: 6px;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
-  display: inline-flex;
-  align-items: center;
+  line-height: 24px;
+  color: var(--text-muted);
 }
 
-/* Posts Grid */
-.posts-grid {
+@media (min-width: 1024px) {
+  .manus-meta-row {
+    font-size: 15px;
+  }
+}
+
+.manus-featured-title {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  color: var(--text);
+  margin: 0;
+  transition: opacity 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .manus-featured-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+}
+
+.group:hover .manus-featured-title {
+  opacity: 0.8;
+}
+
+.manus-featured-excerpt {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text-muted);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .manus-featured-excerpt {
+    font-size: 16px;
+  }
+}
+
+/* Sección de Publicaciones Recientes */
+.manus-section-title {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  color: var(--text);
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .manus-section-title {
+    font-size: 24px;
+  }
+}
+
+/* Fila de Filtros estilo Manus (pestañas horizontales limpias) */
+.manus-filter-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.manus-filter-tab {
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .manus-filter-tab {
+    font-size: 15px;
+  }
+}
+
+.manus-filter-tab:hover {
+  color: var(--text);
+}
+
+.manus-filter-tab.is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.manus-filter-tab.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--text);
+}
+
+/* Cuadrícula de 3 columnas estilo Manus */
+.manus-grid-3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .posts-grid {
+@media (min-width: 640px) {
+  .manus-grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.post-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.25s ease;
-}
-
-.post-card:hover {
-  border-color: var(--border-dark);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
-}
-
-.post-card-inner {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.post-card-content {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.post-title {
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--text);
-  margin-bottom: 10px;
-  text-wrap: balance;
-}
-
-.post-desc {
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  text-wrap: pretty;
-}
-
-.post-footer-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--border);
-}
-
-.read-link-sm {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-/* Blog CTA Box */
-.blog-cta-box {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: clamp(28px, 4vw, 44px);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  align-items: center;
-}
-
-@media (min-width: 860px) {
-  .blog-cta-box {
-    grid-template-columns: 1.25fr 1fr;
-    gap: 36px;
+@media (min-width: 1024px) {
+  .manus-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
 }
 
-.blog-cta-heading {
-  font-size: clamp(22px, 2.6vw, 30px);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin: 0 0 10px;
-  text-wrap: balance;
-}
-
-.blog-cta-text {
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--text-muted);
-  margin: 0;
-  text-wrap: pretty;
-}
-
-.blog-tool-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
+.manus-card-post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-decoration: none;
+  cursor: pointer;
+  width: 100%;
 }
 
-.blog-tool-link:hover {
-  text-decoration: underline;
+.manus-post-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-section);
 }
 
-.blog-cta-actions {
+.manus-post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  padding-top: 14px;
+  width: 100%;
+}
+
+.manus-post-title {
+  font-size: 14.5px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+  transition: opacity 0.2s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .manus-post-title {
+    font-size: 16px;
+  }
+}
+
+.group:hover .manus-post-title {
+  opacity: 0.8;
+}
+
+/* Banner CTA Final estilo Manus Ambient Glow */
+.manus-final-cta-card {
+  position: relative;
+  overflow: hidden;
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: clamp(48px, 6vw, 76px) clamp(24px, 5vw, 48px);
+  text-align: center;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.45);
+}
+
+.manus-ambient-glow {
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 360px;
+  height: 360px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(59, 130, 246, 0.14) 45%, transparent 70%);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.manus-final-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-title {
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(28px, 4.2vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px;
+  text-wrap: balance;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-sub {
+  font-size: 16px;
+  line-height: 24px;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  text-wrap: balance;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-downloads {
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 </style>
