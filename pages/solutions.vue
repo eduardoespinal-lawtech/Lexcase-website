@@ -35,6 +35,7 @@ interface SolutionItem {
   secondaryTo?: string
   image: string
   imageAlt: string
+  pastelBg: string
 }
 
 const solutions = computed<SolutionItem[]>(() => {
@@ -57,8 +58,9 @@ const solutions = computed<SolutionItem[]>(() => {
         ctaTo: `${localePath('features')}#expedientes`,
         secondaryLabel: 'Deadline calculator',
         secondaryTo: localePath('calculadora-plazos'),
-        image: '/images/solutions/litigation.webp',
-        imageAlt: 'Attorney in a suit preparing for a hearing'
+        image: '/screenshots/showcase-tribunal.webp',
+        imageAlt: 'Courtroom and litigation case management in Lexbell',
+        pastelBg: 'bg-[#eef2f6] dark:bg-[#1a2130]'
       },
       {
         id: 'administrative',
@@ -75,8 +77,9 @@ const solutions = computed<SolutionItem[]>(() => {
         ],
         ctaLabel: 'Open deadline calculator',
         ctaTo: localePath('calculadora-plazos'),
-        image: '/images/solutions/administrative.webp',
-        imageAlt: 'Attorney meeting with a client to review an administrative filing'
+        image: '/screenshots/showcase-calendar-month.webp',
+        imageAlt: 'Hearing and administrative deadlines calendar in Lexbell',
+        pastelBg: 'bg-[#f5efe6] dark:bg-[#24201b]'
       },
       {
         id: 'immigration',
@@ -93,8 +96,9 @@ const solutions = computed<SolutionItem[]>(() => {
         ],
         ctaLabel: 'View calendar & reminders',
         ctaTo: `${localePath('features')}#agenda`,
-        image: '/images/solutions/immigration.webp',
-        imageAlt: 'Traveler at an international airport'
+        image: '/screenshots/showcase-cases.webp',
+        imageAlt: 'Immigration family file and client management in Lexbell',
+        pastelBg: 'bg-[#edf3ee] dark:bg-[#19231b]'
       },
       {
         id: 'real-estate',
@@ -111,8 +115,9 @@ const solutions = computed<SolutionItem[]>(() => {
         ],
         ctaLabel: 'View document vault',
         ctaTo: `${localePath('features')}#documentos`,
-        image: '/images/solutions/real-estate.webp',
-        imageAlt: 'Modern residential property at dusk'
+        image: '/screenshots/showcase-docs.webp',
+        imageAlt: 'Document vault and contracts view in Lexbell',
+        pastelBg: 'bg-[#edf5f4] dark:bg-[#1a2524]'
       },
       {
         id: 'corporate',
@@ -129,8 +134,9 @@ const solutions = computed<SolutionItem[]>(() => {
         ],
         ctaLabel: 'View conflict & relationship map',
         ctaTo: `${localePath('features')}#conflictos`,
-        image: '/images/solutions/corporate.webp',
-        imageAlt: 'Corporate attorney working on her laptop'
+        image: '/screenshots/showcase-connections.webp',
+        imageAlt: 'Corporate relationship and conflict map in Lexbell',
+        pastelBg: 'bg-[#f3edf5] dark:bg-[#221a26]'
       }
     ]
   }
@@ -153,8 +159,9 @@ const solutions = computed<SolutionItem[]>(() => {
       ctaTo: `${localePath('features')}#expedientes`,
       secondaryLabel: 'Calculadora de plazos',
       secondaryTo: localePath('calculadora-plazos'),
-      image: '/images/solutions/litigation.webp',
-      imageAlt: 'Abogado de traje preparándose para una audiencia'
+      image: '/screenshots/showcase-tribunal.webp',
+      imageAlt: 'Gestión procesal y audiencias en Lexbell',
+      pastelBg: 'bg-[#eef2f6] dark:bg-[#1a2130]'
     },
     {
       id: 'administrative',
@@ -171,8 +178,9 @@ const solutions = computed<SolutionItem[]>(() => {
       ],
       ctaLabel: 'Usar calculadora de plazos',
       ctaTo: localePath('calculadora-plazos'),
-      image: '/images/solutions/administrative.webp',
-      imageAlt: 'Abogada reunida con una clienta revisando un trámite administrativo'
+      image: '/screenshots/showcase-calendar-month.webp',
+      imageAlt: 'Calendario de plazos administrativos en Lexbell',
+      pastelBg: 'bg-[#f5efe6] dark:bg-[#24201b]'
     },
     {
       id: 'immigration',
@@ -189,8 +197,9 @@ const solutions = computed<SolutionItem[]>(() => {
       ],
       ctaLabel: 'Ver agenda y vencimientos',
       ctaTo: `${localePath('features')}#agenda`,
-      image: '/images/solutions/immigration.webp',
-      imageAlt: 'Viajero en un aeropuerto internacional'
+      image: '/screenshots/showcase-cases.webp',
+      imageAlt: 'Gestión de casos de migración y grupos familiares',
+      pastelBg: 'bg-[#edf3ee] dark:bg-[#19231b]'
     },
     {
       id: 'real-estate',
@@ -207,8 +216,9 @@ const solutions = computed<SolutionItem[]>(() => {
       ],
       ctaLabel: 'Ver bóveda documental',
       ctaTo: `${localePath('features')}#documentos`,
-      image: '/images/solutions/real-estate.webp',
-      imageAlt: 'Vivienda moderna al atardecer'
+      image: '/screenshots/showcase-docs.webp',
+      imageAlt: 'Bóveda de documentos y contratos en Lexbell',
+      pastelBg: 'bg-[#edf5f4] dark:bg-[#1a2524]'
     },
     {
       id: 'corporate',
@@ -225,106 +235,149 @@ const solutions = computed<SolutionItem[]>(() => {
       ],
       ctaLabel: 'Ver mapa de vínculos',
       ctaTo: `${localePath('features')}#conflictos`,
-      image: '/images/solutions/corporate.webp',
-      imageAlt: 'Abogada corporativa trabajando en su computadora'
+      image: '/screenshots/showcase-connections.webp',
+      imageAlt: 'Mapa de relaciones corporativas y prevención de conflictos',
+      pastelBg: 'bg-[#f3edf5] dark:bg-[#221a26]'
     }
   ]
 })
 </script>
 
 <template>
-  <div class="solutions-page">
-    <section class="solutions-hero">
-      <div class="solutions-wrap">
-        <span class="eyebrow">{{ isEn ? 'SOLUTIONS' : 'SOLUCIONES' }}</span>
-        <h1 class="solutions-hero-title">
+  <div class="manus-page">
+    <!-- Hero Section estilo Manus -->
+    <section class="manus-hero-section">
+      <div class="manus-container text-center">
+        <span class="manus-eyebrow">{{ isEn ? 'PRACTICE AREAS & WORKFLOWS' : 'ÁREAS DE PRÁCTICA Y ESPECIALIDADES' }}</span>
+        
+        <h1 class="manus-hero-title">
           {{ isEn
             ? 'Built around the way you practice law'
             : 'Pensado para la forma en que ejerces el derecho'
           }}
         </h1>
-        <p class="solutions-hero-subtitle">
+
+        <p class="manus-hero-subtitle">
           {{ isEn
             ? 'Whatever your specialty, Lexbell organizes your cases directly on your computer, with no internet required.'
             : 'Sea cual sea tu especialidad, Lexbell organiza tus casos directamente en tu computadora, sin necesidad de internet.'
           }}
         </p>
 
-        <nav class="solutions-anchors" :aria-label="isEn ? 'Practice areas' : 'Áreas de práctica'">
-          <a v-for="sol in solutions" :key="sol.id" :href="`#${sol.id}`" class="anchor-pill">
+        <!-- Barra de Anclas en Píldora estilo Manus -->
+        <nav class="manus-anchors-bar" :aria-label="isEn ? 'Practice areas' : 'Áreas de práctica'">
+          <a
+            v-for="sol in solutions"
+            :key="sol.id"
+            :href="`#${sol.id}`"
+            class="manus-anchor-pill"
+          >
             {{ sol.label }}
           </a>
         </nav>
       </div>
     </section>
 
-    <section
-      v-for="(sol, idx) in solutions"
-      :id="sol.id"
-      :key="sol.id"
-      class="solution-row"
-      :class="{ 'is-alt': idx % 2 === 0 }"
-    >
-      <div class="solutions-wrap">
-        <div class="solution-grid" :class="{ 'is-reversed': idx % 2 === 1 }">
-          <img
-            :src="sol.image"
-            :alt="sol.imageAlt"
-            class="solution-img"
-            loading="lazy"
-            width="1000"
-            height="900"
-          />
+    <!-- Stack de Soluciones 50/50 Cards estilo Manus -->
+    <section class="manus-section pt-0">
+      <div class="manus-container">
+        <div class="flex flex-col gap-10">
+          <div
+            v-for="(sol, idx) in solutions"
+            :id="sol.id"
+            :key="sol.id"
+            class="manus-card grid grid-cols-1 md:grid-cols-2 items-center"
+          >
+            <!-- Columna Texto -->
+            <div
+              class="p-8 md:p-14 text-left"
+              :class="{ 'md:order-2': idx % 2 === 1 }"
+            >
+              <span class="manus-card-eyebrow">{{ sol.label }}</span>
+              <h2 class="manus-card-title mt-2">
+                {{ sol.title }}
+              </h2>
+              
+              <div class="mt-4 space-y-3">
+                <p v-for="(para, pIdx) in sol.paragraphs" :key="pIdx" class="manus-card-desc">
+                  {{ para }}
+                </p>
+              </div>
 
-          <div class="solution-text">
-            <span class="solution-eyebrow">{{ sol.label }}</span>
-            <h2 class="solution-title">{{ sol.title }}</h2>
-            <p v-for="(para, pIdx) in sol.paragraphs" :key="pIdx" class="solution-para">
-              {{ para }}
-            </p>
+              <!-- Lista de Puntos Clave -->
+              <ul class="manus-highlights-list mt-6">
+                <li v-for="(item, hIdx) in sol.highlights" :key="hIdx">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
 
-            <ul class="solution-highlights">
-              <li v-for="(item, hIdx) in sol.highlights" :key="hIdx">
-                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span>{{ item }}</span>
-              </li>
-            </ul>
+              <!-- Botones de Acción -->
+              <div class="flex flex-wrap items-center gap-3 mt-8">
+                <NuxtLink :to="sol.ctaTo" class="manus-action-btn">
+                  <span>{{ sol.ctaLabel }}</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                  </svg>
+                </NuxtLink>
 
-            <div class="solution-actions">
-              <NuxtLink :to="sol.ctaTo" class="solution-btn">
-                <span>{{ sol.ctaLabel }}</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-              </NuxtLink>
-              <NuxtLink v-if="sol.secondaryTo" :to="sol.secondaryTo" class="solution-secondary-btn">
-                {{ sol.secondaryLabel }}
-              </NuxtLink>
+                <NuxtLink
+                  v-if="sol.secondaryTo"
+                  :to="sol.secondaryTo"
+                  class="manus-secondary-btn"
+                >
+                  {{ sol.secondaryLabel }}
+                </NuxtLink>
+              </div>
+            </div>
+
+            <!-- Columna Visual Mockup Frame -->
+            <div
+              class="p-4 md:p-8"
+              :class="{ 'md:order-1': idx % 2 === 1 }"
+            >
+              <div class="manus-mockup-frame" :class="sol.pastelBg">
+                <img
+                  :src="sol.image"
+                  :alt="sol.imageAlt"
+                  class="w-full h-auto block rounded-[10px] shadow-sm transition-opacity duration-300"
+                  loading="lazy"
+                  width="1000"
+                  height="600"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="descargar" class="solutions-cta-section">
-      <div class="solutions-wrap">
-        <div class="cta-banner">
-          <span class="eyebrow">{{ isEn ? 'START FREE TODAY' : 'EMPIEZA GRATIS HOY' }}</span>
-          <h2 class="cta-title">
-            {{ isEn ? 'Organize your legal practice today' : 'Pon orden en tu oficina legal hoy mismo' }}
+    <!-- Banner CTA Final estilo Manus Ambient Glow -->
+    <section id="descargar" class="manus-section pt-0">
+      <div class="manus-container">
+        <div class="manus-final-cta-card">
+          <div class="manus-ambient-glow" aria-hidden="true"></div>
+
+          <span class="manus-final-badge">{{ isEn ? 'START FREE TODAY' : 'EMPIEZA GRATIS HOY' }}</span>
+
+          <h2 class="manus-final-title">
+            {{ isEn ? 'Organize your legal practice today' : 'Pon orden en tu despacho legal hoy mismo' }}
           </h2>
-          <p class="cta-subtitle">
+
+          <p class="manus-final-sub">
             {{ isEn
-              ? 'Download Lexbell for Mac or Windows. Up to 50 active cases free, 100% local and private.'
-              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis, 100% local y privado.'
+              ? 'Download Lexbell for Mac or Windows. Up to 50 active cases free forever, 100% local and private.'
+              : 'Descarga Lexbell para Mac o Windows. Hasta 50 expedientes activos gratis para siempre, 100% local y privado.'
             }}
           </p>
-          <div class="mt-6">
+
+          <div class="manus-final-downloads">
             <AppDownload center />
           </div>
-          <p class="cta-note">
+
+          <p class="manus-final-note">
             {{ isEn ? 'Installs in under 1 minute · No credit card required' : 'Instalación en menos de 1 minuto · Sin tarjeta de crédito' }}
           </p>
         </div>
@@ -334,148 +387,146 @@ const solutions = computed<SolutionItem[]>(() => {
 </template>
 
 <style scoped>
-.solutions-page {
+/* =================== SISTEMA DE DISEÑO MANUS - SOLUCIONES =================== */
+.manus-page {
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
-.solutions-wrap {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 24px;
+.manus-container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-.solutions-hero {
-  padding: clamp(56px, 7vw, 88px) 0 clamp(40px, 5vw, 56px);
-  text-align: center;
-  background: var(--bg);
+.manus-section {
+  padding-top: clamp(64px, 7vw, 96px);
+  padding-bottom: clamp(64px, 7vw, 96px);
 }
 
-.solutions-hero-title {
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  color: var(--text);
-  max-width: 740px;
-  margin: 10px auto 16px;
-}
-
-.solutions-hero-subtitle {
-  font-size: clamp(16px, 1.8vw, 18px);
-  line-height: 1.6;
+/* === TIPOGRAFÍA EXACTA ESTILO MANUS === */
+.manus-eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  max-width: 620px;
-  margin: 0 auto;
+  margin-bottom: 12px;
 }
 
-.solutions-anchors {
+.manus-hero-section {
+  padding-top: clamp(56px, 8vw, 88px);
+  padding-bottom: clamp(36px, 5vw, 56px);
+  background: var(--bg);
+}
+
+.manus-hero-title {
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  max-width: 680px;
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.manus-hero-subtitle {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 28px;
+  text-wrap: balance;
+}
+
+/* Anclas estilo Manus */
+.manus-anchors-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-top: 32px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.anchor-pill {
+.manus-anchor-pill {
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 9999px;
   font-size: 13.5px;
   font-weight: 500;
   color: var(--text-muted);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 999px;
   text-decoration: none;
   transition: all 0.15s ease;
 }
 
-.anchor-pill:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: var(--accent-border);
+.manus-anchor-pill:hover {
+  color: var(--text);
+  border-color: var(--border-dark);
+  background: var(--card-bg);
+  transform: translateY(-1px);
 }
 
-.solution-row {
-  padding: clamp(44px, 6vw, 76px) 0;
-  scroll-margin-top: 64px;
-  background: var(--bg);
-}
-
-.solution-row.is-alt {
+/* Tarjetas 50/50 estilo Manus */
+.manus-card {
   background: var(--bg-section);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  scroll-margin-top: 72px;
 }
 
-.solution-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-}
-
-@media (min-width: 900px) {
-  .solution-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .solution-grid.is-reversed .solution-img {
-    order: 2;
-  }
-}
-
-.solution-img {
-  width: 100%;
-  aspect-ratio: 10 / 9;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
-  box-shadow: var(--shadow-card);
-}
-
-.solution-text {
-  max-width: 490px;
-}
-
-.solution-eyebrow {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
+.manus-card-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
 }
 
-.solution-title {
-  font-size: clamp(24px, 2.8vw, 32px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.18;
+.manus-card-title {
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   color: var(--text);
-  margin: 0 0 16px;
+  margin: 0;
+  text-wrap: balance;
 }
 
-.solution-para {
-  font-size: 15.5px;
-  line-height: 1.65;
+.manus-card-desc {
+  font-size: 16px;
+  line-height: 24px;
   color: var(--text-muted);
-  margin: 0 0 12px;
+  margin: 0;
 }
 
-.solution-highlights {
+.manus-highlights-list {
   list-style: none;
   padding: 0;
-  margin: 18px 0 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
-.solution-highlights li {
+.manus-highlights-list li {
   display: flex;
   align-items: flex-start;
-  gap: 9px;
+  gap: 10px;
   font-size: 14px;
   line-height: 1.5;
   color: var(--text);
@@ -485,89 +536,140 @@ const solutions = computed<SolutionItem[]>(() => {
 .check-icon {
   flex-shrink: 0;
   color: var(--accent);
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
-.solution-actions {
+.manus-mockup-frame {
+  width: 100%;
+  border-radius: 12px;
+  padding: 16px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 24px;
+  justify-content: center;
 }
 
-.solution-btn {
+/* Botones estilo Manus */
+.manus-action-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 20px;
-  font-size: 14px;
-  font-weight: 600;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  background: #141414;
   color: #ffffff;
-  background: var(--accent);
-  border-radius: 10px;
   text-decoration: none;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: opacity 0.15s ease, transform 0.1s ease;
 }
 
-.solution-btn:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
+.dark .manus-action-btn {
+  background: #ffffff;
+  color: #000000;
 }
 
-.solution-secondary-btn {
+.manus-action-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-0.5px);
+}
+
+.manus-secondary-btn {
   display: inline-flex;
   align-items: center;
-  padding: 11px 16px;
-  font-size: 14px;
-  font-weight: 600;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 500;
   color: var(--text);
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 10px;
   text-decoration: none;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.solution-secondary-btn:hover {
+.manus-secondary-btn:hover {
   border-color: var(--border-dark);
 }
 
-.solutions-cta-section {
-  padding: clamp(56px, 7vw, 88px) 0;
-  background: var(--bg);
-}
-
-.cta-banner {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
-  text-align: center;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+/* === BANNER CTA FINAL MANUS AMBIENT GLOW === */
+.manus-final-cta-card {
+  position: relative;
+  overflow: hidden;
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
+  padding: clamp(48px, 6vw, 76px) clamp(24px, 5vw, 48px);
+  text-align: center;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.45);
 }
 
-.cta-title {
-  font-size: clamp(26px, 3vw, 34px);
+.manus-ambient-glow {
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 360px;
+  height: 360px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(59, 130, 246, 0.14) 45%, transparent 70%);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.manus-final-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-title {
+  font-family: Newsreader, Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: clamp(28px, 4.2vw, 40px);
+  font-weight: 600;
   line-height: 1.15;
-  color: var(--text);
-  margin: 10px auto 12px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px;
+  text-wrap: balance;
+  position: relative;
+  z-index: 1;
 }
 
-.cta-subtitle {
+.manus-final-sub {
   font-size: 16px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 520px;
-  margin: 0 auto;
+  line-height: 24px;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  text-wrap: balance;
+  position: relative;
+  z-index: 1;
 }
 
-.cta-note {
-  margin-top: 16px;
+.manus-final-downloads {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.manus-final-note {
+  margin: 16px 0 0;
   font-size: 13px;
-  color: var(--text-light);
+  color: #64748b;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 </style>
