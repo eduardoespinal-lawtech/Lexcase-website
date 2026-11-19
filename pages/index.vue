@@ -80,6 +80,51 @@ const comparisonRows = computed(() => [
   { title: t('home.cRow7Title'), lexbell: t('home.cRow7Lexbell'), cloud: t('home.cRow7Cloud'), manual: t('home.cRow7Manual'), manualType: 'partial' }
 ])
 
+const testimonials = computed(() => [
+  {
+    id: 1,
+    author: t('home.testimonial1Author'),
+    role: t('home.testimonial1Role'),
+    quote: t('home.testimonial1Quote'),
+    avatar: '/images/testimonials/marcos-valenzuela.webp'
+  },
+  {
+    id: 2,
+    author: t('home.testimonial2Author'),
+    role: t('home.testimonial2Role'),
+    quote: t('home.testimonial2Quote'),
+    avatar: '/images/testimonials/elena-santillan.webp'
+  },
+  {
+    id: 3,
+    author: t('home.testimonial3Author'),
+    role: t('home.testimonial3Role'),
+    quote: t('home.testimonial3Quote'),
+    avatar: '/images/testimonials/david-henriquez.webp'
+  },
+  {
+    id: 4,
+    author: t('home.testimonial4Author'),
+    role: t('home.testimonial4Role'),
+    quote: t('home.testimonial4Quote'),
+    avatar: '/images/testimonials/camila-rodriguez.webp'
+  },
+  {
+    id: 5,
+    author: t('home.testimonial5Author'),
+    role: t('home.testimonial5Role'),
+    quote: t('home.testimonial5Quote'),
+    avatar: '/images/testimonials/roberto-mendez.webp'
+  },
+  {
+    id: 6,
+    author: t('home.testimonial6Author'),
+    role: t('home.testimonial6Role'),
+    quote: t('home.testimonial6Quote'),
+    avatar: '/images/testimonials/sofia-peralta.webp'
+  }
+])
+
 useHead(() => {
   const isEn = locale.value === 'en'
   const title = isEn
@@ -143,7 +188,7 @@ const toggleFaq = (idx: number) => {
         <div class="ms-hero-content">
           <NuxtLink :to="localePath('features') + '#ia-mcp'" class="hero-news-pill">
             <span class="ms-hero-badge">{{ t('home.newsBadge') }}</span>
-            <span class="hero-news-pill-text">{{ locale === 'en' ? 'Local AI Connectors & LAN Sharing' : 'Conectores IA (MCP) & Red Local' }}</span>
+            <span class="hero-news-pill-text">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores IA Local (MCP)' }}</span>
             <svg class="hero-news-pill-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </NuxtLink>
 
@@ -223,7 +268,7 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
-    <!-- =================== 1.2 NOVEDADES: IA LOCAL (MCP) & COMPARTIR EN OFICINA =================== -->
+    <!-- =================== 1.2 NOVEDADES: IA LOCAL (MCP) =================== -->
     <section class="home-news-section">
       <div class="apple-wrap">
         <div class="home-news-card">
@@ -233,7 +278,7 @@ const toggleFaq = (idx: number) => {
                 <span class="home-news-pulse"></span>
                 {{ t('home.newsBadge') }}
               </span>
-              <span class="home-news-chips-label">{{ locale === 'en' ? 'Local MCP & P2P LAN' : 'MCP Local & LAN P2P' }}</span>
+              <span class="home-news-chips-label">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores MCP Locales' }}</span>
             </div>
             <h2 class="home-news-title">
               {{ t('home.newsTitle') }}
@@ -251,16 +296,6 @@ const toggleFaq = (idx: number) => {
               <div class="text-left">
                 <h3 class="font-bold text-sm text-[var(--text)]">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores MCP de IA Local' }}</h3>
                 <p class="text-xs text-[var(--text-muted)] mt-1">Google Antigravity, Claude Desktop, Cursor & OpenAI Codex.</p>
-              </div>
-            </div>
-
-            <div class="home-news-feat-item">
-              <div class="home-news-feat-icon bg-emerald-500/10 text-emerald-500">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-              </div>
-              <div class="text-left">
-                <h3 class="font-bold text-sm text-[var(--text)]">{{ locale === 'en' ? 'Share in Office (Local Network)' : 'Compartir en oficina (Red local)' }}</h3>
-                <p class="text-xs text-[var(--text-muted)] mt-1">{{ locale === 'en' ? 'Real-time synchronization across your office Wi-Fi with PIN security.' : 'Sincronización en tiempo real en la red local de la oficina protegida por PIN.' }}</p>
               </div>
             </div>
           </div>
@@ -450,12 +485,21 @@ const toggleFaq = (idx: number) => {
 
         <!-- Testimonios de profesionales reales -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="idx in 6" :key="idx" class="testimonial-card">
-            <div class="testimonial-stars" :aria-label="locale === 'en' ? '5 stars' : '5 estrellas'">★★★★★</div>
-            <p class="testimonial-quote">“{{ t(`home.testimonial${idx}Quote`) }}”</p>
+          <div v-for="item in testimonials" :key="item.id" class="testimonial-card">
+            <p class="testimonial-quote">“{{ item.quote }}”</p>
             <div class="testimonial-author">
-              <strong>{{ t(`home.testimonial${idx}Author`) }}</strong>
-              <span>{{ t(`home.testimonial${idx}Role`) }}</span>
+              <img
+                :src="item.avatar"
+                :alt="item.author"
+                class="testimonial-avatar"
+                width="44"
+                height="44"
+                loading="lazy"
+              />
+              <div class="testimonial-author-info">
+                <strong>{{ item.author }}</strong>
+                <span>{{ item.role }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -838,6 +882,7 @@ const toggleFaq = (idx: number) => {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   margin: 22px 0 24px;
+  max-width: 560px;
 }
 
 .home-news-feat-item {
@@ -1089,13 +1134,6 @@ const toggleFaq = (idx: number) => {
   box-shadow: var(--shadow-card);
 }
 
-.testimonial-stars {
-  color: #f59e0b;
-  font-size: 15px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
 .testimonial-quote {
   font-size: 14px;
   line-height: 1.55;
@@ -1105,21 +1143,40 @@ const toggleFaq = (idx: number) => {
 
 .testimonial-author {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   border-top: 1px solid var(--border);
-  padding-top: 12px;
+  padding-top: 14px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .testimonial-author strong {
   font-size: 13.5px;
   color: var(--text);
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .testimonial-author span {
   font-size: 12px;
   color: var(--text-light);
   margin-top: 2px;
+  line-height: 1.3;
 }
 
 /* FAQ ACORDEÓN */
