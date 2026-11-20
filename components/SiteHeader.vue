@@ -145,11 +145,11 @@ const links = computed(() => [
   background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease, background-color 0.2s ease;
+  border-bottom: none;
+  transition: background-color 0.2s ease;
 }
 .site-header.is-scrolled {
-  border-bottom-color: var(--header-border);
+  border-bottom: none;
 }
 .site-header-inner {
   max-width: 1440px;

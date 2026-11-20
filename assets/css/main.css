@@ -18,8 +18,8 @@
   --border:      #ebebea;
   --border-dark: #d3d3d0;
   --card-bg:     #ffffff;
-  --header-bg:   rgba(251, 251, 250, 0.94);
-  --header-border: rgba(0, 0, 0, 0.08);
+  --header-bg:   #f7f7f5;
+  --header-border: transparent;
   --brand-black: #050505;
   --brand-black-hover: #262626;
   --icon-color:  #191919;
@@ -42,8 +42,8 @@ html.dark {
   --border:      #242936;
   --border-dark: #333a4d;
   --card-bg:     #161a24;
-  --header-bg:   rgba(11, 13, 18, 0.9);
-  --header-border: rgba(255, 255, 255, 0.08);
+  --header-bg:   #11141c;
+  --header-border: transparent;
   --brand-black: #ffffff;
   --brand-black-hover: #e5e7eb;
   --icon-color:  #ffffff;
