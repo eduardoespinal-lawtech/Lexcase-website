@@ -25,8 +25,7 @@ useHead(() => {
 const proFeatures = [
   'home.proFeature1',
   'home.proFeature2',
-  'home.proFeature3',
-  'home.proFeature5'
+  'home.proFeature3'
 ]
 
 const plans = [

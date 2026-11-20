@@ -130,10 +130,6 @@
     "heroTitle": "100% local case management for the independent attorney.",
     "heroTitle2": "Without relying on the cloud.",
     "heroSubtitle": "Manage cases, hearings, deadlines, and documents directly on your computer. Everything lives on your drive, works offline, and nothing leaves to the internet.",
-    "newsBadge": "NEW IN LEXBELL",
-    "newsTitle": "Power your legal practice with local AI assistants",
-    "newsSubtitle": "Lexbell now connects in one click with leading AI assistants (Claude Desktop, Cursor, Antigravity, and Codex) through the open Model Context Protocol, 100% private without cloud servers.",
-    "newsCta": "Download free · 15-day Pro trial",
     "trust1": "100% Local & Encrypted",
     "trust2": "Conflict of Interest Checks",
     "trust3": "Works 100% Offline",
@@ -283,7 +279,6 @@
     "proFeature1": "Unlimited cases and clients",
     "proFeature2": "Relationship map and conflict detection",
     "proFeature3": "Automatic backups to an external drive",
-    "proFeature5": "MCP AI Connectors: 1-click native integration with Google Antigravity, Claude Desktop, Cursor, and OpenAI Codex",
     "proCTA": "Try free for 15 days",
     "proTrialNote": "No credit card required",
     "proAnnualTitle": "Pro Annual",
@@ -359,19 +354,7 @@
     "tile5Title": "Notes editor",
     "tile5Body": "Rich-text editor on every case. Link local folders or Google Drive folders.",
     "tile6Title": "Native design",
-    "tile6Body": "Looks and feels native on Mac and Windows. Light and dark mode. Spanish and English.",
-    "mcpEyebrow": "LOCAL ARTIFICIAL INTELLIGENCE",
-    "mcpTitle": "MCP Connectors: Your law practice powered by local AI",
-    "mcpBody": "Seamlessly link Lexbell to your favorite AI assistants in a single click: Google Antigravity, Claude Desktop, Cursor, and OpenAI Codex.",
-    "mcpPoint1Title": "Secure contextual access",
-    "mcpPoint1Desc": "Let your AI assistant read case context, deadlines, and notes to summarize orders or draft filings.",
-    "mcpPoint2Title": "100% Private & Local",
-    "mcpPoint2Desc": "Powered by a local read-only MCP server on your machine. Client data never leaves your device or trains third-party models.",
-    "mcpPoint3Title": "Zero-config setup",
-    "mcpPoint3Desc": "Toggle connectors on with one switch; Lexbell configures client settings automatically."
-  },
-  "pricing": {
-    "featMcp": "MCP Connectors for AI assistants"
+    "tile6Body": "Looks and feels native on Mac and Windows. Light and dark mode. Spanish and English."
   },
   "support": {
     "title": "We're here to help.",
@@ -420,9 +403,7 @@
     "q9": "Which countries and legal practice areas are supported?",
     "a9": "Lexbell is built for solo practitioners and independent professionals. It covers civil, criminal, and labor litigation, immigration petitions and visas, as well as rental leases and property management.",
     "q10": "Where can I officially download Lexbell?",
-    "a10": "Lexbell is officially and securely downloaded from the Apple Mac App Store for macOS and the Microsoft Store for Windows, providing certified code safety and automatic updates.",
-    "q11": "What are Lexbell MCP Connectors and how do they work?",
-    "a11": "The Model Context Protocol (MCP) is an open industry standard that allows AI assistants (such as Claude, Cursor, Antigravity, or Codex) to securely query desktop software. Lexbell runs a local, read-only MCP server directly on your computer, enabling your AI assistant to answer questions about cases, draft summaries, or check court terms without uploading your client data to any cloud service."
+    "a10": "Lexbell is officially and securely downloaded from the Apple Mac App Store for macOS and the Microsoft Store for Windows, providing certified code safety and automatic updates."
   },
   "privacy": {
     "title": "Privacy Policy",

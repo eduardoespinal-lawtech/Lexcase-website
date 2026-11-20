@@ -186,12 +186,6 @@ const toggleFaq = (idx: number) => {
       <div class="ms-hero-inner">
         <!-- Columna Izquierda: Mensaje Directo + CTAs -->
         <div class="ms-hero-content">
-          <NuxtLink :to="localePath('features') + '#ia-mcp'" class="hero-news-pill">
-            <span class="ms-hero-badge">{{ t('home.newsBadge') }}</span>
-            <span class="hero-news-pill-text">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores IA Local (MCP)' }}</span>
-            <svg class="hero-news-pill-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </NuxtLink>
-
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
@@ -264,50 +258,6 @@ const toggleFaq = (idx: number) => {
           </div>
           <h3 class="hero-feat-title">{{ t('home.heroCard4Title') }}</h3>
           <p class="hero-feat-desc">{{ t('home.heroCard4Desc') }}</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== 1.2 NOVEDADES: IA LOCAL (MCP) =================== -->
-    <section class="home-news-section">
-      <div class="apple-wrap">
-        <div class="home-news-card">
-          <div class="home-news-header">
-            <div class="home-news-badge-row">
-              <span class="home-news-tag">
-                <span class="home-news-pulse"></span>
-                {{ t('home.newsBadge') }}
-              </span>
-              <span class="home-news-chips-label">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores MCP Locales' }}</span>
-            </div>
-            <h2 class="home-news-title">
-              {{ t('home.newsTitle') }}
-            </h2>
-            <p class="home-news-sub">
-              {{ t('home.newsSubtitle') }}
-            </p>
-          </div>
-
-          <div class="home-news-grid">
-            <div class="home-news-feat-item">
-              <div class="home-news-feat-icon bg-blue-500/10 text-blue-500">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              </div>
-              <div class="text-left">
-                <h3 class="font-bold text-sm text-[var(--text)]">{{ locale === 'en' ? 'Local MCP AI Connectors' : 'Conectores MCP de IA Local' }}</h3>
-                <p class="text-xs text-[var(--text-muted)] mt-1">Google Antigravity, Claude Desktop, Cursor & OpenAI Codex.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="home-news-footer">
-            <a href="#descargar" class="home-news-cta-btn">
-              {{ t('home.newsCta') }}
-            </a>
-            <NuxtLink :to="localePath('features') + '#ia-mcp'" class="home-news-more-link">
-              {{ locale === 'en' ? 'See all features and details' : 'Ver características completas' }} →
-            </NuxtLink>
-          </div>
         </div>
       </div>
     </section>
@@ -604,59 +554,6 @@ const toggleFaq = (idx: number) => {
   text-align: left;
 }
 
-.ms-hero-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  background: var(--accent-soft);
-  color: var(--accent);
-  margin-bottom: 16px;
-}
-
-/* Hero news pill link */
-.hero-news-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 12px 3px 4px;
-  border-radius: 999px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  text-decoration: none;
-  margin-bottom: 18px;
-  transition: all 0.2s ease;
-}
-
-.hero-news-pill .ms-hero-badge {
-  margin-bottom: 0;
-  padding: 3px 10px;
-  font-size: 11px;
-}
-
-.hero-news-pill-text {
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.hero-news-pill-arrow {
-  color: var(--text-muted);
-  transition: transform 0.2s ease;
-}
-
-.hero-news-pill:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.hero-news-pill:hover .hero-news-pill-arrow {
-  transform: translateX(2px);
-}
-
 .ms-hero-title {
   font-size: clamp(32px, 3.8vw, 46px);
   font-weight: 800;
@@ -807,140 +704,6 @@ const toggleFaq = (idx: number) => {
   color: var(--text-muted);
   margin: 0;
   text-wrap: pretty;
-}
-
-/* =================== NOVEDADES: CONECTORES MCP & RED LOCAL =================== */
-.home-news-section {
-  padding: 16px 24px 32px;
-  background: var(--bg);
-}
-
-.home-news-card {
-  background: linear-gradient(135deg, rgba(0, 122, 255, 0.05) 0%, rgba(16, 185, 129, 0.04) 100%), var(--card-bg);
-  border: 1px solid var(--accent-border, rgba(0, 122, 255, 0.2));
-  border-radius: 20px;
-  padding: clamp(24px, 3.5vw, 36px);
-  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.1);
-}
-
-.home-news-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.home-news-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: #007aff;
-  color: #fff;
-}
-
-.home-news-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: #fff;
-  opacity: 0.9;
-}
-
-.home-news-chips-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.home-news-title {
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 10px;
-  line-height: 1.25;
-}
-
-.home-news-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 820px;
-  margin: 0;
-}
-
-.home-news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  margin: 22px 0 24px;
-  max-width: 560px;
-}
-
-.home-news-feat-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 16px;
-}
-
-.home-news-feat-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.home-news-footer {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.home-news-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 20px;
-  border-radius: 10px;
-  background: #007aff;
-  color: #fff;
-  font-size: 13.5px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.home-news-cta-btn:hover {
-  background: #0066d6;
-  transform: translateY(-1px);
-}
-
-.home-news-more-link {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.home-news-more-link:hover {
-  opacity: 0.8;
 }
 
 /* SECCIONES BASE */
