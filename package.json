@@ -22,5 +22,12 @@
     "nuxt": "^3.15.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
+  },
+  "overrides": {
+    "vue-i18n": "^11.4.23",
+    "@intlify/core": "^11.4.23",
+    "@intlify/core-base": "^11.4.23",
+    "@intlify/shared": "^11.4.23",
+    "@intlify/message-compiler": "^11.4.23"
   }
 }

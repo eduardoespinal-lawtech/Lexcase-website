@@ -42,7 +42,7 @@ export default defineNuxtConfig({
         { 'http-equiv': 'Permissions-Policy', content: 'camera=(), microphone=(), geolocation=(), payment=()' },
         {
           'http-equiv': 'Content-Security-Policy',
-          content: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com; font-src 'self'; frame-ancestors 'none';"
+          content: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google.com https://www.google-analytics.com; connect-src 'self' https://date.nager.at https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com; font-src 'self';"
         },
         // Open Graph
         { property: 'og:type', content: 'website' },
@@ -151,7 +151,7 @@ export default defineNuxtConfig({
           'X-Content-Type-Options': 'nosniff',
           'Referrer-Policy': 'strict-origin-when-cross-origin',
           'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com; font-src 'self'; frame-ancestors 'none';"
+          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google.com https://www.google-analytics.com; connect-src 'self' https://date.nager.at https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com; font-src 'self'; frame-ancestors 'none';"
         }
       }
     }
