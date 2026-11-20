@@ -26,6 +26,8 @@ const entries: Entry[] = [
   { es: '/blog/computo-plazos-procesales-dias-habiles-rd/',         en: '/en/blog/computo-plazos-procesales-dias-habiles-rd/',         priority: '0.8' },
   { es: '/blog/secreto-profesional-abogados-nube-seguridad/',       en: '/en/blog/secreto-profesional-abogados-nube-seguridad/',       priority: '0.8' },
   { es: '/blog/mejores-programas-gestion-expedientes-abogados-2026/', en: '/en/blog/mejores-programas-gestion-expedientes-abogados-2026/', priority: '0.8' },
+  { es: '/blog/ia-local-abogados-conectores-mcp-privacidad/',       en: '/en/blog/ia-local-abogados-conectores-mcp-privacidad/',       priority: '0.8' },
+  { es: '/sobre-nosotros/',                                         en: '/en/about/',                                                 priority: '0.85' },
   { es: '/soporte/',                                                en: '/en/support/',                                               priority: '0.7' },
   { es: '/contacto/',                                               en: '/en/contact/',                                               priority: '0.7' },
   { es: '/faq/',                                                    en: '/en/faq/',                                                   priority: '0.7' },

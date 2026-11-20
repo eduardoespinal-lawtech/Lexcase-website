@@ -282,6 +282,55 @@ const toggleFaq = (idx: number) => {
       </div>
     </section>
 
+    <!-- =================== 1.2 PAÍSES SOPORTADOS Y CÓDIGOS PROCESALES =================== -->
+    <section class="jurisdictions-strip border-b border-t border-[var(--border)] bg-[var(--bg)] py-7">
+      <div class="apple-wrap">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+          <div class="text-center lg:text-left">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)] block">
+              {{ locale === 'en' ? 'JURISDICTIONAL COVERAGE' : 'COBERTURA JURISDICCIONAL' }}
+            </span>
+            <p class="text-sm font-semibold text-[var(--text)] mt-1">
+              {{ locale === 'en' ? 'Procedural rules & statutory deadline calculation for:' : 'Reglas procesales y cómputo de términos legales para:' }}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-2.5">
+            <NuxtLink :to="localePath('calculadora-plazos-republica-dominicana')" class="country-pill group">
+              <span class="country-flag">🇩🇴</span>
+              <span class="country-name">Rep. Dominicana</span>
+              <span class="country-code">CPC</span>
+            </NuxtLink>
+            <NuxtLink :to="localePath('calculadora-plazos-espana')" class="country-pill group">
+              <span class="country-flag">🇪🇸</span>
+              <span class="country-name">España</span>
+              <span class="country-code">LEC</span>
+            </NuxtLink>
+            <NuxtLink :to="localePath('calculadora-plazos-mexico')" class="country-pill group">
+              <span class="country-flag">🇲🇽</span>
+              <span class="country-name">México</span>
+              <span class="country-code">CFPC</span>
+            </NuxtLink>
+            <NuxtLink :to="localePath('calculadora-plazos-colombia')" class="country-pill group">
+              <span class="country-flag">🇨🇴</span>
+              <span class="country-name">Colombia</span>
+              <span class="country-code">CGP</span>
+            </NuxtLink>
+            <NuxtLink :to="localePath('calculadora-plazos-peru')" class="country-pill group">
+              <span class="country-flag">🇵🇪</span>
+              <span class="country-name">Perú</span>
+              <span class="country-code">CPC</span>
+            </NuxtLink>
+            <span class="country-pill country-pill-global">
+              <span class="country-flag">🌎</span>
+              <span class="country-name">{{ locale === 'en' ? 'Global Practice' : 'Uso Global' }}</span>
+              <span class="country-code">Mac & Win</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- =================== 1.5 PRODUCT SHOWCASE INTERACTIVO (MICROSOFT 365 STYLE) =================== -->
     <section class="showcase-section" id="producto">
       <div class="apple-wrap">
@@ -1356,5 +1405,54 @@ const toggleFaq = (idx: number) => {
   font-size: 13px;
   color: var(--text-light);
   font-weight: 500;
+}
+
+/* === JURISDICTIONS STRIP === */
+.jurisdictions-strip {
+  background: var(--bg);
+}
+
+.country-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.country-pill:hover {
+  border-color: var(--accent);
+  background: var(--card-bg);
+  transform: translateY(-1px);
+}
+
+.country-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.country-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.country-code {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--border);
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.country-pill-global {
+  opacity: 0.9;
 }
 </style>

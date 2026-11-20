@@ -29,6 +29,7 @@ const resourceLinks = computed(() => [
 ])
 
 const legalLinks = computed(() => [
+  { to: localePath('about'), label: t('nav.about') },
   { to: localePath('contact'), label: t('nav.contact') },
   { to: localePath('support'), label: t('nav.support') },
   { to: localePath('terms'), label: t('nav.termsOfUse') },

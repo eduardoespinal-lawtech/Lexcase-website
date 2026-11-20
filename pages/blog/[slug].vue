@@ -135,8 +135,10 @@ useHead(() => {
     datePublished: post.value.date,
     dateModified: post.value.date,
     author: {
-      '@type': 'Organization',
-      name: post.value.author.name
+      '@type': 'Person',
+      name: post.value.author.name,
+      jobTitle: postAuthorRole.value,
+      url: 'https://lex-bell.com/sobre-nosotros/'
     },
     publisher: {
       '@type': 'Organization',
@@ -349,6 +351,30 @@ useHead(() => {
       <!-- Article Body -->
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="prose-legal article-content" v-html="postContentWithIds" />
+
+      <!-- AUTHOR BIO CARD (EEAT SIGNAL) -->
+      <section v-if="post?.author" class="author-bio-card mt-12 p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-[var(--bg-section)]" aria-label="Información del autor">
+        <div class="flex items-start gap-4">
+          <div class="author-bio-avatar w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-base flex-shrink-0">
+            EE
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-base text-[var(--text)]">{{ post.author.name }}</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 font-medium">
+                {{ isEn ? 'Author & Legal Engineer' : 'Autor & Creador' }}
+              </span>
+            </div>
+            <p class="text-xs text-[var(--text-muted)] mt-0.5">{{ postAuthorRole }}</p>
+            <p class="text-sm text-[var(--text)] mt-3 leading-relaxed">
+              {{ isEn ? post.author.bio?.en : post.author.bio?.es }}
+            </p>
+            <NuxtLink :to="localePath('about')" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 mt-3 hover:underline">
+              {{ isEn ? 'Learn more about Lexbell Technologies & Eduardo Espinal' : 'Conoce más sobre Lexbell Technologies y Eduardo Espinal' }} →
+            </NuxtLink>
+          </div>
+        </div>
+      </section>
 
       <!-- RELATED ARTICLES -->
       <footer v-if="relatedPosts.length > 0" class="related-section pt-12 mt-12 border-t border-gray-200">

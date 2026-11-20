@@ -13,6 +13,8 @@ export interface BlogPost {
   author: {
     name: string
     role: LocalizedField
+    bio?: LocalizedField
+    avatar?: string
   }
   keywords: {
     es: string[]
@@ -42,10 +44,14 @@ export const blogPosts: BlogPost[] = [
       en: '6 min read'
     },
     author: {
-      name: 'Equipo Legal de Lexbell',
+      name: 'Lic. Eduardo Espinal',
       role: {
-        es: 'Especialistas en Derecho Procesal y LegalTech',
-        en: 'Specialists in Procedural Law and LegalTech'
+        es: 'Abogado & Ingeniero de Software Legal, Creador de Lexbell',
+        en: 'Attorney & Legal Software Engineer, Creator of Lexbell'
+      },
+      bio: {
+        es: 'Especialista en Derecho Procesal y LegalTech. Creador de Lexbell Technologies, enfocado en software de escritorio con privacidad radical por diseño para despachos jurídicos.',
+        en: 'Specialist in Procedural Law and LegalTech. Creator of Lexbell Technologies, focused on desktop software with privacy-by-design for legal practices.'
       }
     },
     keywords: {
@@ -175,10 +181,14 @@ export const blogPosts: BlogPost[] = [
       en: '7 min read'
     },
     author: {
-      name: 'Equipo Legal de Lexbell',
+      name: 'Lic. Eduardo Espinal',
       role: {
-        es: 'Especialistas en Derecho Procesal y LegalTech',
-        en: 'Specialists in Procedural Law and LegalTech'
+        es: 'Abogado & Ingeniero de Software Legal, Creador de Lexbell',
+        en: 'Attorney & Legal Software Engineer, Creator of Lexbell'
+      },
+      bio: {
+        es: 'Especialista en Derecho Procesal y LegalTech. Creador de Lexbell Technologies, enfocado en software de escritorio con privacidad radical por diseño para despachos jurídicos.',
+        en: 'Specialist in Procedural Law and LegalTech. Creator of Lexbell Technologies, focused on desktop software with privacy-by-design for legal practices.'
       }
     },
     keywords: {
@@ -288,10 +298,14 @@ export const blogPosts: BlogPost[] = [
       en: '8 min read'
     },
     author: {
-      name: 'Equipo Legal de Lexbell',
+      name: 'Lic. Eduardo Espinal',
       role: {
-        es: 'Especialistas en Derecho Procesal y LegalTech',
-        en: 'Specialists in Procedural Law and LegalTech'
+        es: 'Abogado & Ingeniero de Software Legal, Creador de Lexbell',
+        en: 'Attorney & Legal Software Engineer, Creator of Lexbell'
+      },
+      bio: {
+        es: 'Especialista en Derecho Procesal y LegalTech. Creador de Lexbell Technologies, enfocado en software de escritorio con privacidad radical por diseño para despachos jurídicos.',
+        en: 'Specialist in Procedural Law and LegalTech. Creator of Lexbell Technologies, focused on desktop software with privacy-by-design for legal practices.'
       }
     },
     keywords: {
@@ -460,6 +474,217 @@ export const blogPosts: BlogPost[] = [
         <h2>3. Conclusion: Which Solution Fits Your Firm?</h2>
         <p>For independent litigators, boutique practices, and legal advisers who value <strong>discretion, speed, and sovereign control over case records</strong>, <strong>Lexbell</strong> provides the most reliable, modern desktop experience available today.</p>
         <p class="mt-4">To examine the regulatory and ethical consequences of storing client documents on shared cloud servers, read our deep dive on <a href="/en/blog/secreto-profesional-abogados-nube-seguridad/">attorney-client privilege in the digital age and cloud risks</a>.</p>
+      `
+    }
+  },
+  {
+    slug: 'ia-local-abogados-conectores-mcp-privacidad',
+    title: {
+      es: 'Cómo usar IA local en despachos de abogados sin subir expedientes a la nube: Guía de conectores MCP',
+      en: 'How Law Firms Can Use Local AI Without Uploading Case Files to the Cloud: MCP Practical Guide'
+    },
+    description: {
+      es: 'Guía práctica para abogados y despachos: cómo conectar asistentes de inteligencia artificial (Claude Desktop, Antigravity, Cursor y Codex) a expedientes locales mediante el protocolo MCP, garantizando el secreto profesional y cero exposición de datos.',
+      en: 'A practical guide for attorneys and law firms: connect AI assistants (Claude Desktop, Antigravity, Cursor, and Codex) to local dossiers via the open MCP protocol, preserving attorney-client privilege with zero cloud exposure.'
+    },
+    category: {
+      es: 'Tecnología Legal',
+      en: 'Legal Technology'
+    },
+    date: '2026-11-20',
+    readTime: {
+      es: '9 min de lectura',
+      en: '9 min read'
+    },
+    author: {
+      name: 'Lic. Eduardo Espinal',
+      role: {
+        es: 'Abogado & Ingeniero de Software Legal, Creador de Lexbell',
+        en: 'Attorney & Legal Software Engineer, Creator of Lexbell'
+      },
+      bio: {
+        es: 'Especialista en Derecho Procesal y LegalTech. Creador de Lexbell Technologies, enfocado en software de escritorio con privacidad radical por diseño para despachos jurídicos.',
+        en: 'Specialist in Procedural Law and LegalTech. Creator of Lexbell Technologies, focused on desktop software with privacy-by-design for legal practices.'
+      }
+    },
+    keywords: {
+      es: [
+        'ia para abogados',
+        'conectores mcp legal',
+        'claude desktop abogados',
+        'antigravity legal mcp',
+        'cursor expedientes legales',
+        'codex despacho juridico',
+        'ia local sin nube abogados',
+        'secreto profesional inteligencia artificial',
+        'model context protocol derecho',
+        'privacidad legaltech 2026'
+      ],
+      en: [
+        'local ai for lawyers',
+        'mcp legal connectors',
+        'claude desktop law firm',
+        'antigravity legal mcp',
+        'cursor legal documents',
+        'codex legal practice',
+        'confidential legal ai',
+        'attorney client privilege ai',
+        'model context protocol law',
+        'offline legal ai'
+      ]
+    },
+    content: {
+      es: `
+        <p class="lead">La inteligencia artificial generativa ha demostrado ser un catalizador sin precedentes para la profesión jurídica: redacta borradores de contratos en segundos, resume cientos de páginas de sentencias judiciales y coteja testimonios con una precisión asombrosa. Sin embargo, para los abogados litigantes y consultores corporativos existe un dilema ético infranqueable: <strong>¿cómo aprovechar estos modelos sin violar el secreto profesional al subir expedientes confidenciales a servidores externos?</strong></p>
+
+        <div class="callout-box">
+          <strong>Advertencia deontológica:</strong> Al pegar un escrito con nombres reales de clientes, números de identificación, cuentas bancarias o secretos comerciales en servicios web de chat con IA, estás transmitiendo información confidencial a servidores de terceros y potencialmente autorizando su retención o procesamiento en centros de datos foráneos.
+        </div>
+
+        <h2>1. El estándar MCP: Qué es y por qué revoluciona el software jurídico</h2>
+        <p>A finales de 2024 nació una de las innovaciones de arquitectura más trascendentales para la informática: el <strong>Model Context Protocol (MCP)</strong>, un estándar de código abierto promovido por Anthropic y adoptado rápidamente por Google, OpenAI y la comunidad de desarrolladores globales.</p>
+        <p>El protocolo MCP funciona como un <em>puente seguro y estandarizado</em> entre una aplicación cliente (como tu asistente de IA en el escritorio) y las fuentes de datos locales (carpetas en tu disco duro, bases de datos SQLite de tu software de gestión, sistemas de archivos del despacho o herramientas internas).</p>
+        <p>A diferencia de los servicios web centralizados donde tus documentos se suben y almacenan en nubes remotas, <strong>un conector MCP local opera bajo el principio de "mínimo privilegio y consulta bajo demanda"</strong>:</p>
+        <ul>
+          <li>El servidor MCP corre exclusivamente en tu propio ordenador (localhost).</li>
+          <li>Solo expone las herramientas y lecturas que tú autorices expresamente en la configuración.</li>
+          <li>Los archivos originales no se suben a la nube; el asistente solo consulta fragmentos contextuales específicos necesarios para responder a la pregunta puntual del letrado.</li>
+        </ul>
+
+        <h2>2. Los cuatro entornos de escritorio con soporte de conectores MCP</h2>
+        <p>Actualmente existen cuatro entornos de trabajo de escritorio destacados que permiten utilizar servidores MCP locales en flujos de trabajo profesionales:</p>
+
+        <h3>A. Claude Desktop (Anthropic)</h3>
+        <p>Es la aplicación nativa oficial de Claude para macOS y Windows. A través de su archivo de configuración <code>claude_desktop_config.json</code>, permite registrar servidores MCP que le otorgan capacidades para inspeccionar carpetas locales de contratos, consultar SQLite local o interactuar con el sistema de archivos sin depender de navegadores.</p>
+
+        <h3>B. Google Antigravity</h3>
+        <p>El entorno de agentes autónomos y asistencia avanzada de Google DeepMind. Diseñado con aislamiento por sandboxes y soporte de primer nivel para servidores MCP, permite coordinar agentes especializados (investigadores de doctrina, verificadores de plazos, auditores de contratos) trabajando de manera privada con repositorios locales de documentos legales.</p>
+
+        <h3>C. Cursor</h3>
+        <p>Aunque nació orientado a la ingeniería de software, numerosos despachos y juristas técnicos utilizan Cursor para estructurar grandes bibliotecas de cláusulas legales, taxonomías y análisis documental en Markdown, aprovechando su soporte nativo de MCP para indexar y consultar miles de PDFs y textos en disco.</p>
+
+        <h3>D. OpenAI Codex y Desktop Runners</h3>
+        <p>La infraestructura de ejecución local de modelos y scripts de automatización mediante el estándar abierto de herramientas, permitiendo procesar expedientes mediante modelos locales o llamadas a API cifradas con retención cero de datos (Zero-Data Retention).</p>
+
+        <h2>3. Cuatro flujos prácticos para el ejercicio diario del despacho</h2>
+
+        <h3>1. Búsqueda y cotejo de contradicciones en testimonios</h3>
+        <p>En un litigio complejo con múltiples declaraciones de testigos y actas notariales de 50 o 100 páginas cada una, puedes pedirle al asistente local conectado por MCP: <em>"Examina las declaraciones del testigo X en el archivo acta_audiencia_1.txt y compáralas con el testimonio del acta_audiencia_2.txt. Identifica cualquier inconsistencia en fechas, horas o lugares mencionados."</em></p>
+
+        <h3>2. Auditoría contractual preventiva frente a modelos maestros</h3>
+        <p>Conectando una carpeta local con tus contratos modelo o cláusulas estándar del bufete, el asistente puede auditar un nuevo borrador enviado por la contraparte y resaltar desviaciones perjudiciales en penalidades, jurisdicción o garantías de indemnidad.</p>
+
+        <h3>3. Resumen ejecutivo de resoluciones judiciales y sentencias</h3>
+        <p>Procesa fallos extensos de tribunales de alzada o cortes de casación para extraer en un memorándum de dos párrafos el ratio decidendi, los votos disidentes y el impacto concreto en la pretensión de tu cliente.</p>
+
+        <h3>4. Anonimización previa de escritos antes de cualquier consulta</h3>
+        <p>Mediante scripts MCP locales, puedes automatizar que todo escrito sustituya automáticamente nombres propios, documentos de identidad y cifras por marcadores genéricos ([CLIENTE_A], [INMUEBLE_B]), garantizando un blindaje total contra cualquier filtración inadvertida.</p>
+
+        <h2>4. Guía paso a paso: Configurar un servidor MCP local para documentos jurídicos</h2>
+        <p>Configurar un servidor MCP local de lectura de archivos en Claude Desktop o Antigravity requiere únicamente definir la carpeta autorizada en el archivo de configuración. Por ejemplo, en <code>claude_desktop_config.json</code>:</p>
+
+        <pre><code>{
+  "mcpServers": {
+    "expedientes-locales": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/tu-usuario/Documentos/Expedientes-Lexbell"
+      ]
+    }
+  }
+}</code></pre>
+
+        <p>Al reiniciar la aplicación, verás el icono del conector activo. A partir de ese momento, el asistente solo podrá leer los archivos contenidos dentro de esa ruta específica del disco, sin tener acceso al resto de tu sistema operativo.</p>
+
+        <h2>5. Las tres reglas de oro para proteger el secreto profesional con IA</h2>
+        <ol>
+          <li><strong>Prefiere siempre modelos con acuerdo de confidencialidad empresarial o ejecución local:</strong> Si utilizas APIs en la nube, asegúrate de activar la cláusula de "Zero Data Retention" (ZDR), donde el proveedor garantiza por contrato que los datos no se utilizan para reentrenar modelos ni se conservan en registros.</li>
+          <li><strong>Mantén los expedientes originales en software Local-First:</strong> Utiliza una herramienta de gestión de expedientes de escritorio como <strong>Lexbell</strong>, donde la base de datos de casos, clientes y honorarios nunca se aloja en nubes compartidas.</li>
+          <li><strong>Revisión humana obligatoria (Human-in-the-Loop):</strong> Nunca presentes un escrito ante los tribunales sin que un abogado colegiado revise minuciosamente citas de artículos, jurisprudencia y razonamientos jurídicos. La IA es una lupa de análisis, no el titular de la firma procesal.</li>
+        </ol>
+
+        <h2>6. Conclusión</h2>
+        <p>La adopción de la inteligencia artificial en el sector jurídico no exige sacrificar los principios éticos que rigen nuestra profesión. Gracias al protocolo MCP y a la arquitectura <strong>Local-First</strong>, cualquier abogado o bufete moderno puede disponer de la máxima potencia analítica del siglo XXI manteniendo los expedientes exactamente donde deben estar: <em>bajo custodia exclusiva y soberana en su propio equipo</em>.</p>
+
+        <p class="mt-4">Para conocer a fondo las razones deontológicas y los riesgos de extraterritorialidad normativa de la nube, consulta nuestro ensayo sobre el <a href="/blog/secreto-profesional-abogados-nube-seguridad/">secreto profesional en la era digital y la custodia de datos</a>.</p>
+      `,
+      en: `
+        <p class="lead">Generative artificial intelligence has proven to be an unmatched catalyst for legal practice: drafting contract clauses in seconds, digesting complex appellate rulings, and identifying witness inconsistencies with extraordinary speed. Yet for litigators, transactional counsel, and corporate advisers, an unavoidable ethical dilemma looms: <strong>how can lawyers harness these tools without violating attorney-client privilege by uploading confidential files to third-party cloud servers?</strong></p>
+
+        <div class="callout-box">
+          <strong>Ethical Imperative:</strong> Pasting case drafts containing client names, tax numbers, bank accounts, or trade secrets into public web AI chat tools transmits confidential casework to remote servers, potentially exposing it to data mining, vendor subpoenas, or foreign jurisdictional reach.
+        </div>
+
+        <h2>1. The MCP Standard: Why It Changes the Legal Tech Landscape</h2>
+        <p>In late 2024, the computing world embraced the <strong>Model Context Protocol (MCP)</strong>, an open standard spearheaded by Anthropic and rapidly adopted by Google DeepMind, OpenAI, and the global developer ecosystem.</p>
+        <p>MCP acts as a <em>standardized, strictly controlled local bridge</em> between desktop AI assistant applications and local data sources (folders on your SSD, encrypted SQLite databases, practice management files, and internal firm repositories).</p>
+        <p>Unlike centralized web SaaS platforms that demand bulk uploads of sensitive dossiers, <strong>a local MCP connector operates on the principle of least privilege and on-demand local inspection</strong>:</p>
+        <ul>
+          <li>The MCP server runs exclusively on your personal workstation (localhost).</li>
+          <li>It exposes only the specific directories and tools you explicitly authorize in configuration files.</li>
+          <li>Raw documents never reside on third-party cloud drives; the assistant queries only the localized excerpts required to address counsel's immediate query.</li>
+        </ul>
+
+        <h2>2. Leading Desktop AI Environments with Local MCP Support</h2>
+        <p>Four primary desktop environments currently empower practitioners to deploy local MCP workflows securely:</p>
+
+        <h3>A. Claude Desktop (Anthropic)</h3>
+        <p>The native application for macOS and Windows. Configured via <code>claude_desktop_config.json</code>, it connects to local filesystem servers, SQLite databases, and local document archives without sending firm data to web browser extensions.</p>
+
+        <h3>B. Google Antigravity</h3>
+        <p>The cutting-edge agentic assistant from Google DeepMind. Engineered with rigorous sandbox boundaries and first-class MCP tool orchestration, it enables multi-agent legal research (precedent analysis, statutory deadline auditing, contract review) against private on-device archives.</p>
+
+        <h3>C. Cursor</h3>
+        <p>A high-performance workspace tool leveraged by legal engineers and modern law firms to maintain clause libraries, matter dossiers, and knowledge bases in Markdown and JSON, querying local files through MCP with sub-millisecond retrieval.</p>
+
+        <h3>D. OpenAI Codex & Desktop Tool Runners</h3>
+        <p>Local script execution and agent runtimes that interface with open tool protocols, enabling law firms to process documents using on-device models or Zero-Data Retention (ZDR) encrypted API endpoints.</p>
+
+        <h2>3. Four Practical AI Workflows for Modern Law Practice</h2>
+
+        <h3>1. Pinpointing Contradictions in Depositions and Witness Statements</h3>
+        <p>Across lengthy hearing transcripts, ask your local desktop assistant: <em>"Review witness testimony in deposition_day1.txt and cross-reference with deposition_day2.txt. Highlight any discrepancies in reported times, dates, or sequences of events."</em></p>
+
+        <h3>2. Comparative Contract Review Against Firm Master Clauses</h3>
+        <p>Connect your firm's approved indemnification, limitation of liability, and governing law clauses. Have the assistant evaluate the counterparty's draft, flagging deviations from standard risk tolerance.</p>
+
+        <h3>3. Executive Briefing of Complex Judicial Rulings</h3>
+        <p>Summarize 80-page appellate decisions in minutes, extracting the core ratio decidendi, concurring arguments, and immediate procedural impact on active client matters.</p>
+
+        <h3>4. Pre-Query Redaction and Client Anonymization</h3>
+        <p>Run automated local MCP redaction scripts that replace names, tax IDs, and sensitive party data with placeholders ([PLAINTIFF_A], [CORPORATION_B]) before queries are processed.</p>
+
+        <h2>4. Step-by-Step: Registering a Local Legal MCP File Server</h2>
+        <p>Granting your desktop AI read access to an isolated legal matter folder is straightforward. In your <code>claude_desktop_config.json</code>:</p>
+
+        <pre><code>{
+  "mcpServers": {
+    "local-legal-dossiers": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/your-name/Documents/Lexbell-Dossiers"
+      ]
+    }
+  }
+}</code></pre>
+
+        <p>Once restarted, the assistant communicates with your local drive via the server-filesystem protocol, restricted exclusively to the declared directory path.</p>
+
+        <h2>5. Core Rules for Preserving Attorney-Client Privilege with AI</h2>
+        <ol>
+          <li><strong>Insist on Zero-Data Retention (ZDR) or local model execution:</strong> Ensure cloud API providers contractually guarantee that prompts and responses are not logged or used to train public foundation models.</li>
+          <li><strong>Keep primary case files in Local-First software:</strong> Rely on desktop practice management software such as <strong>Lexbell</strong>, ensuring core client registries, calendar deadlines, and notes remain encrypted on your hard drive.</li>
+          <li><strong>Maintain Mandatory Human Oversight:</strong> Never file any brief without thorough attorney verification of citations, factual assertions, and legal doctrine. AI remains an analytical assistant; legal responsibility rests solely with counsel.</li>
+        </ol>
+
+        <h2>6. Conclusion</h2>
+        <p>Law firms do not need to choose between competitive AI capability and ethical data custody. By embracing the open <strong>MCP standard</strong> and <strong>Local-First architecture</strong>, attorneys can unlock modern intelligence while maintaining complete sovereignty over confidential client files.</p>
+
+        <p class="mt-4">To understand the ethical and jurisdictional implications of storing client records in third-party clouds, read our in-depth analysis on <a href="/en/blog/secreto-profesional-abogados-nube-seguridad/">attorney-client privilege in the digital era</a>.</p>
       `
     }
   }

@@ -87,6 +87,7 @@ export default defineNuxtConfig({
       pricing: { es: '/precios', en: '/pricing' },
       support: { es: '/soporte', en: '/support' },
       contact: { es: '/contacto', en: '/contact' },
+      about: { es: '/sobre-nosotros', en: '/about' },
       faq: { es: '/faq', en: '/faq' },
       privacy: { es: '/privacidad', en: '/privacy' },
       terms: { es: '/terminos', en: '/terms' },
@@ -136,6 +137,8 @@ export default defineNuxtConfig({
         '/en/deadline-calculator-peru/',
         '/contacto/',
         '/en/contact/',
+        '/sobre-nosotros/',
+        '/en/about/',
         '/soporte/',
         '/en/support/',
         '/faq/',
@@ -154,6 +157,8 @@ export default defineNuxtConfig({
         '/en/blog/secreto-profesional-abogados-nube-seguridad/',
         '/blog/mejores-programas-gestion-expedientes-abogados-2026/',
         '/en/blog/mejores-programas-gestion-expedientes-abogados-2026/',
+        '/blog/ia-local-abogados-conectores-mcp-privacidad/',
+        '/en/blog/ia-local-abogados-conectores-mcp-privacidad/',
         '/sitemap.xml',
         '/robots.txt'
       ]
