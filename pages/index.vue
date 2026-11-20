@@ -648,9 +648,9 @@ const toggleFaq = (idx: number) => {
   position: relative;
   z-index: 2;
   max-width: 1280px;
-  margin: 48px auto 0;
-  padding-top: 36px;
-  border-top: 1px solid var(--border);
+  margin: 40px auto 0;
+  padding-top: 0;
+  border-top: none;
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
