@@ -94,7 +94,12 @@ export default defineNuxtConfig({
       'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' },
       'alternativa-kleos': { es: '/alternativa-kleos', en: '/kleos-alternative' },
       'alternativa-excel-abogados': { es: '/alternativa-excel-abogados', en: '/excel-alternative' },
-      'calculadora-plazos': { es: '/calculadora-plazos', en: '/deadline-calculator' }
+      'calculadora-plazos': { es: '/calculadora-plazos', en: '/deadline-calculator' },
+      'calculadora-plazos-republica-dominicana': { es: '/calculadora-plazos-republica-dominicana', en: '/deadline-calculator-dominican-republic' },
+      'calculadora-plazos-espana': { es: '/calculadora-plazos-espana', en: '/deadline-calculator-spain' },
+      'calculadora-plazos-mexico': { es: '/calculadora-plazos-mexico', en: '/deadline-calculator-mexico' },
+      'calculadora-plazos-colombia': { es: '/calculadora-plazos-colombia', en: '/deadline-calculator-colombia' },
+      'calculadora-plazos-peru': { es: '/calculadora-plazos-peru', en: '/deadline-calculator-peru' }
     }
   },
 
@@ -119,6 +124,16 @@ export default defineNuxtConfig({
         '/en/excel-alternative/',
         '/calculadora-plazos/',
         '/en/deadline-calculator/',
+        '/calculadora-plazos-republica-dominicana/',
+        '/en/deadline-calculator-dominican-republic/',
+        '/calculadora-plazos-espana/',
+        '/en/deadline-calculator-spain/',
+        '/calculadora-plazos-mexico/',
+        '/en/deadline-calculator-mexico/',
+        '/calculadora-plazos-colombia/',
+        '/en/deadline-calculator-colombia/',
+        '/calculadora-plazos-peru/',
+        '/en/deadline-calculator-peru/',
         '/contacto/',
         '/en/contact/',
         '/soporte/',
