@@ -53,9 +53,13 @@ export default defineNuxtConfig({
         { property: 'og:image:type', content: 'image/png' },
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:image', content: 'https://lex-bell.com/og-image.png' }
+        { name: 'twitter:image', content: 'https://lex-bell.com/og-image.png' },
+        // Search Engine Verification (Google & Bing)
+        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '' },
+        { name: 'msvalidate.01', content: process.env.NUXT_PUBLIC_BING_SITE_VERIFICATION || '' }
       ],
       link: [
+        { rel: 'sitemap', type: 'application/xml', href: 'https://lex-bell.com/sitemap.xml' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon.png' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: 'any' },
@@ -94,6 +98,8 @@ export default defineNuxtConfig({
       cookies: { es: '/politica-cookies', en: '/cookie-policy' },
       'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' },
       'alternativa-kleos': { es: '/alternativa-kleos', en: '/kleos-alternative' },
+      'alternativa-sudespacho': { es: '/alternativa-sudespacho', en: '/sudespacho-alternative' },
+      'alternativa-mycase': { es: '/alternativa-mycase', en: '/mycase-alternative' },
       'alternativa-excel-abogados': { es: '/alternativa-excel-abogados', en: '/excel-alternative' },
       'calculadora-plazos': { es: '/calculadora-plazos', en: '/deadline-calculator' },
       'calculadora-plazos-republica-dominicana': { es: '/calculadora-plazos-republica-dominicana', en: '/deadline-calculator-dominican-republic' },
@@ -121,6 +127,10 @@ export default defineNuxtConfig({
         '/en/clio-alternative/',
         '/alternativa-kleos/',
         '/en/kleos-alternative/',
+        '/alternativa-sudespacho/',
+        '/en/sudespacho-alternative/',
+        '/alternativa-mycase/',
+        '/en/mycase-alternative/',
         '/alternativa-excel-abogados/',
         '/en/excel-alternative/',
         '/calculadora-plazos/',

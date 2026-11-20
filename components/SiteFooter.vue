@@ -10,15 +10,17 @@ const productLinks = computed(() => [
   { to: localePath('pricing'), label: t('nav.pricing') },
   { to: localePath('alternativa-clio'), label: t('footer.clioAlt') },
   { to: localePath('alternativa-kleos'), label: t('footer.kleosAlt') },
+  { to: localePath('alternativa-sudespacho'), label: t('footer.sudespachoAlt') },
+  { to: localePath('alternativa-mycase'), label: t('footer.mycaseAlt') },
   { to: localePath('alternativa-excel-abogados'), label: t('footer.excelAlt') }
 ])
 
 const solutionLinks = computed(() => [
-  { to: localePath('solutions'), label: t('footer.litigation') },
-  { to: localePath('solutions'), label: t('footer.administrative') },
-  { to: localePath('solutions'), label: t('footer.immigration') },
-  { to: localePath('solutions'), label: t('footer.realEstate') },
-  { to: localePath('solutions'), label: t('footer.corporate') }
+  { to: `${localePath('solutions')}#litigation`, label: t('footer.litigation') },
+  { to: `${localePath('solutions')}#administrative`, label: t('footer.administrative') },
+  { to: `${localePath('solutions')}#immigration`, label: t('footer.immigration') },
+  { to: `${localePath('solutions')}#real-estate`, label: t('footer.realEstate') },
+  { to: `${localePath('solutions')}#corporate`, label: t('footer.corporate') }
 ])
 
 const resourceLinks = computed(() => [

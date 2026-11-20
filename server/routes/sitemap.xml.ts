@@ -21,6 +21,8 @@ const entries: Entry[] = [
   { es: '/calculadora-plazos-peru/',                                en: '/en/deadline-calculator-peru/',                              priority: '0.85' },
   { es: '/alternativa-clio/',                                       en: '/en/clio-alternative/',                                      priority: '0.9' },
   { es: '/alternativa-kleos/',                                      en: '/en/kleos-alternative/',                                     priority: '0.9' },
+  { es: '/alternativa-sudespacho/',                                 en: '/en/sudespacho-alternative/',                                priority: '0.9' },
+  { es: '/alternativa-mycase/',                                     en: '/en/mycase-alternative/',                                    priority: '0.9' },
   { es: '/alternativa-excel-abogados/',                             en: '/en/excel-alternative/',                                     priority: '0.9' },
   { es: '/blog/',                                                   en: '/en/blog/',                                                  priority: '0.85' },
   { es: '/blog/computo-plazos-procesales-dias-habiles-rd/',         en: '/en/blog/computo-plazos-procesales-dias-habiles-rd/',         priority: '0.8' },

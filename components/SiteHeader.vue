@@ -2,6 +2,7 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { isDark, toggleTheme } = useTheme()
+const { trackCta } = useAnalytics()
 
 const open = ref(false)
 const route = useRoute()
@@ -75,7 +76,11 @@ const links = computed(() => [
           </svg>
         </button>
         <LangSwitcher />
-        <a :href="localePath('index') + '#descargar'" class="header-trial-btn">
+        <a
+          :href="localePath('index') + '#descargar'"
+          class="header-trial-btn"
+          @click="trackCta('try_free_header', 'desktop_nav')"
+        >
           {{ t('nav.tryFree') }}
         </a>
         <button
@@ -107,7 +112,11 @@ const links = computed(() => [
           >
             {{ link.label }}
           </NuxtLink>
-          <a :href="localePath('index') + '#descargar'" class="site-header-mobile-cta" @click="open = false">
+          <a
+            :href="localePath('index') + '#descargar'"
+            class="site-header-mobile-cta"
+            @click="trackCta('try_free_header', 'mobile_nav'); open = false"
+          >
             {{ t('nav.tryFree') }}
           </a>
           <div class="site-header-mobile-lang">

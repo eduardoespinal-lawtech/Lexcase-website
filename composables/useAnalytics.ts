@@ -64,7 +64,32 @@ export const useAnalytics = () => {
     }
   }
 
+  const trackCta = (label: string, location: string = 'header') => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      try {
+        ;(window as any).gtag('event', 'cta_click', {
+          event_category: 'engagement',
+          event_label: label,
+          location: location
+        })
+      } catch (err) {
+        console.warn('[Analytics] Google Tag CTA error:', err)
+      }
+    }
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      try {
+        ;(window as any).fbq('trackCustom', 'CtaClick', {
+          label,
+          location
+        })
+      } catch (err) {
+        console.warn('[Analytics] Meta Pixel CTA error:', err)
+      }
+    }
+  }
+
   return {
-    trackDownload
+    trackDownload,
+    trackCta
   }
 }
