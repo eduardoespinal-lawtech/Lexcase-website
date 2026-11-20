@@ -158,6 +158,23 @@ useHead(() => {
         type: 'application/ld+json',
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'Lexbell',
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'macOS, Windows',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          },
+          description: desc,
+          url: isEn ? 'https://lex-bell.com/en/' : 'https://lex-bell.com/'
+        })
+      },
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: faqs.value.map(item => ({
             '@type': 'Question',
@@ -186,6 +203,9 @@ const toggleFaq = (idx: number) => {
       <div class="ms-hero-inner">
         <!-- Columna Izquierda: Mensaje Directo + CTAs -->
         <div class="ms-hero-content">
+          <span class="eyebrow">
+            {{ locale === 'en' ? 'NEW IN LEXBELL · LOCAL MCP AI & OFFICE NETWORK' : 'NUEVO EN LEXBELL · IA LOCAL (MCP) Y RED DE OFICINA' }}
+          </span>
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
@@ -198,7 +218,7 @@ const toggleFaq = (idx: number) => {
           <div class="ms-hero-downloads">
             <AppDownload />
             <p class="hero-trust-note">
-              {{ locale === 'en' ? 'Free up to 50 cases · No credit card · Works 100% offline' : 'Gratis hasta 50 casos · Sin tarjeta · Funciona 100% sin internet' }}
+              {{ locale === 'en' ? 'Free up to 50 cases · 15-day Pro trial without card · Local MCP AI & LAN' : 'Gratis hasta 50 casos · Prueba Pro 15 días sin tarjeta · IA local (MCP) y red LAN' }}
             </p>
           </div>
         </div>
@@ -360,6 +380,58 @@ const toggleFaq = (idx: number) => {
                 height="1185"
                 loading="lazy"
               />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== 1.8 ECOSISTEMA LOCAL: IA PRIVADA (MCP) Y RED DE OFICINA (LAN) =================== -->
+    <section class="section section-gray" id="ecosistema-local">
+      <div class="apple-wrap">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="eyebrow">{{ locale === 'en' ? 'LOCAL ECOSYSTEM' : 'ECOSISTEMA LOCAL' }}</span>
+          <h2 class="h-section">{{ locale === 'en' ? 'Private AI and office collaboration, zero cloud' : 'IA privada y trabajo en equipo, sin subir nada a la nube' }}</h2>
+          <p class="subtitle mt-3">
+            {{ locale === 'en'
+              ? 'Built for solo attorneys and boutique law firms (1 to 10 people) who refuse to compromise client confidentiality.'
+              : 'Pensado para abogados independientes y despachos boutique de 1 a 10 personas que protegen el secreto profesional.' }}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bento-card" style="padding-bottom: 28px;">
+            <div class="bento-copy" style="margin-bottom: 0;">
+              <span class="bento-tag">{{ locale === 'en' ? 'LOCAL ARTIFICIAL INTELLIGENCE' : 'INTELIGENCIA ARTIFICIAL LOCAL' }}</span>
+              <h3 class="bento-title">{{ locale === 'en' ? 'MCP Connectors: Your practice powered by local AI' : 'Conectores MCP: IA privada sobre tus expedientes' }}</h3>
+              <p class="bento-desc">
+                {{ locale === 'en'
+                  ? 'Connect Claude Desktop, Google Antigravity, Cursor, and OpenAI Codex in one click through a local read-only MCP server. Ask about cases, summarize pleadings, and verify deadlines without uploading client data.'
+                  : 'Conecta Claude Desktop, Google Antigravity, Cursor y OpenAI Codex en un clic mediante un servidor MCP local de solo lectura. Consulta casos, resume escritos y verifica plazos sin enviar datos confidenciales a servidores externos.' }}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">Claude Desktop</span>
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">Antigravity</span>
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">Cursor</span>
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">Codex</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card" style="padding-bottom: 28px;">
+            <div class="bento-copy" style="margin-bottom: 0;">
+              <span class="bento-tag">{{ locale === 'en' ? 'OFFICE COLLABORATION (1–10 PEOPLE)' : 'COLABORACIÓN EN DESPACHO (1 A 10 PERSONAS)' }}</span>
+              <h3 class="bento-title">{{ locale === 'en' ? 'Share in Office: Real-time sync over local Wi-Fi' : 'Compartir en Oficina: Red local LAN con PIN' }}</h3>
+              <p class="bento-desc">
+                {{ locale === 'en'
+                  ? 'Coordinate cases, hearings, and tasks with partners and paralegals across your office Wi-Fi or Ethernet. 6-digit PIN pairing keeps encrypted P2P sync strictly inside your physical office.'
+                  : 'Sincroniza expedientes, audiencias y tareas en tiempo real con socios y asistentes a través del Wi-Fi o cable Ethernet de tu oficina. Emparejamiento P2P cifrado con PIN de 6 dígitos, cero servidores en internet.' }}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">{{ locale === 'en' ? 'Local Wi-Fi / LAN' : 'Wi-Fi / Red Local' }}</span>
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">{{ locale === 'en' ? '6-Digit PIN P2P' : 'PIN P2P 6 dígitos' }}</span>
+                <span class="lexbell-pill" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);">{{ locale === 'en' ? 'Zero Cloud Servers' : 'Cero Nube' }}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -15,6 +15,8 @@ const entries: Entry[] = [
   { es: '/caracteristicas/',                                        en: '/en/features/',                                              priority: '0.9' },
   { es: '/calculadora-plazos/',                                     en: '/en/deadline-calculator/',                                   priority: '0.9' },
   { es: '/alternativa-clio/',                                       en: '/en/clio-alternative/',                                      priority: '0.9' },
+  { es: '/alternativa-kleos/',                                      en: '/en/kleos-alternative/',                                     priority: '0.9' },
+  { es: '/alternativa-excel-abogados/',                             en: '/en/excel-alternative/',                                     priority: '0.9' },
   { es: '/blog/',                                                   en: '/en/blog/',                                                  priority: '0.85' },
   { es: '/blog/computo-plazos-procesales-dias-habiles-rd/',         en: '/en/blog/computo-plazos-procesales-dias-habiles-rd/',         priority: '0.8' },
   { es: '/blog/secreto-profesional-abogados-nube-seguridad/',       en: '/en/blog/secreto-profesional-abogados-nube-seguridad/',       priority: '0.8' },

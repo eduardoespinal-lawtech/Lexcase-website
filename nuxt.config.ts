@@ -92,6 +92,8 @@ export default defineNuxtConfig({
       terms: { es: '/terminos', en: '/terms' },
       cookies: { es: '/politica-cookies', en: '/cookie-policy' },
       'alternativa-clio': { es: '/alternativa-clio', en: '/clio-alternative' },
+      'alternativa-kleos': { es: '/alternativa-kleos', en: '/kleos-alternative' },
+      'alternativa-excel-abogados': { es: '/alternativa-excel-abogados', en: '/excel-alternative' },
       'calculadora-plazos': { es: '/calculadora-plazos', en: '/deadline-calculator' }
     }
   },
@@ -111,6 +113,10 @@ export default defineNuxtConfig({
         '/en/features/',
         '/alternativa-clio/',
         '/en/clio-alternative/',
+        '/alternativa-kleos/',
+        '/en/kleos-alternative/',
+        '/alternativa-excel-abogados/',
+        '/en/excel-alternative/',
         '/calculadora-plazos/',
         '/en/deadline-calculator/',
         '/contacto/',

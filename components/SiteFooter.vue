@@ -8,7 +8,9 @@ const year = new Date().getFullYear()
 const productLinks = computed(() => [
   { to: localePath('features'), label: t('nav.features') },
   { to: localePath('pricing'), label: t('nav.pricing') },
-  { to: localePath('alternativa-clio'), label: t('footer.clioAlt') }
+  { to: localePath('alternativa-clio'), label: t('footer.clioAlt') },
+  { to: localePath('alternativa-kleos'), label: t('footer.kleosAlt') },
+  { to: localePath('alternativa-excel-abogados'), label: t('footer.excelAlt') }
 ])
 
 const solutionLinks = computed(() => [
