@@ -208,18 +208,6 @@ const toggleFaq = (idx: number) => {
           <div class="hero-ambient-glow" aria-hidden="true"></div>
           <div class="hero-app-grid" aria-hidden="true"></div>
           <div class="hero-app-frame">
-            <div class="macos-window-header" aria-hidden="true">
-              <div class="macos-traffic-lights">
-                <span class="traffic-dot dot-close"></span>
-                <span class="traffic-dot dot-min"></span>
-                <span class="traffic-dot dot-zoom"></span>
-              </div>
-              <div class="macos-window-title">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Lexbell — {{ locale === 'en' ? 'Active Dossiers' : 'Expedientes en Trámite' }}</span>
-              </div>
-              <div class="macos-header-spacer"></div>
-            </div>
             <img
               src="/screenshots/showcase-tribunal.webp?v=1.1.22"
               :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
@@ -317,17 +305,6 @@ const toggleFaq = (idx: number) => {
           <div class="ms-studio-stage">
             <div class="ms-studio-glow" aria-hidden="true"></div>
             <div class="ms-3d-frame">
-              <div class="macos-window-header" aria-hidden="true">
-                <div class="macos-traffic-lights">
-                  <span class="traffic-dot dot-close"></span>
-                  <span class="traffic-dot dot-min"></span>
-                  <span class="traffic-dot dot-zoom"></span>
-                </div>
-                <div class="macos-window-title">
-                  <span>Lexbell — {{ showcaseTabs[activeTab].label }}</span>
-                </div>
-                <div class="macos-header-spacer"></div>
-              </div>
               <img
                 :key="showcaseTabs[activeTab].id"
                 :src="showcaseTabs[activeTab].img"
@@ -691,72 +668,6 @@ const toggleFaq = (idx: number) => {
   box-shadow:
     0 28px 70px -12px rgba(0, 0, 0, 0.4),
     0 8px 24px -4px rgba(0, 0, 0, 0.18);
-}
-
-/* macOS Window Header Chrome */
-.macos-window-header {
-  height: 36px;
-  background: linear-gradient(180deg, rgba(246, 246, 248, 0.96) 0%, rgba(238, 239, 242, 0.96) 100%);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 14px;
-  user-select: none;
-  box-sizing: border-box;
-}
-
-:root.dark .macos-window-header {
-  background: linear-gradient(180deg, #1e2430 0%, #171b25 100%);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-.macos-traffic-lights {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  width: 70px;
-}
-
-.traffic-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
-}
-
-.dot-close {
-  background-color: #ff5f56;
-  border: 0.5px solid #e0443e;
-}
-
-.dot-min {
-  background-color: #ffbd2e;
-  border: 0.5px solid #dea123;
-}
-
-.dot-zoom {
-  background-color: #27c93f;
-  border: 0.5px solid #1aab29;
-}
-
-.macos-window-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.macos-header-spacer {
-  width: 70px;
 }
 
 .hero-app-img {

@@ -5,6 +5,7 @@ export interface LocalizedField {
 
 export interface BlogPost {
   slug: string
+  coverImage: string
   title: LocalizedField
   description: LocalizedField
   category: LocalizedField
@@ -24,6 +25,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'computo-plazos-procesales-dias-habiles-rd',
+    coverImage: '/screenshots/showcase-calendar-month.webp',
     title: {
       es: 'Cómputo de plazos procesales en días hábiles: Guía práctica para abogados y litigantes',
       en: 'Calculating Procedural Deadlines in Business Days: A Practical Guide for Litigators'
@@ -157,6 +159,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'secreto-profesional-abogados-nube-seguridad',
+    coverImage: '/screenshots/showcase-connections.webp',
     title: {
       es: 'El secreto profesional en la era digital: Por qué la nube pone en riesgo la confidencialidad de tu bufete',
       en: 'Attorney-Client Privilege in the Digital Age: Why Cloud Platforms Put Law Firm Confidentiality at Risk'
@@ -270,6 +273,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'mejores-programas-gestion-expedientes-abogados-2026',
+    coverImage: '/screenshots/showcase-tribunal.webp',
     title: {
       es: 'Mejores programas de gestión de expedientes para abogados en Mac y Windows en 2026',
       en: 'Best Legal Case Management Software for Lawyers on Mac and Windows (2026)'

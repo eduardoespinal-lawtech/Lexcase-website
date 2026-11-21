@@ -360,11 +360,16 @@ useHead(() => {
             :to="localePath('/blog/' + rel.slug + '/')"
             class="related-card group"
           >
-            <span class="post-cat-badge text-xs">{{ isEn ? rel.category.en : rel.category.es }}</span>
-            <h4 class="related-card-title group-hover:text-blue-600 transition-colors">
-              {{ isEn ? rel.title.en : rel.title.es }}
-            </h4>
-            <span class="related-read-more">{{ t('blog.readArticle') }} →</span>
+            <div class="related-card-thumb">
+              <img :src="rel.coverImage" :alt="isEn ? rel.title.en : rel.title.es" class="related-card-img" loading="lazy" />
+              <span class="related-thumb-badge">{{ isEn ? rel.category.en : rel.category.es }}</span>
+            </div>
+            <div class="related-card-body">
+              <h4 class="related-card-title group-hover:text-blue-600 transition-colors">
+                {{ isEn ? rel.title.en : rel.title.es }}
+              </h4>
+              <span class="related-read-more">{{ t('blog.readArticle') }} →</span>
+            </div>
           </NuxtLink>
         </div>
       </footer>
@@ -732,31 +737,78 @@ useHead(() => {
 }
 
 .related-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px;
-  transition: all 0.2s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
 }
 
 .related-card:hover {
-  border-color: var(--border-dark);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+  border-color: rgba(0, 102, 204, 0.35);
+  box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.related-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.related-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.related-card:hover .related-card-img {
+  transform: scale(1.04);
+}
+
+.related-thumb-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.related-card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .related-card-title {
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.35;
   font-weight: 600;
   color: var(--text);
-  margin-top: 10px;
   margin-bottom: 12px;
 }
 
 .related-read-more {
+  margin-top: auto;
   font-size: 13px;
   font-weight: 600;
   color: var(--accent);

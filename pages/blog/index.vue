@@ -100,17 +100,27 @@ function formatDate(iso: string) {
     <!-- MAIN CONTENT -->
     <section class="pb-24">
       <div class="apple-wrap-wide">
-        <!-- FEATURED POST CARD (CLEAN EDITORIAL TYPOGRAPHY) -->
+        <!-- FEATURED POST CARD (ESTILO EDITORIAL BANDERA CON PORTADA) -->
         <div v-if="featuredPost" class="featured-card-wrapper mb-10">
           <NuxtLink
             :to="localePath('/blog/' + featuredPost.slug + '/')"
             class="featured-card group"
           >
+            <div class="featured-card-media">
+              <img
+                :src="featuredPost.coverImage"
+                :alt="isEn ? featuredPost.title.en : featuredPost.title.es"
+                class="featured-card-img"
+                loading="eager"
+              />
+              <div class="featured-cover-overlay"></div>
+              <span class="featured-pill">
+                {{ isEn ? 'Featured' : 'Destacado' }}
+              </span>
+            </div>
+
             <div class="featured-card-body">
               <div class="post-meta-row">
-                <span class="featured-pill">
-                  {{ isEn ? 'Featured' : 'Destacado' }}
-                </span>
                 <span class="post-cat-badge">
                   {{ isEn ? featuredPost.category.en : featuredPost.category.es }}
                 </span>
@@ -118,6 +128,7 @@ function formatDate(iso: string) {
                 <span class="post-date">{{ formatDate(featuredPost.date) }}</span>
                 <span class="post-dot">·</span>
                 <span class="post-readtime">
+                  <svg class="w-3.5 h-3.5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   {{ isEn ? featuredPost.readTime.en : featuredPost.readTime.es }}
                 </span>
               </div>
@@ -158,7 +169,7 @@ function formatDate(iso: string) {
           </NuxtLink>
         </div>
 
-        <!-- POSTS GRID -->
+        <!-- POSTS GRID (TARJETAS DE BLOG MODERNAS CON PORTADA VISUAL) -->
         <div v-if="otherPosts.length > 0" class="posts-grid">
           <article
             v-for="post in otherPosts"
@@ -169,13 +180,25 @@ function formatDate(iso: string) {
               :to="localePath('/blog/' + post.slug + '/')"
               class="post-card-inner"
             >
+              <div class="post-card-thumb">
+                <img
+                  :src="post.coverImage"
+                  :alt="isEn ? post.title.en : post.title.es"
+                  class="post-card-img"
+                  loading="lazy"
+                />
+                <div class="post-thumb-overlay"></div>
+                <span class="post-thumb-badge">
+                  {{ isEn ? post.category.en : post.category.es }}
+                </span>
+              </div>
+
               <div class="post-card-content">
                 <div class="post-meta-row mb-3">
-                  <span class="post-cat-badge">
-                    {{ isEn ? post.category.en : post.category.es }}
-                  </span>
+                  <span class="post-date text-xs text-gray-500">{{ formatDate(post.date) }}</span>
                   <span class="post-dot">·</span>
                   <span class="post-readtime">
+                    <svg class="w-3.5 h-3.5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     {{ isEn ? post.readTime.en : post.readTime.es }}
                   </span>
                 </div>
@@ -189,9 +212,15 @@ function formatDate(iso: string) {
                 </p>
 
                 <div class="post-footer-row mt-auto pt-4">
-                  <span class="post-date text-xs text-gray-500">{{ formatDate(post.date) }}</span>
+                  <div class="post-card-author">
+                    <div class="post-author-icon">⚖️</div>
+                    <span class="post-author-name">{{ post.author.name }}</span>
+                  </div>
                   <span class="read-link-sm">
-                    {{ t('blog.readArticle') }} →
+                    {{ t('blog.readArticle') }}
+                    <svg class="w-3.5 h-3.5 ml-0.5 inline-block transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                   </span>
                 </div>
               </div>
@@ -270,38 +299,89 @@ function formatDate(iso: string) {
   border-color: transparent;
 }
 
-/* Featured Card */
+/* Featured Card (Estilo Editorial con Portada Dividida) */
 .featured-card-wrapper {
   background: var(--bg);
 }
 
 .featured-card {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr;
   text-decoration: none;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 18px;
-  padding: clamp(26px, 3.5vw, 40px);
-  transition: all 0.25s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 900px) {
+  .featured-card {
+    grid-template-columns: 1.15fr 1fr;
+  }
 }
 
 .featured-card:hover {
-  border-color: var(--accent-border);
-  border-left-color: var(--accent);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+  border-color: rgba(0, 102, 204, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+:root.dark .featured-card:hover {
+  box-shadow: 0 20px 44px -8px rgba(0, 0, 0, 0.5);
+}
+
+.featured-card-media {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.featured-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-card:hover .featured-card-img {
+  transform: scale(1.04);
+}
+
+.featured-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none;
 }
 
 .featured-pill {
-  background: var(--accent);
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #0066cc;
   color: #ffffff;
-  padding: 3px 10px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+  z-index: 2;
+}
+
+.featured-card-body {
+  padding: clamp(24px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .post-meta-row {
@@ -329,22 +409,22 @@ function formatDate(iso: string) {
 }
 
 .featured-title {
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.22;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.25;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--text);
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   text-wrap: balance;
 }
 
 .featured-desc {
-  font-size: clamp(15.5px, 1.4vw, 17px);
+  font-size: clamp(14.5px, 1.2vw, 16px);
   line-height: 1.6;
   color: var(--text-muted);
   max-width: 880px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   text-wrap: pretty;
 }
 
@@ -354,19 +434,19 @@ function formatDate(iso: string) {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  padding-top: 20px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
 }
 
 .author-block {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .author-avatar-icon {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -374,35 +454,35 @@ function formatDate(iso: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .author-name {
   display: block;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text);
 }
 
 .author-role {
   display: block;
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--text-light);
 }
 
 .read-link {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--accent);
   display: inline-flex;
   align-items: center;
 }
 
-/* Posts Grid */
+/* Posts Grid (Tarjetas de Blog Modernas con Portada) */
 .posts-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
 @media (min-width: 768px) {
@@ -414,17 +494,22 @@ function formatDate(iso: string) {
 .post-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .post-card:hover {
-  border-color: var(--border-dark);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  border-color: rgba(0, 102, 204, 0.35);
+  box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.12);
+}
+
+:root.dark .post-card:hover {
+  box-shadow: 0 18px 38px -8px rgba(0, 0, 0, 0.45);
 }
 
 .post-card-inner {
@@ -434,29 +519,101 @@ function formatDate(iso: string) {
   height: 100%;
 }
 
+.post-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.post-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-card:hover .post-card-img {
+  transform: scale(1.05);
+}
+
+.post-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none;
+}
+
+.post-thumb-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
 .post-card-content {
-  padding: 28px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+.post-card-author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-author-icon {
+  font-size: 14px;
+}
+
+.post-author-name {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
 .post-title {
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 600;
+  font-size: 18.5px;
+  line-height: 1.35;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--text);
   margin-bottom: 10px;
-  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post-desc {
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--text-muted);
-  margin-bottom: 16px;
-  text-wrap: pretty;
+  margin-bottom: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post-footer-row {
@@ -464,12 +621,15 @@ function formatDate(iso: string) {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--border);
+  padding-top: 14px;
 }
 
 .read-link-sm {
   font-size: 13px;
   font-weight: 600;
   color: var(--accent);
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Blog CTA Box */
