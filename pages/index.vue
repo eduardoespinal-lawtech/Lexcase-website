@@ -186,6 +186,12 @@ const toggleFaq = (idx: number) => {
       <div class="ms-hero-inner">
         <!-- Columna Izquierda: Mensaje Directo + CTAs -->
         <div class="ms-hero-content">
+          <div class="hero-badge-pill">
+            <span class="badge-spark">✨</span>
+            <span class="badge-text">{{ locale === 'en' ? 'Desktop App for Mac & Windows' : 'App de escritorio para Mac y Windows' }}</span>
+            <span class="badge-tag">{{ locale === 'en' ? 'Local-First' : '100% Local' }}</span>
+          </div>
+
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
@@ -205,8 +211,21 @@ const toggleFaq = (idx: number) => {
 
         <!-- Columna Derecha: Captura real y recta de la aplicación Lexbell sobre cuadrícula -->
         <div class="hero-app-col">
+          <div class="hero-ambient-glow" aria-hidden="true"></div>
           <div class="hero-app-grid" aria-hidden="true"></div>
           <div class="hero-app-frame">
+            <div class="macos-window-header" aria-hidden="true">
+              <div class="macos-traffic-lights">
+                <span class="traffic-dot dot-close"></span>
+                <span class="traffic-dot dot-min"></span>
+                <span class="traffic-dot dot-zoom"></span>
+              </div>
+              <div class="macos-window-title">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Lexbell — {{ locale === 'en' ? 'Active Dossiers' : 'Expedientes en Trámite' }}</span>
+              </div>
+              <div class="macos-header-spacer"></div>
+            </div>
             <img
               src="/screenshots/showcase-tribunal.webp?v=1.1.22"
               :alt="locale === 'en' ? 'Lexbell Desktop App Interface' : 'Interfaz de la aplicación Lexbell'"
@@ -222,16 +241,16 @@ const toggleFaq = (idx: number) => {
 
       <!-- Hero Feature Pillars -->
       <div class="hero-features-grid">
-        <div class="hero-feat-card">
-          <div class="hero-feat-icon-box">
+        <div class="hero-feat-card feat-blue">
+          <div class="hero-feat-icon-box icon-blue">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="hero-feat-title">{{ t('home.heroCard1Title') }}</h3>
           <p class="hero-feat-desc">{{ t('home.heroCard1Desc') }}</p>
         </div>
 
-        <div class="hero-feat-card">
-          <div class="hero-feat-icon-box">
+        <div class="hero-feat-card feat-purple">
+          <div class="hero-feat-icon-box icon-purple">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rotate-180">
               <circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/>
             </svg>
@@ -240,8 +259,8 @@ const toggleFaq = (idx: number) => {
           <p class="hero-feat-desc">{{ t('home.heroCard2Desc') }}</p>
         </div>
 
-        <div class="hero-feat-card">
-          <div class="hero-feat-icon-box">
+        <div class="hero-feat-card feat-emerald">
+          <div class="hero-feat-icon-box icon-emerald">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect width="18" height="18" x="3" y="4" rx="2" /><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
             </svg>
@@ -250,8 +269,8 @@ const toggleFaq = (idx: number) => {
           <p class="hero-feat-desc">{{ t('home.heroCard3Desc') }}</p>
         </div>
 
-        <div class="hero-feat-card">
-          <div class="hero-feat-icon-box">
+        <div class="hero-feat-card feat-amber">
+          <div class="hero-feat-icon-box icon-amber">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
             </svg>
@@ -304,6 +323,17 @@ const toggleFaq = (idx: number) => {
           <div class="ms-studio-stage">
             <div class="ms-studio-glow" aria-hidden="true"></div>
             <div class="ms-3d-frame">
+              <div class="macos-window-header" aria-hidden="true">
+                <div class="macos-traffic-lights">
+                  <span class="traffic-dot dot-close"></span>
+                  <span class="traffic-dot dot-min"></span>
+                  <span class="traffic-dot dot-zoom"></span>
+                </div>
+                <div class="macos-window-title">
+                  <span>Lexbell — {{ showcaseTabs[activeTab].label }}</span>
+                </div>
+                <div class="macos-header-spacer"></div>
+              </div>
               <img
                 :key="showcaseTabs[activeTab].id"
                 :src="showcaseTabs[activeTab].img"
@@ -435,7 +465,8 @@ const toggleFaq = (idx: number) => {
 
         <!-- Testimonios de profesionales reales -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="item in testimonials" :key="item.id" class="testimonial-card">
+          <div v-for="item in testimonials" :key="item.id" class="testimonial-card group">
+            <div class="testimonial-watermark" aria-hidden="true">“</div>
             <p class="testimonial-quote">“{{ item.quote }}”</p>
             <div class="testimonial-author">
               <img
@@ -447,7 +478,13 @@ const toggleFaq = (idx: number) => {
                 loading="lazy"
               />
               <div class="testimonial-author-info">
-                <strong>{{ item.author }}</strong>
+                <div class="author-name-row">
+                  <strong>{{ item.author }}</strong>
+                  <span class="verified-pill" :title="locale === 'en' ? 'Verified Practitioner' : 'Despacho verificado'">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span>{{ locale === 'en' ? 'Verified' : 'Verificado' }}</span>
+                  </span>
+                </div>
                 <span>{{ item.role }}</span>
               </div>
             </div>
@@ -554,6 +591,54 @@ const toggleFaq = (idx: number) => {
   text-align: left;
 }
 
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  line-height: 1;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.hero-badge-pill:hover {
+  border-color: rgba(0, 102, 204, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.12);
+  transform: translateY(-1px);
+}
+
+.badge-spark {
+  font-size: 13px;
+  animation: sparkPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes sparkPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  50% { transform: scale(1.18) rotate(8deg); opacity: 1; }
+}
+
+.badge-text {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.badge-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
 .ms-hero-title {
   font-size: clamp(32px, 3.8vw, 46px);
   font-weight: 800;
@@ -601,13 +686,30 @@ const toggleFaq = (idx: number) => {
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real recta (2D) sobre cuadrícula arquitectónica */
+/* Columna Derecha: Ventana real recta con marco macOS nativo y aura atmosférica */
 .hero-app-col {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 85%;
+  background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.2) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 72%);
+  filter: blur(52px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root.dark .hero-ambient-glow {
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.32) 0%, rgba(99, 102, 241, 0.14) 50%, transparent 75%);
 }
 
 .hero-app-grid {
@@ -635,6 +737,80 @@ const toggleFaq = (idx: number) => {
   box-shadow:
     0 24px 60px -12px rgba(0, 0, 0, 0.35),
     0 6px 20px -4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-app-frame:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 28px 70px -12px rgba(0, 0, 0, 0.4),
+    0 8px 24px -4px rgba(0, 0, 0, 0.18);
+}
+
+/* macOS Window Header Chrome */
+.macos-window-header {
+  height: 36px;
+  background: linear-gradient(180deg, rgba(246, 246, 248, 0.96) 0%, rgba(238, 239, 242, 0.96) 100%);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+:root.dark .macos-window-header {
+  background: linear-gradient(180deg, #1e2430 0%, #171b25 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.macos-traffic-lights {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 70px;
+}
+
+.traffic-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.dot-close {
+  background-color: #ff5f56;
+  border: 0.5px solid #e0443e;
+}
+
+.dot-min {
+  background-color: #ffbd2e;
+  border: 0.5px solid #dea123;
+}
+
+.dot-zoom {
+  background-color: #27c93f;
+  border: 0.5px solid #1aab29;
+}
+
+.macos-window-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.macos-header-spacer {
+  width: 70px;
 }
 
 .hero-app-img {
@@ -671,23 +847,95 @@ const toggleFaq = (idx: number) => {
 .hero-feat-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 14px;
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-feat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.08);
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+:root.dark .hero-feat-card:hover {
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.45);
+}
+
+/* Color Accents en Cards */
+.hero-feat-card.feat-blue:hover {
+  border-color: rgba(0, 102, 204, 0.38);
+}
+.hero-feat-card.feat-purple:hover {
+  border-color: rgba(139, 92, 246, 0.38);
+}
+.hero-feat-card.feat-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.38);
+}
+.hero-feat-card.feat-amber:hover {
+  border-color: rgba(245, 158, 11, 0.38);
 }
 
 .hero-feat-icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  color: var(--icon-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  transition: transform 0.25s ease;
+}
+
+.hero-feat-card:hover .hero-feat-icon-box {
+  transform: scale(1.06);
+}
+
+.icon-blue {
+  background: rgba(0, 102, 204, 0.08);
+  border: 1px solid rgba(0, 102, 204, 0.2);
+  color: #0066cc;
+}
+:root.dark .icon-blue {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+}
+
+.icon-purple {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #7c3aed;
+}
+:root.dark .icon-purple {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+}
+
+.icon-emerald {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #059669;
+}
+:root.dark .icon-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.icon-amber {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #d97706;
+}
+:root.dark .icon-amber {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
 }
 
 .hero-feat-title {
@@ -887,29 +1135,62 @@ const toggleFaq = (idx: number) => {
 
 /* TESTIMONIOS */
 .testimonial-card {
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 26px 22px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 102, 204, 0.3);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-watermark {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-family: Georgia, serif;
+  font-size: 84px;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 700;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.testimonial-card:hover .testimonial-watermark {
+  opacity: 0.1;
+  transform: scale(1.05);
 }
 
 .testimonial-quote {
-  font-size: 14px;
-  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+  font-size: 14.5px;
+  line-height: 1.6;
   color: var(--text-muted);
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
 
 .testimonial-author {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 12px;
   border-top: 1px solid var(--border);
-  padding-top: 14px;
+  padding-top: 16px;
 }
 
 .testimonial-avatar {
@@ -926,6 +1207,32 @@ const toggleFaq = (idx: number) => {
   display: flex;
   flex-direction: column;
   min-width: 0;
+}
+
+.author-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+
+:root.dark .verified-pill {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .testimonial-author strong {
