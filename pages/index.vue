@@ -186,12 +186,6 @@ const toggleFaq = (idx: number) => {
       <div class="ms-hero-inner">
         <!-- Columna Izquierda: Mensaje Directo + CTAs -->
         <div class="ms-hero-content">
-          <div class="hero-badge-pill">
-            <span class="badge-spark">✨</span>
-            <span class="badge-text">{{ locale === 'en' ? 'Desktop App for Mac & Windows' : 'App de escritorio para Mac y Windows' }}</span>
-            <span class="badge-tag">{{ locale === 'en' ? 'Local-First' : '100% Local' }}</span>
-          </div>
-
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
           </h1>
@@ -589,54 +583,6 @@ const toggleFaq = (idx: number) => {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-}
-
-.hero-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 12px 5px 10px;
-  border-radius: 999px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  margin-bottom: 16px;
-  font-size: 12.5px;
-  line-height: 1;
-  transition: all 0.25s ease;
-  user-select: none;
-}
-
-.hero-badge-pill:hover {
-  border-color: rgba(0, 102, 204, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.12);
-  transform: translateY(-1px);
-}
-
-.badge-spark {
-  font-size: 13px;
-  animation: sparkPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes sparkPulse {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-  50% { transform: scale(1.18) rotate(8deg); opacity: 1; }
-}
-
-.badge-text {
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.badge-tag {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
 }
 
 .ms-hero-title {
