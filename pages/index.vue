@@ -449,13 +449,7 @@ const toggleFaq = (idx: number) => {
                 loading="lazy"
               />
               <div class="testimonial-author-info">
-                <div class="author-name-row">
-                  <strong>{{ item.author }}</strong>
-                  <span class="verified-pill" :title="locale === 'en' ? 'Verified Practitioner' : 'Despacho verificado'">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span>{{ locale === 'en' ? 'Verified' : 'Verificado' }}</span>
-                  </span>
-                </div>
+                <strong>{{ item.author }}</strong>
                 <span>{{ item.role }}</span>
               </div>
             </div>
@@ -1064,32 +1058,6 @@ const toggleFaq = (idx: number) => {
   display: flex;
   flex-direction: column;
   min-width: 0;
-}
-
-.author-name-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.verified-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 3.5px;
-  font-size: 10.5px;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.22);
-}
-
-:root.dark .verified-pill {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .testimonial-author strong {
