@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const config = useRuntimeConfig()
+const { trackDownload } = useAnalytics()
+
+const appleUrl = computed(() => config.public.appleStoreUrl || 'https://apps.apple.com/do/app/lexbell-expedientes-legales/id6791787627?mt=12')
+const microsoftUrl = computed(() => config.public.microsoftStoreUrl || 'https://apps.microsoft.com/detail/9NLZXP46J9G2')
 
 const activeTab = ref(0)
 const showcaseTabs = computed(() => {
@@ -181,10 +186,10 @@ const toggleFaq = (idx: number) => {
 
 <template>
   <div class="notion-landing">
-    <!-- =================== 1. HERO SECTION (MICROSOFT 365 STYLE CON LAPTOP) =================== -->
+    <!-- =================== 1. HERO SECTION (ESTILO MICROSOFT TEAMS) =================== -->
     <section class="ms-hero-section" id="descargar">
       <div class="ms-hero-inner">
-        <!-- Columna Izquierda: Mensaje Directo + CTAs -->
+        <!-- Columna Izquierda: Mensaje Directo + Botones Pill estilo Teams -->
         <div class="ms-hero-content">
           <h1 class="ms-hero-title">
             {{ t('home.heroTitle') }}
@@ -194,19 +199,56 @@ const toggleFaq = (idx: number) => {
             {{ t('home.heroSubtitle') }}
           </p>
 
-          <!-- Official Store Download Badges -->
-          <div class="ms-hero-downloads">
-            <AppDownload />
-            <p class="hero-trust-note">
-              {{ locale === 'en' ? 'Free up to 50 cases · No credit card · Works 100% offline' : 'Gratis hasta 50 casos · Sin tarjeta · Funciona 100% sin internet' }}
-            </p>
+          <!-- Acciones estilo Microsoft Teams: Botones Pill redondeados con iconos -->
+          <div class="teams-hero-actions">
+            <div class="teams-pill-group">
+              <a
+                :href="appleUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="teams-pill-btn teams-pill-primary"
+                :title="locale === 'en' ? 'Download on Mac App Store' : 'Descargar en Mac App Store'"
+                @click="trackDownload('apple')"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.57-.7.96-1.68.85-2.65-.83.03-1.85.56-2.44 1.26-.52.61-.98 1.6-0.86 2.56.93.07 1.88-.47 2.45-1.17z"/>
+                </svg>
+                <span>{{ locale === 'en' ? 'Download for Mac' : 'Descargar para Mac' }}</span>
+              </a>
+
+              <a
+                :href="microsoftUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="teams-pill-btn teams-pill-secondary"
+                :title="locale === 'en' ? 'Get it from Microsoft Store' : 'Obtener en Microsoft Store'"
+                @click="trackDownload('microsoft')"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M1 1h10v10H1V1zm12 0h10v10H13V1zM1 13h10v10H1V13zm12 0h10v10H13V13z"/>
+                </svg>
+                <span>{{ locale === 'en' ? 'Get for Windows' : 'Obtener para Windows' }}</span>
+              </a>
+            </div>
+
+            <!-- Fila de confianza limpia -->
+            <div class="teams-trust-row">
+              <span class="trust-chip">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                {{ locale === 'en' ? 'Free up to 50 matters' : 'Gratis hasta 50 expedientes' }}
+              </span>
+              <span class="trust-sep">·</span>
+              <span class="trust-chip">{{ locale === 'en' ? 'No credit card' : 'Sin tarjeta' }}</span>
+              <span class="trust-sep">·</span>
+              <span class="trust-chip">{{ locale === 'en' ? '100% Offline' : '100% sin internet' }}</span>
+            </div>
           </div>
         </div>
 
-        <!-- Columna Derecha: Captura real y recta de la aplicación Lexbell sobre cuadrícula -->
+        <!-- Columna Derecha: Escenario Studio estilo Teams con profundidad -->
         <div class="hero-app-col">
+          <div class="hero-studio-glow" aria-hidden="true"></div>
           <div class="hero-ambient-glow" aria-hidden="true"></div>
-          <div class="hero-app-grid" aria-hidden="true"></div>
           <div class="hero-app-frame">
             <img
               src="/screenshots/showcase-tribunal.webp?v=1.1.22"
@@ -217,6 +259,22 @@ const toggleFaq = (idx: number) => {
               loading="eager"
               fetchpriority="high"
             />
+          </div>
+
+          <!-- Floating card con profundidad estilo Teams (como la tarjeta de videollamada flotante) -->
+          <div class="teams-floating-widget" aria-hidden="true">
+            <div class="floating-widget-header">
+              <span class="widget-live-dot"></span>
+              <span class="widget-label">{{ locale === 'en' ? 'Upcoming Hearing' : 'Audiencia Próxima' }}</span>
+              <span class="widget-badge">{{ locale === 'en' ? '48h Left' : 'Faltan 48h' }}</span>
+            </div>
+            <div class="floating-widget-body">
+              <strong>Tribunal Colegiado</strong>
+              <span>Exp. #2026-084 · Sala 3</span>
+            </div>
+            <div class="floating-widget-footer">
+              <span class="widget-tag">🔒 {{ locale === 'en' ? 'Local-First Encrypted' : '100% Local y Cifrado' }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -525,13 +583,18 @@ const toggleFaq = (idx: number) => {
   color: var(--text);
 }
 
-/* === HERO SECTION (MICROSOFT 365 STYLE: SPLIT 2 COLUMNAS CON LAPTOP) === */
+/* === HERO SECTION (MICROSOFT TEAMS STYLE: ELEVATED SPLIT CON STAGE Y PILLS) === */
 .ms-hero-section {
   position: relative;
-  background: var(--bg-section);
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #e3e8f8 0%, #edf1fc 50%, #e1e7f6 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  padding: clamp(48px, 6vw, 80px) 24px 40px;
+  padding: clamp(56px, 7vw, 92px) 24px clamp(48px, 6vw, 80px);
+}
+
+:root.dark .ms-hero-section {
+  background: linear-gradient(135deg, #0f1422 0%, #161c2e 50%, #101423 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 .ms-hero-inner {
@@ -540,7 +603,7 @@ const toggleFaq = (idx: number) => {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: clamp(36px, 5vw, 64px);
+  gap: clamp(40px, 5.5vw, 72px);
 }
 
 @media (min-width: 960px) {
@@ -557,59 +620,151 @@ const toggleFaq = (idx: number) => {
 }
 
 .ms-hero-title {
-  font-size: clamp(32px, 3.8vw, 46px);
+  font-size: clamp(34px, 4vw, 48px);
   font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  margin: 0 0 18px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  margin: 0 0 20px;
+  max-width: 580px;
   text-wrap: balance;
 }
 
+:root.dark .ms-hero-title {
+  color: #f8fafc;
+}
+
 .ms-hero-subtitle {
-  font-size: clamp(16px, 2vw, 19px);
+  font-size: clamp(16.5px, 1.8vw, 19.5px);
   line-height: 1.55;
-  color: var(--text-muted);
-  margin: 0 0 20px;
-  max-width: 540px;
+  color: #475569;
+  margin: 0 0 32px;
+  max-width: 520px;
+  text-wrap: pretty;
 }
 
-.ms-hero-guarantees {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 28px;
-  background: var(--card-bg);
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--accent-border);
-  box-shadow: var(--shadow-card);
-}
-
-.guarantee-dot {
+:root.dark .ms-hero-subtitle {
   color: #94a3b8;
-  font-weight: 400;
 }
 
-.ms-hero-downloads {
+/* Teams-style Pill Action Group */
+.teams-hero-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
 }
 
-/* Columna Derecha: Ventana real recta con marco macOS nativo y aura atmosférica */
+.teams-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.teams-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.teams-pill-primary {
+  background: #0066cc;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.35);
+  border: 1px solid transparent;
+}
+
+.teams-pill-primary:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.45);
+}
+
+.teams-pill-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.teams-pill-secondary:hover {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+:root.dark .teams-pill-secondary {
+  background: #1e2434;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:root.dark .teams-pill-secondary:hover {
+  background: #252d40;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.teams-trust-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+:root.dark .teams-trust-row {
+  color: #94a3b8;
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-sep {
+  opacity: 0.5;
+  color: #94a3b8;
+}
+
+/* Columna Derecha: Escenario Studio estilo Teams */
 .hero-app-col {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.hero-studio-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, rgba(59, 130, 246, 0.1) 45%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root.dark .hero-studio-glow {
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.25) 0%, rgba(59, 130, 246, 0.16) 45%, transparent 75%);
 }
 
 .hero-ambient-glow {
@@ -619,27 +774,14 @@ const toggleFaq = (idx: number) => {
   transform: translate(-50%, -50%);
   width: 95%;
   height: 85%;
-  background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.2) 0%, rgba(59, 130, 246, 0.08) 50%, transparent 72%);
+  background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.16) 0%, rgba(59, 130, 246, 0.06) 50%, transparent 72%);
   filter: blur(52px);
   pointer-events: none;
   z-index: 0;
 }
 
 :root.dark .hero-ambient-glow {
-  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.32) 0%, rgba(99, 102, 241, 0.14) 50%, transparent 75%);
-}
-
-.hero-app-grid {
-  position: absolute;
-  inset: -44px -36px;
-  background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0) 68%),
-    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
-  background-size: 100% 100%, 34px 34px, 34px 34px;
-  mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, transparent 76%);
-  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.28) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 75%);
 }
 
 .hero-app-frame {
@@ -647,27 +789,156 @@ const toggleFaq = (idx: number) => {
   z-index: 1;
   width: 100%;
   max-width: 660px;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   background: var(--card-bg);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow:
-    0 24px 60px -12px rgba(0, 0, 0, 0.35),
-    0 6px 20px -4px rgba(0, 0, 0, 0.15);
+    0 24px 60px -14px rgba(15, 23, 42, 0.24),
+    0 8px 24px -6px rgba(15, 23, 42, 0.12);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+:root.dark .hero-app-frame {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 28px 70px -14px rgba(0, 0, 0, 0.6),
+    0 8px 24px -6px rgba(0, 0, 0, 0.3);
 }
 
 .hero-app-frame:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 28px 70px -12px rgba(0, 0, 0, 0.4),
-    0 8px 24px -4px rgba(0, 0, 0, 0.18);
+    0 32px 76px -14px rgba(15, 23, 42, 0.28),
+    0 12px 28px -6px rgba(15, 23, 42, 0.16);
 }
 
 .hero-app-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Floating Card estilo Teams (como la tarjeta de videollamada flotante) */
+.teams-floating-widget {
+  position: absolute;
+  bottom: -16px;
+  right: -14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.2), 0 4px 12px rgba(15, 23, 42, 0.08);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 220px;
+  user-select: none;
+  animation: floatWidget 4.5s ease-in-out infinite;
+}
+
+@keyframes floatWidget {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+:root.dark .teams-floating-widget {
+  background: rgba(24, 30, 44, 0.94);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 40px -8px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.widget-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  display: inline-block;
+}
+
+.widget-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: auto;
+}
+
+:root.dark .widget-label {
+  color: #94a3b8;
+}
+
+.widget-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.floating-widget-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-widget-body strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+:root.dark .floating-widget-body strong {
+  color: #f8fafc;
+}
+
+.floating-widget-body span {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+:root.dark .floating-widget-body span {
+  color: #94a3b8;
+}
+
+.floating-widget-footer {
+  margin-top: 2px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.widget-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #0066cc;
+}
+
+:root.dark .widget-tag {
+  color: #60a5fa;
+}
+
+@media (max-width: 640px) {
+  .teams-floating-widget {
+    display: none;
+  }
 }
 
 /* Feature Grid Debajo de la App */
