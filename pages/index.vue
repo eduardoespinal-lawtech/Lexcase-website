@@ -527,10 +527,11 @@ const toggleFaq = (idx: number) => {
 /* === HERO SECTION (MICROSOFT TEAMS STYLE: ELEVATED SPLIT CON STAGE Y PILLS) === */
 .ms-hero-section {
   position: relative;
+  margin-top: -56px;
   background: linear-gradient(135deg, #e3e8f8 0%, #edf1fc 50%, #e1e7f6 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  padding: clamp(56px, 7vw, 92px) 24px clamp(48px, 6vw, 80px);
+  padding: calc(clamp(56px, 7vw, 92px) + 56px) 24px clamp(48px, 6vw, 80px);
 }
 
 :root.dark .ms-hero-section {

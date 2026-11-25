@@ -7,10 +7,15 @@ const open = ref(false)
 const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
 
+const isHome = computed(() => {
+  const p = route.path.replace(/\/+$/, '')
+  return p === '' || p === '/en'
+})
+
 const isScrolled = ref(false)
 const onScroll = () => {
   if (typeof window !== 'undefined') {
-    isScrolled.value = window.scrollY > 0
+    isScrolled.value = window.scrollY > 10
   }
 }
 
@@ -35,7 +40,14 @@ const links = computed(() => [
 </script>
 
 <template>
-  <header class="site-header" :class="{ 'is-scrolled': isScrolled }">
+  <header
+    class="site-header"
+    :class="{
+      'is-scrolled': isScrolled,
+      'is-home': isHome,
+      'is-open': open
+    }"
+  >
     <div class="site-header-inner">
       <!-- Izquierda: Logo + Pipe + Tag de Producto + Enlaces (Estilo Microsoft 365) -->
       <div class="site-header-left">
@@ -145,11 +157,23 @@ const links = computed(() => [
   background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: none;
-  transition: background-color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .site-header.is-scrolled {
-  border-bottom: none;
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+:root.dark .site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+/* En la portada cuando no hay scroll y el menú móvil está cerrado: transparente para fundirse con el fondo del hero */
+.site-header.is-home:not(.is-scrolled):not(.is-open) {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
 }
 .site-header-inner {
   max-width: 1440px;
